@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORD 速查列表</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/src/css/styles.css">
+  <script src="/pwa-init.js?v=260711001"></script>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/resource/192x192.png">
+
+  <script type="module" src="/src/js/app.js"></script>
+</head>
+
+<body data-page="lookup">
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-title" data-i18n="brand.title">ORD 航海王隨機防禦合成表</div>
+        <div class="brand-subtitle">
+          <span data-i18n="brand.subtitle">ver. 2.305[R] | updated. 2026/07/10</span>
+          <span>
+            | <a style="text-decoration: underline;" href="#" onclick="openEmail()"
+              data-i18n="brand.feedback">Feedback</a>
+            <!--<a href="#" onclick="openEmail()">
+              <img src="/resource/mail.svg" alt="Feedback">
+            </a>-->
+          </span>
+        </div>
+      </div>
+      <my-navbar></my-navbar>
+    </header>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h1 class="panel-title" data-i18n="page.lookup.title">角色總覽列表</h1>
+        <p class="panel-desc" data-i18n="page.lookup.desc">搜尋角色 / 素材。名稱可點擊回查，功能按鈕可切到合成樹頁面。</p>
+      </div>
+      <div class="panel-body">
+        <div class="controls-grid">
+          <label class="field-group">
+            <span class="field-label" data-i18n="field.rarity">稀有度</span>
+            <select id="levelFilter" class="field-select"></select>
+          </label>
+          <label class="field-group">
+            <span class="field-label" data-i18n="field.search">搜尋</span>
+            <input id="searchInput" class="field-input" type="text" placeholder=""
+              data-i18n-placeholder="placeholder.searchCharacter">
+          </label>
+          <div class="field-group">
+            <span class="field-label" data-i18n="field.actions">操作</span>
+            <div class="controls-actions">
+              <button id="clearButton" type="button" class="secondary" data-i18n="action.reset">重置條件</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="summary-bar">
+          <div id="summaryText" class="summary-text">載入中...</div>
+          <div class="helper-text" data-i18n="helper.clickHint">提示：點角色名或材料可直接把關鍵字帶回搜尋框。</div>
+        </div>
+
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th data-i18n="table.rarity">稀有度</th>
+                <th data-i18n="table.name">名稱</th>
+                <th data-i18n="table.materials">材料</th>
+                <th data-i18n="table.key">金鑰</th>
+                <th data-i18n="table.remark">備註</th>
+                <th data-i18n="table.actions">功能</th>
+              </tr>
+            </thead>
+            <tbody id="lookupTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function openEmail() {
+      const user = "jim";
+      const domain = "nijidakku.cc";
+      const subject = encodeURIComponent("【ODR網站使用者來信】");
+
+      window.open("https://mail.google.com/mail/?view=cm&fs=1&to=" + user + "@" + domain + "&su=" + subject, "_blank");
+    }
+  </script>
+</body>
+
+</html>

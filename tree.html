@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORD 合成樹</title>
+  <link rel="manifest" href="/manifest.json">
+  <script src="/pwa-init.js?v=260711001"></script>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/resource/192x192.png">
+  <link rel="stylesheet" href="/src/css/tom-select.css">
+  <link rel="stylesheet" href="/src/css/styles.css">
+  <script src="/js/tom-select.complete.min.js"></script>
+  <script type="module" src="/src/js/app.js"></script>
+</head>
+
+<body data-page="tree">
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-title">角色合成樹</div>
+        <div class="brand-subtitle"></div>
+      </div>
+      <my-navbar></my-navbar>
+    </header>
+
+    <section class="panel">
+      <!-- <div class="panel-header">
+        <h1 class="panel-title">合成樹</h1>
+        <p class="panel-desc">呈現角色的合成樹結構</p>
+      </div> -->
+      <div class="panel-body">
+        <div class="controls-grid">
+          <label class="field-group">
+            <span class="field-label">稀有度</span>
+            <select id="treeLevelFilter" class="field-select"></select>
+          </label>
+          <label class="field-group">
+            <span class="field-label">角色名稱</span>
+            <select id="treeSearchSelect" class=""></select>
+          </label>
+          <div class="field-group">
+            <span class="field-label">操作</span>
+            <div class="controls-actions">
+              <button id="loadTreeButton" type="button">展開</button>
+              <button id="resetTreeSearchButton" type="button">重置條件</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="summary-bar">
+          <div id="treeResultTitle" class="summary-text"></div>
+          <div class="helper-text"></div>
+        </div>
+
+        <div class="tree-panel-stack" style="margin-top: 18px;">
+          <div id="treeRootSummary"></div>
+          <div id="downwardContainer"></div>
+          <div class="controls-actions">
+            <button id="toggleUpwardButton" type="button" class="secondary is-hidden">顯示向上 1 層</button>
+          </div>
+          <div id="upwardContainer"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</body>
+
+</html>

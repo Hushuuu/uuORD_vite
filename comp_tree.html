@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORD - 隊伍組成分析</title>
+  <link rel="manifest" href="/manifest.json">
+  <script src="/pwa-init.js?v=260711001"></script>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/resource/192x192.png">
+  <link rel="stylesheet" href="/src/css/styles.css">
+  <script type="module" src="/src/js/app.js"></script>
+</head>
+
+<body data-page="comp_tree">
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-title">隊伍組成分析</div>
+        <div class="brand-subtitle"></div>
+      </div>
+      <my-navbar></my-navbar>
+    </header>
+
+    <section class="panel">
+      <div class="panel-header">
+        <div class="panel-header-row">
+          <h1 class="panel-title">隊伍分析</h1>
+          <button id="teamSkillEffectsButton" type="button" class="success">隊伍技能效果</button>
+        </div>
+        <p class="panel-desc">點擊隊伍角色查看各自的合成樹</p>
+      </div>
+      <div class="panel-body">
+        <div id="compTreeGroupTabs" class="comp-tree-tabs-container"
+          style="margin-bottom: 12px; border-bottom: 2px solid #333; padding-bottom: 8px;">
+          <button type="button" class="comp-tree-tab-btn active" data-main-team-idx="0">隊 1</button>
+          <button type="button" class="comp-tree-tab-btn" data-main-team-idx="1">隊 2</button>
+          <button type="button" class="comp-tree-tab-btn" data-main-team-idx="2">隊 3</button>
+          <button type="button" class="comp-tree-tab-btn" data-main-team-idx="3">隊 4</button>
+          <button type="button" class="comp-tree-tab-btn" data-main-team-idx="4">隊 5</button>
+        </div>
+        <!-- 角色頁簽/標籤列 -->
+        <div id="compTreeTabs" class="comp-tree-tabs-container">
+          <!-- JS 動態生成標籤 -->
+        </div>
+
+        <div id="compTreeEmptyState" class="empty-state is-hidden" style="margin-top: 18px;">
+          請先在 <a href="comp.html" style="color: var(--primary-color); text-decoration: underline;">隊伍組成</a> 頁面選取角色並進行分析。
+        </div>
+
+        <!-- 合成樹呈現區 -->
+        <div id="compTreeContent" class="tree-panel-stack" style="margin-top: 18px;">
+          <!-- 隊伍總材料合計 -->
+          <div id="compTreeTeamSummary" class="team-tree-summary-card">
+            <h3 class="team-summary-title">隊伍總需求材料合計</h3>
+            <div id="compTreeTeamMaterials" class="team-summary-materials-grid">
+              <!-- JS 動態生成 -->
+            </div>
+          </div>
+
+          <div id="compTreeResultTitle" class="summary-text"
+            style="display:none; font-size: 1.15rem; font-weight: 700; color: #ffd28a;"></div>
+          <div id="compTreeRootSummary"></div>
+          <div id="compDownwardContainer"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <dialog id="teamSkillEffectsDialog" class="team-skill-effects-dialog">
+    <div class="dialog-header">
+      <h2 class="dialog-title">隊伍技能效果</h2>
+      <button type="button" class="dialog-close" data-close-dialog aria-label="關閉">&times;</button>
+    </div>
+    <div id="teamSkillEffectsContent" class="dialog-body">
+      <!-- JS 動態生成 -->
+    </div>
+  </dialog>
+
+</body>
+
+</html>
