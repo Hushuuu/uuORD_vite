@@ -115,6 +115,32 @@ class MyNavbar extends HTMLElement {
 .lang-toggle:hover {
     background: rgba(255, 255, 255, 0.16);
 }
+/* 語系按鈕優化 */
+.lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px; /* 圖示與文字的間距 */
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.06);
+    color: #e2e8f0; /* 讓文字亮一點 */
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.lang-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(245, 158, 11, 0.3); /* 微微帶點你主題的橘黃色 */
+    color: #ffd28a;
+}
+
+/* 確保手機上不會被擠壓變形 */
+.lang-toggle {
+    flex-shrink: 0;
+}
 </style>
 <nav class="nav-tabs" aria-label="主要導覽">
     <a class="nav-link" data-page="lookup" href="index.html">${t('nav.lookup')}</a>
@@ -124,7 +150,9 @@ class MyNavbar extends HTMLElement {
     <a class="nav-link" data-page="recommend" href="recommend.html">${t('nav.recommend')}</a>
     <a class="nav-link" style="display: none;" data-page="maintenance" href="maintenance.html">${t('nav.maintenance')}</a>
     <a class="nav-link" target="_blank" href="https://ordsearch.net/mix">${t('nav.official')}</a>
-    <button type="button" class="lang-toggle" data-action="toggle-lang" aria-label="Switch language">${currentLang === 'zh' ? t('lang.en') : t('lang.zh')}</button>
+    <button type="button" class="lang-toggle" data-action="toggle-lang" aria-label="Switch language">
+    <span>🌐</span>${currentLang === 'zh' ? t('lang.en') : t('lang.zh')}
+    </button>
 </nav>
     `;
   }
