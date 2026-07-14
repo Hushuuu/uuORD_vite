@@ -23,7 +23,7 @@
   <div class="app-shell">
     <header class="topbar">
       <div class="brand">
-        <div class="brand-title">角色合成樹</div>
+        <div class="brand-title" data-i18n="tree.brand">角色合成樹</div>
         <div class="brand-subtitle"></div>
       </div>
       <my-navbar></my-navbar>
@@ -37,18 +37,18 @@
       <div class="panel-body">
         <div class="controls-grid">
           <label class="field-group">
-            <span class="field-label">稀有度</span>
+            <span class="field-label" data-i18n="field.rarity">稀有度</span>
             <select id="treeLevelFilter" class="field-select"></select>
           </label>
           <label class="field-group">
-            <span class="field-label">角色名稱</span>
+            <span class="field-label" data-i18n="tree.field.character_name">角色名稱</span>
             <select id="treeSearchSelect" class=""></select>
           </label>
           <div class="field-group">
-            <span class="field-label">操作</span>
+            <span class="field-label" data-i18n="field.actions">操作</span>
             <div class="controls-actions">
-              <button id="loadTreeButton" type="button">展開</button>
-              <button id="resetTreeSearchButton" type="button">重置條件</button>
+              <button id="loadTreeButton" type="button" data-i18n="tree.action.expand">展開</button>
+              <button id="resetTreeSearchButton" type="button" data-i18n="action.reset">重置條件</button>
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@
           <div id="treeRootSummary"></div>
           <div id="downwardContainer"></div>
           <div class="controls-actions">
-            <button id="toggleUpwardButton" type="button" class="secondary is-hidden">顯示向上 1 層</button>
+            <button id="toggleUpwardButton" type="button" class="secondary is-hidden" data-i18n="tree.action.showUpward">顯示向上 1 層</button>
           </div>
           <div id="upwardContainer"></div>
         </div>

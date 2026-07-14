@@ -83,8 +83,8 @@
   <div class="app-shell">
     <header class="topbar">
       <div class="brand">
-        <div class="brand-title">合成推薦</div>
-        <div class="brand-subtitle">根據現有角色，推薦最接近的合成</div>
+        <div class="brand-title" data-i18n="recommend.brand">合成推薦</div>
+        <div class="brand-subtitle" data-i18n="recommend.brand_subtitle">根據現有角色，推薦最接近的合成</div>
       </div>
       <my-navbar></my-navbar>
     </header>
@@ -97,24 +97,24 @@
       <div class="panel-body">
         <div class="controls-grid">
           <div class="field-group" style="grid-column: span 4;">
-            <span class="field-label">目標稀有度</span>
+            <span class="field-label" data-i18n="recommend.target_rarity">目標稀有度</span>
             <div id="recommendTargetLevelGrid" class="checkbox-badge-grid recommend-target-grid"></div>
           </div>
           <div class="field-group" style="grid-column: span 4;">
-            <span class="field-label">技能類型</span>
+            <span class="field-label" data-i18n="recommend.target_skill_type">技能類型</span>
             <div id="recommendTargetSkillGrid" class="checkbox-badge-grid recommend-target-grid"></div>
           </div>
           <div class="field-group" style="grid-column: span 3;">
-            <span class="field-label">擁有其他角色</span>
+            <span class="field-label" data-i18n="recommend.owned_characters">擁有其他角色</span>
             <select id="recommendOwnedSelect" multiple class=""></select>
             <div class="helper-text"></div>
           </div>
           <div class="field-group">
-            <span class="field-label">操作</span>
+            <span class="field-label" data-i18n="field.actions">操作</span>
             <div class="controls-actions">
-              <button id="recommendRefreshBtn" type="button">重新推薦</button>
-              <button id="recommendResetBtn" type="button" class="secondary">重置條件</button>
-              <button id="collapseFilterBtn" type="button" class="secondary">收合條件</button>
+              <button id="recommendRefreshBtn" type="button" data-i18n="recommend.action.refresh">重新推薦</button>
+              <button id="recommendResetBtn" type="button" class="secondary" data-i18n="action.reset">重置條件</button>
+              <button id="collapseFilterBtn" type="button" class="secondary" data-i18n="action.collapseFilters">收合條件</button>
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@
         <div class="recommend-grid">
           <section class="panel" style="margin-top: 12px;">
             <div class="panel-header">
-              <h2 class="panel-title" id="recommendOwnedTitle">
+              <h2 class="panel-title" id="recommendOwnedTitle" data-i18n="recommend.owned_title">
                 擁有基本角色
                 <img src="/resource/arrow_drop_down.svg" />
               </h2>
@@ -138,8 +138,8 @@
 
           <section class="panel" style="margin-top: 12px;">
             <div class="panel-header">
-              <h2 class="panel-title">推薦結果</h2>
-              <p class="panel-desc">顯示前10個建議，點x可推薦其他角色</p>
+              <h2 class="panel-title" data-i18n="recommend.result_title">推薦結果</h2>
+              <p class="panel-desc" data-i18n="recommend.result_desc">顯示前10個建議，點x可推薦其他角色</p>
             </div>
             <div id="recommendLevelTab" style="margin: 10px 0 10px 5px;"></div>
             <div id="recommendResultList" class="recommend-result-list"></div>

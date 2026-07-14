@@ -21,23 +21,23 @@
   <div class="app-shell">
     <header class="topbar">
       <div class="brand">
-        <div class="brand-title">資料維護</div>
-        <div class="brand-subtitle">可編輯完整欄位、增刪資料，並匯出最新 JSON</div>
+        <div class="brand-title" data-i18n="maintenance.brand">資料維護</div>
+        <div class="brand-subtitle" data-i18n="maintenance.brand_subtitle">可編輯完整欄位、增刪資料，並匯出最新 JSON</div>
       </div>
       <my-navbar></my-navbar>
     </header>
 
     <section class="panel">
       <div class="panel-header">
-        <h1 class="panel-title">資料維護</h1>
+        <h1 class="panel-title" data-i18n="maintenance.page_title">資料維護</h1>
         <p class="panel-desc"></p>
       </div>
       <div class="panel-body">
         <div class="page-grid">
           <div>
             <label class="field-group">
-              <span class="field-label">搜尋資料</span>
-              <input id="maintenanceSearchInput" class="field-input" type="text" placeholder="搜尋名稱、ID、材料">
+              <span class="field-label" data-i18n="maintenance.search_label">搜尋資料</span>
+              <input id="maintenanceSearchInput" class="field-input" type="text" placeholder="搜尋名稱、ID、材料" data-i18n-placeholder="maintenance.search_placeholder">
             </label>
             <div class="summary-bar">
               <div id="maintenanceSummary" class="summary-text">載入中...</div>
@@ -48,7 +48,7 @@
           <div>
             <div class="form-grid">
               <label class="field-group">
-                <span class="field-label">角色 / 物品 ID</span>
+                <span class="field-label" data-i18n="maintenance.field.character_id">角色 / 物品 ID</span>
                 <input id="fieldCharacterId" class="field-input" type="text">
               </label>
 
@@ -89,7 +89,7 @@
               </label>
 
               <label class="field-group">
-                <span class="field-label">專長定位</span>
+                <span class="field-label" data-i18n="maintenance.field.major">專長定位</span>
                 <input id="fieldMajor" class="field-input" type="text">
               </label>
 
@@ -99,7 +99,7 @@
               </div>
 
               <div class="field-group full-span">
-                <span class="field-label">技能數值</span>
+                <span class="field-label" data-i18n="maintenance.field.skill_values">技能數值</span>
                 <div id="fieldSkillValuesGroup" class="skill-values-list"></div>
               </div>
 
@@ -109,23 +109,23 @@
               </label>
 
               <label class="field-group full-span">
-                <span class="field-label">適合搭配角色</span>
+                <span class="field-label" data-i18n="maintenance.field.partner">適合搭配角色</span>
                 <select id="partnerPickerSelect" class="field-select" multiple></select>
               </label>
             </div>
 
             <div class="controls-actions" style="margin-top: 18px;">
-              <button id="saveRecordButton" type="button" class="success">暫存</button>
-              <button id="addRecordButton" type="button">新增一筆</button>
-              <button id="deleteRecordButton" type="button" class="danger">刪除此筆</button>
-              <button id="exportJsonButton" type="button" class="secondary">匯出 JSON</button>
+              <button id="saveRecordButton" type="button" class="success" data-i18n="maintenance.action.save">暫存</button>
+              <button id="addRecordButton" type="button" data-i18n="maintenance.action.add">新增一筆</button>
+              <button id="deleteRecordButton" type="button" class="danger" data-i18n="maintenance.action.delete">刪除此筆</button>
+              <button id="exportJsonButton" type="button" class="secondary" data-i18n="maintenance.action.export">匯出 JSON</button>
               <button style="display:none" id="resetToastButton" type="button" class="secondary">清除訊息</button>
             </div>
 
             <div id="maintenanceToast" class="toast"></div>
 
             <div class="preview-card">
-              <pre id="maintenancePreview">尚未選擇資料。</pre>
+              <pre id="maintenancePreview" data-i18n="maintenance.preview.placeholder">尚未選擇資料。</pre>
             </div>
           </div>
         </div>

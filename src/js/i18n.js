@@ -181,6 +181,14 @@ function applyStaticTranslations(root = document) {
       element.title = t(key);
     }
   });
+
+  root.querySelectorAll('[data-i18n-index]').forEach((element) => {
+    const key = element.dataset.i18n;
+    const index = element.dataset.i18nIndex;
+    if (key && index !== undefined) {
+      element.textContent = t(key, { index });
+      }
+    });
 }
 
 function setPageTitle(key) {

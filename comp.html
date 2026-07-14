@@ -43,7 +43,7 @@
   <div class="app-shell">
         <header class="topbar">
             <div class="brand">
-                <div class="brand-title">自訂隊伍組成</div>
+                <div class="brand-title" data-i18n="page.comp.title">自訂隊伍組成</div>
                 <div class="brand-subtitle"></div>
             </div>
             <my-navbar></my-navbar>
@@ -54,36 +54,37 @@
             <aside class="panel team-panel">
                 <div class="panel-header">
                     <h2 class="panel-title">我的隊伍</h2>
-                    <p class="panel-desc">選取角色後點擊分析</p>
+                    <p class="panel-desc" data-i18n="page.comp.desc">選取角色後點擊分析</p>
                 </div>
                 <div class="panel-body team-body">
                     <div class="team-actions">
-                        <button id="analyzeTeamBtn" class="success full-width-btn" type="button">分析隊伍</button>
+                        <button id="analyzeTeamBtn" class="success full-width-btn" type="button" data-i18n="action.analyzeTeam">分析隊伍</button>
                         <button id="clearTeamBtn" class="secondary full-width-btn" type="button"
-                            style="margin-top: 8px;">清空隊伍</button>
+                            style="margin-top: 8px;" data-i18n="action.clearTeam">清空隊伍</button>
                     </div>
                     <div class="team-tabs" style="display: flex; gap: 4px; margin-bottom: 12px;">
-                        <button type="button" class="team-tab-btn active" data-team-idx="0"
+                        <button type="button" class="team-tab-btn active" data-team-idx="0" data-i18n="team.label" data-i18n-index="1"
                             style="flex: 1; padding: 6px; font-size: 0.85rem;">隊 1</button>
-                        <button type="button" class="team-tab-btn" data-team-idx="1"
+                        <button type="button" class="team-tab-btn" data-team-idx="1" data-i18n="team.label" data-i18n-index="2"
                             style="flex: 1; padding: 6px; font-size: 0.85rem;">隊 2</button>
-                        <button type="button" class="team-tab-btn" data-team-idx="2"
+                        <button type="button" class="team-tab-btn" data-team-idx="2" data-i18n="team.label" data-i18n-index="3"
                             style="flex: 1; padding: 6px; font-size: 0.85rem;">隊 3</button>
-                        <button type="button" class="team-tab-btn" data-team-idx="3"
+                        <button type="button" class="team-tab-btn" data-team-idx="3" data-i18n="team.label" data-i18n-index="4"
                             style="flex: 1; padding: 6px; font-size: 0.85rem;">隊 4</button>
-                        <button type="button" class="team-tab-btn" data-team-idx="4"
+                        <button type="button" class="team-tab-btn" data-team-idx="4" data-i18n="team.label" data-i18n-index="5"
                             style="flex: 1; padding: 6px; font-size: 0.85rem;">隊 5</button>
                     </div>
                     <div id="selectedTeamList" class="team-list-container">
-                        <div class="empty-state">尚未選取任何角色。</div>
+                        <div class="empty-state" data-i18n="empty.noCharacters">尚未選取任何角色。</div>
                     </div>
 
                     <div class="team-divider"></div>
 
                     <div class="team-materials-section">
-                        <h3 class="materials-title">所需基礎材料</h3>
+                        <h3 class="materials-title" data-i18n="materials.basicMaterials">所需基礎材料</h3>
                         <div id="teamMaterialsList" class="materials-list">
-                            <span class="muted">無</span>
+                            <span class="muted" data-i18n="material.none">無</span>
+                         </span>
                         </div>
                     </div>
                 </div>
@@ -92,7 +93,7 @@
             <!-- 角色篩選與列表 (右側) -->
             <main class="panel characters-panel">
                 <div class="panel-header">
-                    <h1 class="panel-title">角色庫</h1>
+                    <h1 class="panel-title" data-i18n="page.comp.characters.title">角色庫</h1>
                     <p class="panel-desc"></p>
                 </div>
                 <div class="panel-body">
@@ -100,20 +101,20 @@
                     <div class="comp-controls">
                         <div class="comp-controls-header">
                             <div>
-                                <div class="field-label">搜尋條件</div>
+                                <div class="field-label" data-i18n="field.searchConditions">搜尋條件</div>
                                 <div class="helper-text"></div>
                             </div>
                             <div class="controls-actions comp-controls-header-actions">
                                 <button id="toggleCompFiltersBtn" class="secondary" type="button" aria-expanded="true"
-                                    aria-controls="compFiltersBody">收合條件</button>
-                                <button id="resetFiltersBtn" class="secondary" type="button">重置篩選</button>
+                                    aria-controls="compFiltersBody" data-i18n="action.collapseFilters">收合條件</button>
+                                <button id="resetFiltersBtn" class="secondary" type="button" data-i18n="action.resetFilters">重置篩選</button>
                             </div>
                         </div>
 
                         <div id="compFiltersBody" class="comp-controls-body">
                             <div class="controls-row">
                                 <div class="field-group">
-                                    <span class="field-label">搜尋名稱</span>
+                                    <span class="field-label" data-i18n="field.searchName">搜尋名稱</span>
                                     <input id="compSearchInput" class="field-input" type="text" placeholder="">
                                 </div>
                             </div>
