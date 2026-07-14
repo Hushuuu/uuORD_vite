@@ -382,7 +382,8 @@ function formatBaseMaterialsText(record, indices) {
   const resultSegments = [];
   sortedCounts.forEach(([characterId, count]) => {
     const childRecord = indices.byCharacterId.get(characterId);
-    const name = childRecord ? childRecord.name : characterId;
+    //const name = childRecord ? childRecord.name : characterId;
+    const name = childRecord ? getDisplayName(childRecord) : characterId;
     resultSegments.push(`${name} * ${count}`);
   });
 

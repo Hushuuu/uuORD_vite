@@ -38,7 +38,7 @@ function initTreePage(records) {
           maxOptions: 400,
           create: false,
           persist: false,
-          placeholder: '搜尋角色名稱',
+          placeholder: i18n.t('tree.placeholder'),
           render: createTomSelectRenderConfig(),
           dropdownParent: 'body',
         })
@@ -80,8 +80,8 @@ function initTreePage(records) {
 
     function renderNodeCard(record, options = {}) {
       const titleMarkup = options.navigateable
-        ? `<button type="button" class="tree-node-action" data-navigate-character="${escapeHtml(record.character_id)}">${escapeHtml(record.name)}</button>`
-        : `<strong>${escapeHtml(record.name)}</strong>`;
+        ? `<button type="button" class="tree-node-action" data-navigate-character="${escapeHtml(record.character_id)}">${escapeHtml(i18n.getDisplayName(record))}</button>`
+        : `<strong>${escapeHtml(i18n.getDisplayName(record))}</strong>`;
 
       return `
         <div class="node-card ${record.level === 0 ? 'placeholder' : ''}">
@@ -91,15 +91,15 @@ function initTreePage(records) {
             ${record.key_code ? `(${record.key_code})` : ''}
           </div>
           <div class="node-detail">
-            <div style="display:none">角色 ID：${escapeHtml(record.character_id)}</div>
-            <div>材料：${escapeHtml(getMaterialNames(record, indices).join('、') || '無')}</div>
+            <div style="display:none">${escapeHtml(i18n.t("tree.recordIdLabel"))}${escapeHtml(record.character_id)}</div>
+            <div>${escapeHtml(i18n.t("tree.materialsLabel"))}${escapeHtml(getMaterialNames(record, indices).join('、') || i18n.t("comp.materials.none"))}</div>
           </div>
         </div>
       `;
     }
 
     function renderMissingNodeCard(characterId) {
-      return `<li><div class="node-card placeholder"><div class="node-title"><strong>${escapeHtml(characterId)}</strong></div><div class="node-detail">查無對應資料</div></div></li>`;
+      return `<li><div class="node-card placeholder"><div class="node-title"><strong>${escapeHtml(characterId)}</strong></div><div class="node-detail">${i18n.t("tree.noRecordFound")}</div></div></li>`;
     }
 
     // 這裡用 trail 記錄當前展開路徑，避免資料互相參照時無限遞迴。
@@ -122,7 +122,7 @@ function initTreePage(records) {
           if (nextTrail.has(childRecord.character_id)) {
             return `<li>
               ${renderNodeCard(childRecord)}
-              <div class="status-line">此節點與上層屬於同一角色 ID，已停止繼續展開避免循環。</div>
+              <div class="status-line">${i18n.t("tree.cyclicWarning")}</div>
             </li>`;
           }
 
@@ -136,7 +136,7 @@ function initTreePage(records) {
             <summary class="branch-summary">
               ${renderNodeCard(record, { navigateable: true })}
               <span class="branch-toggle-hint">
-                <img style="vertical-align: middle" width="25" height="25" src="/resource/arrow_drop_down.svg" alt="${depth === 1 ? '點擊收合 / 展開' : '點擊收合 / 展開'}">
+                <img style="vertical-align: middle" width="25" height="25" src="/resource/arrow_drop_down.svg" alt="${depth === 1 ? i18n.t('tree.clickCollapseOrExpand') : i18n.t('tree.clickCollapseOrExpand')}">
               </span>
             </summary>
             <ul class="tree-list">${childrenMarkup}</ul>
@@ -149,17 +149,17 @@ function initTreePage(records) {
       const parents = indices.parentMap.get(record.character_id) || [];
 
       if (parents.length === 0) {
-        toggleUpwardButton.textContent = '此角色沒有上層';
+        toggleUpwardButton.textContent = i18n.t("tree.noUpward");
         toggleUpwardButton.disabled = true;
-        upwardContainer.innerHTML = '<div class="empty-state">無上層角色</div>';
+        upwardContainer.innerHTML = '<div class="empty-state">' + i18n.t('tree.noUpwardEmpty') + '</div>';
         return;
       }
 
       toggleUpwardButton.disabled = false;
-      toggleUpwardButton.textContent = `顯示上層（${parents.length} 筆）`;
+      toggleUpwardButton.textContent = `${i18n.t("tree.upwardCount", {count: parents.length})}`;
       upwardContainer.innerHTML = `
         <div class="upward-card">
-          <h3><span>上層角色</span></h3>
+          <h3><span>${i18n.t('tree.upwardLabel')}</span></h3>
           <ul class="upward-list">
             ${parents.map((parent) => `<li>${renderNodeCard(parent, { navigateable: true })}</li>`).join('')}
           </ul>
@@ -169,7 +169,7 @@ function initTreePage(records) {
 
     function renderTree(record) {
       selectedCharacterId = record.character_id;
-      resultTitle.textContent = `${record.name}｜${getLevelLabel(record.level)} | KR: ${escapeHtml(record.kr_name || '')} | EN: ${escapeHtml(record.en_name || '')}`;
+      resultTitle.textContent = `${escapeHtml(i18n.getDisplayName(record))}${i18n.t("tree.levelSeparator")}${escapeHtml(getLevelLabel(record.level))} | KR: ${escapeHtml(record.kr_name || "")} | EN: ${escapeHtml(record.en_name || "")}`;
 
       if (treeSelect) {
         syncTreeSelectOptions(record.character_id);
@@ -178,19 +178,19 @@ function initTreePage(records) {
       const directMaterials = record.materials || [];
       downwardContainer.innerHTML = `
         <div class="tree-card">
-          <h4>點擊卡片往下展開或點名稱搜尋</h4>
+          <h4>${i18n.t('tree.clickHint')}</h4>
           <div class="node-card ${record.level === 0 ? 'placeholder' : ''}">
             <div class="node-title">
               <span class="badge badge-${record.level}">${escapeHtml(getLevelLabel(record.level))}</span>
-              ${record.name} ${record.key_code ? `(${record.key_code})` : ''}
+              ${escapeHtml(i18n.getDisplayName(record))} ${record.key_code ? `(${record.key_code})` : ''}
             </div>
             <div class="node-detail">
-              <div>備註：${escapeHtml(record.remark || '')}</div>
-              <div>總材料：${escapeHtml(formatBaseMaterialsText(record, indices))}</div>
+              <div>${escapeHtml(i18n.t("tree.remarkLabel"))}${escapeHtml(record.remark || '')}</div>
+              <div>${escapeHtml(i18n.t("tree.totalMaterialsLabel"))}${escapeHtml(formatBaseMaterialsText(record, indices))}</div>
             </div>
           </div>
           ${directMaterials.length === 0
-            ? '<div class="empty-state">這個角色沒有可往下的材料。</div>'
+            ? '<div class="empty-state">${i18n.t("tree.noDownwardMaterials")}</div>'
             : `<ul class="tree-list">${directMaterials
                 .map((material) => {
                   const childRecord = getPrimaryRecord(material.material_id, indices);
@@ -208,7 +208,7 @@ function initTreePage(records) {
 
     function clearTreeView(message = '') {
       resultTitle.textContent = message;
-      rootSummary.innerHTML = message ? '<div class="empty-state">請輸入存在的名稱或角色 ID。</div>' : '';
+      rootSummary.innerHTML = message ? '<div class="empty-state">${i18n.t("tree.inputHint")}</div>' : '';
       toggleUpwardButton.classList.add('is-hidden');
       upwardContainer.innerHTML = '';
       downwardContainer.innerHTML = '';
@@ -216,7 +216,7 @@ function initTreePage(records) {
 
     function loadTree(record = resolveRecordFromInput()) {
       if (!record) {
-        clearTreeView('找不到指定角色');
+        clearTreeView(i18n.t("tree.notFound"));
         return;
       }
 
@@ -277,8 +277,8 @@ function initTreePage(records) {
     toggleUpwardButton.addEventListener('click', () => {
       upwardContainer.classList.toggle('is-hidden');
       toggleUpwardButton.textContent = upwardContainer.classList.contains('is-hidden')
-        ? toggleUpwardButton.textContent.replace('隱藏', '顯示')
-        : toggleUpwardButton.textContent.replace('顯示', '隱藏');
+        ? toggleUpwardButton.textContent.replace(i18n.t('tree.upwardHide'), i18n.t('tree.upwardShow'))
+        : toggleUpwardButton.textContent.replace(i18n.t('tree.upwardShow'), i18n.t('tree.upwardHide'));
     });
     levelFilter.addEventListener('change', () => {
       const currentRecord = resolveRecordFromInput();
