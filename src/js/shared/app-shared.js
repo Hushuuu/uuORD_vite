@@ -419,7 +419,7 @@ function getTeamMaterialGroups(selectedTeamIds, indices) {
     const record = indices.byCharacterId.get(characterId);
     const item = {
         id: characterId,
-        name: record ? record.name : characterId,
+        name: record ? getDisplayName(record) : characterId,
         count,
         level: record ? record.level : 0
     };

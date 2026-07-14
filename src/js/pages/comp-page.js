@@ -15,7 +15,8 @@ const {
   getTeamMaterialGroups,
   readStoredArray,
   resolveRecordLabel,
-  writeStoredArray
+  writeStoredArray,
+  getDisplayName,
 } = appShared;
 
 const i18n = ORDI18n || (typeof window !== 'undefined' ? window.ORDI18n : null) || null;
@@ -36,14 +37,14 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
 
   function renderMaterialsList(level1Items, level0Items) {
     if (level1Items.length === 0 && level0Items.length === 0) {
-      return '<span class="muted">無</span>';
+      return `${i18n.t("comp.materials.none")}`;
     }
 
     let html = '';
     if (level1Items.length > 0) {
       html += `
         <div class="materials-group">
-          <h4 class="materials-subgroup-title" style="margin: 4px 0 8px; font-size: 0.85rem; color: #ffd28a;">角色</h4>
+          <h4 class="materials-subgroup-title" style="margin: 4px 0 8px; font-size: 0.85rem; color: #ffd28a;">${i18n.t("comp.materials.characters")}</h4>
           <div style="display: flex; flex-direction: column; gap: 4px;">
             ${level1Items
               .map(
@@ -62,7 +63,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     if (level0Items.length > 0) {
       html += `
         <div class="materials-group" style="margin-top: 12px;">
-          <h4 class="materials-subgroup-title" style="margin: 4px 0 8px; font-size: 0.85rem; color: #ffd28a;">特殊物品</h4>
+          <h4 class="materials-subgroup-title" style="margin: 4px 0 8px; font-size: 0.85rem; color: #ffd28a;">${i18n.t("comp.materials.specialItems")}</h4>
           <div style="display: flex; flex-direction: column; gap: 4px;">
             ${level0Items
               .map(
@@ -84,7 +85,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
 
   function renderTeamSummaryMaterials(level1Items, level0Items) {
     if (level1Items.length === 0 && level0Items.length === 0) {
-      return '<div class="muted">無需求材料</div>';
+      return `<div class="muted">${i18n.t("comp.materials.noneRequired")}</div>`;
     }
 
     return [...level1Items, ...level0Items]
@@ -133,7 +134,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     function updateFilterCollapseUI() {
       compFiltersBody.classList.toggle('is-hidden', areFiltersCollapsed);
       toggleCompFiltersBtn.setAttribute('aria-expanded', String(!areFiltersCollapsed));
-      toggleCompFiltersBtn.textContent = areFiltersCollapsed ? '展開條件' : '收合條件';
+      toggleCompFiltersBtn.textContent = areFiltersCollapsed ? i18n.t('comp.filters.expand') : i18n.t('comp.filters.collapse');
     }
 
     function renderLevelCheckboxes() {
@@ -143,12 +144,12 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         .sort((left, right) => left.level - right.level);
 
       sortedLevels.forEach(({ level, label }) => {
-        if(level > 3){ 
+        if(level >= 3){ 
             const checkboxLabel = document.createElement('label');
             checkboxLabel.className = 'checkbox-badge';
             checkboxLabel.innerHTML = `
               <input type="checkbox" value="${level}" ${checkedLevels.has(level) ? 'checked' : ''}>
-              <span class="checkbox-badge-label badge-${level}">${level}｜${label}</span>
+              <span class="checkbox-badge-label badge-${level}">${level}｜${getLevelLabel(level)}</span>
             `;
 
             const input = checkboxLabel.querySelector('input');
@@ -191,7 +192,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
 
     function renderTeamPanel() {
       if (selectedTeamIds.length === 0) {
-        selectedTeamList.innerHTML = '<div class="empty-state">尚未選取任何角色。</div>';
+        selectedTeamList.innerHTML = '<div class="empty-state">${i18n.t("comp.noCharactersSelected")}</div>';
       } else {
         selectedTeamList.innerHTML = selectedTeamIds
           .map((id) => {
@@ -206,7 +207,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                   <span class="badge badge-${record.level}" style="min-width: unset;width:56px ; padding: 2px 8px; font-size: 0.75rem;">${getLevelLabel(record.level)}</span>
                   <span class="team-member-name">${escapeHtml(record.name)}</span>
                 </div>
-                <button class="team-member-remove" data-id="${escapeHtml(id)}" type="button" title="移出隊伍">&times;</button>
+                <button class="team-member-remove" data-id="${escapeHtml(id)}" type="button" title="${i18n.t('comp.removeFromTeam')}">&times;</button>
               </div>
             `;
           })
@@ -248,7 +249,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       compSummaryText.textContent = `符合條件：${filteredRecords.length} / ${indices.records.length} 筆`;
 
       if (filteredRecords.length === 0) {
-        compCharacterGroups.innerHTML = '<div class="empty-state">沒有符合條件的角色。</div>';
+        compCharacterGroups.innerHTML = '<div class="empty-state">${i18n.t("comp.noMatchingCharacters")}</div>';
         return;
       }
 
@@ -284,7 +285,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                       <span class="badge badge-${record.level}" style="min-width: unset;width:56px; padding: 2px 8px; font-size: 0.72rem;">${escapeHtml(levelLabel)}</span>
                     </div>
                     <div class="char-card-materials" title="${escapeHtml(materialsText)}">
-                      材料：${escapeHtml(materialsText)}
+                      ${i18n.t("comp.materialsLabel")} + ${escapeHtml(materialsText)}
                     </div>
                     ${(record.skill_types || []).length > 0 ? `
                       <div class="char-card-skills">
@@ -304,7 +305,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                 <h3 class="char-group-title">
                   <span class="badge badge-${level}" style="min-width: unset;width:56px; padding: 4px 10px; font-size: 0.85rem;">${levelLabel}</span>
                 </h3>
-                <span class="char-group-count">${groupRecords.length} 個角色</span>
+                <span class="char-group-count">${groupRecords.length}${i18n.t("comp.charCountSuffix")}</span>
               </div>
               <div class="char-group-grid">
                 ${cardsHtml}
@@ -378,7 +379,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       if (selectedTeamIds.length === 0) {
         return;
       }
-      if (window.confirm('確定清空目前的隊伍嗎？')) {
+      if (window.confirm(i18n.t('comp.confirmClearTeam'))) {
         selectedTeamIds = [];
         persistSelectedTeam();
         renderTeamPanel();
@@ -500,14 +501,14 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
             ${record.key_code ? `(${record.key_code})` : ''}
           </div>
           <div class="node-detail">
-            <div>材料：${escapeHtml(getMaterialNames(record, indices).join('、') || '無')}</div>
+            <div>${i18n.t("comp.materialsLabel")}${escapeHtml(getMaterialNames(record, indices).join('、') || i18n.t('comp.materials.none'))}</div>
           </div>
         </div>
       `;
     }
 
     function renderMissingNodeCard(characterId) {
-      return `<li><div class="node-card placeholder"><div class="node-title"><strong>${escapeHtml(characterId)}</strong></div><div class="node-detail">查無對應資料</div></div></li>`;
+      return `<li><div class="node-card placeholder"><div class="node-title"><strong>${escapeHtml(characterId)}</strong></div><div class="node-detail">${i18n.t("comp.recordNotFound")}</div></div></li>`;
     }
 
     function renderCompDownwardBranch(record, trailCharacterIds) {
@@ -529,7 +530,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
           if (nextTrail.has(childRecord.character_id)) {
             return `<li>
               ${renderCompNodeCard(childRecord)}
-              <div class="status-line">此節點與上層屬於同一角色 ID，已停止繼續展開避免循環。</div>
+              <div class="status-line">${i18n.t("comp.cyclicWarning")}</div>
             </li>`;
           }
 
@@ -543,7 +544,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
             <summary class="branch-summary">
               ${renderCompNodeCard(record, { navigateable: true })}
               <span class="branch-toggle-hint">
-                <img style="vertical-align: middle" width="25" height="25" src="/resource/arrow_drop_down.svg" alt="點擊收合 / 展開">
+                <img style="vertical-align: middle" width="25" height="25" src="/resource/arrow_drop_down.svg" alt="${i18n.t('comp.clickCollapseOrExpand')}"
               </span>
             </summary>
             <ul class="tree-list">${childrenMarkup}</ul>
@@ -563,8 +564,8 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
               ${record.name} ${record.key_code ? `(${record.key_code})` : ''}
             </div>
             <div class="node-detail">
-              <div>備註：${escapeHtml(record.remark || '無')}</div>
-              <div>總材料：${escapeHtml(formatBaseMaterialsText(record, indices))}</div>
+              <div>${i18n.t('comp.remarkLabel')}${escapeHtml(record.remark || i18n.t("comp.materials.none"))}</div>
+              <div>${i18n.t('comp.totalMaterialsLabel')}${escapeHtml(formatBaseMaterialsText(record, indices))}</div>
             </div>
           </div>
         </div>
@@ -574,7 +575,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       compDownwardContainer.innerHTML = `
         <div class="tree-card">
           ${directMaterials.length === 0
-            ? '<div class="empty-state">這個角色沒有可往下的材料。</div>'
+            ? '<div class="empty-state">${i18n.t("comp.noDownwardMaterials")}</div>'
             : `<ul class="tree-list">${directMaterials
                 .map((material) => {
                   const childRecord = getPrimaryRecord(material.material_id, indices);
@@ -631,7 +632,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       const effects = aggregateTeamSkillEffects();
 
       if (effects.size === 0) {
-        teamSkillEffectsContent.innerHTML = '<p class="muted">目前隊伍沒有技能效果。</p>';
+        teamSkillEffectsContent.innerHTML = '<p class="muted">${i18n.t("comp.noSkillEffects")}</p>';
         return;
       }
 
@@ -649,7 +650,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
             <div class="team-skill-effect-row">
               <div class="team-skill-effect-header">
                 <span class="team-skill-effect-name">${escapeHtml(getSkillTypeLabel(effect.skillType))}</span>
-                <span class="team-skill-effect-total">${effect.total > 0 ? `合計：${effect.total}` : ''}</span>
+                <span class="team-skill-effect-total">${effect.total > 0 ? `${i18n.t("comp.totalLabel")}${effect.total}` : ''}</span>
               </div>
               <ul class="team-skill-effect-contributors">${contributorsHtml}</ul>
             </div>

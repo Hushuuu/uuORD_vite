@@ -39,8 +39,10 @@
 </head>
 
 <body data-page="comp">
-    <div id="app-loading" aria-hidden="true"><div class="app-loading-spinner"></div></div>
-  <div class="app-shell">
+    <div id="app-loading" aria-hidden="true">
+        <div class="app-loading-spinner"></div>
+    </div>
+    <div class="app-shell">
         <header class="topbar">
             <div class="brand">
                 <div class="brand-title" data-i18n="page.comp.title">自訂隊伍組成</div>
@@ -53,26 +55,27 @@
             <!-- 隊伍面板 (左側/側邊欄) -->
             <aside class="panel team-panel">
                 <div class="panel-header">
-                    <h2 class="panel-title">我的隊伍</h2>
+                    <h2 class="panel-title" data-i18n="page.comp.myteam">我的隊伍</h2>
                     <p class="panel-desc" data-i18n="page.comp.desc">選取角色後點擊分析</p>
                 </div>
                 <div class="panel-body team-body">
                     <div class="team-actions">
-                        <button id="analyzeTeamBtn" class="success full-width-btn" type="button" data-i18n="action.analyzeTeam">分析隊伍</button>
+                        <button id="analyzeTeamBtn" class="success full-width-btn" type="button"
+                            data-i18n="action.analyzeTeam">分析隊伍</button>
                         <button id="clearTeamBtn" class="secondary full-width-btn" type="button"
                             style="margin-top: 8px;" data-i18n="action.clearTeam">清空隊伍</button>
                     </div>
                     <div class="team-tabs" style="display: flex; gap: 4px; margin-bottom: 12px;">
-                        <button type="button" class="team-tab-btn active" data-team-idx="0" data-i18n="team.label" data-i18n-index="1"
-                            style="flex: 1; padding: 6px; font-size: 0.85rem;">隊 1</button>
-                        <button type="button" class="team-tab-btn" data-team-idx="1" data-i18n="team.label" data-i18n-index="2"
-                            style="flex: 1; padding: 6px; font-size: 0.85rem;">隊 2</button>
-                        <button type="button" class="team-tab-btn" data-team-idx="2" data-i18n="team.label" data-i18n-index="3"
-                            style="flex: 1; padding: 6px; font-size: 0.85rem;">隊 3</button>
-                        <button type="button" class="team-tab-btn" data-team-idx="3" data-i18n="team.label" data-i18n-index="4"
-                            style="flex: 1; padding: 6px; font-size: 0.85rem;">隊 4</button>
-                        <button type="button" class="team-tab-btn" data-team-idx="4" data-i18n="team.label" data-i18n-index="5"
-                            style="flex: 1; padding: 6px; font-size: 0.85rem;">隊 5</button>
+                        <button type="button" class="team-tab-btn active" data-team-idx="0" data-i18n="team.label"
+                            data-i18n-index="1" style="flex: 1; padding: 6px; font-size: 0.85rem;">隊 1</button>
+                        <button type="button" class="team-tab-btn" data-team-idx="1" data-i18n="team.label"
+                            data-i18n-index="2" style="flex: 1; padding: 6px; font-size: 0.85rem;">隊 2</button>
+                        <button type="button" class="team-tab-btn" data-team-idx="2" data-i18n="team.label"
+                            data-i18n-index="3" style="flex: 1; padding: 6px; font-size: 0.85rem;">隊 3</button>
+                        <button type="button" class="team-tab-btn" data-team-idx="3" data-i18n="team.label"
+                            data-i18n-index="4" style="flex: 1; padding: 6px; font-size: 0.85rem;">隊 4</button>
+                        <button type="button" class="team-tab-btn" data-team-idx="4" data-i18n="team.label"
+                            data-i18n-index="5" style="flex: 1; padding: 6px; font-size: 0.85rem;">隊 5</button>
                     </div>
                     <div id="selectedTeamList" class="team-list-container">
                         <div class="empty-state" data-i18n="empty.noCharacters">尚未選取任何角色。</div>
@@ -84,7 +87,7 @@
                         <h3 class="materials-title" data-i18n="materials.basicMaterials">所需基礎材料</h3>
                         <div id="teamMaterialsList" class="materials-list">
                             <span class="muted" data-i18n="material.none">無</span>
-                         </span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -107,7 +110,8 @@
                             <div class="controls-actions comp-controls-header-actions">
                                 <button id="toggleCompFiltersBtn" class="secondary" type="button" aria-expanded="true"
                                     aria-controls="compFiltersBody" data-i18n="action.collapseFilters">收合條件</button>
-                                <button id="resetFiltersBtn" class="secondary" type="button" data-i18n="action.resetFilters">重置篩選</button>
+                                <button id="resetFiltersBtn" class="secondary" type="button"
+                                    data-i18n="action.resetFilters">重置篩選</button>
                             </div>
                         </div>
 
@@ -121,7 +125,7 @@
 
                             <div class="controls-row" style="margin-top: 14px;">
                                 <div class="field-group">
-                                    <span class="field-label">稀有度</span>
+                                    <span class="field-label" data-i18n="field.rarity">稀有度</span>
                                     <div id="levelCheckboxGroup" class="checkbox-badge-grid">
                                         <!-- JS 動態生成稀有度複選框 -->
                                     </div>
@@ -130,7 +134,7 @@
 
                             <div class="controls-row" style="margin-top: 14px;">
                                 <div class="field-group">
-                                    <span class="field-label">技能類型</span>
+                                    <span class="field-label" data-i18n="skill_type">技能類型</span>
                                     <div id="skillTypeCheckboxGroup" class="checkbox-badge-grid">
                                         <!-- JS 動態生成技能複選框 -->
                                     </div>
@@ -139,7 +143,7 @@
                         </div>
 
                         <div class="controls-row" style="margin-top: 16px;">
-                            <div id="compSummaryText" class="summary-text">載入中...</div>
+                            <div id="compSummaryText" class="summary-text" data-i18n="loading.loading">載入中...</div>
                         </div>
                     </div>
 
