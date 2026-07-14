@@ -43,6 +43,10 @@ function initI18n() {
   }
 }
 
+function markAppReady() {
+  document.documentElement.classList.replace('no-js', 'app-ready');
+}
+
 async function initApp() {
   initI18n();
   markActiveNav();
@@ -63,6 +67,7 @@ async function initApp() {
   }
 
   showMaintenanceNav();
+  markAppReady();
 }
 
 window.addEventListener('DOMContentLoaded', initApp);

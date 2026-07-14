@@ -1,6 +1,7 @@
-const CACHE_NAME = 'v=260711001'; // 💡 每次更新 CSS/JS 檔案時，手動將這裡改成 v2, v3... 即可
-// 快取清單：保持乾淨的路徑
-const ASSETS_TO_CACHE = [
+const CACHE_NAME = 'v=260711001'; // 💡 每次部署新版時手動改成 v2, v3...，瀏覽器才會視為新的 Service Worker
+
+// 不經 Vite 處理、位於 public/ 的靜態資源，需要手動維護。
+const STATIC_ASSETS = [
   '/index.html',
   '/tree.html',
   '/recommend.html',
@@ -11,17 +12,13 @@ const ASSETS_TO_CACHE = [
   '/resource/192x192.png',
   '/resource/512x512.png',
   '/js/tom-select.complete.min.js',
-  '/js/pages/lookup-page.js',
-  '/js/pages/maintenance-page.js',
-  '/js/pages/recommend-page.js',
-  '/js/pages/tree-page.js',
-  '/js/shared/app-shared.js',
-  '/js/shared/wc-navbar.js',
-  '/js/app.js',
-  '/js/ord_data.js',
-  '/css/styles.css',
-  '/css/tom-select.css',
 ];
+
+// Vite build 後自動注入 /assets/ 下帶 hash 的 JS/CSS，不需要手動維護。
+// 開發模式 (npm run dev) 未執行生成腳本時會是空陣列。
+const DYNAMIC_ASSETS = [/* AUTO_GENERATED_ASSETS */];
+
+const ASSETS_TO_CACHE = [...STATIC_ASSETS, ...DYNAMIC_ASSETS];
 
 // 1. 安裝階段：改用正確的 Request 物件避開瀏覽器快取
 self.addEventListener('install', event => {
