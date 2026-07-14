@@ -12,6 +12,7 @@ const {
   getSkillTypeLabels,
   getSkillTypeLabel,
   createSkillTypeOptions,
+  getDisplayName,
 } = appShared;
 
 const i18n = ORDI18n || (typeof window !== 'undefined' ? window.ORDI18n : null) || null;
@@ -129,7 +130,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         if (rightIndex === -1) rightIndex = Infinity;
         return leftIndex - rightIndex;
       })
-      .map(([materialId, count]) => `${getPrimaryRecord(materialId, indices)?.name || materialId}*${count}`);
+      .map(([materialId, count]) => `${getDisplayName(getPrimaryRecord(materialId, indices)) || materialId}*${count}`);
 
     return segments.join(' + ') || '無需額外素材';
   }
@@ -253,7 +254,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     return materials
       .map((material) => {
         const childRecord = indices.byCharacterId.get(material.material_id);
-        const label = childRecord ? childRecord.name : material.material_id;
+        const label = childRecord ? getDisplayName(childRecord) : material.material_id;
         const levelClass = childRecord ? `badge-${childRecord.level}` : 'badge-0';
         const owned = childRecord && (inventory.get(childRecord.character_id) || 0) > 0;
         return `
@@ -290,7 +291,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         const ownedMark = owned ? '<span class="recommend-owned-mark" aria-label="已擁有">✓</span>' : '';
         const summaryContent = `
           <span class="recommend-material-chip badge badge-${childRecord.level}">${escapeHtml(getLevelLabel(childRecord.level))}</span>
-          <strong class="recommend-material-name">${escapeHtml(childRecord.name)}</strong>
+          <strong class="recommend-material-name">${escapeHtml(getDisplayName(childRecord))}</strong>
           ${ownedMark}
         `;
 
@@ -330,7 +331,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     return `
       <article class="recommend-count-card ${safeCount > 0 ? 'is-owned' : ''}" data-owned-card="${escapeHtml(record.character_id)}" data-owned-level="${level}">
         <div class="recommend-count-card-top">
-          <span class="recommend-count-label">${escapeHtml(record.name)}</span>
+          <span class="recommend-count-label">${escapeHtml(getDisplayName(record))}</span>
         
         </div>
         <div class="recommend-count-stepper">
@@ -512,12 +513,12 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       renderOwnedPanels();
 
       if (selectedTargetLevels.length === 0) {
-        summary.textContent = '請先選擇至少一個目標稀有度。';
-        resultList.innerHTML = '<div class="empty-state">請先選擇至少一個目標稀有度。</div>';
+        summary.textContent = i18n.t('recommend.noTargetRaritySelected');
+        resultList.innerHTML = `<div class="empty-state">${i18n.t('recommend.noTargetRaritySelected')}</div>`;
         return;
       }else{
-        summary.textContent = `已選擇：${selectedTargetLevels.map((level) => `${level}｜${getLevelLabel(level)}`).join(', ')}，
-        技能：${selectedTargetSkillTypes.length > 0 ? selectedTargetSkillTypes.map((s)=> `${getSkillTypeLabel(s)}`).join(', ') : '無'}`;
+        summary.textContent = `${i18n.t('recommend.selected')}：${selectedTargetLevels.map((level) => `${level}｜${getLevelLabel(level)}`).join(', ')}，
+        ${i18n.t('skill_type')}: ${selectedTargetSkillTypes.length > 0 ? selectedTargetSkillTypes.map((s)=> `${getSkillTypeLabel(s)}`).join(', ') : '無'}`;
       }
 
       const resultGroups = selectedTargetLevels
@@ -584,7 +585,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                       </div>
                       <div class="recommend-card-top">
                         <span class="badge badge-${record.level}">${escapeHtml(getLevelLabel(record.level))}</span>
-                        <strong>${escapeHtml(record.name)} ${record.key_code ? `(${escapeHtml(record.key_code)})` : ''}</strong>
+                        <strong>${escapeHtml(getDisplayName(record))} ${record.key_code ? `(${escapeHtml(record.key_code)})` : ''}</strong>
                         <button type="button" class="secondary recommend-dismiss-btn" data-dismiss-character="${escapeHtml(record.character_id)}" aria-label="隱藏此推薦">×</button>
                       </div>
                       <div>
@@ -596,7 +597,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                       <details class="branch-details recommend-material-details">
                         <summary class="branch-summary recommend-material-summary">
                           <div class="recommend-material-summary-head">
-                            <span class="recommend-material-summary-label">材料</span>
+                            <span class="recommend-material-summary-label">${i18n.t('materials')}</span>
                             <span class="branch-toggle-hint">
                               <img style="vertical-align: middle" width="22" height="22" src="/resource/arrow_drop_down.svg" alt="展開">
                             </span>
@@ -612,7 +613,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                         </div>
                       </details>
                       <div class="recommend-card-foot">
-                        <span class="recommend-shortage ${requiredText === '無需額外素材' ? 'is-ready' : ''}">${requiredText === '無需額外素材' ? '可合成' : `缺少：${escapeHtml(requiredText)}`}</span>
+                        <span class="recommend-shortage ${requiredText === '無需額外素材' ? 'is-ready' : ''}">${requiredText === '無需額外素材' ? i18n.t('recommend.canCraft') : `${i18n.t('recommend.needMaterials')}: ${escapeHtml(requiredText)}`}</span>
                         <span class="muted"></span>
                       </div>
                     </article>

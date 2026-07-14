@@ -192,7 +192,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
 
     function renderTeamPanel() {
       if (selectedTeamIds.length === 0) {
-        selectedTeamList.innerHTML = '<div class="empty-state">${i18n.t("comp.noCharactersSelected")}</div>';
+        selectedTeamList.innerHTML = `<div class="empty-state">${i18n.t("comp.noCharactersSelected")}</div>`;
       } else {
         selectedTeamList.innerHTML = selectedTeamIds
           .map((id) => {
@@ -205,7 +205,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
               <div class="team-member-card">
                 <div class="team-member-info">
                   <span class="badge badge-${record.level}" style="min-width: unset;width:56px ; padding: 2px 8px; font-size: 0.75rem;">${getLevelLabel(record.level)}</span>
-                  <span class="team-member-name">${escapeHtml(record.name)}</span>
+                  <span class="team-member-name">${escapeHtml(getDisplayName(record))}</span>
                 </div>
                 <button class="team-member-remove" data-id="${escapeHtml(id)}" type="button" title="${i18n.t('comp.removeFromTeam')}">&times;</button>
               </div>
@@ -246,10 +246,11 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         return true;
       });
 
-      compSummaryText.textContent = `符合條件：${filteredRecords.length} / ${indices.records.length} 筆`;
+      //compSummaryText.textContent = `符合條件：${filteredRecords.length} / ${indices.records.length} 筆`;
+      compSummaryText.textContent = '';
 
       if (filteredRecords.length === 0) {
-        compCharacterGroups.innerHTML = '<div class="empty-state">${i18n.t("comp.noMatchingCharacters")}</div>';
+        compCharacterGroups.innerHTML = `<div class="empty-state">${i18n.t("comp.noMatchingCharacters")}</div>`;
         return;
       }
 
@@ -273,7 +274,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
               const isSelected = selectedTeamIds.includes(record.character_id);
               const materialsText = record.materials && record.materials.length > 0
                 ? record.materials.map((material) => resolveRecordLabel(material.material_id, indices)).join(' + ')
-                : '無';
+                : i18n.t("comp.materials.none");
               return `
                 <div class="char-card ${isSelected ? 'selected' : ''}" data-id="${escapeHtml(record.character_id)}">
                   <div class="char-card-checkbox-wrapper">
@@ -281,11 +282,11 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                   </div>
                   <div class="char-card-content">
                     <div class="char-card-name-row">
-                      <span class="char-card-name">${escapeHtml(record.name)}</span>
+                      <span class="char-card-name">${escapeHtml(getDisplayName(record))}</span>
                       <span class="badge badge-${record.level}" style="min-width: unset;width:56px; padding: 2px 8px; font-size: 0.72rem;">${escapeHtml(levelLabel)}</span>
                     </div>
                     <div class="char-card-materials" title="${escapeHtml(materialsText)}">
-                      ${i18n.t("comp.materialsLabel")} + ${escapeHtml(materialsText)}
+                      ${i18n.t("comp.materialsLabel")}${escapeHtml(materialsText)}
                     </div>
                     ${(record.skill_types || []).length > 0 ? `
                       <div class="char-card-skills">
@@ -388,11 +389,6 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     });
 
     analyzeTeamBtn.addEventListener('click', () => {
-      // if (selectedTeamIds.length === 0) {
-      //   window.alert('請先在角色庫中選取角色加入隊伍！');
-      //   return;
-      // }
-      // writeStoredArray(sessionStorage, 'selectedTeamIds', selectedTeamIds);
       window.location.href = 'comp_tree.html';
     });
     // 新增：隊伍分頁切換邏輯
@@ -435,18 +431,6 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     const teamSkillEffectsDialog = document.getElementById('teamSkillEffectsDialog');
     const teamSkillEffectsContent = document.getElementById('teamSkillEffectsContent');
 
-    // let selectedTeamIds = readStoredArray(sessionStorage, 'selectedTeamIds').filter((id) => indices.byCharacterId.has(id));
-    // if (selectedTeamIds.length === 0) {
-    //   compTreeEmptyState.classList.remove('is-hidden');
-    //   compTreeContent.classList.add('is-hidden');
-    //   return;
-    // }
-
-    // compTreeEmptyState.classList.add('is-hidden');
-    // compTreeContent.classList.remove('is-hidden');
-
-    // const { level0Items, level1Items } = getTeamMaterialGroups(selectedTeamIds, indices);
-    // let activeIndex = 0;
     // 1. 定義讀取 3 個隊伍的 Key
     function getTeamStorageKey(idx) {
       return `selectedTeamIds_${idx}`;
@@ -491,7 +475,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       // const titleMarkup = options.navigateable
       //   ? `<button type="button" class="tree-node-action" data-navigate-character="${escapeHtml(record.character_id)}">${escapeHtml(record.name)}</button>`
       //   : `<strong>${escapeHtml(record.name)}</strong>`;
-      const titleMarkup = `<strong>${escapeHtml(record.name)}</strong>`; // 隊伍組成後不須點進角色
+      const titleMarkup = `<strong>${escapeHtml(getDisplayName(record))}</strong>`; // 隊伍組成後不須點進角色
 
       return `
         <div class="node-card ${record.level === 0 ? 'placeholder' : ''}">
@@ -554,14 +538,14 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     }
 
     function renderCompTree(record) {
-      compTreeResultTitle.textContent = `${record.name}｜${getLevelLabel(record.level)} | KR: ${escapeHtml(record.kr_name || '')} | EN: ${escapeHtml(record.en_name || '')}`;
+      compTreeResultTitle.textContent = `${getDisplayName(record)}｜${getLevelLabel(record.level)} | KR: ${escapeHtml(record.kr_name || '')} | EN: ${escapeHtml(record.en_name || '')}`;
 
       compTreeRootSummary.innerHTML = `
         <div class="tree-card" style="margin-bottom: 12px;">
           <div class="node-card ${record.level === 0 ? 'placeholder' : ''}">
             <div class="node-title">
               <span class="badge badge-${record.level}">${escapeHtml(getLevelLabel(record.level))}</span>
-              ${record.name} ${record.key_code ? `(${record.key_code})` : ''}
+              ${getDisplayName(record)} ${record.key_code ? `(${record.key_code})` : ''}
             </div>
             <div class="node-detail">
               <div>${i18n.t('comp.remarkLabel')}${escapeHtml(record.remark || i18n.t("comp.materials.none"))}</div>
@@ -618,7 +602,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
             effect.total += value;
           }
           effect.contributors.push({
-            name: record.name,
+            name: getDisplayName(record),
             value,
             remark: (entry.remark || '').trim()
           });
@@ -685,7 +669,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
           return `
             <button type="button" class="comp-tree-tab-btn ${index === activeIndex ? 'active' : ''}" data-index="${index}">
               <span class="badge badge-${record.level}" style="min-width: unset;width:56px; padding: 2px 6px; font-size: 0.72rem;">${getLevelLabel(record.level)}</span>
-              <span>${escapeHtml(record.name)}</span>
+              <span>${escapeHtml(getDisplayName(record))}</span>
             </button>
           `;
         })

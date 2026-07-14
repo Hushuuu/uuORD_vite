@@ -8183,7 +8183,7 @@ const ORD_DATA = [
         "level": 23,
         "name": "漢考克-熾天使",
         "kr_name": "S - 스네이크",
-        "en_name": "Hancock - Celestial Dragon",
+        "en_name": "Hancock - Seraphim",
         "materials": [
             {
                 "material_id": "5-13"
@@ -8206,7 +8206,7 @@ const ORD_DATA = [
         "level": 23,
         "name": "吉貝爾-熾天使",
         "kr_name": "S - 샤크",
-        "en_name": "Jinbe - Celestial Dragon",
+        "en_name": "Jinbe - Seraphim",
         "materials": [
             {
                 "material_id": "5-7"
@@ -8245,7 +8245,7 @@ const ORD_DATA = [
         "level": 23,
         "name": "大熊-熾天使",
         "kr_name": "S - 베어",
-        "en_name": "Kuma - Celestial Dragon",
+        "en_name": "Kuma - Seraphim",
         "materials": [
             {
                 "material_id": "5-3"
@@ -8272,7 +8272,7 @@ const ORD_DATA = [
         "level": 23,
         "name": "鷹眼 密佛格-熾天使",
         "kr_name": "S - 호크",
-        "en_name": "Mihawk - Celestial Dragon",
+        "en_name": "Mihawk - Seraphim",
         "materials": [
             {
                 "material_id": "6-17"

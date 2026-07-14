@@ -155,7 +155,12 @@
     "comp.treeSwitchTeam": "切換隊伍",
     "comp.treeCurrentTeam": "當前隊伍",
     "comp.dialogClose": "關閉",
-    "comp.dialogTitle": "隊伍技能效果"
+    "comp.dialogTitle": "隊伍技能效果",
+    "recommend.noTargetRaritySelected": "請先選擇至少一個目標稀有度。",
+    "recommend.needMaterials": "缺少",
+    "recommend.canCraft": "可合成",
+    "materials":"材料",
+    "recommend.selected" : "已選擇"
   },
   "levelLabels": {
     "0": "物品",

@@ -156,7 +156,12 @@
     "comp.treeSwitchTeam": "Switch team",
     "comp.treeCurrentTeam": "Current team",
     "comp.dialogClose": "Close",
-    "comp.dialogTitle": "Team Skill Effects"
+    "comp.dialogTitle": "Team Skill Effects",
+    "recommend.noTargetRaritySelected": "Please select at least one target rarity first.",
+    "recommend.needMaterials": "Missing",
+    "recommend.canCraft": "Can Craft",
+    "materials":"Materials",
+    "recommend.selected" : "Selected"
   },
   "levelLabels": {
     "0": "Item",
@@ -164,12 +169,12 @@
     "2": "Uncommon",
     "3": "Special",
     "4": "Rare",
-    "5": "Legendary",
+    "5": "Legend",
     "6": "Hidden",
     "7": "Twisted",
     "8": "Changed",
     "9": "Limited",
-    "10": "Transcended",
+    "10": "Transcend",
     "11": "Immortal",
     "12": "Eternal",
     "16": "Random",
