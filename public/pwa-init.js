@@ -3,7 +3,7 @@ const isLocalhost = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostna
 if ('serviceWorker' in navigator && !isLocalhost) {
   window.addEventListener('load', () => {
     // 註冊時也可以帶版本號，強迫瀏覽器檢查 sw.js 是否更新
-    navigator.serviceWorker.register('/sw.js?v=260711001')
+    navigator.serviceWorker.register('/sw.js?v=260715001')
       .then(reg => {
         console.log('SW 註冊成功');
         
