@@ -1,4 +1,4 @@
-const CACHE_NAME = 'v=260711001'; // 💡 每次部署新版時手動改成 v2, v3...，瀏覽器才會視為新的 Service Worker
+const CACHE_NAME = 'v=260715001'; // 💡 每次部署新版時手動改成 v2, v3...，瀏覽器才會視為新的 Service Worker
 
 // 不經 Vite 處理、位於 public/ 的靜態資源，需要手動維護。
 const STATIC_ASSETS = [
@@ -14,7 +14,7 @@ const STATIC_ASSETS = [
   '/resource/512x512.png',
   '/css/tom-select.css',
   '/js/tom-select.complete.min.js',
-  '/js/tex-mml-chtml-nofont.min.js',
+  '/js/tex-chtml-nofont.min.js',
 ];
 
 // Vite build 後自動注入 /assets/ 下帶 hash 的 JS/CSS，不需要手動維護。

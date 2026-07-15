@@ -306,9 +306,19 @@
             /* 依實際邏輯控制 */
         }
     </style>
-
+    <script>
+        window.MathJax = {
+            options: {
+                menuOptions: {
+                    settings: {
+                        enrich: false //關閉豐富功能(含語音)
+                    }
+                }
+            }
+        };
+    </script>
     <!-- <script id="MathJax-script" src="/js/tex-mml-chtml.js"></script> -->
-    <script id="MathJax-script" src="/js/tex-mml-chtml-nofont.min.js"></script>
+    <script id="MathJax-script" src="/js/tex-chtml-nofont.min.js"></script>
 </head>
 
 <body data-page="about">
