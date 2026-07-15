@@ -75,11 +75,54 @@
       border-color: var(--primary-color, #ffd28a);
       font-weight: bold;
     }
+
+    @media (max-width: 768px) {
+
+      /* 1. 緊湊的雙欄網格 */
+      .recommend-count-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+      }
+
+      /* 3. 調整名字擠壓寬度 */
+      .recommend-count-card-top {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .recommend-count-label {
+        font-size: 0.85rem !important;
+        /* white-space: nowrap; */
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* 4. 縮小按鈕與調整間距 */
+      .recommend-count-stepper {
+        min-height: 28px !important;
+        padding: 2px 4px !important;
+        border-radius: 8px !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+      }
+
+      .recommend-stepper-btn {
+        width: 24px !important;
+        height: 24px !important;
+        border-radius: 6px !important;
+        font-size: 0.85rem !important;
+      }
+
+      .recommend-count-value {
+        font-size: 0.85rem;
+      }
+    }
   </style>
 </head>
 
 <body data-page="recommend">
-  <div id="app-loading" aria-hidden="true"><div class="app-loading-spinner"></div></div>
+  <div id="app-loading" aria-hidden="true">
+    <div class="app-loading-spinner"></div>
+  </div>
   <div class="app-shell">
     <header class="topbar">
       <div class="brand">
@@ -104,17 +147,18 @@
             <span class="field-label" data-i18n="recommend.target_skill_type">技能類型</span>
             <div id="recommendTargetSkillGrid" class="checkbox-badge-grid recommend-target-grid"></div>
           </div>
-          <div class="field-group" style="grid-column: span 3;">
+          <div class="field-group" style="grid-column: span 4;">
             <span class="field-label" data-i18n="recommend.owned_characters">擁有其他角色</span>
             <select id="recommendOwnedSelect" multiple class=""></select>
             <div class="helper-text"></div>
           </div>
           <div class="field-group">
-            <span class="field-label" data-i18n="field.actions">操作</span>
+            <!-- <span class="field-label" data-i18n="field.actions">操作</span> -->
             <div class="controls-actions">
               <button id="recommendRefreshBtn" type="button" data-i18n="recommend.action.refresh">重新推薦</button>
               <button id="recommendResetBtn" type="button" class="secondary" data-i18n="action.reset">重置條件</button>
-              <button id="collapseFilterBtn" type="button" class="secondary" data-i18n="action.collapseFilters">收合條件</button>
+              <button id="collapseFilterBtn" type="button" class="secondary"
+                data-i18n="action.collapseFilters">收合條件</button>
             </div>
           </div>
         </div>
@@ -127,8 +171,8 @@
         <div class="recommend-grid">
           <section class="panel" style="margin-top: 12px;">
             <div class="panel-header">
-              <h2 class="panel-title" id="recommendOwnedTitle" data-i18n="recommend.owned_title">
-                擁有基本角色
+              <h2 class="panel-title" style="display: flex;" id="recommendOwnedTitle">
+                <span data-i18n="recommend.owned_title">擁有基本角色</span>
                 <img src="/resource/arrow_drop_down.svg" />
               </h2>
             </div>

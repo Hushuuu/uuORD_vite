@@ -518,7 +518,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         return;
       }else{
         summary.textContent = `${i18n.t('recommend.selected')}：${selectedTargetLevels.map((level) => `${level}｜${getLevelLabel(level)}`).join(', ')}，
-        ${i18n.t('skill_type')}: ${selectedTargetSkillTypes.length > 0 ? selectedTargetSkillTypes.map((s)=> `${getSkillTypeLabel(s)}`).join(', ') : '無'}`;
+        ${i18n.t('skill_type')}: ${selectedTargetSkillTypes.length > 0 ? selectedTargetSkillTypes.map((s)=> `${getSkillTypeLabel(s)}`).join(', ') : i18n.t('comp.materials.none')}`;
       }
 
       const resultGroups = selectedTargetLevels
@@ -776,7 +776,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       if (filterSections) {
         filterSections[0].classList.toggle('collapsed');
         filterSections[1].classList.toggle('collapsed');
-        collapseFilterButton.innerText = collapseFilterButton.innerText === '收合條件' ? '展開條件' : '收合條件';
+        collapseFilterButton.innerText = collapseFilterButton.innerText === i18n.t('comp.filters.collapse') ? i18n.t('comp.filters.expand') : i18n.t('comp.filters.collapse');
       }
     });
     const recommendOwnedTitle = document.getElementById('recommendOwnedTitle');
@@ -785,6 +785,10 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         const ownedPanel = document.querySelector('#recommendOwnedPanels');
         if (ownedPanel) {
           ownedPanel.classList.toggle('collapsed');
+        }
+        const recommendOwnedTabs = document.getElementById('recommendOwnedTabs');
+        if (recommendOwnedTabs) {
+          recommendOwnedTabs.classList.toggle('collapsed');
         }
       });
     }

@@ -12,12 +12,15 @@
   <link rel="apple-touch-icon" href="/resource/192x192.png">
   <link rel="stylesheet" href="/src/css/tom-select.css">
   <link rel="stylesheet" href="/src/css/styles.css">
+  <link rel="icon" type="image/png" href="/resource/192x192.png" />
   <script src="/js/tom-select.complete.min.js"></script>
   <script type="module" src="/src/js/app.js"></script>
 </head>
 
 <body data-page="maintenance">
-  <div id="app-loading" aria-hidden="true"><div class="app-loading-spinner"></div></div>
+  <div id="app-loading" aria-hidden="true">
+    <div class="app-loading-spinner"></div>
+  </div>
   <div class="app-shell">
     <header class="topbar">
       <div class="brand">
@@ -37,7 +40,8 @@
           <div>
             <label class="field-group">
               <span class="field-label" data-i18n="maintenance.search_label">搜尋資料</span>
-              <input id="maintenanceSearchInput" class="field-input" type="text" placeholder="搜尋名稱、ID、材料" data-i18n-placeholder="maintenance.search_placeholder">
+              <input id="maintenanceSearchInput" class="field-input" type="text" placeholder="搜尋名稱、ID、材料"
+                data-i18n-placeholder="maintenance.search_placeholder">
             </label>
             <div class="summary-bar">
               <div id="maintenanceSummary" class="summary-text">載入中...</div>
@@ -115,10 +119,13 @@
             </div>
 
             <div class="controls-actions" style="margin-top: 18px;">
-              <button id="saveRecordButton" type="button" class="success" data-i18n="maintenance.action.save">暫存</button>
+              <button id="saveRecordButton" type="button" class="success"
+                data-i18n="maintenance.action.save">暫存</button>
               <button id="addRecordButton" type="button" data-i18n="maintenance.action.add">新增一筆</button>
-              <button id="deleteRecordButton" type="button" class="danger" data-i18n="maintenance.action.delete">刪除此筆</button>
-              <button id="exportJsonButton" type="button" class="secondary" data-i18n="maintenance.action.export">匯出 JSON</button>
+              <button id="deleteRecordButton" type="button" class="danger"
+                data-i18n="maintenance.action.delete">刪除此筆</button>
+              <button id="exportJsonButton" type="button" class="secondary" data-i18n="maintenance.action.export">匯出
+                JSON</button>
               <button style="display:none" id="resetToastButton" type="button" class="secondary">清除訊息</button>
             </div>
 
