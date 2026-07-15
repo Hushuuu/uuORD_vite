@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/src/css/styles.css">
+    <script src="/pwa-init.js?v=260711001"></script>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/resource/192x192.png">
+    <link rel="icon" type="image/png" href="/resource/192x192.png" />
+    <script type="module" src="/src/js/app.js"></script>
+    <script type="module" src="/src/js/shared/wc-footer.js"></script>
+
+    <style>
+        /* ==========================================================================
+           1. 基礎重設與變數定義 (CSS Variables)
+           ========================================================================== */
+        :root {
+            --bg-dark: #0f172a;
+            /* slate-900 */
+            --bg-darker: #020617;
+            /* slate-950 */
+            --border-color: #1e293b;
+            /* slate-800 */
+            --border-light: #334155;
+            /* slate-700 */
+            --text-primary: #f1f5f9;
+            /* slate-100 */
+            --text-secondary: #cbd5e1;
+            /* slate-300 */
+            --text-muted: #94a3b8;
+            /* slate-400 */
+            --text-dark: #64748b;
+            /* slate-500 */
+            --accent: #f59e0b;
+            /* amber-500 */
+            --accent-hover: #d97706;
+            /* amber-600 */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* 響應式雙欄 Grid 佈局 */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .grid-layout {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+
+            .main-content {
+                grid-column: span 3 / span 3;
+            }
+        }
+
+        /* ==========================================================================
+           3. 內容區塊與卡片樣式 (Components & Cards)
+           ========================================================================== */
+        .section-group {
+            margin-bottom: 3rem;
+            scroll-margin-top: 6rem;
+        }
+
+        /* 區塊標題 */
+        .section-header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 900;
+            color: var(--text-primary);
+            margin: 0.25rem 0 0 0;
+        }
+
+        .section-icon {
+            font-size: 1.875rem;
+            color: #334155;
+            /* slate-700 */
+        }
+
+        /* 主卡片容器 */
+        .section-card {
+            background: linear-gradient(135deg, var(--bg-dark), var(--bg-darker));
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 段落文字微調 */
+        .text-lead {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .text-body {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        /* 特色提示框 (Wand magic box) */
+        .tip-box {
+            background-color: rgba(2, 6, 23, 0.8);
+            border: 1px solid rgba(30, 41, 59, 0.5);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+
+        .tip-title {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .list-styled {
+            padding-left: 1.25rem;
+            margin: 0;
+        }
+
+        .list-styled li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        /* ==========================================================================
+           4. 網格卡片 (內嵌雙欄)
+           ========================================================================== */
+        .inner-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (min-width: 768px) {
+            .inner-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        .inner-card {
+            background-color: var(--bg-darker);
+            border: 1px solid var(--border-color);
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+        }
+
+        .inner-card-title {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0 0 0.5rem 0;
+        }
+
+        /* ==========================================================================
+           5. 經典手風琴 (Accordion)
+           ========================================================================== */
+        .accordion-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .accordion-item {
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            background-color: rgba(2, 6, 23, 0.6);
+        }
+
+        .accordion-trigger {
+            width: 100%;
+            text-align: left;
+            padding: 1rem;
+            background: transparent;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: inherit;
+            transition: background-color 0.2s ease;
+        }
+
+        .accordion-trigger:hover {
+            background-color: rgba(15, 23, 42, 0.6);
+        }
+
+        .accordion-title {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .accordion-title {
+                font-size: 1rem;
+            }
+        }
+
+        .accordion-icon-spin {
+            font-size: 0.75rem;
+            color: var(--text-dark);
+            transition: transform 0.2s ease;
+        }
+
+        /* 展開狀態 */
+        .accordion-item.active .accordion-icon-spin {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            display: none;
+            /* 預設隱藏 */
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        @media (min-width: 768px) {
+            .accordion-content {
+                font-size: 0.875rem;
+            }
+        }
+
+        .accordion-content p {
+            margin: 0 0 0.75rem 0;
+        }
+
+        .accordion-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ==========================================================================
+           6. 其他輔助與頁尾樣式 (Footer & Utilities)
+           ========================================================================== */
+        .formula-container {
+            text-align: center;
+            padding: 0.5rem 0;
+            font-family: monospace;
+            font-size: 0.875rem;
+            color: var(--accent);
+        }
+
+        .link-accent {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .link-accent:hover {
+            text-decoration: underline;
+        }
+
+        /* 遮罩加載樣式備份 */
+        #app-loading {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background-color: var(--bg-darker);
+            display: none;
+            /* 依實際邏輯控制 */
+        }
+    </style>
+    <!-- 已移除 tailwind.js 檔案 -->
+    <script id="MathJax-script" src="/src/js/tex-mml-chtml.js"></script>
+</head>
+
+<body data-page="about">
+    <div id="app-loading" aria-hidden="true">
+        <div class="app-loading-spinner"></div>
+    </div>
+    <div class="app-shell">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-title" data-i18n="about.title">About</div>
+                <div class="brand-subtitle"></div>
+            </div>
+            <my-navbar></my-navbar>
+        </header>
+        <section class="panel">
+            <div class="container">
+                <div class="grid-layout">
+                    <!-- Main Content Area -->
+                    <main class="main-content">
+
+                        <!-- 0. Warcraft Section -->
+                        <section id="warcraft" class="section-group">
+                            <div class="section-header">
+                                <div>
+                                    <span class="section-subtitle">SECTION 00</span>
+                                    <h2 class="section-title">0. 魔獸爭霸 3 與自訂地圖</h2>
+                                </div>
+                                <i class="fa-solid fa-gamepad section-icon"></i>
+                            </div>
+
+                            <div class="section-card">
+                                <p class="text-lead">
+                                    《航海王隨機防守》（Onepiece Random Defense）並非一款獨立發行的商業遊戲，而是誕生於暴雪娛樂（Blizzard
+                                    Entertainment）經典即時戰略（RTS）
+                                    <strong>《魔獸爭霸 3：寒冰霸權》（Warcraft III: The Frozen Throne）</strong>的
+                                    <strong>衍生自訂地圖（Custom Map）</strong>。
+                                </p>
+
+                                <p class="text-body">
+                                    《魔獸爭霸 3》自 2002
+                                    年問世以來，除了宏大史詩的戰役故事與創新的「英雄升級系統」外，其最偉大的遺產莫過於隨附功能極其強悍的<strong>「魔獸地圖編輯器（World
+                                        Editor）」</strong>。這個編輯器高度開放，允許玩家利用內建的觸發器（Triggers）、JASS 腳本語言、自訂 3D 模組與音效，徹底突破
+                                    RTS
+                                    遊戲的原本框架，進而創造出全新的遊戲類型——包括防守塔防（TD）、角色扮演（RPG）、英雄對戰（AOS）等。
+                                </p>
+
+                                <div class="tip-box">
+                                    <p class="tip-title">
+                                        <i class="fa-solid fa-wand-magic-sparkles"></i> 為什麼《魔獸 3》能成為這款遊戲的搖籃？
+                                    </p>
+                                    <ul class="list-styled">
+                                        <li><strong>自由導入外置資源：</strong>開發者能將動漫中角色的 3D 建模、音效直接導入地圖。</li>
+                                        <li><strong>極致的物品與單位機制：</strong>魔獸 3 內建的物品格與合成邏輯，提供了「隨機抽取、合體」玩法最完美的執行環境。</li>
+                                        <li><strong>孕育無數經典：</strong>正如這個編輯器曾誕生了風靡全球、成為《Dota2》與《英雄聯盟》鼻祖的《DotA》地圖一樣，其開放的社群生態讓像《航海王隨機防守》這樣極具情懷的同人作品，得以延續十多年的傳奇生命。
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 1. Rules Section -->
+                        <section id="rules" class="section-group">
+                            <div class="section-header">
+                                <div>
+                                    <span class="section-subtitle">SECTION 01</span>
+                                    <h2 class="section-title">1. 基礎遊戲架構</h2>
+                                </div>
+                                <i class="fa-solid fa-gamepad section-icon"></i>
+                            </div>
+
+                            <div class="section-card">
+                                <p class="text-lead">
+                                    《航海王隨機防守》（Onepiece Random
+                                    Defense）的核心地圖邏輯建立於<strong>「防守防線」</strong>與<strong>「故事攻略」</strong>的雙重壓力。與傳統的塔防遊戲（單純建塔防守）不同，本作要求玩家在極高強度的小怪波次中，將多餘的戰力與資源投入到<strong>「故事區（스토리）」</strong>中，摧毀具有超高血量的故事島嶼建築物。
+                                </p>
+
+                                <div class="inner-grid">
+                                    <div class="inner-card">
+                                        <h4 class="inner-card-title">
+                                            <i class="fa-solid fa-shield-cat"></i> 防線防守 (Line Defense)
+                                        </h4>
+                                        <p class="text-body" style="margin: 0;">
+                                            玩家的個人區域會不斷湧入怪物。當區域內的怪物數量累積達到特定上限（通常為 $75$ 或 $80$
+                                            隻，視難度而定）時，玩家將會直接<strong>暴斃淘汰</strong>。這要求隊伍必須擁有足夠的「緩速」與「暈眩」控場。
+                                        </p>
+                                    </div>
+                                    <div class="inner-card">
+                                        <h4 class="inner-card-title">
+                                            <i class="fa-solid fa-book"></i> 故事推圖 (Story Progress)
+                                        </h4>
+                                        <p class="text-body" style="margin: 0;">
+                                            故事建築在各階段設有「限定關卡前必須摧毀」的硬性限制。摧毀建築會獎勵全體玩家大量的<strong>木材（나무）</strong>、<strong>金幣</strong>、以及特定<strong>中低階英雄選取包</strong>。不推故事的玩家將會在遊戲中期徹底面臨資源枯竭。
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <h3
+                                    style="font-size: 1.125rem; font-weight: 700; color: var(--text-primary); margin: 1.5rem 0 0.5rem 0;">
+                                    💾 存檔與通關次數系統 (Save/Load Registry)</h3>
+                                <p class="text-body">
+                                    ORDR 引入了成熟的註冊表存檔（Save
+                                    Code）機制。玩家每次在高難度（如：神難度、地獄難度）通關後，系統會自動在魔獸目錄下輸出一個加密檔案，記錄玩家的<strong>通關次數（클리어
+                                        횟수）</strong>與累積點數。通關次數在遊戲中具有至關重要的作用：
+                                </p>
+                                <ul class="list-styled" style="font-size: 0.75rem; color: var(--text-muted);">
+                                    <li>解鎖特殊頭銜與限定外觀。</li>
+                                    <li>提升初始隨機精靈或金幣的獎勵系數。</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <!-- 2. Economy Section -->
+                        <section id="economy" class="section-group">
+                            <div class="section-header">
+                                <div>
+                                    <span class="section-subtitle">SECTION 02</span>
+                                    <h2 class="section-title">2. 資源</h2>
+                                </div>
+                                <i class="fa-solid fa-coins section-icon"></i>
+                            </div>
+
+                            <div class="section-card">
+                                <p class="text-lead" style="margin-bottom: 1.5rem;">
+                                    在隨機防守中，資源可以被簡化為三個層面：
+                                    <strong>小精靈</strong>、
+                                    <strong>木材</strong>
+                                    以及<strong>代幣</strong>
+                                </p>
+
+                                <div class="inner-grid" style="grid-template-columns: 1fr; gap: 1rem;">
+                                    <!-- 手動改為支援 3 欄（在大螢幕下） -->
+                                    <style>
+                                        @media (min-width: 768px) {
+                                            .economy-grid {
+                                                grid-template-columns: repeat(2, minmax(0, 1fr));
+                                            }
+                                        }
+
+                                        @media (min-width: 1024px) {
+                                            .economy-grid {
+                                                grid-template-columns: repeat(2, minmax(0, 1fr));
+                                            }
+                                        }
+                                    </style>
+                                    <div class="inner-grid economy-grid" style="margin:0;">
+                                        <div class="inner-card">
+                                            <span
+                                                style="color: var(--accent); font-weight: 700; font-size: 0.75rem; display: block; margin-bottom: 0.25rem;">
+                                                小精靈</span>
+                                            <p class="text-body" style="margin: 0;">
+                                                系統每回合發送的基礎生產力。可以直接用來抽取「常見」兵力，或作為合成頂級英雄時必不可少的基礎材料。
+                                            </p>
+                                        </div>
+                                        <div class="inner-card">
+                                            <span
+                                                style="color: var(--accent); font-weight: 700; font-size: 0.75rem; display: block; margin-bottom: 0.25rem;">
+                                                木材</span>
+                                            <p class="text-body" style="margin: 0;">
+                                                用於抽取角色、合成或升級頂級英雄。木材通常透過摧毀故事建築、小精靈兌換或打倒 Boss 獲得。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 3. History Section -->
+                        <section id="history" class="section-group">
+                            <div class="section-header">
+                                <div>
+                                    <span class="section-subtitle">SECTION 03</span>
+                                    <h2 class="section-title">3. 衝突與社群歷史</h2>
+                                </div>
+                                <i class="fa-solid fa-scroll section-icon"></i>
+                            </div>
+
+                            <div class="section-card">
+                                <p class="text-lead" style="margin-bottom: 1.5rem;">
+                                    這款遊戲十多年來發生的<strong>「社群政變」、「駭客事件」與「版權戰爭」</strong>。以下是 Namu Wiki 最具代表性的核心歷史：
+                                </p>
+
+                                <div class="accordion-group">
+
+                                    <!-- Accordion Item 1 -->
+                                    <div class="accordion-item" id="item-acc1">
+                                        <button onclick="toggleAccordion('acc1')" class="accordion-trigger">
+                                            <span class="accordion-title">
+                                                <i class="fa-solid fa-door-open" style="margin-right: 0.5rem;"></i> 믘핰
+                                                (Mük-Hak) 的不告而別與論壇轉賣
+                                            </span>
+                                            <i class="fa-solid fa-chevron-down accordion-icon-spin"></i>
+                                        </button>
+                                        <div id="acc1" class="accordion-content">
+                                            <p>
+                                                2010年，原創作者 <strong>믘핰</strong> 將本作從星海爭霸成功移植至魔獸爭霸 3，並一路研發至基礎體系成型的
+                                                <strong>3.1
+                                                    版本</strong>。然而，此時的他突然對更新地圖失去興趣，在完全未告知社群玩家的情況下，私下將 Naver
+                                                官方論壇（Café）直接打包轉賣給第三方廣告商，並徹底潛水。
+                                            </p>
+                                            <p style="color: var(--text-muted);">
+                                                當時，地圖的程式碼仍有強力防改鎖（Map Protector），社群面臨斷更危機。官方公會 MORD 的幹部
+                                                <em>siroyacha-</em>
+                                                鍥而不捨地給初代作者寄信轟炸長達一年，終於感化了他並獲得未加密源碼地圖。隨後交由新任製作人
+                                                <strong>hantory</strong>，地圖才得以浴火重生。
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Accordion Item 2 -->
+                                    <div class="accordion-item" id="item-acc2">
+                                        <button onclick="toggleAccordion('acc2')" class="accordion-trigger">
+                                            <span class="accordion-title">
+                                                <i class="fa-solid fa-swords" style="margin-right: 0.5rem;"></i>
+                                                奪權戰爭與「2000
+                                                人集體強制退出」慘案
+                                            </span>
+                                            <i class="fa-solid fa-chevron-down accordion-icon-spin"></i>
+                                        </button>
+                                        <div id="acc2" class="accordion-content">
+                                            <p>
+                                                新作者 hantory
+                                                接手後，由於與三大官方公會（KORD、MORD、TORD）聯盟發生了更新方向上的劇烈分歧，雙方爆發了嚴重的網內互打。一時間，各個聊天頻道充斥著人身攻擊與「線下約戰（현피）」的狠話。
+                                            </p>
+                                            <p style="color: var(--text-muted);">
+                                                在混亂中，MORD 公會的元老 <em>kimms-</em> 因強索源碼無果，試圖分裂論壇。雖然他被副板主封禁，但當天深夜，支持他的論壇管理員
+                                                <em>HaruK</em> 卻利用權限直接<strong>惡意剔除了論壇內 2,000
+                                                    多名核心玩家</strong>，企圖徹底毀滅社群。此事件雖然後續獲得修復，但兩敗俱傷的鬥爭迫使筋疲力盡的製作人退位，開啟了後續的全新世代。
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Accordion Item 3 -->
+                                    <div class="accordion-item" id="item-acc3">
+                                        <button onclick="toggleAccordion('acc3')" class="accordion-trigger">
+                                            <span class="accordion-title">
+                                                <i class="fa-solid fa-face-angry" style="margin-right: 0.5rem;"></i>
+                                                「今天我就要跟你槓上！」Eyab 與 Evemon 的恩怨
+                                            </span>
+                                            <i class="fa-solid fa-chevron-down accordion-icon-spin"></i>
+                                        </button>
+                                        <div id="acc3" class="accordion-content">
+                                            <p>
+                                                黃金期製作人 <strong>이얍 (Eyab)</strong> 接管地圖後，與副板主 <strong>Evemon</strong>
+                                                將論壇打造成了擁有 $39$ 萬成員的龐然大物。然而，兩人卻在「論壇管轄方針」上發生了不可調和的矛盾。Evemon
+                                                主張採取高壓的軍事化嚴格管理，而
+                                                Eyab 則希望建立輕鬆和諧的社群。
+                                            </p>
+                                            <p style="color: var(--text-muted);">
+                                                在 2015 年 3 月的一次管理層爭吵中，Evemon 強硬要求所有人發文必須嚴格遵守格式。Eyab 出面制止，Evemon
+                                                隨即在群組中回嗆：<strong>「今天我就要跟你槓上（오늘은 좀 따져야 겠네）。」</strong>
+                                                這是這對傳奇開發雙子星的最後一句對話。Eyab
+                                                在數分鐘後直接將 Evemon 的管理員權限拔除，兩人決裂。雖然後續通過贈送「薩波超越之翼」外觀達成和解，但也成為了老玩家口中津津樂道的名梗。
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Accordion Item 4 -->
+                                    <div class="accordion-item" id="item-acc4">
+                                        <button onclick="toggleAccordion('acc4')" class="accordion-trigger">
+                                            <span class="accordion-title">
+                                                <i class="fa-solid fa-biohazard" style="margin-right: 0.5rem;"></i>
+                                                Rebirth
+                                                (R版) 叛變爭議與版權風暴
+                                            </span>
+                                            <i class="fa-solid fa-chevron-down accordion-icon-spin"></i>
+                                        </button>
+                                        <div id="acc4" class="accordion-content">
+                                            <p>
+                                                2019年 10 月，隨著 8.9b 版本的低水準更新以及 Eyab
+                                                的拖更，社群的不滿達到頂點。部分民間高手在未經官方授權下，逆向破解了地圖並發布了名為 <strong>Rebirth (R版)</strong>
+                                                的修改版，進行大規模的平衡性改良與新功能加入。這在官方論壇引起了「支持民間大改」與「維護原創正統」的激烈口水戰。
+                                            </p>
+                                            <p style="color: var(--text-muted);">
+                                                就在內戰正酣時，日本<strong>東映動畫（Toei
+                                                    Animation）</strong>正式發出了強力的智慧財產權（IP）侵權警告。受制於法律壓力，Naver 關閉了地圖的分發鏈接。原版
+                                                ORD
+                                                不得不在 <strong>11.089 版本</strong> 正式停更。然而，R 版團隊將地圖重組、重寫了大量魔獸腳本（JASS編碼），最終在
+                                                Discord 與 DC Inside 上以獨立開源社群的形式完成了 ORDR 的復活，並持續更新至今。
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- 4. Game Tips Section -->
+                        <section id="game-tips" class="section-group">
+                            <div class="section-header">
+                                <div>
+                                    <span class="section-subtitle">SECTION 04</span>
+                                    <h2 class="section-title">4. 攻略與技巧</h2>
+                                </div>
+                                <i class="fa-solid fa-scroll section-icon"></i>
+                            </div>
+
+                            <div class="section-card">
+                                <h3
+                                    style="font-size: 0.875rem; font-weight: 900; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem; margin: 0 0 1rem 0;">
+                                    <i class="fa-solid fa-calculator style-accent" style="color:var(--accent)"></i>
+                                    魔獸底層傷害機制與破甲極限
+                                </h3>
+                                <p class="text-body">
+                                    為什麼物理傷害流的破甲很重要？這與魔獸爭霸的護甲計算公式有著最直接的關聯。
+                                </p>
+                                <p class="text-lead" style="font-size: 0.875rem;">
+                                    對於正數防禦力 \(A\)，傷害減免比例（Damage Reduction）計算公式為：
+                                </p>
+
+                                <div class="formula-container">
+                                    \[\text{DR} = \frac{A \times 0.06}{1 + (A \times 0.06)}\]
+                                </div>
+
+                                <p class="text-lead" style="font-size: 0.875rem; margin-top: 1rem;">然而，當防禦力被削至負數時
+                                    \(A < 0\)，傷害加成比例為：</p>
+
+                                        <div class="formula-container">
+                                            \[\text{Damage Bonus} = 2 - (0.94)^{-A}\]
+                                        </div>
+
+                                        <p class="text-body" style="margin-top: 1rem;">
+                                            因此，當防禦力被削到 \( -100 \) 以下時，小怪和 BOSS
+                                            將會承受超過原本<strong>三到四倍的物理增幅傷害</strong>。這就是為什麼物傷流派必須合出多個減防光環角色的原因。
+                                        </p>
+                            </div>
+                        </section>
+
+                        <!-- Reference Sites Section -->
+                        <section id="reference-sites" class="section-group">
+                            <div class="section-card">
+                                <h3
+                                    style="font-size: 0.875rem; font-weight: 900; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem; margin: 0 0 1rem 0;">
+                                    <i class="fa-solid fa-link" style="color:var(--accent)"></i> 參考網站與社群
+                                </h3>
+                                <ul class="list-styled" style="font-size: 0.875rem; color: var(--text-muted);">
+                                    <li><a href="https://namu.wiki/w/%EC%9B%90%ED%94%BC%EC%8A%A4%20%EB%9E%9C%EB%8D%A4%20%EB%94%94%ED%8E%9C%EC%8A%A4"
+                                            target="_blank" class="link-accent">Namu Wiki</a></li>
+                                    <li><a href="https://ordsearch.net/" target="_blank" class="link-accent">ORD Search
+                                            -
+                                            隨機防守資料庫</a></li>
+                                    <li><a href="https://ordr.co.kr/" target="_blank" class="link-accent">ORDR Discord
+                                            社群</a></li>
+                                    <li>
+                                        <a href="https://gall.dcinside.com/mgallery/board/lists/?id=ordc1"
+                                            target="_blank" class="link-accent">韓國討論網DC Inside</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </main>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <my-footer></my-footer>
+
+    <script>
+        // 開啟信箱
+        function openEmail() {
+            const user = "jim";
+            const domain = "nijidakku.cc";
+            const subject = encodeURIComponent("【ORD網站使用者來信】");
+            window.open("https://mail.google.com/mail/?view=cm&fs=1&to=" + user + "@" + domain + "&su=" + subject, "_blank");
+        }
+
+        // 手風琴收合控制
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const parent = document.getElementById('item-' + id);
+
+            if (content.style.display === "block") {
+                content.style.display = "none";
+                parent.classList.remove('active');
+            } else {
+                content.style.display = "block";
+                parent.classList.add('active');
+            }
+        }
+    </script>
+</body>
+
+</html>

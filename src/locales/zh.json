@@ -9,6 +9,7 @@
     "nav.recommend": "合成推薦",
     "nav.maintenance": "資料維護",
     "nav.official": "官網",
+    "nav.about": "關於",
     "brand.title": "ORD 航海王隨機防禦合成表",
     "brand.subtitle": "ver. 2.305[R] | updated. 2026/07/10",
     "brand.feedback": "Feedback",
@@ -160,7 +161,11 @@
     "recommend.needMaterials": "缺少",
     "recommend.canCraft": "可合成",
     "materials":"材料",
-    "recommend.selected" : "已選擇"
+    "recommend.selected" : "已選擇",
+    "about.title": "關於",
+    "footer.brand": "航海王隨機防守 (ORDR) 小幫手",
+    "footer.desc": "本網站基於 Namu Wiki/ordsearch.net 等網路公開資訊編寫，內容僅作為學術研究、玩家攻略與社群推廣之用。",
+    "footer.feedback": "若有任何疑慮或資料有誤，請聯絡"
   },
   "levelLabels": {
     "0": "物品",

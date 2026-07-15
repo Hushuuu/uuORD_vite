@@ -13,6 +13,7 @@
   <link rel="apple-touch-icon" href="/resource/192x192.png">
   <link rel="icon" type="image/png" href="/resource/192x192.png" />
   <script type="module" src="/src/js/app.js"></script>
+  <script type="module" src="/src/js/shared/wc-footer.js"></script>
 </head>
 
 <body data-page="lookup">
@@ -28,9 +29,6 @@
           <span>
             | <a style="text-decoration: underline;" href="#" onclick="openEmail()"
               data-i18n="brand.feedback">Feedback</a>
-            <!--<a href="#" onclick="openEmail()">
-              <img src="/resource/mail.svg" alt="Feedback">
-            </a>-->
           </span>
         </div>
       </div>
@@ -84,12 +82,12 @@
       </div>
     </section>
   </div>
-
+  <my-footer></my-footer>
   <script>
     function openEmail() {
       const user = "jim";
       const domain = "nijidakku.cc";
-      const subject = encodeURIComponent("【ODR網站使用者來信】");
+      const subject = encodeURIComponent("【ORD網站使用者來信】");
 
       window.open("https://mail.google.com/mail/?view=cm&fs=1&to=" + user + "@" + domain + "&su=" + subject, "_blank");
     }

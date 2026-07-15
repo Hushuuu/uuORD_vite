@@ -143,7 +143,7 @@ class MyNavbar extends HTMLElement {
     <a class="nav-link" data-page="comp_tree" href="comp_tree.html">${t('nav.comp_tree')}</a>
     <a class="nav-link" data-page="recommend" href="recommend.html">${t('nav.recommend')}</a>
     <a class="nav-link" style="display: none;" data-page="maintenance" href="maintenance.html">${t('nav.maintenance')}</a>
-    <a class="nav-link" target="_blank" href="https://ordsearch.net/mix">${t('nav.official')}</a>
+    <a class="nav-link" data-page="about" href="about.html">${t('nav.about')}</a>
     <a href="#" class="nav-link lang-toggle" data-action="toggle-lang" aria-label="Switch language">
         <span>🌐</span>${currentLang === 'zh' ? t('lang.en') : t('lang.zh')}
     </a>

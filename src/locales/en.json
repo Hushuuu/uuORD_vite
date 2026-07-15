@@ -9,6 +9,7 @@
     "nav.recommend": "Recommend",
     "nav.maintenance": "Maintenance",
     "nav.official": "Official",
+    "nav.about": "About",
     "brand.title": "ORD One Piece Random Defense Recipe",
     "brand.subtitle": "ver. 2.305[R] | updated. 2026/07/10",
     "brand.feedback": "Feedback",
@@ -161,7 +162,11 @@
     "recommend.needMaterials": "Missing",
     "recommend.canCraft": "Can Craft",
     "materials":"Materials",
-    "recommend.selected" : "Selected"
+    "recommend.selected" : "Selected",
+    "about.title": "About",
+    "footer.brand": "ORD One Piece Random Defense (ORDR) Helper",
+    "footer.desc": "This website is based on publicly available information from Namu Wiki/ordsearch.net, and the content is intended for academic research, player guides, and community promotion only.",
+    "footer.feedback": "If you have any questions or find any incorrect information, please contact us."
   },
   "levelLabels": {
     "0": "Item",
