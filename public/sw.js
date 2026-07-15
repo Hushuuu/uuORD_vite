@@ -14,7 +14,7 @@ const STATIC_ASSETS = [
   '/resource/512x512.png',
   '/css/tom-select.css',
   '/js/tom-select.complete.min.js',
-  '/js/tex-mml-chtml.js',
+  '/js/tex-mml-chtml-nofont.min.js',
 ];
 
 // Vite build 後自動注入 /assets/ 下帶 hash 的 JS/CSS，不需要手動維護。
