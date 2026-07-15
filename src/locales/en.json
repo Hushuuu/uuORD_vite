@@ -45,7 +45,7 @@
     "page.comp_tree.brand": "Team Composition Analysis",
     "page.comp_tree.analyze.title": "Team Analysis",
     "page.comp_tree.analyze.desc": "Click a team character to view their craft tree",
-    "page.comp_tree.empty.prompt": "Please first select characters and analyze on the <a href=\"comp.html\" style=\"color: var(--primary-color); text-decoration: underline;\">Team Builder</a> page.",
+    "page.comp_tree.empty.prompt": "Please select characters on the Team Builder page first.",
     "team.label": "Team {index}",
     "action.analyzeTeam": "Analyze Team",
     "action.clearTeam": "Clear Team",

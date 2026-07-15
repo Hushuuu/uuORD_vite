@@ -45,7 +45,7 @@
     "page.comp_tree.brand": "隊伍組成分析",
     "page.comp_tree.analyze.title": "隊伍分析",
     "page.comp_tree.analyze.desc": "點擊隊伍角色查看各自的合成樹",
-    "page.comp_tree.empty.prompt": "請先在 <a href=\"comp.html\" style=\"color: var(--primary-color); text-decoration: underline;\">隊伍組成</a> 頁面選取角色並進行分析。",
+    "page.comp_tree.empty.prompt": "請先在隊伍組成頁面選取角色",
     "team.label": "隊 {index}",
     "action.analyzeTeam": "分析隊伍",
     "action.clearTeam": "清空隊伍",

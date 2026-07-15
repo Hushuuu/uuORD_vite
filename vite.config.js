@@ -2,7 +2,7 @@ import { resolve } from 'path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/ORDSearchFast_vite/',
+  base: '/',
   build: {
     outDir: 'dist',
     emptyOutDir: true,
