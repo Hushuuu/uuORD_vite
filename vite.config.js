@@ -15,6 +15,7 @@ export default defineConfig({
         comp_tree: resolve(__dirname, 'comp_tree.html'),
         recommend: resolve(__dirname, 'recommend.html'),
         maintenance: resolve(__dirname, 'maintenance.html'),
+        about : resolve(__dirname, 'about.html'),
       },
     },
   },

@@ -2,16 +2,19 @@ const CACHE_NAME = 'v=260711001'; // 💡 每次部署新版時手動改成 v2, 
 
 // 不經 Vite 處理、位於 public/ 的靜態資源，需要手動維護。
 const STATIC_ASSETS = [
-  '/index.html',
-  '/tree.html',
-  '/recommend.html',
-  '/maintenance.html',
-  '/comp.html',
-  '/comp_tree.html',
+  // '/index.html',
+  // '/tree.html',
+  // '/recommend.html',
+  // '/maintenance.html',
+  // '/comp.html',
+  // '/comp_tree.html',
+  // '/about.html',
   '/manifest.json',
   '/resource/192x192.png',
   '/resource/512x512.png',
+  '/css/tom-select.css',
   '/js/tom-select.complete.min.js',
+  '/js/tex-mml-chtml.js',
 ];
 
 // Vite build 後自動注入 /assets/ 下帶 hash 的 JS/CSS，不需要手動維護。
