@@ -153,11 +153,12 @@ function applyStaticTranslations(root = document) {
   if (!root || !root.querySelectorAll) {
     return;
   }
-
+  const updatedElements = [];
   root.querySelectorAll('[data-i18n]').forEach((element) => {
     const key = element.dataset.i18n;
     if (key) {
       element.textContent = t(key);
+      updatedElements.push(element);
     }
   });
 
@@ -198,9 +199,21 @@ function applyStaticTranslations(root = document) {
     const index = element.dataset.i18nIndex;
     if (key && index !== undefined) {
       element.textContent = t(key, { index });
-      }
-    });
+    }
+  });
+  // 3. 如果有更新任何元素，且 MathJax 已載入，則手動觸發渲染
+  if (updatedElements.length > 0 && window.MathJax && window.MathJax.typesetPromise) {
+    // 告訴 MathJax 重新解析這批被修改的元素
+    window.MathJax.typesetPromise(updatedElements)
+      .then(() => {
+        // 渲染成功後的邏輯（可選）
+      })
+      .catch((err) => {
+        console.error("MathJax v4 typeset failed: ", err);
+      });
+  }
 }
+
 
 function setPageTitle(key) {
   document.title = t(key);
@@ -245,7 +258,12 @@ function renderSafeHtmlIntoElement(element, text) {
       const strongEl = document.createElement('strong');
       strongEl.textContent = content;
       currentTarget.appendChild(strongEl);
-
+    } else if (part.startsWith('<em>') && part.endsWith('</em>')) {
+      // 4. 處理斜體
+      const content = part.replace(/<\/?em>/g, '');
+      const emEl = document.createElement('em');
+      emEl.textContent = content;
+      currentTarget.appendChild(emEl);
     } else if (part) {
       // 4. 一般純文字
       const textNode = document.createTextNode(part);

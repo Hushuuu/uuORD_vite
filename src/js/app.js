@@ -17,7 +17,8 @@ const PAGE_TITLE_KEYS = {
   comp: 'page.comp.title',
   comp_tree: 'page.comp_tree.title',
   recommend: 'page.recommend.title',
-  maintenance: 'page.maintenance.title'
+  maintenance: 'page.maintenance.title',
+  about: 'about.title'
 };
 
 const PAGE_MODULES = {
