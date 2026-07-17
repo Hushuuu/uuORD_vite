@@ -168,6 +168,17 @@ function applyStaticTranslations(root = document) {
     }
   });
 
+  root.querySelectorAll('[data-i18n-safe-html]').forEach((element) => {
+    const key = element.dataset.i18nSafeHtml;
+    if (key) {
+      // 取得翻譯文字（同時支援變數帶入，如果有設定 data-i18n-index 之類的變數）
+      const index = element.dataset.i18nIndex;
+      const translatedText = index !== undefined ? t(key, { index }) : t(key);
+      
+      renderSafeHtmlIntoElement(element, translatedText);
+    }
+  });
+
   root.querySelectorAll('[data-i18n-placeholder]').forEach((element) => {
     const key = element.dataset.i18nPlaceholder;
     if (key) {
@@ -193,6 +204,54 @@ function applyStaticTranslations(root = document) {
 
 function setPageTitle(key) {
   document.title = t(key);
+}
+
+// 新增：安全的標籤插值解析器
+function renderSafeHtmlIntoElement(element, text) {
+  element.innerHTML = '';
+
+  // 升級正則：同時切開 <bold>, <list>, <li> 標籤
+  const parts = text.split(/(<bold>.*?<\/bold>|<list>.*?<\/list>|<li>.*?<\/li>)/g);
+
+  // 用來追蹤目前要把節點加在哪裡（如果有 <list>，<li> 就要加到 <ul> 裡）
+  let currentTarget = element;
+
+  parts.forEach((part) => {
+    if (part.startsWith('<list>') && part.endsWith('</list>')) {
+      // 1. 處理整個清單容器
+      const content = part.replace(/<\/?list>/g, '');
+      const ulEl = document.createElement('ul');
+      
+      // 這裡你可以加上你原本的 class 或樣式
+      ulEl.className = "list-styled";
+      ulEl.style.cssText = "font-size: 0.75rem; color: var(--text-muted);";
+
+      // 遞迴解析 <list> 內部的 <li> 和 <bold>
+      renderSafeHtmlIntoElement(ulEl, content);
+      element.appendChild(ulEl);
+
+    } else if (part.startsWith('<li>') && part.endsWith('</li>')) {
+      // 2. 處理清單項目
+      const content = part.replace(/<\/?li>/g, '');
+      const liEl = document.createElement('li');
+      
+      // <li> 裡面可能還有 <bold>，所以一樣遞迴解析它
+      renderSafeHtmlIntoElement(liEl, content);
+      currentTarget.appendChild(liEl);
+
+    } else if (part.startsWith('<bold>') && part.endsWith('</bold>')) {
+      // 3. 處理加粗
+      const content = part.replace(/<\/?bold>/g, '');
+      const strongEl = document.createElement('strong');
+      strongEl.textContent = content;
+      currentTarget.appendChild(strongEl);
+
+    } else if (part) {
+      // 4. 一般純文字
+      const textNode = document.createTextNode(part);
+      currentTarget.appendChild(textNode);
+    }
+  });
 }
 
 export const ORDI18n = {

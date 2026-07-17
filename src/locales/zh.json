@@ -165,7 +165,12 @@
     "about.title": "關於",
     "footer.brand": "航海王隨機防守 (ORDR) 小幫手",
     "footer.desc": "本網站基於 Namu Wiki/ordsearch.net 等網路公開資訊編寫，內容僅作為學術研究、玩家攻略與社群推廣之用。",
-    "footer.feedback": "若有任何疑慮或資料有誤，請聯絡"
+    "footer.feedback": "若有任何疑慮或資料有誤，請聯絡",
+    "about.section0_1": "《航海王隨機防守》（Onepiece Random Defense）並非一款獨立發行的商業遊戲，而是誕生於暴雪娛樂（Blizzard Entertainment）經典即時戰略（RTS）<bold>《魔獸爭霸 3：寒冰霸權》（Warcraft III: The Frozen Throne）</bold>的<bold>衍生自訂地圖（Custom Map）</bold>。",
+    "about.section0_title": "0. 起源",
+    "about.section0_2": "《魔獸爭霸 3》自 2002 年問世以來，除了宏大史詩的戰役故事與創新的「英雄升級系統」外，其最偉大的遺產莫過於隨附功能極其強悍的<bold>「魔獸地圖編輯器（World Editor）」</bold>。這個編輯器高度開放，允許玩家利用內建的觸發器（Triggers）、JASS 腳本語言、自訂 3D 模組與音效，徹底突破 RTS 遊戲的原本框架，進而創造出全新的遊戲類型——包括防守塔防（TD）、角色扮演（RPG）、英雄對戰（AOS）等。",
+    "about.section0_3_title": "為什麼《魔獸 3》能成為這款遊戲的搖籃？",
+    "about.section0_3":"<list><li><bold>自由導入外置資源：</bold>開發者能將動漫中角色的 3D 建模、音效直接導入地圖。</li><li><bold>極致的物品與單位機制：</bold>魔獸 3 內建的物品格與合成邏輯，提供了「隨機抽取、合體」玩法最完美的執行環境。</li><li><bold>孕育無數經典：</bold>正如這個編輯器曾誕生了風靡全球、成為《Dota2》與《英雄聯盟》鼻祖的《DotA》地圖一樣，其開放的社群生態讓像《航海王隨機防守》這樣極具情懷的同人作品，得以延續十多年的傳奇生命。</li></list>"
   },
   "levelLabels": {
     "0": "物品",

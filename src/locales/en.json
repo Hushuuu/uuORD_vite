@@ -166,7 +166,12 @@
     "about.title": "About",
     "footer.brand": "ORD One Piece Random Defense (ORDR) Helper",
     "footer.desc": "This website is based on publicly available information from Namu Wiki/ordsearch.net, and the content is intended for academic research, player guides, and community promotion only.",
-    "footer.feedback": "If you have any questions or find any incorrect information, please contact us."
+    "footer.feedback": "If you have any questions or find any incorrect information, please contact us.",
+    "about.section0_1": "Onepiece Random Defense (OPRD) is not a standalone commercial game. Instead, it was born as a <bold>custom map</bold> derived from Blizzard Entertainment's classic real-time strategy (RTS) game, <bold>Warcraft III: The Frozen Throne</bold>.",
+    "about.section0_title": "0. Origin",
+    "about.section0_2":"Since its release in 2002, Warcraft III has offered epic campaign stories and an innovative hero leveling system. However, its greatest legacy is undoubtedly the incredibly powerful, bundled <bold>\"World Editor.\"</bold> This highly open editor allows players to utilize built-in triggers, the JASS scripting language, and custom 3D models and sound effects. It completely shatters the original framework of RTS games, paving the way for entirely new genres—including Tower Defense (TD), Role-Playing Games (RPG), and Aeon of Strife (AOS) hero battle maps.",
+    "about.section0_3_title": "Why did Warcraft III become the cradle for this game?",
+    "about.section0_3":"<list><li><bold>Freely Import External Resources:</bold> Developers can directly import 3D models and sound effects of anime characters into the map.</li><li><bold>Ultimate Item and Unit Mechanics:</bold> Warcraft III's built-in inventory and synthesis logic provide the perfect execution environment for 'random draw and fusion' gameplay.</li><li><bold>Nurturing Countless Classics:</bold> Just as this editor once gave birth to the globally popular 'DotA' map—the predecessor of Dota 2 and League of Legends—its open community ecosystem has allowed highly sentimental fan works like 'Onepiece Random Defense' to sustain their legendary life for over a decade.</li></list>"
   },
   "levelLabels": {
     "0": "Item",
