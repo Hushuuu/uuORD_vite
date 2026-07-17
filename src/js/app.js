@@ -2,6 +2,7 @@ import appShared from './shared/app-shared.js';
 import { ORDI18n } from './i18n.js';
 import ORD_DATA from './ord_data.js';
 import './shared/wc-navbar.js';
+import './shared/wc-footer.js';
 
 const {
   cloneData,
