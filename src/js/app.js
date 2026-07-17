@@ -12,7 +12,7 @@ const {
 const i18n = ORDI18n;
 
 const PAGE_TITLE_KEYS = {
-  lookup: 'page.lookup.title',
+  lookup: 'brand.title',
   tree: 'page.tree.title',
   comp: 'page.comp.title',
   comp_tree: 'page.comp_tree.title',
