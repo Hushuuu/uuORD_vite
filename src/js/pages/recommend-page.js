@@ -798,7 +798,10 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     const tmoConnectStatus = document.getElementById('tmoConnectStatus');
     async function pollTmoData() {
       try {
-        const rs = await fetch(`${__TMO_API_ENDPOINT__}`);
+        const rs = await fetch(`${__TMO_API_ENDPOINT__}`,{
+          method: 'GET',
+          targetAddressSpace: 'loopback'
+        });
         if (rs.ok) {
           if(tmoConnectStatus){
             tmoConnectStatus.textContent = `connect success`;
