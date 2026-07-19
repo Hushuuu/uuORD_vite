@@ -210,7 +210,8 @@
     "about.ref_ord_search": "ORD Search - 隨機防守資料庫",
     "about.ref_discord": "ORDR Discord 社群",
     "about.ref_dcinside": "韓國討論網DC Inside",
-    "about.email_subject": "【ORD網站使用者來信】"
+    "about.email_subject": "【ORD網站使用者來信】",
+    "recommend.auto_update_owned": "自動更新擁有角色(需第三方程式)"
   },
   "levelLabels": {
     "0": "物品",

@@ -211,7 +211,8 @@
     "about.ref_ord_search": "ORD Search - Random Defense Database",
     "about.ref_discord": "ORDR Discord Community",
     "about.ref_dcinside": "Korean Community DC Inside",
-    "about.email_subject": "[ORD Website User Feedback]"
+    "about.email_subject": "[ORD Website User Feedback]",
+    "recommend.auto_update_owned": "Auto-update owned characters (3rd-party tool required)"
   },
   "levelLabels": {
     "0": "Item",

@@ -13,6 +13,7 @@ const {
   getSkillTypeLabel,
   createSkillTypeOptions,
   getDisplayName,
+  TMO_TRANSFER_DATA,
 } = appShared;
 
 const i18n = ORDI18n || (typeof window !== 'undefined' ? window.ORDI18n : null) || null;
@@ -688,7 +689,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       }
       renderRecommendations();
     }
-
+    
     renderTargetLevelCheckboxes();
     renderSkillTypeCheckboxes();
     renderOwnedTabs();
@@ -792,7 +793,94 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         }
       });
     }
-
+    //timger tmogg api begin
+    //tmoConnectStatus
+    const tmoConnectStatus = document.getElementById('tmoConnectStatus');
+    async function pollTmoData() {
+      try {
+        const rs = await fetch(`${__TMO_API_ENDPOINT__}`);
+        if (rs.ok) {
+          if(tmoConnectStatus){
+            tmoConnectStatus.textContent = `connect success`;
+          }
+          const data = await rs.json();
+          //console.log('tmogg api data', data);
+          const units = data.units || {};
+          let effectCount = 0;
+          for(const[tmoId, characterId] of TMO_TRANSFER_DATA.entries()){
+            const characterRecord = indices.byCharacterId.get(characterId);
+            if(!characterRecord){
+              continue;
+            }
+            const tmoCount = units[tmoId] || 0;
+            if(characterRecord.level <= 2){
+              const current = ownedCountState[characterRecord.level].get(characterId) || 0;
+              if(current == tmoCount){
+                continue; // 如果數量沒有變化，跳過更新
+              }
+              effectCount++;
+              //console.log(`Updating character ${characterId} (level ${characterRecord.level}) count from ${current} to ${tmoCount}`);
+              if (tmoCount === 0) {
+                ownedCountState[characterRecord.level].delete(characterId);
+              } else {
+                ownedCountState[characterRecord.level].set(characterId, tmoCount);
+              }
+            }else{
+              if (ownedSelector) {
+                  const currentValues = ownedSelector.getValue();
+                  //console.log(`Current ownedSelector values: ${currentValues}`);
+                  const existingValue = currentValues.find(value => value === characterId);
+                  if(tmoCount && !existingValue){
+                    ownedSelector.addItem(characterId, true);
+                    effectCount++;
+                    //console.log(`Adding character ${characterId} to ownedSelector due to tmoCount: ${tmoCount}`);
+                  }
+                  if(!tmoCount && existingValue){
+                    ownedSelector.removeItem(characterId, true);
+                    effectCount++;
+                    //console.log(`Removing character ${characterId} from ownedSelector due to tmoCount: ${tmoCount}`);
+                  }
+                }
+            }
+          }
+          if(effectCount > 0){
+            renderRecommendations();
+            //console.log(`tmogg api data updated, effectCount: ${effectCount}`);
+          }
+          //console.log('tmogg api data', data);
+        }else{
+          if(tmoConnectStatus){
+            tmoConnectStatus.textContent = `connect failed`;
+          }
+        }
+      }
+      catch (e) {
+        console.error(e);
+        if(tmoConnectStatus){
+          tmoConnectStatus.textContent = `connect failed`;
+        }
+      }
+      finally {
+        if(!stopTmoInterval){
+          setTimeout(pollTmoData, 1500);
+        }else{
+          if(tmoConnectStatus){
+            tmoConnectStatus.textContent = ``;
+          }
+        }
+      }
+    }
+    const tmoToggle = document.getElementById('tmoConnectToggle');
+    let stopTmoInterval = false;
+    tmoToggle.addEventListener('change', function() {
+      if (this.checked) {
+        // 第一次啟動
+        setTimeout(pollTmoData, 1000);
+      } else {
+        stopTmoInterval = true;
+      }
+    });
+    //timger tmogg api end
   }
 
 if (typeof window !== 'undefined' && window.ORDApp) {

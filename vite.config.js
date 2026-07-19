@@ -19,4 +19,8 @@ export default defineConfig({
       },
     },
   },
+  define: {
+    //__TMO_API_ENDPOINT__: JSON.stringify('http://127.0.0.1:25625/datas')
+    __TMO_API_ENDPOINT__: JSON.stringify('http://127.0.0.1:3000/datas')
+  }
 });
