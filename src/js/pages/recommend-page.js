@@ -843,7 +843,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
               continue;
             }
             const tmoCount = units[tmoId] || 0;
-            if(characterRecord.level <= 2){
+            if(characterRecord.level == 1 || characterRecord.level == 2){
               const current = ownedCountState[characterRecord.level].get(characterId) || 0;
               if(current == tmoCount){
                 continue; // 如果數量沒有變化，跳過更新
