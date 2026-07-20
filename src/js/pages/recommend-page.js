@@ -822,11 +822,12 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         let tmoEndpoint = __TMO_API_ENDPOINT__;
         let tAddSpace = 'loopback';
         const tmoProxyIpInput = document.getElementById('tmoProxyIpInput');
-        if(tmoProxyIpInput && tmoProxyIpInput.value){
-          //http://127.0.0.1:25626/datas
-          tmoEndpoint = `http://${tmoProxyIpInput.value}:25626/datas`;
-          tAddSpace = 'private';
-        }
+        //先不做這段了，一直打不通
+        // if(tmoProxyIpInput && tmoProxyIpInput.value){
+        //   //http://127.0.0.1:25626/datas
+        //   tmoEndpoint = `http://${tmoProxyIpInput.value}:25626/datas`;
+        //   tAddSpace = 'private';
+        // }
         const rs = await fetch(`${tmoEndpoint}`,{
           method: 'GET',
           targetAddressSpace: tAddSpace
