@@ -79,7 +79,7 @@
     "loading.loading": "載入中...",
     "field.searchName": "搜尋名稱",
     "field.searchConditions": "搜尋條件",
-    "field.skill_type" : "技能類型",
+    "skill_type" : "技能類型",
     "action.collapseFilters": "收合條件",
     "action.resetFilters": "重置篩選",
     "empty.noCharacters": "尚未選取任何角色。",

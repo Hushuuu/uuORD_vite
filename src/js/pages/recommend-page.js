@@ -442,7 +442,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     }
 
     function renderOwnedPanels() {
-      console.log('lv1',level1Records)
+      //console.log('lv1',level1Records)
       ownedPanels.innerHTML = [
         { level: 1, records: level1Records },
         { level: 2, records: level2Records },
@@ -655,7 +655,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       });
       hasActiveTab = document.querySelector('.recommend-level-tab.active');
       if(!hasActiveTab){
-        console.log('first tab default')
+        //console.log('first tab default')
         const firstTab = document.querySelector('.recommend-level-tab');
         if (firstTab) {
           firstTab.classList.add('active');
