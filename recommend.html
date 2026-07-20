@@ -116,13 +116,15 @@
         font-size: 0.85rem;
       }
     }
+
     /* 容器：設定開關的大小 */
     .switch {
       position: relative;
       display: inline-block;
       width: 40px;
       height: 20px;
-      flex-shrink: 0; /* 防止縮小 */
+      flex-shrink: 0;
+      /* 防止縮小 */
     }
 
     /* 隱藏原本的 checkbox */
@@ -142,7 +144,8 @@
       bottom: 0;
       background-color: #ccc;
       transition: .4s;
-      border-radius: 15px; /* 圓角 */
+      border-radius: 15px;
+      /* 圓角 */
     }
 
     /* 開關裡面的白色小圓球 */
@@ -155,25 +158,32 @@
       bottom: 3px;
       background-color: white;
       transition: .4s;
-      border-radius: 50%; /* 圓形 */
+      border-radius: 50%;
+      /* 圓形 */
     }
 
     /* 當 checkbox 被勾選時（開啟狀態），變更背景顏色（綠色） */
-    input:checked + .slider {
+    input:checked+.slider {
       background-color: #4cd964;
     }
 
     /* 當 checkbox 被勾選時，將小圓球向右移動 */
-    input:checked + .slider:before {
+    input:checked+.slider:before {
       transform: translateX(20px);
     }
+
     .toggle-container {
-      display: flex;       /* 開啟彈性排版，強制所有子元素排在同一行 */
-      align-items: center; /* 讓文字和開關「垂直居中對齊」，畫面最漂亮 */
-      gap: 10px;          /* 讓文字、開關、後方文字之間有固定的間距，不用自己寫 margin */
-      flex-wrap: nowrap;   /* 強制絕對不換行 */
+      display: flex;
+      /* 開啟彈性排版，強制所有子元素排在同一行 */
+      align-items: center;
+      /* 讓文字和開關「垂直居中對齊」，畫面最漂亮 */
+      gap: 10px;
+      /* 讓文字、開關、後方文字之間有固定的間距，不用自己寫 margin */
+      flex-wrap: nowrap;
+      /* 強制絕對不換行 */
     }
   </style>
+  <link rel="stylesheet" href="/src/css/recommend.css">
 </head>
 
 <body data-page="recommend">
@@ -219,12 +229,12 @@
             </div>
           </div>
           <div class="toggle-container" style="grid-column: span 4;">
-              <label class="field-label" data-i18n="recommend.auto_update_owned">自動更新擁有角色(需第三方程式)</label>
-              <label class="switch">
-                <input type="checkbox" id="tmoConnectToggle">
-                <span class="slider"></span>
-              </label>
-              <label class="field-label" id="tmoConnectStatus"></label>
+            <label class="field-label" data-i18n="recommend.auto_update_owned">自動更新擁有角色(需第三方程式)</label>
+            <label class="switch">
+              <input type="checkbox" id="tmoConnectToggle">
+              <span class="slider"></span>
+            </label>
+            <label class="field-label" id="tmoConnectStatus"></label>
           </div>
         </div>
 
@@ -241,8 +251,8 @@
                 <img src="/resource/arrow_drop_down.svg" />
               </h2>
             </div>
-            <div id="recommendOwnedTabs" class="recommend-owned-tabs"></div>
-            <div id="recommendOwnedPanels" class="recommend-owned-panels"></div>
+            <div id="recommendOwnedTabs" class="recommend-owned-tabs collapsed"></div>
+            <div id="recommendOwnedPanels" class="recommend-owned-panels collapsed"></div>
           </section>
 
           <section class="panel" style="margin-top: 12px;">

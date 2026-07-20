@@ -503,6 +503,18 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     const defaultDismissedIds = ['2-12', '4-7', '4-46', '5-41', '6-10', '10-1'];
 
     function renderRecommendations() {
+      // 紀錄目前已經被使用者展開的 details key
+      const openKeys = new Set();
+      if (resultList) {
+        resultList.querySelectorAll('details[open]').forEach((el) => {
+          // 假設 details 上有 data-tree-key，或是用特定的選擇器/特徵辨識
+          const key = el.dataset.treeKey || el.querySelector('.recommend-material-name')?.textContent;
+          if (key) {
+            openKeys.add(key);
+          }
+        });
+      }
+
       const selectedTargetLevels = [...targetState.selectedTargetLevels].sort((left, right) => left - right);
       const selectedOwnedIds = ownedSelector
         ? normalizeOwnedValues(ownedSelector.getValue())
@@ -595,7 +607,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                       <div style="margin-top: -10px; margin-bottom: -5px;">
                         <span class="badge-skill-type">${escapeHtml(record.remark)}</span>
                       </div>
-                      <details class="branch-details recommend-material-details">
+                      <details class="branch-details recommend-material-details" data-tree-key="${record.character_id}">
                         <summary class="branch-summary recommend-material-summary">
                           <div class="recommend-material-summary-head">
                             <span class="recommend-material-summary-label">${i18n.t('materials')}</span>
@@ -625,8 +637,17 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
           `
         )
         .join('');
-        //scroll to top
-        //resultList.scrollTo({ top: 0, behavior: 'smooth' });
+      //scroll to top
+      //resultList.scrollTo({ top: 0, behavior: 'smooth' });
+      // 恢復先前展開的狀態
+      if (openKeys.size > 0) {
+        resultList.querySelectorAll('details').forEach((el) => {
+          const key = el.dataset.treeKey || el.querySelector('.recommend-material-name')?.textContent;
+          if (key && openKeys.has(key)) {
+            el.open = true; // 將 open 屬性設回 true
+          }
+        });
+      }
       //render selected level tab
       const recommendLevelTab = document.getElementById('recommendLevelTab');
       let hasActiveTab = document.querySelector('.recommend-level-tab.active');

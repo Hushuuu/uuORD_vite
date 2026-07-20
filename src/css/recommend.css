@@ -1,0 +1,70 @@
+/* 僅在桌機大螢幕生效 (例如 > 1200px) */
+@media (min-width: 1200px) {
+    .recommend-result-list {
+        /* 1. 改用 flex 讓所有組別強制排在同一行 */
+        display: flex;
+        flex-direction: row; /* 水平排列 */
+        gap: 16px;
+        align-items: start;
+        
+        /* 2. 開啟橫向滾動 */
+        overflow-x: auto;
+        overflow-y: auto; /* 防止縱向出現不必要的滾動條 */
+        padding-bottom: 12px; /* 留一點空間給橫向滾動條，避免遮到卡片 */
+        
+        max-height: calc(100vh - 120px);
+  }
+
+  .recommend-result-group {
+    background: rgba(17, 24, 39, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 12px;
+
+    /* 3. 關鍵：設定每組固定或最小寬度，並禁止被擠壓 */
+    flex: 0 0 400px; /* 代表 (flex-grow: 0, flex-shrink: 0, flex-basis: 360px) */
+    max-width: 400px;
+  }
+
+    /* 在多欄模式下，強行讓所有稀有度群組保持展開，隱藏頁籤 */
+    .recommend-result-group.collapsed {
+        display: flex !important; 
+    }
+
+    #recommendLevelTab {
+        display: none !important; /* 桌機版全展開時，隱藏頂部頁籤 */
+    }
+    .recommend-result-group-body {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 12px;
+    }
+
+    /* 確保卡片裡面的圖片與文字不會把卡片撐爆 */
+    .recommend-count-item img,
+    .recommend-count-item .avatar {
+    max-width: 100% !important;
+    height: auto !important;
+    }
+
+    .recommend-count-item .name,
+    .recommend-count-item span {
+        width: 100% !important;
+        white-space: nowrap !important;     /* 不換行 */
+        overflow: hidden !important;        /* 超出隱藏 */
+        text-overflow: ellipsis !important; /* 顯示省略號 ... */
+        text-align: center;
+    }
+    .recommend-result-group-body {
+        display: grid;
+        /* 修正：將 minmax(400px, 1fr) 調整為更彈性的寬度（例如 280px 或 300px） */
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 12px;
+    }
+
+  /* 確保每一張卡片不會因為絕對定位或 flex-shrink 導致重疊 */
+  .recommend-card {
+    min-width: 0; /* 允許 Grid 子元素正常縮放 */
+    width: 100%;
+  }
+}
