@@ -221,7 +221,9 @@
     "thirdPartyTutorial_l2_2": "(If you want to use this feature on mobile, you need to check 'Allow Firewall' during installation) and set the IP of your computer here",
     "thirdPartyTutorial_l3": "Open the TMOGG tool and the proxy tool separately",
     "thirdPartyTutorial_l4": "Launch the main game",
-    "thirdPartyTutorial_l5": "Enable the switch for this feature, 'connect success' will be displayed upon success"
+    "thirdPartyTutorial_l5": "Enable the switch for this feature, 'connect success' will be displayed upon success",
+    "thirdPartyTutorial_l6_1": "Allow the website's [Apps on your device] permission. If not allowed, it will fail, and you need to manually enable the permission",
+    "thirdPartyTutorial_l6_2": "(Click the 'lock' icon on the left side of the URL. In the pop-up menu, click 'Site Settings' and enable the 'Apps on your device' permission. After that, refresh the page to apply the changes.)"
   },
   "levelLabels": {
     "0": "Item",

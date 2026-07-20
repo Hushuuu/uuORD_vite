@@ -220,7 +220,9 @@
     "thirdPartyTutorial_l2_2": "（若手機欲使用此功能，須在安裝時勾選允許防火牆）並在此設定自身電腦區域網路IP",
     "thirdPartyTutorial_l3": "分別打開TMOGG程式與轉代理工具",
     "thirdPartyTutorial_l4": "開啟遊戲主程式",
-    "thirdPartyTutorial_l5": "啟用本功能之開關，成功會顯示connect success"
+    "thirdPartyTutorial_l5": "啟用本功能之開關，成功會顯示connect success",
+    "thirdPartyTutorial_l6_1": "允許網站之[裝置上的應用程式]權限，若未允許會失敗，需手動開啟權限",
+    "thirdPartyTutorial_l6_2": "(點擊網址左側的「鎖頭」圖示。在彈出的選單中，點擊 「網站設定」，並啟用「裝置上的應用程式」權限。完成後，重新整理頁面以套用更改。)"
   },
   "levelLabels": {
     "0": "物品",
