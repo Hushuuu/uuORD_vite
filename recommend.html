@@ -230,6 +230,8 @@
           </div>
           <div class="toggle-container" style="grid-column: span 4;">
             <label class="field-label" data-i18n="recommend.auto_update_owned">自動更新擁有角色(需第三方程式)</label>
+            <img src="/resource/help.svg" style="width: 24px; height: 24px; cursor: pointer;" alt="Tutorial"
+              onclick="document.getElementById('thirdPartyTutorialModal').open()" title="點擊查看使用教學/ Tutorial">
             <label class="switch">
               <input type="checkbox" id="tmoConnectToggle">
               <span class="slider"></span>
@@ -268,6 +270,29 @@
     </section>
   </div>
   <my-footer></my-footer>
+  <my-modal id="thirdPartyTutorialModal" size="large">
+    <div>
+      <h3 data-i18n="thirdPartyTutorial_title">第三方程式使用教學</h3>
+      <p data-i18n="thirdPartyTutorial_h1">若要使用自動更新擁有角色功能，請先安裝並啟用第三方程式。</p>
+      <p data-i18n="thirdPartyTutorial_h2">請按照以下步驟操作：</p>
+      <ol>
+        <li>
+          <a style="text-decoration: underline;color:lightcoral" href="https://tmo.gg/notice/12" target="_blank"
+            data-i18n="thirdPartyTutorial_l1">下載TMOGG程式&amp;並註冊與登入</a>
+        </li>
+        <li>
+          <a style="text-decoration: underline;color:lightcoral" href="#"
+            data-i18n="thirdPartyTutorial_l2_1">下載轉代理TMO工具</a>
+          <span style="font-style: italic;"
+            data-i18n="thirdPartyTutorial_l2_2">（若手機欲使用此功能，須在安裝時勾選允許防火牆）並在此設定自身電腦區域網路IP</span>
+          <input type="text" id="tmoProxyIpInput" placeholder="192.168.0.X" />
+        </li>
+        <li data-i18n="thirdPartyTutorial_l3">分別打開TMOGG程式與轉代理工具</li>
+        <li data-i18n="thirdPartyTutorial_l4">開啟遊戲主程式</li>
+        <li data-i18n="thirdPartyTutorial_l5">啟用本功能之開關，成功會顯示connect success</li>
+      </ol>
+    </div>
+  </my-modal>
 </body>
 
 </html>

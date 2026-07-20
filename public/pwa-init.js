@@ -1,5 +1,5 @@
 const isLocalhost = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
-const enableSWOnLocalhost = false; // 開發時設為 true，方便你在本機測試更新功能
+const enableSWOnLocalhost = true; // 開發時設為 true，方便你在本機測試更新功能
 
 if ('serviceWorker' in navigator && (!isLocalhost || enableSWOnLocalhost)) {
   window.addEventListener('load', () => {
