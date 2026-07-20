@@ -824,7 +824,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         const tmoProxyIpInput = document.getElementById('tmoProxyIpInput');
         if(tmoProxyIpInput && tmoProxyIpInput.value){
           //http://127.0.0.1:25626/datas
-          tmoEndpoint = `https://${tmoProxyIpInput.value}:25626/datas`;
+          tmoEndpoint = `http://${tmoProxyIpInput.value}:25626/datas`;
           tAddSpace = 'private';
         }
         const rs = await fetch(`${tmoEndpoint}`,{
