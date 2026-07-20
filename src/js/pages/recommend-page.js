@@ -820,14 +820,16 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     async function pollTmoData() {
       try {
         let tmoEndpoint = __TMO_API_ENDPOINT__;
+        let tAddSpace = 'loopback';
         const tmoProxyIpInput = document.getElementById('tmoProxyIpInput');
         if(tmoProxyIpInput && tmoProxyIpInput.value){
           //http://127.0.0.1:25626/datas
           tmoEndpoint = `https://${tmoProxyIpInput.value}:25626/datas`;
+          tAddSpace = 'private';
         }
         const rs = await fetch(`${tmoEndpoint}`,{
           method: 'GET',
-          targetAddressSpace: 'loopback'
+          targetAddressSpace: tAddSpace
         });
         if (rs.ok) {
           if(tmoConnectStatus){
