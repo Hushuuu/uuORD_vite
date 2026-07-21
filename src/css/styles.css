@@ -401,7 +401,7 @@ button.success {
 
 .data-table th,
 .data-table td {
-  padding: 14px 12px;
+  padding: 5px 5px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   vertical-align: top;
   text-align: left;
@@ -1074,7 +1074,7 @@ button.success {
 }
 
 .node-card {
-  padding: 12px 14px;
+  padding: 6px 14px;
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -1131,6 +1131,7 @@ button.success {
   color: var(--muted-color);
   font-size: 0.82rem;
   padding-left: 4px;
+  height: 10px;
 }
 
 .tree-node-action {
