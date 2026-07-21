@@ -301,7 +301,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
           nextTrail.add(childRecord.character_id);
           return `
             <li>
-              <details class="branch-details recommend-material-branch">
+              <details class="branch-details recommend-material-branch" data-tree-key="${childRecord.character_id}">
                 <summary class="branch-summary recommend-material-row">
                   ${summaryContent}
                   <span class="branch-toggle-hint">
@@ -395,8 +395,11 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
           render: createTomSelectRenderConfig(),
           dropdownParent: 'body',
           plugins: ['remove_button'],
+          duplicates: true,     // 允許重複選擇同一個項目
+          hideSelected: false,  // 已選過的項目依然顯示在下拉選單中
         })
       : null;
+    //window.ownedSelector = ownedSelector;
 
     function renderTargetLevelCheckboxes() {
       targetLevelGrid.innerHTML = targetOptions
@@ -507,8 +510,8 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       const openKeys = new Set();
       if (resultList) {
         resultList.querySelectorAll('details[open]').forEach((el) => {
-          // 假設 details 上有 data-tree-key，或是用特定的選擇器/特徵辨識
-          const key = el.dataset.treeKey || el.querySelector('.recommend-material-name')?.textContent;
+          // 假設 details 上有 data-tree-key
+          const key = el.dataset.treeKey || '';
           if (key) {
             openKeys.add(key);
           }
@@ -594,7 +597,15 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                   .map(({ record, requiredText, completionRatio }) => `
                     <article class="recommend-card">
                       <div class="card-top-progress-container">
-                        <div class="card-top-progress-bar" style="width: ${((completionRatio || 0) * 100).toFixed(2)}%;"></div>
+                        <div class="card-top-progress-bar" style="width: ${((completionRatio || 0) * 100).toFixed(2)}%;
+                        text-align: center;
+                        color: indigo;
+                        height: 11px;
+                        font-size: 11px;
+                        font-weight: bold;
+                        font-style: italic;">
+                            ${((completionRatio || 0) * 100).toFixed(0)}%
+                        </div>
                       </div>
                       <div class="recommend-card-top">
                         <span class="badge badge-${record.level}">${escapeHtml(getLevelLabel(record.level))}</span>
@@ -626,7 +637,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                         </div>
                       </details>
                       <div class="recommend-card-foot">
-                        <span class="recommend-shortage ${requiredText === '無需額外素材' ? 'is-ready' : ''}">${requiredText === '無需額外素材' ? i18n.t('recommend.canCraft') : `${i18n.t('recommend.needMaterials')}: ${escapeHtml(requiredText)}`}</span>
+                        <span class="recommend-shortage ${requiredText === '無需額外素材' ? 'is-ready' : ''}">${requiredText === '無需額外素材' ? '' : `${i18n.t('recommend.needMaterials')}: ${escapeHtml(requiredText)}`}</span>
                         <span class="muted"></span>
                       </div>
                     </article>
@@ -879,19 +890,20 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
               }
             }else{
               if (ownedSelector) {
-                  const currentValues = ownedSelector.getValue();
-                  //console.log(`Current ownedSelector values: ${currentValues}`);
-                  const existingValue = currentValues.find(value => value === characterId);
-                  if(tmoCount && !existingValue){
-                    ownedSelector.addItem(characterId, true);
-                    effectCount++;
-                    //console.log(`Adding character ${characterId} to ownedSelector due to tmoCount: ${tmoCount}`);
-                  }
-                  if(!tmoCount && existingValue){
-                    ownedSelector.removeItem(characterId, true);
-                    effectCount++;
-                    //console.log(`Removing character ${characterId} from ownedSelector due to tmoCount: ${tmoCount}`);
-                  }
+                  effectCount += setTomItemCount(ownedSelector, characterId, tmoCount);
+                  // const currentValues = ownedSelector.getValue();
+                  // //console.log(`Current ownedSelector values: ${currentValues}`);
+                  // const existingValue = currentValues.find(value => value === characterId);
+                  // if(tmoCount && !existingValue){
+                  //   ownedSelector.addItem(characterId, true);
+                  //   effectCount++;
+                  //   //console.log(`Adding character ${characterId} to ownedSelector due to tmoCount: ${tmoCount}`);
+                  // }
+                  // if(!tmoCount && existingValue){
+                  //   ownedSelector.removeItem(characterId, true);
+                  //   effectCount++;
+                  //   //console.log(`Removing character ${characterId} from ownedSelector due to tmoCount: ${tmoCount}`);
+                  // }
                 }
             }
           }
@@ -946,6 +958,39 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
 if (typeof window !== 'undefined' && window.ORDApp) {
   window.ORDApp.initRecommendPage = initRecommendPage;
 }
+
+/**
+ * 調整特定項目在 Tom Select 中的數量
+ * @param {Object} tomSelectInstance - Tom Select 的實例
+ * @param {string} value - 欲調整項目的 value (例如 'apple')
+ * @param {number} targetCount - 希望變更到的目標數量 (例如 5 或 3)
+ */
+function setTomItemCount(tomSelectInstance, value, targetCount) {
+  let effectCount = 0;
+  // 1. 計算目前這個 value 已經出現了幾次
+  const currentItems = tomSelectInstance.getValue();
+  const currentCount = currentItems.filter(item => item === value)?.length;
+
+  // 2. 比較數量，多退少補
+  if (targetCount > currentCount) {
+    // 數量不夠：補上差額
+    const diff = targetCount - currentCount;
+    for (let i = 0; i < diff; i++) {
+      tomSelectInstance.addItem(value);
+      effectCount++;
+    }
+  } else if (targetCount < currentCount) {
+    // 數量太多：刪除多餘的差額 (removeItem 一次會刪除一個)
+    const diff = currentCount - targetCount;
+    for (let i = 0; i < diff; i++) {
+      tomSelectInstance.removeItem(value);
+      effectCount++;
+    }
+  }
+  return effectCount;
+}
+//window.setTomItemCount = setTomItemCount;
+
 
 export default initRecommendPage;
 
