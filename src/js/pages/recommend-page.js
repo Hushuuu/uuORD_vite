@@ -817,11 +817,27 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     //timger tmogg api begin
     //tmoConnectStatus
     const tmoConnectStatus = document.getElementById('tmoConnectStatus');
+    const tmoToggle = document.getElementById('tmoConnectToggle');
+    let tmoTimerId = null; // 用來存 setTimeout 的 ID
+    let activeFetchController = null; // 用來記錄「當前正在進行的 fetch」
     async function pollTmoData() {
+      // 1. 每次進來前，先確保清除舊的 timer
+      if (tmoTimerId) {
+        clearTimeout(tmoTimerId);
+        tmoTimerId = null;
+      }
+      // 2. 防護機制：如果開關沒勾選，直接終止
+      if (!tmoToggle || !tmoToggle.checked) {
+        if (tmoConnectStatus) tmoConnectStatus.textContent = '';
+        return;
+      }
+      // 3. 建立這次請求專屬的 AbortController
+      activeFetchController = new AbortController();
+      const timeoutId = setTimeout(() => activeFetchController?.abort(), 5000);
       try {
         let tmoEndpoint = __TMO_API_ENDPOINT__;
         let tAddSpace = 'loopback';
-        const tmoProxyIpInput = document.getElementById('tmoProxyIpInput');
+        //const tmoProxyIpInput = document.getElementById('tmoProxyIpInput');
         //先不做這段了，一直打不通
         // if(tmoProxyIpInput && tmoProxyIpInput.value){
         //   //http://127.0.0.1:25626/datas
@@ -830,8 +846,11 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         // }
         const rs = await fetch(`${tmoEndpoint}`,{
           method: 'GET',
-          targetAddressSpace: tAddSpace
+          targetAddressSpace: tAddSpace,
+          signal: activeFetchController.signal // 綁定 signal
         });
+        clearTimeout(timeoutId); // 成功拿到回應後清除 timeout
+
         if (rs.ok) {
           if(tmoConnectStatus){
             tmoConnectStatus.textContent = `connect success`;
@@ -894,23 +913,31 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         }
       }
       finally {
-        if(!stopTmoInterval){
-          setTimeout(pollTmoData, 1500);
-        }else{
-          if(tmoConnectStatus){
-            tmoConnectStatus.textContent = ``;
-          }
+        // 清除已完成的 controller 參照
+        activeFetchController = null;
+        // 3. 只要開關還是勾選的，無論 catch 抓到什麼錯，無條件排下一次！
+        if (tmoToggle.checked) {
+          tmoTimerId = setTimeout(pollTmoData, 2000);
         }
       }
     }
-    const tmoToggle = document.getElementById('tmoConnectToggle');
-    let stopTmoInterval = false;
     tmoToggle.addEventListener('change', function() {
       if (this.checked) {
-        // 第一次啟動
-        setTimeout(pollTmoData, 1000);
+        // 開啟時：如果有殘留的 timer 先清掉，並延遲啟動
+        if (tmoTimerId) clearTimeout(tmoTimerId);
+        tmoTimerId = setTimeout(pollTmoData, 500); // 稍微縮短回應體感
       } else {
-        stopTmoInterval = true;
+        // 關閉時：1. 清除 Timer
+        if (tmoTimerId) {
+          clearTimeout(tmoTimerId);
+          tmoTimerId = null;
+        }
+        // 2. 強制中斷正在進行中的 fetch (讓舊的 pollTmoData 立刻進到 catch/finally 結束)
+        if (activeFetchController) {
+          activeFetchController.abort();
+          activeFetchController = null;
+        }
+        if (tmoConnectStatus) tmoConnectStatus.textContent = '';
       }
     });
     //timger tmogg api end
