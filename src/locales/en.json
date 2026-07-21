@@ -149,7 +149,6 @@
     "comp.noDownwardMaterials": "This character has no materials below.",
     "comp.noSkillEffects": "The team has no skill effects.",
     "comp.totalLabel": "Total:",
-    "comp.teamLabel": "Team {index}",
     "comp.treeTabCharacters": "Characters",
     "comp.treeTabMaterials": "Materials",
     "comp.treeTabSkills": "Skills",

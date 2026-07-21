@@ -185,9 +185,14 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     if (!record) return 1;
 
     const materials = record.materials || [];
-    if (!materials.length || record.level <= 1) {
+    if (record.level <= 1) {
       realWeightCache.set(characterId, 1);
       return 1;
+    }else
+    if (!materials.length) {
+      const wt = Math.floor(4 * record.level);
+      realWeightCache.set(characterId, wt);
+      return wt;
     }
 
     let totalWeight = 0;
@@ -758,7 +763,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       if (filterSections) {
         filterSections[0].classList.remove('collapsed');
         filterSections[1].classList.remove('collapsed');
-        collapseFilterButton.innerText = '收合條件';
+        collapseFilterButton.innerText = i18n.t('action.collapseFilters');
       }
     });
 

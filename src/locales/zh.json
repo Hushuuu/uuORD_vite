@@ -148,7 +148,6 @@
     "comp.noDownwardMaterials": "這個角色沒有可往下的材料。",
     "comp.noSkillEffects": "目前隊伍沒有技能效果。",
     "comp.totalLabel": "合計：",
-    "comp.teamLabel": "隊 {index}",
     "comp.treeTabCharacters": "角色",
     "comp.treeTabMaterials": "材料",
     "comp.treeTabSkills": "技能",
