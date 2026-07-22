@@ -216,7 +216,7 @@
     "thirdPartyTutorial_h2": "Please follow the steps below:",
     "thirdPartyTutorial_l1": "Download the TMOGG tool & register and log in",
     "thirdPartyTutorial_l2_1": "Download the TMO proxy tool",
-    "thirdPartyTutorial_l2_2": "(If you want to use this feature on mobile, you need to check 'Allow Firewall' during installation) and set the IP of your computer here",
+    "thirdPartyTutorial_l2_2": "(If you want to use this feature on mobile, you need to install the certificate and set the IP of your computer here)",
     "thirdPartyTutorial_l3": "Open the TMOGG tool and the proxy tool",
     "thirdPartyTutorial_l4": "Launch the game",
     "thirdPartyTutorial_l5": "Enable the switch for this feature, 'connect success' will be displayed upon success",
