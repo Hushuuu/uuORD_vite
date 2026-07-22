@@ -928,10 +928,10 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         if(tmoConnectStatus){
           tmoConnectStatus.textContent = `connect failed`;
         }
-        const fullErrorMessage = `
-        ❌ 錯誤名稱: ${e.name}
-        📝 錯誤訊息: ${e.message}`.trim();
-        alert(fullErrorMessage);
+        // const fullErrorMessage = `
+        // ❌ 錯誤名稱: ${e.name}
+        // 📝 錯誤訊息: ${e.message}`.trim();
+        // alert(fullErrorMessage);
       }
       finally {
         // 清除已完成的 controller 參照
