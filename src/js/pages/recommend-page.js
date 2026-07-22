@@ -928,6 +928,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         if(tmoConnectStatus){
           tmoConnectStatus.textContent = `connect failed`;
         }
+        alert(e)
       }
       finally {
         // 清除已完成的 controller 參照
