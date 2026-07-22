@@ -59,7 +59,32 @@ self.addEventListener('fetch', event => {
   if (url.protocol !== 'http:' && url.protocol !== 'https:') {
     return; 
   }
+  // 檢查是否為內網 IP 請求 (192.168.x.x, 10.x.x.x, 172.16-31.x.x)
+  const isPrivateIp = /^(192\.168\.|10\.|172\.(1[6-9]|2[0-9]|3[0-1])\.)/.test(url.hostname);
+  if (isPrivateIp) {
+    // 獨立處理內網 API，補回 targetAddressSpace 並直接向網絡請求，完全不做快取
+    event.respondWith(
+      (async () => {
+        const requestInit = {
+          method: event.request.method,
+          headers: event.request.headers,
+          mode: event.request.mode,
+          credentials: event.request.credentials,
+          cache: 'no-store',
+          redirect: event.request.redirect,
+          referrer: event.request.referrer,
+          targetAddressSpace: 'private' // 強制補回私人網路宣告
+        };
 
+        if (['POST', 'PUT', 'PATCH'].includes(event.request.method)) {
+          requestInit.body = await event.request.clone().arrayBuffer();
+        }
+
+        return fetch(event.request.url, requestInit);
+      })()
+    );
+    return;
+  }
   const isHtmlRequest = event.request.mode === 'navigate' || 
                         url.pathname.endsWith('.html') || 
                         ASSETS_TO_CACHE.includes(url.pathname);
