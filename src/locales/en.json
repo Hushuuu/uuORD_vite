@@ -214,7 +214,7 @@
     "thirdPartyTutorial_title": "Third-party Tool Usage Tutorial",
     "thirdPartyTutorial_h1": "To use the auto-update owned characters feature, please install and enable the third-party tool first.",
     "thirdPartyTutorial_h2": "Please follow the steps below:",
-    "thirdPartyTutorial_l1": "Download the TMOGG tool & register and log in",
+    "thirdPartyTutorial_l1": "Download the TMOGG tool",
     "thirdPartyTutorial_l2_1": "Download the TMO proxy tool",
     "thirdPartyTutorial_l2_2": "(If you want to use this feature on mobile, you need to install the certificate and set the IP of your computer here)",
     "thirdPartyTutorial_l3": "Open the TMOGG tool and the proxy tool",
