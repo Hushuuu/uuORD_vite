@@ -260,7 +260,11 @@
           <section class="panel" style="margin-top: 12px;">
             <div class="panel-header">
               <h2 class="panel-title" data-i18n="recommend.result_title">推薦結果</h2>
-              <p class="panel-desc" data-i18n="recommend.result_desc">顯示前10個建議，點x可推薦其他角色</p>
+              <!-- <p class="panel-desc" data-i18n="recommend.result_desc">顯示前10個建議，點x可推薦其他角色</p> -->
+              <div style="margin-top:5px;">
+                <button id="recommendShowLessBtn" type="button" class="secondary"
+                  data-i18n="action.showLess">顯示較少筆數(效能提升)</button>
+              </div>
             </div>
             <div id="recommendLevelTab" style="margin: 10px 0 10px 5px;"></div>
             <div id="recommendResultList" class="recommend-result-list"></div>

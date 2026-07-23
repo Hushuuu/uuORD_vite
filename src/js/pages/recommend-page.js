@@ -19,6 +19,9 @@ const {
 const i18n = ORDI18n || (typeof window !== 'undefined' ? window.ORDI18n : null) || null;
 const t = i18n && typeof i18n.t === 'function' ? i18n.t : (key) => key;
 
+// 預設顯示100筆
+let DEFAULT_SHOW_AMOUNT = 100;
+
 function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     return (skillTypes || []).map((skillType) => {
       const label = getSkillTypeLabel(skillType);
@@ -578,7 +581,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
               return compareRecords(left.record, right.record);
             })
             .filter(({ record }) => !dismissedCharacterIds.has(record.character_id))
-            .slice(0, 10);
+            .slice(0, DEFAULT_SHOW_AMOUNT);
 
           return { targetLevel, candidates };
         })
@@ -962,6 +965,16 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       }
     });
     //timger tmogg api end
+    //show less button begin
+    const recommendShowLessBtn = document.getElementById('recommendShowLessBtn');
+    if (recommendShowLessBtn) {
+      recommendShowLessBtn.addEventListener('click', () => {
+        DEFAULT_SHOW_AMOUNT = DEFAULT_SHOW_AMOUNT === 10 ? 100 : 10;
+        recommendShowLessBtn.textContent = DEFAULT_SHOW_AMOUNT === 10 ? i18n.t('action.showMore') : i18n.t('action.showLess');
+        renderRecommendations();
+      })
+    }
+    //shoow less button end
   }
 
 if (typeof window !== 'undefined' && window.ORDApp) {
