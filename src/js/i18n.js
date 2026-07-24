@@ -1,4 +1,4 @@
-import zh from '../locales/zh.json';
+﻿import zh from '../locales/zh.json';
 import en from '../locales/en.json';
 
 const STORAGE_KEY = 'ord_lang';
@@ -102,21 +102,28 @@ function applyDocumentLang() {
   document.documentElement.lang = currentLang === 'zh' ? 'zh-TW' : 'en';
 }
 
-function t(key, params = {}) {
-  const dict = TRANSLATIONS[currentLang] || TRANSLATIONS[DEFAULT_LANG];
-  let text = dict[key];
-  if (text === undefined) {
-    const fallbackDict = TRANSLATIONS[DEFAULT_LANG];
-    text = fallbackDict[key];
-  }
-  if (text === undefined) {
-    return key;
-  }
-  return text.replace(/\{(\w+)\}/g, (_, name) => {
-    return params[name] !== undefined ? String(params[name]) : `{${name}}`;
-  });
+// 把 a.b.c 解析為 obj.a.b.c，找不到回傳 undefined
+function resolveNested(dict, key) {
+  const parts = key.split("\.");
+  let val = dict;
+  for (const p of parts) { if (val === undefined || val === null) return undefined; val = val[p]; }
+  return val;
 }
 
+function t(key, params = {}) {
+  const dict = TRANSLATIONS[currentLang] || TRANSLATIONS[DEFAULT_LANG];
+  let text = resolveNested(dict, key);
+  if (text === undefined) {
+    const fallbackDict = TRANSLATIONS[DEFAULT_LANG];
+    text = resolveNested(fallbackDict, key);
+    }
+  if (text === undefined) {
+    return key;
+    }
+  return text.replace(/\{(\w+)\}/g, (_, name) => {
+    return params[name] !== undefined ? String(params[name]) : `{${name}}`;
+    });
+}
 function getLevelLabel(level) {
   const labels = LEVEL_LABELS[currentLang] || LEVEL_LABELS[DEFAULT_LANG];
   return labels[level] || `Lv.${level}`;

@@ -68,3 +68,7 @@
     width: 100%;
   }
 }
+
+.card-pinned {
+    border: 1px solid lightgrey;
+}

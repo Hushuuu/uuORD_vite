@@ -259,11 +259,17 @@
 
           <section class="panel" style="margin-top: 12px;">
             <div class="panel-header">
-              <h2 class="panel-title" data-i18n="recommend.result_title">推薦結果</h2>
-              <!-- <p class="panel-desc" data-i18n="recommend.result_desc">顯示前10個建議，點x可推薦其他角色</p> -->
-              <div style="margin-top:5px;">
+              <div style="display: flex;gap:10px;">
+                <h2 class="panel-title" data-i18n="recommend.result_title">推薦結果</h2>
                 <button id="recommendShowLessBtn" type="button" class="secondary"
                   data-i18n="action.showLess">顯示較少筆數(效能提升)</button>
+              </div>
+              <!-- <p class="panel-desc" data-i18n="recommend.result_desc">顯示前10個建議，點x可推薦其他角色</p> -->
+              <div style="margin-top:5px;">
+                <span class="" data-i18n="action.pin">釘選角色</span>:
+                <button id="recommendClearPinnedBtn" type="button" class="secondary"
+                  data-i18n="action.clearPinned">清除</button>
+                <span class="helper-text" id="pinnedCharactersText"></span>
               </div>
             </div>
             <div id="recommendLevelTab" style="margin: 10px 0 10px 5px;"></div>

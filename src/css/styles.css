@@ -484,6 +484,23 @@ button.success {
 .badge-18 { background: var(--badge-mystic); }
 .badge-23 { background: var(--badge-seraph); }
 
+.text-lv-0 { color: var(--badge-placeholder); }
+.text-lv-1 { color: var(--badge-common); }
+.text-lv-2 { color: var(--badge-uncommon); }
+.text-lv-3 { color: var(--badge-special); }
+.text-lv-4 { color: var(--badge-rare); }
+.text-lv-5 { color: var(--badge-legendary); }
+.text-lv-6 { color: var(--badge-hidden); }
+.text-lv-7 { color: var(--badge-twisted); }
+.text-lv-8 { color: var(--badge-evolving); }
+.text-lv-9 { color: var(--badge-limited); }
+.text-lv-10 { color: var(--badge-transcendent); }
+.text-lv-11 { color: var(--badge-immortal); }
+.text-lv-12 { color: var(--badge-eternal); }
+.text-lv-16 { color: var(--badge-random-only); }
+.text-lv-18 { color: var(--badge-mystic); }
+.text-lv-23 { color: var(--badge-seraph); }
+
 .chip-group {
   display: flex;
   flex-wrap: wrap;
@@ -757,7 +774,6 @@ button.success {
   margin: 0;
   font-size: 0.95rem;
   font-weight: 800;
-  color: #ffd28a;
 }
 
 .recommend-result-group-count {
@@ -1131,7 +1147,9 @@ button.success {
   color: var(--muted-color);
   font-size: 0.82rem;
   padding-left: 4px;
-  height: 10px;
+  /* height: 10px; */
+  margin-top: -5px;
+  margin-bottom: -5px;
 }
 
 .tree-node-action {
@@ -1794,7 +1812,7 @@ button.success {
 my-navbar {
         display: block;  /* 確保它佔滿整行 */
         width: 100%;     /* 限制它只能跟螢幕一樣寬 */
-        overflow: hidden; /* 強制把溢出的內容鎖在裡面 */
+        z-index:99999;
     }
 
 @media (min-width: 768px){
