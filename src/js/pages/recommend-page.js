@@ -873,6 +873,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     const tmoToggle = document.getElementById('tmoConnectToggle');
     let tmoTimerId = null; // 用來存 setTimeout 的 ID
     let activeFetchController = null; // 用來記錄「當前正在進行的 fetch」
+    let tmoFailedCount = 0; // 記錄連線失敗次數
     async function pollTmoData() {
       // 1. 每次進來前，先確保清除舊的 timer
       if (tmoTimerId) {
@@ -957,6 +958,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         }else{
           if(tmoConnectStatus){
             tmoConnectStatus.textContent = `connect failed`;
+            tmoFailedCount++;
           }
         }
       }
@@ -964,6 +966,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         console.error(e);
         if(tmoConnectStatus){
           tmoConnectStatus.textContent = `connect failed`;
+          tmoFailedCount++;
         }
         // const fullErrorMessage = `
         // ❌ 錯誤名稱: ${e.name}
@@ -973,6 +976,13 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       finally {
         // 清除已完成的 controller 參照
         activeFetchController = null;
+        if(tmoFailedCount >= 5){
+          tmoFailedCount = 0;
+          tmoToggle.checked = false;
+          if(tmoConnectStatus){
+            tmoConnectStatus.textContent = `stop by failed 5 times`;
+          }
+        }
         // 3. 只要開關還是勾選的，無論 catch 抓到什麼錯，無條件排下一次！
         if (tmoToggle.checked) {
           tmoTimerId = setTimeout(pollTmoData, 2000);
@@ -980,6 +990,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       }
     }
     tmoToggle.addEventListener('change', function() {
+      tmoFailedCount = 0;
       if (this.checked) {
         // 開啟時：如果有殘留的 timer 先清掉，並延遲啟動
         if (tmoTimerId) clearTimeout(tmoTimerId);

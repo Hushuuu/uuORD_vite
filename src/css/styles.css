@@ -1820,3 +1820,39 @@ my-navbar {
       width: min(1760px, calc(100% - 24px));
   }
 }
+
+/* 1. 標準寫法（Firefox） - 專為深色背景調亮 */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+}
+
+/* 2. WebKit 寫法（Chrome, Safari, Edge） */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* 滾動條軌道：保持透明，完美融合深色背景 */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 滾動條滑塊：改用白色半透明 */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 99px;
+  background-clip: padding-box;
+  border: 2px solid transparent; /* 內縮留白效果 */
+  transition: background-color 0.2s ease;
+}
+
+/* 滑鼠懸停：提高亮度至 45% */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+/* 滑鼠點擊拖曳中：提高亮度至 65% */
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(255, 255, 255, 0.65);
+}

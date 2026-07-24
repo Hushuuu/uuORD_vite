@@ -170,7 +170,7 @@
       "needMaterials": "Missing",
       "canCraft": "Can Craft",
       "selected": "Selected",
-      "auto_update_owned": "Auto-update owned characters (3rd-party tool required)"
+      "auto_update_owned": "👑Auto-update owned characters (3rd-party tool required)"
     },
     "tree": {
       "brand": "Craft Tree",
@@ -310,9 +310,10 @@
     "thirdPartyTutorial_l2_2": "(If using this feature on mobile, you need to configure the local network)",
     "thirdPartyTutorial_l3": "Open the TMOGG tool and the proxy tool",
     "thirdPartyTutorial_l4": "Launch the game",
-    "thirdPartyTutorial_l5": "Enable the switch for this feature, 'connect success' will be displayed upon success",
+    "thirdPartyTutorial_l5": "Enable the switch for this feature, you must allow the website permission the first time, 'connect success' will be displayed upon success",
     "thirdPartyTutorial_l6_1": "Allow the website's [Apps on your device] permission. If not allowed, it will fail, and you need to manually enable the permission (on mobile, also grant 'Local Network' permission)",
-    "thirdPartyTutorial_l6_2": "(Click the 'lock' icon on the left side of the URL. In the pop-up menu, click 'Site Settings' and enable the 'Apps on your device' permission. After that, refresh the page to apply the changes.)"
+    "thirdPartyTutorial_l6_2": "(Click the 'lock' icon on the left side of the URL. In the pop-up menu, click 'Site Settings' and enable the 'Apps on your device' or 'Local Network' permission. After that, refresh the page to apply the changes.)",
+    "thirdPartyTutorial_manualSteps" : "Manual steps to enable permission"
   },
   "levelLabels": {
     "0": "Item",
