@@ -508,7 +508,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     }
 
     // 固定禁止推薦
-    const defaultDismissedIds = ['2-12', '4-7', '4-46', '5-41', '6-10', '10-1'];
+    const defaultDismissedIds = ['2-12', '4-7', '4-46', '5-41', '6-10', '10-1', '5-10'];
 
     function renderRecommendations() {
       // 紀錄目前已經被使用者展開的 details key
