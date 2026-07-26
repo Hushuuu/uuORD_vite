@@ -619,7 +619,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                   .map(({ record, requiredText, completionRatio, isPinned }) => `
                     <article class="recommend-card ${isPinned ? 'card-pinned' : ''}">
                       <span tabindex="-1" style="position:absolute; top: 10px; right: 25px;" class="pinned-character-btn" data-pinned-character="${escapeHtml(record.character_id)}" aria-label="釘選">📌</span>
-                      <span style="position:absolute; top: 10px; right: 2px;" class="recommend-dismiss-btn" data-dismiss-character="${escapeHtml(record.character_id)}" aria-label="隱藏此推薦">❌</span>
+                      ${DEFAULT_SHOW_AMOUNT === 100 ? '' : `<span style="position:absolute; top: 10px; right: 2px;" class="recommend-dismiss-btn" data-dismiss-character="${escapeHtml(record.character_id)}" aria-label="隱藏此推薦">❌</span>`}
                       <div class="card-top-progress-container">
                         <div class="card-top-progress-bar" style="width: ${((completionRatio || 0) * 100).toFixed(2)}%;
                         text-align: center;
