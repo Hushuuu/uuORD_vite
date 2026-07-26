@@ -19,6 +19,9 @@ const {
 const i18n = ORDI18n || (typeof window !== 'undefined' ? window.ORDI18n : null) || null;
 const t = i18n && typeof i18n.t === 'function' ? i18n.t : (key) => key;
 
+// 預設顯示100筆
+let DEFAULT_SHOW_AMOUNT = 100;
+
 function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     return (skillTypes || []).map((skillType) => {
       const label = getSkillTypeLabel(skillType);
@@ -36,7 +39,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     const levels = [...new Set(records.map((record) => Number(record.level)).filter((level) => Number.isFinite(level) && level > 2))]
       .sort((left, right) => left - right);
 
-    return levels.map((level) => ({ value: level, label: `${level}｜${getLevelLabel(level)}` }));
+    return levels.map((level) => ({ value: level, label: `${getLevelLabel(level)}` }));
   }
 
   function countMapTotal(counts) {
@@ -538,8 +541,15 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         resultList.innerHTML = `<div class="empty-state">${i18n.t('recommend.noTargetRaritySelected')}</div>`;
         return;
       }else{
-        summary.textContent = `${i18n.t('recommend.selected')}：${selectedTargetLevels.map((level) => `${level}｜${getLevelLabel(level)}`).join(', ')}，
+        summary.textContent = `${i18n.t('recommend.selected')}：${selectedTargetLevels.map((level) => `${getLevelLabel(level)}`).join(', ')}，
         ${i18n.t('skill_type')}: ${selectedTargetSkillTypes.length > 0 ? selectedTargetSkillTypes.map((s)=> `${getSkillTypeLabel(s)}`).join(', ') : i18n.t('comp.materials.none')}`;
+      }
+      // pinned characters
+      const pinnedCharacterIds = new Set(getPinnedCharacters());
+      const pinnedTextDom = document.getElementById('pinnedCharactersText');
+      if(pinnedTextDom){
+        const pinnedTextHtml = buildPinnedCharactersHtml(records);
+        pinnedTextDom.innerHTML = pinnedTextHtml;
       }
 
       const resultGroups = selectedTargetLevels
@@ -562,9 +572,17 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                 requiredText: formatRequiredBaseMaterialsFromCounts(requiredCounts, indices),
                 missingTierCounts,
                 completionRatio,
+                isPinned: pinnedCharacterIds.has(record.character_id),
               };
             })
             .sort((left, right) => {
+              // pinned first
+              if (left.isPinned && !right.isPinned) {
+                return -1;
+              }
+              if (!left.isPinned && right.isPinned) {
+                return 1;
+              }
               // 🌟 排序策略 1：優先推薦「完成度（Ratio）最高」的（從 1.0 降序到 0.0）
               if (right.completionRatio !== left.completionRatio) {
                 return right.completionRatio - left.completionRatio;
@@ -578,7 +596,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
               return compareRecords(left.record, right.record);
             })
             .filter(({ record }) => !dismissedCharacterIds.has(record.character_id))
-            .slice(0, 10);
+            .slice(0, DEFAULT_SHOW_AMOUNT);
 
           return { targetLevel, candidates };
         })
@@ -594,13 +612,14 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
           (group) => `
             <section class="recommend-result-group" data-level="${group.targetLevel}">
               <div class="recommend-result-group-head">
-                <!--<h3 class="recommend-result-group-title">${escapeHtml(`${group.targetLevel}｜${getLevelLabel(group.targetLevel)}`)}</h3>-->
-                <span style="display: none;" class="recommend-result-group-count">${group.candidates.length}</span>
+                <h3 class="recommend-result-group-title text-lv-${group.targetLevel}">${escapeHtml(`${getLevelLabel(group.targetLevel)}`)}</h3>
               </div>
               <div class="recommend-result-group-body">
                 ${group.candidates
-                  .map(({ record, requiredText, completionRatio }) => `
-                    <article class="recommend-card">
+                  .map(({ record, requiredText, completionRatio, isPinned }) => `
+                    <article class="recommend-card ${isPinned ? 'card-pinned' : ''}">
+                      <span tabindex="-1" style="position:absolute; top: 10px; right: 25px;" class="pinned-character-btn" data-pinned-character="${escapeHtml(record.character_id)}" aria-label="釘選">📌</span>
+                      <span style="position:absolute; top: 10px; right: 2px;" class="recommend-dismiss-btn" data-dismiss-character="${escapeHtml(record.character_id)}" aria-label="隱藏此推薦">❌</span>
                       <div class="card-top-progress-container">
                         <div class="card-top-progress-bar" style="width: ${((completionRatio || 0) * 100).toFixed(2)}%;
                         text-align: center;
@@ -613,9 +632,8 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                         </div>
                       </div>
                       <div class="recommend-card-top">
-                        <span class="badge badge-${record.level}">${escapeHtml(getLevelLabel(record.level))}</span>
+                        <!--<span class="badge badge-${record.level}">${escapeHtml(getLevelLabel(record.level))}</span>-->
                         <strong>${escapeHtml(getDisplayName(record))} ${record.key_code ? `(${escapeHtml(record.key_code)})` : ''}</strong>
-                        <button type="button" class="secondary recommend-dismiss-btn" data-dismiss-character="${escapeHtml(record.character_id)}" aria-label="隱藏此推薦">×</button>
                       </div>
                       <div>
                         <span>${formatSkillLabelsWithValues(record.skill_types, record.skill_values).map((label) => `<span class="badge-skill-type">${escapeHtml(label)}</span>`).join('/')}</span>
@@ -794,13 +812,32 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     });
 
     resultList.addEventListener('click', (event) => {
+      // 點擊「隱藏此推薦」按鈕
+      let needRender = false;
       const button = event.target.closest('[data-dismiss-character]');
-      if (!button) {
-        return;
+      if (button) {
+        needRender = true;
+        dismissedCharacterIds.add(String(button.dataset.dismissCharacter || ''));
       }
-
-      dismissedCharacterIds.add(String(button.dataset.dismissCharacter || ''));
-      renderRecommendations();
+      // 點擊「釘選」按鈕
+      const pinButton = event.target.closest('[data-pinned-character]');
+      let pinnedId = '';
+      if (pinButton) {
+        needRender = true;
+        pinnedId = String(pinButton.dataset.pinnedCharacter || '');
+        if(!togglePinnedCharacter(pinnedId)){
+          pinnedId = ''; // 如果取消釘選，則不需要聚焦
+        }
+      }
+      if (needRender) {
+        renderRecommendations();
+        if(pinnedId){
+          setTimeout(() => {
+            const newPinButton = resultList.querySelector(`[data-pinned-character="${pinnedId}"]`);
+            newPinButton?.focus();
+          }, 0);
+        }
+      }
     });
 
     if (ownedSelector) {
@@ -836,6 +873,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     const tmoToggle = document.getElementById('tmoConnectToggle');
     let tmoTimerId = null; // 用來存 setTimeout 的 ID
     let activeFetchController = null; // 用來記錄「當前正在進行的 fetch」
+    let tmoFailedCount = 0; // 記錄連線失敗次數
     async function pollTmoData() {
       // 1. 每次進來前，先確保清除舊的 timer
       if (tmoTimerId) {
@@ -920,6 +958,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         }else{
           if(tmoConnectStatus){
             tmoConnectStatus.textContent = `connect failed`;
+            tmoFailedCount++;
           }
         }
       }
@@ -927,6 +966,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         console.error(e);
         if(tmoConnectStatus){
           tmoConnectStatus.textContent = `connect failed`;
+          tmoFailedCount++;
         }
         // const fullErrorMessage = `
         // ❌ 錯誤名稱: ${e.name}
@@ -936,6 +976,13 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       finally {
         // 清除已完成的 controller 參照
         activeFetchController = null;
+        if(tmoFailedCount >= 5){
+          tmoFailedCount = 0;
+          tmoToggle.checked = false;
+          if(tmoConnectStatus){
+            tmoConnectStatus.textContent = `stop by failed 5 times`;
+          }
+        }
         // 3. 只要開關還是勾選的，無論 catch 抓到什麼錯，無條件排下一次！
         if (tmoToggle.checked) {
           tmoTimerId = setTimeout(pollTmoData, 2000);
@@ -943,6 +990,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       }
     }
     tmoToggle.addEventListener('change', function() {
+      tmoFailedCount = 0;
       if (this.checked) {
         // 開啟時：如果有殘留的 timer 先清掉，並延遲啟動
         if (tmoTimerId) clearTimeout(tmoTimerId);
@@ -962,6 +1010,24 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       }
     });
     //timger tmogg api end
+    //show less button begin
+    const recommendShowLessBtn = document.getElementById('recommendShowLessBtn');
+    if (recommendShowLessBtn) {
+      recommendShowLessBtn.addEventListener('click', () => {
+        DEFAULT_SHOW_AMOUNT = DEFAULT_SHOW_AMOUNT === 10 ? 100 : 10;
+        recommendShowLessBtn.textContent = DEFAULT_SHOW_AMOUNT === 10 ? i18n.t('action.showMore') : i18n.t('action.showLess');
+        renderRecommendations();
+      })
+    }
+    //shoow less button end
+    //
+    const recommendClearPinnedBtn = document.getElementById('recommendClearPinnedBtn');
+    if(recommendClearPinnedBtn){
+      recommendClearPinnedBtn.addEventListener('click', () => {
+        clearPinnedCharacters();
+        renderRecommendations();
+      })
+    }
   }
 
 if (typeof window !== 'undefined' && window.ORDApp) {
@@ -1000,6 +1066,37 @@ function setTomItemCount(tomSelectInstance, value, targetCount) {
 }
 //window.setTomItemCount = setTomItemCount;
 
+//get&set pinned characters with localStorage
+function getPinnedCharacters() {
+  const pinned = localStorage.getItem('pinnedCharacters');
+  return pinned ? JSON.parse(pinned) : [];
+}
+function togglePinnedCharacter(characterId) {
+  const pinned = getPinnedCharacters();
+  const index = pinned.indexOf(characterId);
+  if (index === -1) {
+    pinned.push(characterId);
+  } else {
+    pinned.splice(index, 1);
+  }
+  localStorage.setItem('pinnedCharacters', JSON.stringify(pinned));
+  return index === -1; // 返回 true 表示已釘選，false 表示已取消釘選
+}
+function clearPinnedCharacters(){
+  localStorage.removeItem('pinnedCharacters');
+}
+//
+function buildPinnedCharactersHtml(records){
+  const pinnedCharacters = getPinnedCharacters();
+  //build span with level color and display name
+  return pinnedCharacters
+    .map((characterId) => {
+      const record = records.find((r) => r.character_id === characterId);
+      if (!record) return '';
+      return `<span class="text-lv-${record.level}" title="${escapeHtml(getDisplayName(record))}">${escapeHtml(getDisplayName(record))}</span>`;
+    })
+    .join(' | ');
+}
 
 export default initRecommendPage;
 

@@ -259,8 +259,18 @@
 
           <section class="panel" style="margin-top: 12px;">
             <div class="panel-header">
-              <h2 class="panel-title" data-i18n="recommend.result_title">推薦結果</h2>
-              <p class="panel-desc" data-i18n="recommend.result_desc">顯示前10個建議，點x可推薦其他角色</p>
+              <div style="display: flex;gap:10px;">
+                <h2 class="panel-title" data-i18n="recommend.result_title">推薦結果</h2>
+                <button id="recommendShowLessBtn" type="button" class="secondary"
+                  data-i18n="action.showLess">顯示較少筆數(效能提升)</button>
+              </div>
+              <!-- <p class="panel-desc" data-i18n="recommend.result_desc">顯示前10個建議，點x可推薦其他角色</p> -->
+              <div style="margin-top:5px;">
+                <span class="" data-i18n="action.pin">釘選角色</span>:
+                <button id="recommendClearPinnedBtn" type="button" class="secondary"
+                  data-i18n="action.clearPinned">清除</button>
+                <span class="helper-text" id="pinnedCharactersText"></span>
+              </div>
             </div>
             <div id="recommendLevelTab" style="margin: 10px 0 10px 5px;"></div>
             <div id="recommendResultList" class="recommend-result-list"></div>
@@ -282,9 +292,9 @@
         </li>
         <li>
           <a style="text-decoration: underline;color:lightcoral"
-            href="https://mega.nz/file/921hxYqJ#Z1ueT_28au7QB5JjF_Vm8zdtAahkmKhyMFoAz8OdsLs" target="_blank"
-            data-i18n="thirdPartyTutorial_l2_1">下載轉代理TMO工具</a>
-          <span style="font-style: italic;" data-i18n="thirdPartyTutorial_l2_2">若手機欲使用此功能需安裝憑證，並在此設定電腦區域網路IP</span>
+            href="https://mega.nz/file/l7U0RCTK#6g8fPXC-zn8sJ6nvKcvl4b5DY26Vqut_z8bIBR0B6P4" target="_blank"
+            data-i18n="thirdPartyTutorial_l2_1">下載轉代理TMO工具(內有說明文件)</a>
+          <span style="font-style: italic;" data-i18n="thirdPartyTutorial_l2_2">若手機使用此功能需設定區網</span>
           <input type="text" id="tmoProxyIpInput" placeholder="192.168.0.X (when using mobile)" />
         </li>
         <li data-i18n="thirdPartyTutorial_l3">打開TMOGG程式與轉代理工具</li>
@@ -293,12 +303,17 @@
           <span data-i18n="thirdPartyTutorial_l6_1">
             允許網站之[裝置上的應用程式]權限，若未允許會失敗，需手動開啟權限
           </span>
+        </li>
+        <li data-i18n="thirdPartyTutorial_l4">開啟遊戲主程式</li>
+      </ol>
+      <p data-i18n="thirdPartyTutorial_manualSteps">手動開啟權限步驟</p>
+      <ul>
+        <li>
           <span style="font-style: italic;" data-i18n="thirdPartyTutorial_l6_2">
             點擊網址左側的「鎖頭」圖示。在彈出的選單中，點擊 「網站設定」，並啟用「裝置上的應用程式」權限。完成後，重新整理頁面以套用更改。
           </span>
         </li>
-        <li data-i18n="thirdPartyTutorial_l4">開啟遊戲主程式</li>
-      </ol>
+      </ul>
     </div>
   </my-modal>
 </body>

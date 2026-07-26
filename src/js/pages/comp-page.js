@@ -149,7 +149,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
             checkboxLabel.className = 'checkbox-badge';
             checkboxLabel.innerHTML = `
               <input type="checkbox" value="${level}" ${checkedLevels.has(level) ? 'checked' : ''}>
-              <span class="checkbox-badge-label badge-${level}">${level}｜${getLevelLabel(level)}</span>
+              <span class="checkbox-badge-label badge-${level}">${getLevelLabel(level)}</span>
             `;
 
             const input = checkboxLabel.querySelector('input');
