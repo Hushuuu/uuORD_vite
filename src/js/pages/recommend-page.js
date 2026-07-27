@@ -391,6 +391,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       checkedSkillTypes: new Set(),
     };
     let dismissedCharacterIds = new Set();
+    let activeResultLevel = null;
 
     const ownedSelector = hasTomSelect
       ? new window.TomSelect(ownedSelect, {
@@ -410,6 +411,38 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         })
       : null;
     //window.ownedSelector = ownedSelector;
+
+    function createCurrentInventory() {
+      const selectedOwnedIds = ownedSelector
+        ? normalizeOwnedValues(ownedSelector.getValue())
+        : Array.from(ownedSelect.selectedOptions).map((option) => option.value);
+      return createInventoryMap(records, ownedCountState, selectedOwnedIds);
+    }
+
+    function loadMaterialTree(details, openKeys) {
+      if (!details.open || details.dataset.treeLoaded === 'true') {
+        return;
+      }
+
+      const record = indices.byCharacterId.get(details.dataset.characterId);
+      const container = details.querySelector('[data-material-tree-container]');
+      if (!record || !container) {
+        return;
+      }
+
+      container.innerHTML = `
+        <ul class="recommend-material-tree">
+          ${renderMaterialTree(record, createCurrentInventory(), indices, new Set(), record.character_id)}
+        </ul>
+      `;
+      details.dataset.treeLoaded = 'true';
+
+      if (openKeys) {
+        container.querySelectorAll('details[data-tree-key]').forEach((childDetails) => {
+          childDetails.open = openKeys.has(childDetails.dataset.treeKey);
+        });
+      }
+    }
 
     function renderTargetLevelCheckboxes() {
       targetLevelGrid.innerHTML = targetOptions
@@ -431,7 +464,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
           } else {
             targetState.selectedTargetLevels.delete(level);
           }
-          renderRecommendations();
+          scheduleRecommendationsRender();
         });
       });
     }
@@ -507,7 +540,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
           } else {
             targetState.checkedSkillTypes.delete(input.value);
           }
-          renderRecommendations();
+          scheduleRecommendationsRender();
         });
       });
     }
@@ -515,42 +548,21 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     // 固定禁止推薦
     const defaultDismissedIds = ['2-12', '4-7', '4-46', '5-41', '6-10', '10-1', '5-10'];
 
-    function renderRecommendations() {
-      // 紀錄目前已經被使用者展開的 details key
-      const openKeys = new Set();
-      if (resultList) {
-        resultList.querySelectorAll('details[open][data-tree-key]').forEach((el) => {
-          //details 上有 data-tree-key
-          openKeys.add(el.dataset.treeKey);
-        });
-      }
-
+    function computeRecommendations() {
       const selectedTargetLevels = [...targetState.selectedTargetLevels].sort((left, right) => left - right);
-      const selectedOwnedIds = ownedSelector
-        ? normalizeOwnedValues(ownedSelector.getValue())
-        : Array.from(ownedSelect.selectedOptions).map((option) => option.value);
-      const inventory = createInventoryMap(records, ownedCountState, selectedOwnedIds);
+      const inventory = createCurrentInventory();
       const selectedTargetSkillTypes = [...targetState.checkedSkillTypes];
 
-      renderOwnedTabs();
-      renderOwnedPanels();
-
       if (selectedTargetLevels.length === 0) {
-        summary.textContent = i18n.t('recommend.noTargetRaritySelected');
-        resultList.innerHTML = `<div class="empty-state">${i18n.t('recommend.noTargetRaritySelected')}</div>`;
-        return;
-      }else{
-        summary.textContent = `${i18n.t('recommend.selected')}：${selectedTargetLevels.map((level) => `${getLevelLabel(level)}`).join(', ')}，
-        ${i18n.t('skill_type')}: ${selectedTargetSkillTypes.length > 0 ? selectedTargetSkillTypes.map((s)=> `${getSkillTypeLabel(s)}`).join(', ') : i18n.t('comp.materials.none')}`;
-      }
-      // pinned characters
-      const pinnedCharacterIds = new Set(getPinnedCharacters());
-      const pinnedTextDom = document.getElementById('pinnedCharactersText');
-      if(pinnedTextDom){
-        const pinnedTextHtml = buildPinnedCharactersHtml(records);
-        pinnedTextDom.innerHTML = pinnedTextHtml;
+        return {
+          inventory,
+          resultGroups: [],
+          selectedTargetLevels,
+          selectedTargetSkillTypes,
+        };
       }
 
+      const pinnedCharacterIds = new Set(getPinnedCharacters());
       const resultGroups = selectedTargetLevels
         .map((targetLevel) => {
           const candidates = records
@@ -601,8 +613,44 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         })
         .filter((group) => group.candidates.length > 0);
 
+      return {
+        inventory,
+        resultGroups,
+        selectedTargetLevels,
+        selectedTargetSkillTypes,
+      };
+    }
+
+    function renderRecommendationResults(recommendations) {
+      const {
+        inventory,
+        resultGroups,
+        selectedTargetLevels,
+        selectedTargetSkillTypes,
+      } = recommendations;
+      const openKeys = new Set();
+      resultList.querySelectorAll('details[open][data-tree-key]').forEach((el) => {
+        openKeys.add(el.dataset.treeKey);
+      });
+
+      if (selectedTargetLevels.length === 0) {
+        summary.textContent = i18n.t('recommend.noTargetRaritySelected');
+        resultList.innerHTML = `<div class="empty-state">${i18n.t('recommend.noTargetRaritySelected')}</div>`;
+        renderLevelTabs([]);
+        return;
+      }
+
+      summary.textContent = `${i18n.t('recommend.selected')}：${selectedTargetLevels.map((level) => `${getLevelLabel(level)}`).join(', ')}，
+        ${i18n.t('skill_type')}: ${selectedTargetSkillTypes.length > 0 ? selectedTargetSkillTypes.map((skillType) => `${getSkillTypeLabel(skillType)}`).join(', ') : i18n.t('comp.materials.none')}`;
+
+      const pinnedTextDom = document.getElementById('pinnedCharactersText');
+      if (pinnedTextDom) {
+        pinnedTextDom.innerHTML = buildPinnedCharactersHtml(records);
+      }
+
       if (resultGroups.length === 0) {
         resultList.innerHTML = '<div class="empty-state">此條件沒有可推薦的角色。</div>';
+        renderLevelTabs(selectedTargetLevels);
         return;
       }
       //console.log('resultGroups',resultGroups)
@@ -640,7 +688,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                       <div style="margin-top: -10px; margin-bottom: -5px;">
                         <span class="badge-skill-type">${escapeHtml(record.remark)}</span>
                       </div>
-                      <details class="branch-details recommend-material-details" data-tree-key="${record.character_id}">
+                      <details class="branch-details recommend-material-details" data-tree-key="${record.character_id}" data-character-id="${escapeHtml(record.character_id)}">
                         <summary class="branch-summary recommend-material-summary">
                           <div class="recommend-material-summary-head">
                             <span class="recommend-material-summary-label">${i18n.t('materials')}</span>
@@ -652,11 +700,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                             ${renderMaterialPreview(record, inventory, indices)}
                           </div>
                         </summary>
-                        <div class="recommend-material-body">
-                          <ul class="recommend-material-tree">
-                            ${renderMaterialTree(record, inventory, indices, new Set(), record.character_id)}
-                          </ul>
-                        </div>
+                        <div class="recommend-material-body" data-material-tree-container></div>
                       </details>
                       <div class="recommend-card-foot">
                         <span class="recommend-shortage ${requiredText === '無需額外素材' ? 'is-ready' : ''}">${requiredText === '無需額外素材' ? '' : `${i18n.t('recommend.needMaterials')}: ${escapeHtml(requiredText)}`}</span>
@@ -677,59 +721,99 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         resultList.querySelectorAll('details[data-tree-key]').forEach((el) => {
           if (openKeys.has(el.dataset.treeKey)) {
             el.open = true; // 將 open 屬性設回 true
+            loadMaterialTree(el, openKeys);
           }
         });
       }
-      //render selected level tab
-      const recommendLevelTab = document.getElementById('recommendLevelTab');
-      let hasActiveTab = document.querySelector('.recommend-level-tab.active');
-      if (recommendLevelTab) {
-        recommendLevelTab.innerHTML = [...targetState.selectedTargetLevels].sort((left, right) => left - right)
-          .map((level) => `<a class="recommend-level-tab ${hasActiveTab && Number(hasActiveTab.dataset.level) === level ? 'active' : ''}" data-level="${level}">
-           ${level} | ${escapeHtml(getLevelLabel(level))}</a>`)
-          .join('');
-      }
-      document.querySelectorAll('.recommend-level-tab').forEach((button) => {
-        button.addEventListener('click', () => {
-          const level = Number(button.dataset.level);
-          if (isNaN(level)) {
-            return;
-          }
-          // 1. 先清除所有按鈕的 active，並將當前點擊的按鈕加上 active
-          document.querySelectorAll('.recommend-level-tab').forEach(btn => btn.classList.remove('active'));
-          button.classList.add('active');
+      renderLevelTabs(selectedTargetLevels);
+    }
 
-          // 2. 切換群組的顯示狀態 (精簡寫法：使用 toggle 第二個參數)
-          document.querySelectorAll('.recommend-result-group').forEach((group) => {
-            const isMatch = Number(group.dataset.level) === level;
-            group.classList.toggle('collapsed', !isMatch); 
-          });
-        });
-      });
-      hasActiveTab = document.querySelector('.recommend-level-tab.active');
-      if(!hasActiveTab){
-        //console.log('first tab default')
-        const firstTab = document.querySelector('.recommend-level-tab');
-        if (firstTab) {
-          firstTab.classList.add('active');
-          const level = Number(firstTab.dataset.level);
-          document.querySelectorAll('.recommend-result-group').forEach((group) => {
-            group.classList.add('collapsed');
-            if (Number(group.dataset.level) === level) {
-              group.classList.remove('collapsed');
-            }
-          });
-        }
-      }else{
-        const level = Number(hasActiveTab.dataset.level);
-        document.querySelectorAll('.recommend-result-group').forEach((group) => {
-          group.classList.add('collapsed');
-          if (Number(group.dataset.level) === level) {
-            group.classList.remove('collapsed');
-          }
-        });
+    function renderLevelTabs(selectedTargetLevels) {
+      const recommendLevelTab = document.getElementById('recommendLevelTab');
+      if (!recommendLevelTab) {
+        return;
       }
-      ///
+
+      if (selectedTargetLevels.length === 0) {
+        activeResultLevel = null;
+        recommendLevelTab.innerHTML = '';
+        return;
+      }
+
+      if (!selectedTargetLevels.includes(activeResultLevel)) {
+        activeResultLevel = selectedTargetLevels[0];
+      }
+
+      recommendLevelTab.innerHTML = selectedTargetLevels
+        .map((level) => `<a class="recommend-level-tab ${level === activeResultLevel ? 'active' : ''}" data-level="${level}">
+          ${level} | ${escapeHtml(getLevelLabel(level))}</a>`)
+        .join('');
+      setActiveResultLevel(activeResultLevel);
+    }
+
+    function setActiveResultLevel(level) {
+      activeResultLevel = level;
+      document.querySelectorAll('.recommend-level-tab').forEach((button) => {
+        button.classList.toggle('active', Number(button.dataset.level) === level);
+      });
+      resultList.querySelectorAll('.recommend-result-group').forEach((group) => {
+        group.classList.toggle('collapsed', Number(group.dataset.level) !== level);
+      });
+    }
+
+    function renderOwnedControls() {
+      renderOwnedTabs();
+      renderOwnedPanels();
+    }
+
+    function setActiveOwnedPanel(level) {
+      targetState.activeOwnedLevel = level;
+      ownedTabs.querySelectorAll('[data-owned-tab]').forEach((tab) => {
+        tab.classList.toggle('active', Number(tab.dataset.ownedTab) === level);
+      });
+      ownedPanels.querySelectorAll('[data-owned-panel]').forEach((panel) => {
+        const isActive = Number(panel.dataset.ownedPanel) === level;
+        panel.classList.toggle('active', isActive);
+        panel.classList.toggle('is-hidden', !isActive);
+      });
+    }
+
+    function renderRecommendations() {
+      renderRecommendationResults(computeRecommendations());
+    }
+
+    let scheduledRenderFrame = null;
+    let shouldRenderOwnedControls = false;
+    let afterRenderCallbacks = [];
+
+    function scheduleRecommendationsRender(options) {
+      const {
+        renderOwnedControls: shouldRenderOwnedControlsNow = false,
+        afterRender,
+      } = options && typeof options === 'object' ? options : {};
+      shouldRenderOwnedControls ||= shouldRenderOwnedControlsNow;
+
+      if (typeof afterRender === 'function') {
+        afterRenderCallbacks.push(afterRender);
+      }
+
+      if (scheduledRenderFrame !== null) {
+        return;
+      }
+
+      scheduledRenderFrame = requestAnimationFrame(() => {
+        scheduledRenderFrame = null;
+        const shouldRenderOwnedControlsNow = shouldRenderOwnedControls;
+        shouldRenderOwnedControls = false;
+        if (shouldRenderOwnedControlsNow) {
+          renderOwnedControls();
+        }
+        renderRecommendations();
+
+        const callbacks = afterRenderCallbacks;
+        afterRenderCallbacks = [];
+        callbacks.forEach((callback) => callback());
+      });
     }
 
     function setOwnedCardCount(level, characterId, delta) {
@@ -740,19 +824,18 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       } else {
         ownedCountState[level].set(characterId, next);
       }
-      renderRecommendations();
+      scheduleRecommendationsRender({ renderOwnedControls: true });
     }
     
     renderTargetLevelCheckboxes();
     renderSkillTypeCheckboxes();
-    renderOwnedTabs();
-    renderOwnedPanels();
+    renderOwnedControls();
     syncOwnedOptions();
     renderRecommendations();
 
     refreshButton.addEventListener('click', () => {
       dismissedCharacterIds = new Set();
-      renderRecommendations();
+      scheduleRecommendationsRender();
     });
 
     resetButton.addEventListener('click', () => {
@@ -773,7 +856,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       //console.log('重置技能篩選');
       renderSkillTypeCheckboxes();
       //console.log('重置技能篩選renderSkillTypeCheckboxes');
-      renderRecommendations();
+      scheduleRecommendationsRender({ renderOwnedControls: true });
       //重置條件區顯示
       const filterSections = document.querySelectorAll('.controls-grid .field-group');
       if (filterSections) {
@@ -789,8 +872,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         return;
       }
 
-      targetState.activeOwnedLevel = Number(button.dataset.ownedTab || 1);
-      renderRecommendations();
+      setActiveOwnedPanel(Number(button.dataset.ownedTab || 1));
     });
 
     ownedPanels.addEventListener('click', (event) => {
@@ -828,20 +910,46 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
         }
       }
       if (needRender) {
-        renderRecommendations();
-        if(pinnedId){
-          setTimeout(() => {
-            const newPinButton = resultList.querySelector(`[data-pinned-character="${pinnedId}"]`);
-            newPinButton?.focus();
-          }, 0);
-        }
+        scheduleRecommendationsRender({
+          afterRender: () => {
+            if (!pinnedId) {
+              return;
+            }
+
+            resultList.querySelector(`[data-pinned-character="${pinnedId}"]`)?.focus();
+          },
+        });
       }
     });
 
+    const recommendLevelTab = document.getElementById('recommendLevelTab');
+    recommendLevelTab?.addEventListener('click', (event) => {
+      const button = event.target.closest('.recommend-level-tab');
+      if (!button || !recommendLevelTab.contains(button)) {
+        return;
+      }
+
+      const level = Number(button.dataset.level);
+      if (!Number.isFinite(level)) {
+        return;
+      }
+
+      setActiveResultLevel(level);
+    });
+
+    resultList.addEventListener('toggle', (event) => {
+      if (!(event.target instanceof HTMLDetailsElement)
+        || !event.target.classList.contains('recommend-material-details')) {
+        return;
+      }
+
+      loadMaterialTree(event.target);
+    }, true);
+
     if (ownedSelector) {
-      ownedSelector.on('change', renderRecommendations);
+      ownedSelector.on('change', scheduleRecommendationsRender);
     } else {
-      ownedSelect.addEventListener('change', renderRecommendations);
+      ownedSelect.addEventListener('change', scheduleRecommendationsRender);
     }
 
     collapseFilterButton.addEventListener('click', () => {
@@ -911,6 +1019,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
           //console.log('tmogg api data', data);
           const units = data.units || {};
           let effectCount = 0;
+          let ownedCountsChanged = false;
           for(const[tmoId, characterId] of TMO_TRANSFER_DATA.entries()){
             const characterRecord = indices.byCharacterId.get(characterId);
             if(!characterRecord){
@@ -923,6 +1032,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                 continue; // 如果數量沒有變化，跳過更新
               }
               effectCount++;
+              ownedCountsChanged = true;
               //console.log(`Updating character ${characterId} (level ${characterRecord.level}) count from ${current} to ${tmoCount}`);
               if (tmoCount === 0) {
                 ownedCountState[characterRecord.level].delete(characterId);
@@ -949,7 +1059,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
             }
           }
           if(effectCount > 0){
-            renderRecommendations();
+            scheduleRecommendationsRender({ renderOwnedControls: ownedCountsChanged });
             //console.log(`tmogg api data updated, effectCount: ${effectCount}`);
           }
           //console.log('tmogg api data', data);
@@ -1014,7 +1124,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       recommendShowLessBtn.addEventListener('click', () => {
         DEFAULT_SHOW_AMOUNT = DEFAULT_SHOW_AMOUNT === 10 ? 100 : 10;
         recommendShowLessBtn.textContent = DEFAULT_SHOW_AMOUNT === 10 ? i18n.t('action.showMore') : i18n.t('action.showLess');
-        renderRecommendations();
+        scheduleRecommendationsRender();
       })
     }
     //shoow less button end
@@ -1023,7 +1133,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     if(recommendClearPinnedBtn){
       recommendClearPinnedBtn.addEventListener('click', () => {
         clearPinnedCharacters();
-        renderRecommendations();
+        scheduleRecommendationsRender();
       })
     }
   }
@@ -1049,14 +1159,14 @@ function setTomItemCount(tomSelectInstance, value, targetCount) {
     // 數量不夠：補上差額
     const diff = targetCount - currentCount;
     for (let i = 0; i < diff; i++) {
-      tomSelectInstance.addItem(value);
+      tomSelectInstance.addItem(value, true);
       effectCount++;
     }
   } else if (targetCount < currentCount) {
     // 數量太多：刪除多餘的差額 (removeItem 一次會刪除一個)
     const diff = currentCount - targetCount;
     for (let i = 0; i < diff; i++) {
-      tomSelectInstance.removeItem(value);
+      tomSelectInstance.removeItem(value, true);
       effectCount++;
     }
   }
@@ -1097,4 +1207,3 @@ function buildPinnedCharactersHtml(records){
 }
 
 export default initRecommendPage;
-
