@@ -276,14 +276,16 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       .join('');
   }
 
-  function renderMaterialTree(record, inventory, indices, trail = new Set()) {
+  function renderMaterialTree(record, inventory, indices, trail = new Set(), parentPath = '') {
     const materials = record.materials || [];
     if (!materials.length) {
       return '';
     }
 
     return materials
-      .map((material) => {
+      .map((material, index) => {
+        const currentSegment = `${material.material_id}_${index}`;
+        const treeKey = parentPath ? `${parentPath}/${currentSegment}` : currentSegment;
         const childRecord = indices.byCharacterId.get(material.material_id);
         if (!childRecord) {
           return `
@@ -309,7 +311,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
           nextTrail.add(childRecord.character_id);
           return `
             <li>
-              <details class="branch-details recommend-material-branch" data-tree-key="${childRecord.character_id}">
+              <details class="branch-details recommend-material-branch" data-tree-key="${treeKey}">
                 <summary class="branch-summary recommend-material-row">
                   ${summaryContent}
                   <span class="branch-toggle-hint">
@@ -317,7 +319,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                   </span>
                 </summary>
                 <ul class="recommend-material-tree">
-                  ${renderMaterialTree(childRecord, inventory, indices, nextTrail)}
+                  ${renderMaterialTree(childRecord, inventory, indices, nextTrail, treeKey)}
                 </ul>
               </details>
             </li>
@@ -517,12 +519,9 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       // 紀錄目前已經被使用者展開的 details key
       const openKeys = new Set();
       if (resultList) {
-        resultList.querySelectorAll('details[open]').forEach((el) => {
-          // 假設 details 上有 data-tree-key
-          const key = el.dataset.treeKey || '';
-          if (key) {
-            openKeys.add(key);
-          }
+        resultList.querySelectorAll('details[open][data-tree-key]').forEach((el) => {
+          //details 上有 data-tree-key
+          openKeys.add(el.dataset.treeKey);
         });
       }
 
@@ -655,7 +654,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                         </summary>
                         <div class="recommend-material-body">
                           <ul class="recommend-material-tree">
-                            ${renderMaterialTree(record, inventory, indices)}
+                            ${renderMaterialTree(record, inventory, indices, new Set(), record.character_id)}
                           </ul>
                         </div>
                       </details>
@@ -675,9 +674,8 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       //resultList.scrollTo({ top: 0, behavior: 'smooth' });
       // 恢復先前展開的狀態
       if (openKeys.size > 0) {
-        resultList.querySelectorAll('details').forEach((el) => {
-          const key = el.dataset.treeKey || el.querySelector('.recommend-material-name')?.textContent;
-          if (key && openKeys.has(key)) {
+        resultList.querySelectorAll('details[data-tree-key]').forEach((el) => {
+          if (openKeys.has(el.dataset.treeKey)) {
             el.open = true; // 將 open 屬性設回 true
           }
         });
