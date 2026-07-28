@@ -32,7 +32,8 @@
         "desc": "選取角色後點擊分析",
         "characters": {
           "title": "角色庫"
-        }
+        },
+        "basicMaterials": "基礎材料"
       },
       "comp_tree": {
         "title": "我的隊伍",

@@ -32,7 +32,8 @@
         "desc": "Select characters then click Analyze",
         "characters": {
           "title": "Character Library"
-        }
+        },
+        "basicMaterials": "Basic Materials"
       },
       "comp_tree": {
         "title": "My Teams",
