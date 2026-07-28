@@ -668,14 +668,14 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
                       <span tabindex="-1" style="position:absolute; top: 10px; right: 25px;" class="pinned-character-btn" data-pinned-character="${escapeHtml(record.character_id)}" aria-label="釘選">📌</span>
                       ${DEFAULT_SHOW_AMOUNT === 100 ? '' : `<span style="position:absolute; top: 10px; right: 2px;" class="recommend-dismiss-btn" data-dismiss-character="${escapeHtml(record.character_id)}" aria-label="隱藏此推薦">❌</span>`}
                       <div class="card-top-progress-container">
-                        <div class="card-top-progress-bar" style="width: ${((completionRatio || 0) * 100).toFixed(2)}%;
-                        text-align: center;
-                        color: indigo;
-                        height: 11px;
-                        font-size: 11px;
-                        font-weight: bold;
-                        font-style: italic;">
-                            ${((completionRatio || 0) * 100).toFixed(0)}%
+                        <div 
+                          class="card-top-progress-bar-bg" 
+                          style="transform: scaleX(${completionRatio || 0});"
+                        ></div>
+                        <div class="card-top-progress-text"
+                        style="left: ${((completionRatio || 0) * 50).toFixed(2)}%;"
+                        >
+                          ${((completionRatio || 0) * 100).toFixed(0)}%
                         </div>
                       </div>
                       <div class="recommend-card-top">
