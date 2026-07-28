@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://uuord.nijidakku.cc/sitemap.xml
