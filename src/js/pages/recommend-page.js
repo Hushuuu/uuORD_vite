@@ -957,11 +957,10 @@ function analyzeRecipe(characterId, inventory, indices) {
       // 3. 建立這次請求專屬的 AbortController
       activeFetchController = new AbortController();
       const timeoutId = setTimeout(() => activeFetchController?.abort(), 5000);
+      const tmoProxyIpInput = document.getElementById('tmoProxyIpInput');
       try {
         let tmoEndpoint = __TMO_API_ENDPOINT__;
         let tAddSpace = 'loopback';
-        const tmoProxyIpInput = document.getElementById('tmoProxyIpInput');
-        //先不做這段了，一直打不通
         if(tmoProxyIpInput && tmoProxyIpInput.value){
           //http://127.0.0.1:25626/datas
           tmoEndpoint = `https://${tmoProxyIpInput.value}:25626/datas`;
@@ -976,7 +975,7 @@ function analyzeRecipe(characterId, inventory, indices) {
 
         if (rs.ok) {
           if(tmoConnectStatus){
-            tmoConnectStatus.textContent = `connect success`;
+            tmoConnectStatus.textContent = i18n.t('tmo.connect_success');
           }
           const data = await rs.json();
           //console.log('tmogg api data', data);
@@ -1005,19 +1004,6 @@ function analyzeRecipe(characterId, inventory, indices) {
             }else{
               if (ownedSelector) {
                   effectCount += setTomItemCount(ownedSelector, characterId, tmoCount);
-                  // const currentValues = ownedSelector.getValue();
-                  // //console.log(`Current ownedSelector values: ${currentValues}`);
-                  // const existingValue = currentValues.find(value => value === characterId);
-                  // if(tmoCount && !existingValue){
-                  //   ownedSelector.addItem(characterId, true);
-                  //   effectCount++;
-                  //   //console.log(`Adding character ${characterId} to ownedSelector due to tmoCount: ${tmoCount}`);
-                  // }
-                  // if(!tmoCount && existingValue){
-                  //   ownedSelector.removeItem(characterId, true);
-                  //   effectCount++;
-                  //   //console.log(`Removing character ${characterId} from ownedSelector due to tmoCount: ${tmoCount}`);
-                  // }
                 }
             }
           }
@@ -1028,7 +1014,7 @@ function analyzeRecipe(characterId, inventory, indices) {
           //console.log('tmogg api data', data);
         }else{
           if(tmoConnectStatus){
-            tmoConnectStatus.textContent = `connect failed`;
+            tmoConnectStatus.textContent = i18n.t('tmo.connect_failed');
             tmoFailedCount++;
           }
         }
@@ -1036,13 +1022,9 @@ function analyzeRecipe(characterId, inventory, indices) {
       catch (e) {
         console.error(e);
         if(tmoConnectStatus){
-          tmoConnectStatus.textContent = `connect failed`;
+          tmoConnectStatus.textContent = i18n.t('tmo.connect_failed');
           tmoFailedCount++;
-        }
-        // const fullErrorMessage = `
-        // ❌ 錯誤名稱: ${e.name}
-        // 📝 錯誤訊息: ${e.message}`.trim();
-        // alert(fullErrorMessage);
+        }       
       }
       finally {
         // 清除已完成的 controller 參照
@@ -1051,12 +1033,19 @@ function analyzeRecipe(characterId, inventory, indices) {
           tmoFailedCount = 0;
           tmoToggle.checked = false;
           if(tmoConnectStatus){
-            tmoConnectStatus.textContent = `stop by failed 5 times`;
+            tmoConnectStatus.textContent = i18n.t('tmo.stop_by_failed_5_times');
+          }
+        }
+        // 檢查是否需要提示使用者授權
+        if(tmoFailedCount > 0){
+          const hasPermission = tmoProxyIpInput.value ? await checkSitePermission('local-network') : await checkSitePermission('loopback-network');
+          if(!hasPermission){
+            tmoConnectStatus.textContent += `(${i18n.t('tmo.please_grant_permission')})`;
           }
         }
         // 3. 只要開關還是勾選的，無論 catch 抓到什麼錯，無條件排下一次！
         if (tmoToggle.checked) {
-          tmoTimerId = setTimeout(pollTmoData, 2000);
+          tmoTimerId = setTimeout(pollTmoData, 2200);
         }
       }
     }
@@ -1080,6 +1069,18 @@ function analyzeRecipe(characterId, inventory, indices) {
         if (tmoConnectStatus) tmoConnectStatus.textContent = '';
       }
     });
+    async function checkSitePermission(permissionName) {
+      try{
+        const result = await navigator.permissions.query({ name: permissionName });
+        if(result.state !== 'granted'){
+          return false;
+        }
+      }catch(e){
+        console.error(`Error checking permission for ${permissionName}:`, e);
+        return false;
+      }
+      return true;
+    }
     //timger tmogg api end
     //show less button begin
     const recommendShowLessBtn = document.getElementById('recommendShowLessBtn');

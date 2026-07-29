@@ -173,6 +173,12 @@
       "selected": "已選擇",
       "auto_update_owned": "👑自動更新擁有角色(需第三方程式)"
     },
+    "tmo":{
+      "connect_success": "連接成功",
+      "connect_failed": "連接失敗",
+      "please_grant_permission": "請檢查網站權限",
+      "stop_by_failed_5_times": "連續失敗 5 次，已停止"
+    },
     "tree": {
       "brand": "角色合成樹",
       "action": {

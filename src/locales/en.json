@@ -173,6 +173,12 @@
       "selected": "Selected",
       "auto_update_owned": "👑Auto-update owned characters (3rd-party tool required)"
     },
+    "tmo":{
+      "connect_success": "Connection successful",
+      "connect_failed": "Connection failed",
+      "please_grant_permission": "Please grant site permission",
+      "stop_by_failed_5_times": "Stopped after 5 consecutive failures"
+    },
     "tree": {
       "brand": "Craft Tree",
       "action": {
