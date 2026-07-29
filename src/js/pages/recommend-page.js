@@ -83,44 +83,6 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     return map;
   }
 
-  function collectRequiredBaseMaterialsCounts(characterId, inventory, indices, counts = new Map(), visited = new Set()) {
-    const record = indices.byCharacterId.get(characterId);
-    if (!record) {
-      return counts;
-    }
-
-    if (visited.has(record.character_id)) {
-      return counts;
-    }
-
-    visited.add(record.character_id);
-
-    const available = inventory.get(record.character_id) || 0;
-    if (available > 0) {
-      inventory.set(record.character_id, available - 1);
-      visited.delete(record.character_id);
-      return counts;
-    }
-
-    if (record.level <= 1) {
-      counts.set(record.character_id, (counts.get(record.character_id) || 0) + 1);
-      visited.delete(record.character_id);
-      return counts;
-    }
-
-    (record.materials || []).forEach((material) => {
-      const childRecord = indices.byCharacterId.get(material.material_id);
-      if (childRecord) {
-        collectRequiredBaseMaterialsCounts(childRecord.character_id, inventory, indices, counts, visited);
-      } else {
-        counts.set(material.material_id, (counts.get(material.material_id) || 0) + 1);
-      }
-    });
-
-    visited.delete(record.character_id);
-    return counts;
-  }
-
   function formatRequiredBaseMaterialsFromCounts(counts, indices) {
     const sortId = ['1-8','1-5','1-4','1-9','1-3','1-6','1-2','1-7','1-1']
     const segments = [...counts.entries()]
@@ -138,46 +100,87 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
 
     return segments.join(' + ') || '無需額外素材';
   }
+/**
+ * 一次走訪完成合成樹分析：權重進度、基礎材料缺口、階級缺口統計
+ */
+function analyzeRecipe(characterId, inventory, indices) {
+  // 複製一份 inventory，避免污染傳入的原始物件（若需改動原物件可移除克隆）
+  const inv = new Map(inventory);
+  
+  const rootRecord = indices.byCharacterId.get(characterId);
+  if (!rootRecord) {
+    return {
+      status: { scoreOwned: 0, scoreTotal: 0 },
+      missingBaseCounts: new Map(),
+      missingTierCounts: new Map()
+    };
+  }
 
-  // 以缺口等級分布來評分：先比高 lv 缺了幾個，再比低 lv 缺口。
-  function collectMissingTierCountsFromRecord(record, inventory, indices, counts = new Map(), visited = new Set(), isFirstCall = false) {
-    if (!record || visited.has(record.character_id)) {
-      return counts;
-    }
+  // 初始化結果結構
+  const result = {
+    status: {
+      scoreOwned: 0,
+      scoreTotal: getRealWeight(rootRecord.character_id, indices) // 目標總分母
+    },
+    missingBaseCounts: new Map(), // collectRequiredBaseMaterialsCounts 的結果
+    missingTierCounts: new Map()  // collectMissingTierCountsFromRecord 的結果
+  };
+
+  const visited = new Set();
+
+  function traverse(record, isFirstCall = false) {
+    if (!record || visited.has(record.character_id)) return;
 
     visited.add(record.character_id);
 
-    const available = inventory.get(record.character_id) || 0;
-    if (available > 0) { //背包有這支
-      inventory.set(record.character_id, available - 1);
+    const weight = getRealWeight(record.character_id, indices);
+    const available = inv.get(record.character_id) || 0;
+
+    // 1. 背包有現成素材：直接扣減並採計進度分數
+    if (available > 0 && !isFirstCall) {
+      inv.set(record.character_id, available - 1);
+      result.status.scoreOwned += weight; // 拿到這個子素材的分數
       visited.delete(record.character_id);
-      return counts;
+      return; // 現成子素材滿足，不用再向下拆解
     }
 
-    // 無論它是高等級還是低等級，只要背包沒有，就立刻幫它的等級缺口 +1
-    if (!isFirstCall){
-       counts.set(record.level, (counts.get(record.level) || 0) + 1);
+    // 2. 背包沒有現成素材（產生缺口）
+    // (A) 統計階級缺口 (Tier Counts) - 非第一層時記錄
+    if (!isFirstCall) {
+      const currentTierCount = result.missingTierCounts.get(record.level) || 0;
+      result.missingTierCounts.set(record.level, currentTierCount + 1);
     }
 
     const materials = record.materials || [];
-    if (!materials.length || record.level <= 1) {
-      //counts.set(record.level, (counts.get(record.level) || 0) + 1);
-      visited.delete(record.character_id);
-      return counts;
+    const isBaseMaterial = materials.length === 0 || record.level === 1;
+
+    // 3. 根據是否為最底層（Level 1 或無子材料）來處理基礎材料缺口
+    if (isBaseMaterial) {
+      // (B) 統計基礎材料缺口 (Base Counts)
+      const currentBaseCount = result.missingBaseCounts.get(record.character_id) || 0;
+      result.missingBaseCounts.set(record.character_id, currentBaseCount + 1);
+    } else {
+      // 4. 繼續遞迴向下拆解子材料
+      materials.forEach((mat) => {
+        const childRecord = indices.byCharacterId.get(mat.material_id);
+        if (childRecord) {
+          traverse(childRecord, false);
+        } else {
+          // 子紀錄不存在時的降級處理（作為基礎材料統計）
+          const currentBaseCount = result.missingBaseCounts.get(mat.material_id) || 0;
+          result.missingBaseCounts.set(mat.material_id, currentBaseCount + 1);
+        }
+      });
     }
 
-    materials.forEach((material) => {
-      const childRecord = indices.byCharacterId.get(material.material_id);
-      if (childRecord) {
-        counts = collectMissingTierCountsFromRecord(childRecord, inventory, indices, counts, visited);
-      } else {
-        //counts.set(record.level, (counts.get(record.level) || 0) + 1);
-      }
-    });
-
     visited.delete(record.character_id);
-    return counts;
   }
+
+  // 開始執行走訪
+  traverse(rootRecord, true);
+
+  return result;
+}  
   // 用來快取每隻角色的真實權重（總共相當於多少基礎物資）
   const realWeightCache = new Map();
   function getRealWeight(characterId, indices) {
@@ -205,42 +208,6 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
 
     realWeightCache.set(characterId, totalWeight);
     return totalWeight;
-  }
-  // 分析角色結構，計算「背包有的分數」與「總分數」，用於評估推薦優先度。
-  function analyzeStructure(record, inventory, indices,status = { scoreOwned: 0, scoreTotal: 0 }, visited = new Set(), isFirstCall = false) {
-    //if (!record || visited.has(record.character_id)) return { scoreOwned: 0, scoreTotal: 0 };
-    if (!record || visited.has(record.character_id)) return status;
-    visited.add(record.character_id);
-
-    // 1. 如果是第一次呼叫（目標本身），直接在最一開始就算出「真正的總需求分母」！
-    if (isFirstCall) {
-        status.scoreTotal = getRealWeight(record.character_id, indices);
-    }
-    // 定義權重：等級越高，權重呈指數型放大（例如 2 的 level 次方）
-    //const weight = Math.pow(2.5, record.level);
-    const weight = getRealWeight(record.character_id,indices);
-    const available = inventory.get(record.character_id) || 0;
-
-    if (available > 0) {
-      inventory.set(record.character_id, available - 1);
-      status.scoreOwned += weight; // 背包有，拿到這個素材的分數！
-      visited.delete(record.character_id);
-      return status;
-    }
-    // 背包沒有，代表這是個缺口，但我們繼續往下看「子材料」幫我們湊了多少完成度
-    const materials = record.materials || [];
-    if (materials.length && record.level > 1) {
-      materials.forEach((material) => {
-        const childRecord = indices.byCharacterId.get(material.material_id);
-        if (childRecord) {
-          //analyzeStructure(childRecord, inventory, indices, status, visited);
-          status = analyzeStructure(childRecord, inventory, indices, status, visited, false);
-        }
-      });
-    }
-
-    visited.delete(record.character_id);
-    return status;
   }
 
   function compareMissingTierCounts(leftCounts, rightCounts, levelsDesc) {
@@ -570,18 +537,14 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
             && !defaultDismissedIds.includes(record.character_id)
             && (selectedTargetSkillTypes.length === 0 || record.skill_types?.some((skillType) => selectedTargetSkillTypes.includes(skillType))))
             .map((record) => {
-              // 1. 計算完成度分數
-              const stats = analyzeStructure(record, new Map(inventory), indices, undefined,undefined,true);
-              const completionRatio = (stats.scoreTotal > 0 ? (stats.scoreOwned / stats.scoreTotal) : 0).toFixed(7);  
-              //console.log(`Analyzed ${record.name} (ID: ${record.character_id}) - Score Owned: ${stats.scoreOwned}, Score Total: ${stats.scoreTotal}, Completion Ratio: ${completionRatio}`);  
-              // 2. 計算缺口
-              const requiredCounts = collectRequiredBaseMaterialsCounts(record.character_id, new Map(inventory), indices);
-              const missingTierCounts = collectMissingTierCountsFromRecord(record, new Map(inventory), indices, undefined, undefined, true);
+              // 整併計算缺口與完成度分數
+              const analyzeResult = analyzeRecipe(record.character_id, new Map(inventory), indices);
+              const completionRatio = (analyzeResult.status.scoreTotal > 0 ? (analyzeResult.status.scoreOwned / analyzeResult.status.scoreTotal) : 0).toFixed(7);
               return {
                 record,
-                requiredCounts,
-                requiredText: formatRequiredBaseMaterialsFromCounts(requiredCounts, indices),
-                missingTierCounts,
+                requiredCounts : analyzeResult.missingBaseCounts,
+                requiredText: formatRequiredBaseMaterialsFromCounts(analyzeResult.missingBaseCounts, indices),
+                missingTierCounts: analyzeResult.missingTierCounts,
                 completionRatio,
                 isPinned: pinnedCharacterIds.has(record.character_id),
               };
