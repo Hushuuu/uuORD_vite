@@ -301,6 +301,7 @@
       "ref_ord_search": "ORD Search - 隨機防守資料庫",
       "ref_discord": "ORDR Discord 社群",
       "ref_dcinside": "韓國討論網DC Inside",
+      "ref_tmogg": "TMO.GG 社群",
       "email_subject": "【ORD網站使用者來信】"
     },
     "footer": {
@@ -364,6 +365,8 @@
     "stl-6-3": "Boss 特化",
     "stl-6-4": "移除單位",
     "stl-7-1": "魔力回復",
-    "stl-7-2": "生命回復"
+    "stl-7-2": "生命回復",
+    "stl-8-1": "主物傷",
+    "stl-8-2": "主魔傷"
   }
 }

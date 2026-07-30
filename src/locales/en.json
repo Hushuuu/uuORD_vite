@@ -302,6 +302,7 @@
       "ref_ord_search": "ORD Search - Random Defense Database",
       "ref_discord": "ORDR Discord Community",
       "ref_dcinside": "Korean Community DC Inside",
+      "ref_tmogg": "TMO.GG Community",
       "email_subject": "[ORD Website User Feedback]"
     },
     "footer": {
@@ -365,6 +366,8 @@
     "stl-6-3": "Boss dmg bonus",
     "stl-6-4": "Remove Unit",
     "stl-7-1": "Mana Regen",
-    "stl-7-2": "HP Regen"
+    "stl-7-2": "HP Regen",
+    "stl-8-1": "Mainly Phys Dmg",
+    "stl-8-2": "Mainly Magic Dmg"
   }
 }
