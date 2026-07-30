@@ -1812,7 +1812,7 @@ button.success {
 my-navbar {
         display: block;  /* 確保它佔滿整行 */
         width: 100%;     /* 限制它只能跟螢幕一樣寬 */
-        z-index:99999;
+        z-index:999;
     }
 
 @media (min-width: 768px){

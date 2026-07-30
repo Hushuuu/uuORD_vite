@@ -2376,15 +2376,20 @@
     "suitable_partners": [],
     "skill_types": [
       "stl-1-2",
-      "stl-5-3"
+      "stl-5-3",
+      "stl-8-2"
     ],
     "skill_values": {
+      "stl-1-2": {
+        "value": 20,
+        "remark": ""
+      },
       "stl-5-3": {
         "value": 25,
         "remark": ""
       },
-      "stl-1-2": {
-        "value": 20,
+      "stl-8-2": {
+        "value": null,
         "remark": ""
       }
     }
@@ -2474,16 +2479,25 @@
     "skill_types": [
       "stl-2-3",
       "stl-5-3",
-      "stl-6-1"
+      "stl-6-1",
+      "stl-8-2"
     ],
     "skill_values": {
+      "stl-2-3": {
+        "value": 19,
+        "remark": "10% 線怪"
+      },
       "stl-5-3": {
         "value": 35,
         "remark": ""
       },
-      "stl-2-3": {
-        "value": 19,
-        "remark": "10% 線怪"
+      "stl-6-1": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-2": {
+        "value": null,
+        "remark": ""
       }
     }
   },
@@ -2511,11 +2525,24 @@
     "skill_types": [
       "stl-4-3",
       "stl-5-3",
-      "stl-6-4"
+      "stl-6-4",
+      "stl-8-2"
     ],
     "skill_values": {
+      "stl-4-3": {
+        "value": null,
+        "remark": ""
+      },
       "stl-5-3": {
         "value": 30,
+        "remark": ""
+      },
+      "stl-6-4": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-2": {
+        "value": null,
         "remark": ""
       }
     }
@@ -2545,12 +2572,29 @@
       "stl-4-2",
       "stl-5-1",
       "stl-6-1",
-      "stl-6-3"
+      "stl-6-3",
+      "stl-8-1"
     ],
     "skill_values": {
       "stl-4-2": {
         "value": 15,
         "remark": "boss40"
+      },
+      "stl-5-1": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-6-1": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-6-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-1": {
+        "value": null,
+        "remark": ""
       }
     }
   },
@@ -2577,11 +2621,20 @@
     "suitable_partners": [],
     "skill_types": [
       "stl-5-1",
-      "stl-7-1"
+      "stl-7-1",
+      "stl-8-1"
     ],
     "skill_values": {
+      "stl-5-1": {
+        "value": null,
+        "remark": ""
+      },
       "stl-7-1": {
         "value": 2.5,
+        "remark": ""
+      },
+      "stl-8-1": {
+        "value": null,
         "remark": ""
       }
     }
@@ -2612,16 +2665,33 @@
       "stl-1-3",
       "stl-3-3",
       "stl-5-3",
-      "stl-6-2"
+      "stl-6-2",
+      "stl-8-2"
     ],
     "skill_values": {
+      "stl-1-2": {
+        "value": 150,
+        "remark": "12/50s技"
+      },
+      "stl-1-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-3-3": {
+        "value": null,
+        "remark": ""
+      },
       "stl-5-3": {
         "value": 33,
         "remark": "12.5% boss50"
       },
-      "stl-1-2": {
-        "value": 150,
-        "remark": "12/50s技"
+      "stl-6-2": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-2": {
+        "value": null,
+        "remark": ""
       }
     }
   },
@@ -2648,11 +2718,20 @@
     "suitable_partners": [],
     "skill_types": [
       "stl-4-2",
-      "stl-5-1"
+      "stl-5-1",
+      "stl-8-1"
     ],
     "skill_values": {
       "stl-4-2": {
         "value": 33,
+        "remark": ""
+      },
+      "stl-5-1": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-1": {
+        "value": null,
         "remark": ""
       }
     }
@@ -2699,12 +2778,21 @@
       "stl-2-3",
       "stl-5-1",
       "stl-7-1",
-      "stl-7-2"
+      "stl-7-2",
+      "stl-8-2"
     ],
     "skill_values": {
       "stl-1-1": {
         "value": 20,
         "remark": "5s/sp技"
+      },
+      "stl-2-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-5-1": {
+        "value": null,
+        "remark": ""
       },
       "stl-7-1": {
         "value": 1,
@@ -2713,6 +2801,10 @@
       "stl-7-2": {
         "value": 1,
         "remark": "5s/sp技"
+      },
+      "stl-8-2": {
+        "value": null,
+        "remark": ""
       }
     }
   },
@@ -2740,8 +2832,27 @@
     "skill_types": [
       "stl-2-2",
       "stl-5-1",
-      "stl-6-3"
-    ]
+      "stl-6-3",
+      "stl-8-2"
+    ],
+    "skill_values": {
+      "stl-2-2": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-5-1": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-6-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-2": {
+        "value": null,
+        "remark": ""
+      }
+    }
   },
   {
     "character_id": "5-13",
@@ -2766,8 +2877,23 @@
     "suitable_partners": [],
     "skill_types": [
       "stl-2-2",
-      "stl-5-1"
-    ]
+      "stl-5-1",
+      "stl-8-2"
+    ],
+    "skill_values": {
+      "stl-2-2": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-5-1": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-2": {
+        "value": null,
+        "remark": ""
+      }
+    }
   },
   {
     "character_id": "5-14",
@@ -2820,7 +2946,8 @@
     "skill_types": [
       "stl-4-2",
       "stl-5-3",
-      "stl-6-1"
+      "stl-6-1",
+      "stl-8-1"
     ],
     "skill_values": {
       "stl-4-2": {
@@ -2829,6 +2956,14 @@
       },
       "stl-5-3": {
         "value": 10,
+        "remark": ""
+      },
+      "stl-6-1": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-1": {
+        "value": null,
         "remark": ""
       }
     }
@@ -2855,8 +2990,19 @@
     "major": "",
     "suitable_partners": [],
     "skill_types": [
-      "stl-2-3"
-    ]
+      "stl-2-3",
+      "stl-8-2"
+    ],
+    "skill_values": {
+      "stl-2-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-2": {
+        "value": null,
+        "remark": ""
+      }
+    }
   },
   {
     "character_id": "5-17",
@@ -2907,13 +3053,10 @@
     "skill_types": [
       "stl-1-1",
       "stl-1-2",
-      "stl-4-2"
+      "stl-4-2",
+      "stl-8-1"
     ],
     "skill_values": {
-      "stl-4-2": {
-        "value": 25,
-        "remark": ""
-      },
       "stl-1-1": {
         "value": 19,
         "remark": "主動永久/240s"
@@ -2921,6 +3064,14 @@
       "stl-1-2": {
         "value": 9,
         "remark": "主動永久/240s"
+      },
+      "stl-4-2": {
+        "value": 25,
+        "remark": ""
+      },
+      "stl-8-1": {
+        "value": null,
+        "remark": ""
       }
     }
   },
@@ -2947,15 +3098,20 @@
     "suitable_partners": [],
     "skill_types": [
       "stl-1-4",
-      "stl-5-3"
+      "stl-5-3",
+      "stl-8-2"
     ],
     "skill_values": {
+      "stl-1-4": {
+        "value": 1,
+        "remark": ""
+      },
       "stl-5-3": {
         "value": 42,
         "remark": "8.8%"
       },
-      "stl-1-4": {
-        "value": 1,
+      "stl-8-2": {
+        "value": null,
         "remark": ""
       }
     }
@@ -2987,20 +3143,37 @@
       "stl-4-2",
       "stl-4-4",
       "stl-5-1",
-      "stl-5-2"
+      "stl-5-2",
+      "stl-8-1"
     ],
     "skill_values": {
+      "stl-1-1": {
+        "value": 35,
+        "remark": ""
+      },
+      "stl-1-5": {
+        "value": null,
+        "remark": ""
+      },
       "stl-4-2": {
         "value": 15,
         "remark": ""
       },
-      "stl-1-1": {
-        "value": 35,
+      "stl-4-4": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-5-1": {
+        "value": null,
         "remark": ""
       },
       "stl-5-2": {
         "value": 3,
         "remark": "sp技"
+      },
+      "stl-8-1": {
+        "value": null,
+        "remark": ""
       }
     }
   },
@@ -3029,11 +3202,28 @@
       "stl-1-5",
       "stl-4-2",
       "stl-4-4",
-      "stl-6-3"
+      "stl-6-3",
+      "stl-8-1"
     ],
     "skill_values": {
+      "stl-1-5": {
+        "value": null,
+        "remark": ""
+      },
       "stl-4-2": {
         "value": 27,
+        "remark": ""
+      },
+      "stl-4-4": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-6-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-1": {
+        "value": null,
         "remark": ""
       }
     }
@@ -3062,8 +3252,27 @@
     "skill_types": [
       "stl-5-1",
       "stl-6-3",
-      "stl-6-4"
-    ]
+      "stl-6-4",
+      "stl-8-2"
+    ],
+    "skill_values": {
+      "stl-5-1": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-6-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-6-4": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-2": {
+        "value": null,
+        "remark": ""
+      }
+    }
   },
   {
     "character_id": "5-23",
@@ -3089,11 +3298,24 @@
     "skill_types": [
       "stl-1-5",
       "stl-5-3",
-      "stl-6-1"
+      "stl-6-1",
+      "stl-8-1"
     ],
     "skill_values": {
+      "stl-1-5": {
+        "value": null,
+        "remark": ""
+      },
       "stl-5-3": {
         "value": 30,
+        "remark": ""
+      },
+      "stl-6-1": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-1": {
+        "value": null,
         "remark": ""
       }
     }
@@ -3122,8 +3344,27 @@
     "skill_types": [
       "stl-1-3",
       "stl-1-4",
-      "stl-3-3"
-    ]
+      "stl-3-3",
+      "stl-8-2"
+    ],
+    "skill_values": {
+      "stl-1-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-1-4": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-3-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-2": {
+        "value": null,
+        "remark": ""
+      }
+    }
   },
   {
     "character_id": "5-25",
@@ -3149,8 +3390,27 @@
     "skill_types": [
       "stl-1-3",
       "stl-5-1",
-      "stl-6-3"
-    ]
+      "stl-6-3",
+      "stl-8-2"
+    ],
+    "skill_values": {
+      "stl-1-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-5-1": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-6-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-2": {
+        "value": null,
+        "remark": ""
+      }
+    }
   },
   {
     "character_id": "5-26",
@@ -3175,11 +3435,20 @@
     "suitable_partners": [],
     "skill_types": [
       "stl-4-2",
-      "stl-6-1"
+      "stl-6-1",
+      "stl-8-1"
     ],
     "skill_values": {
       "stl-4-2": {
         "value": 30,
+        "remark": ""
+      },
+      "stl-6-1": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-1": {
+        "value": null,
         "remark": ""
       }
     }
@@ -3209,11 +3478,28 @@
       "stl-1-2",
       "stl-1-5",
       "stl-4-2",
-      "stl-6-2"
+      "stl-6-2",
+      "stl-8-1"
     ],
     "skill_values": {
+      "stl-1-2": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-1-5": {
+        "value": null,
+        "remark": ""
+      },
       "stl-4-2": {
         "value": 18,
+        "remark": ""
+      },
+      "stl-6-2": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-1": {
+        "value": null,
         "remark": ""
       }
     }
@@ -3242,12 +3528,25 @@
     "skill_types": [
       "stl-4-4",
       "stl-5-1",
-      "stl-5-3"
+      "stl-5-3",
+      "stl-8-1"
     ],
     "skill_values": {
+      "stl-4-4": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-5-1": {
+        "value": null,
+        "remark": ""
+      },
       "stl-5-3": {
         "value": 50,
         "remark": "16%"
+      },
+      "stl-8-1": {
+        "value": null,
+        "remark": ""
       }
     }
   },
@@ -3276,11 +3575,28 @@
       "stl-1-3",
       "stl-2-2",
       "stl-4-2",
-      "stl-5-1"
+      "stl-5-1",
+      "stl-8-1"
     ],
     "skill_values": {
+      "stl-1-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-2-2": {
+        "value": null,
+        "remark": ""
+      },
       "stl-4-2": {
         "value": 22,
+        "remark": ""
+      },
+      "stl-5-1": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-1": {
+        "value": null,
         "remark": ""
       }
     }
@@ -3309,8 +3625,27 @@
     "skill_types": [
       "stl-3-2",
       "stl-4-3",
-      "stl-5-1"
-    ]
+      "stl-5-1",
+      "stl-8-2"
+    ],
+    "skill_values": {
+      "stl-3-2": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-4-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-5-1": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-2": {
+        "value": null,
+        "remark": ""
+      }
+    }
   },
   {
     "character_id": "5-31",
@@ -3340,16 +3675,41 @@
       "stl-5-1",
       "stl-5-2",
       "stl-5-3",
-      "stl-6-3"
+      "stl-6-3",
+      "stl-8-1"
     ],
     "skill_values": {
+      "stl-1-5": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-3-2": {
+        "value": null,
+        "remark": ""
+      },
       "stl-4-2": {
         "value": 15,
         "remark": "boss30"
       },
+      "stl-5-1": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-5-2": {
+        "value": null,
+        "remark": ""
+      },
       "stl-5-3": {
         "value": 25,
         "remark": "11%"
+      },
+      "stl-6-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-1": {
+        "value": null,
+        "remark": ""
       }
     }
   },
@@ -3432,8 +3792,31 @@
       "stl-1-3",
       "stl-5-1",
       "stl-6-1",
-      "stl-6-3"
-    ]
+      "stl-6-3",
+      "stl-8-2"
+    ],
+    "skill_values": {
+      "stl-1-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-5-1": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-6-1": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-6-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-2": {
+        "value": null,
+        "remark": ""
+      }
+    }
   },
   {
     "character_id": "5-34",
@@ -3460,9 +3843,18 @@
       "stl-1-1",
       "stl-1-5",
       "stl-4-2",
-      "stl-5-3"
+      "stl-5-3",
+      "stl-8-1"
     ],
     "skill_values": {
+      "stl-1-1": {
+        "value": 40,
+        "remark": "10%"
+      },
+      "stl-1-5": {
+        "value": null,
+        "remark": ""
+      },
       "stl-4-2": {
         "value": 18,
         "remark": "10%"
@@ -3471,9 +3863,9 @@
         "value": 20,
         "remark": ""
       },
-      "stl-1-1": {
-        "value": 40,
-        "remark": "10%"
+      "stl-8-1": {
+        "value": null,
+        "remark": ""
       }
     }
   },
@@ -3503,20 +3895,33 @@
       "stl-1-3",
       "stl-3-2",
       "stl-5-3",
-      "stl-6-3"
+      "stl-6-3",
+      "stl-8-2"
     ],
     "skill_values": {
-      "stl-5-3": {
-        "value": 30,
-        "remark": ""
-      },
       "stl-1-1": {
         "value": 32,
+        "remark": ""
+      },
+      "stl-1-3": {
+        "value": null,
         "remark": ""
       },
       "stl-3-2": {
         "value": 5,
         "remark": "hp技"
+      },
+      "stl-5-3": {
+        "value": 30,
+        "remark": ""
+      },
+      "stl-6-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-2": {
+        "value": null,
+        "remark": ""
       }
     }
   },
@@ -3543,8 +3948,23 @@
     "suitable_partners": [],
     "skill_types": [
       "stl-2-3",
-      "stl-5-1"
-    ]
+      "stl-5-1",
+      "stl-8-2"
+    ],
+    "skill_values": {
+      "stl-2-3": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-5-1": {
+        "value": null,
+        "remark": ""
+      },
+      "stl-8-2": {
+        "value": null,
+        "remark": ""
+      }
+    }
   },
   {
     "character_id": "5-37",
@@ -3672,11 +4092,20 @@
     "suitable_partners": [],
     "skill_types": [
       "stl-6-4",
-      "stl-7-1"
+      "stl-7-1",
+      "stl-8-2"
     ],
     "skill_values": {
+      "stl-6-4": {
+        "value": null,
+        "remark": ""
+      },
       "stl-7-1": {
         "value": 1.25,
+        "remark": ""
+      },
+      "stl-8-2": {
+        "value": null,
         "remark": ""
       }
     }
