@@ -1,4 +1,8 @@
 import { ORDI18n } from './../i18n.js';
+import * as dataIndexUtils from './data-index-utils.js';
+import * as recipeUtils from './recipe-utils.js';
+import * as storageUtils from './storage-utils.js';
+import { TMO_CONFIG } from './tmo-config.js';
 
 /*
 ## ⚔️ 攻擊與傷害強化
@@ -49,62 +53,6 @@ import { ORDI18n } from './../i18n.js';
 */
 const app = window.ORDApp || (window.ORDApp = {});
 
-const LEVEL_LABELS = {
-  0: '物品',
-  1: '常見',
-  2: '不凡',
-  3: '特別',
-  4: '稀有',
-  5: '傳說',
-  6: '隱藏',
-  7: '扭曲',
-  8: '變化',
-  9: '限制',
-  10: '超越',
-  11: '不朽',
-  12: '永恆',
-  16: '隨機',
-  18: '神秘',
-  23: '熾天使',
-  };
-
-const SKILL_TYPE_LABELS = {
-  // 攻擊與傷害強化
-  'stl-1-1': '攻擊提升',
-  'stl-1-2': '攻速提升',
-  'stl-1-3': '狂暴化',
-  'stl-1-4': '魔傷增幅',
-  'stl-1-5': '濺射效果',
-  'stl-1-6': '爆炸傷害增幅',
-  // 單體百分比與斬殺傷害
-  'stl-2-1': '單體-已損失血量',
-  'stl-2-2': '單體-總血量',
-  'stl-2-3': '單體-當前血量',
-  // 範圍百分比傷害
-  'stl-3-1': '範圍-已損失血量',
-  'stl-3-2': '範圍-總血量',
-  'stl-3-3': '範圍-當前血量',
-  // 削弱與穿透效果
-  'stl-4-1': '減少魔防',
-  'stl-4-2': '減少物防',
-  'stl-4-3': '無視防禦',
-  'stl-4-4': '破甲(max75)',
-  // 控制與異常狀態
-  'stl-5-1': '單體暈',
-  'stl-5-2': '範圍暈',
-  'stl-5-3': '緩速',
-  // 機動性與特殊機制
-  'stl-6-1': '空中移動',
-  'stl-6-2': '瞬移',
-  'stl-6-3': 'Boss 特化',
-  'stl-6-4': '移除單位',
-  // 恢復與續航
-  'stl-7-1': '魔力回復',
-  'stl-7-2': '生命回復',
-  // 主要傷害
-  'stl-8-1': '物理',
-  'stl-8-2': '魔法',
-  }
 const MAJOR_LABELS = {
 };
 
@@ -158,7 +106,7 @@ function getLevelLabel(level) {
   if (i18n && typeof i18n.getLevelLabel === 'function') {
     return i18n.getLevelLabel(level);
   }
-  return LEVEL_LABELS[level] || `Lv.${level}`;
+  return `Lv.${level}`;
   }
 
 function getDisplayName(record) {
@@ -218,15 +166,11 @@ function getSkillTypeLabel(skillType) {
   if (i18n && typeof i18n.getSkillTypeLabel === 'function') {
     return i18n.getSkillTypeLabel(skillType);
   }
-  return SKILL_TYPE_LABELS[skillType] || skillType;
+  return skillType;
   }
 
 function getSkillTypeLabels(skillTypes) {
   return (skillTypes || []).map((skillType) => getSkillTypeLabel(skillType));
-  }
-
-function createSkillTypeOptions() {
-  return Object.entries(SKILL_TYPE_LABELS).map(([value]) => ({ value, label: getSkillTypeLabel(value) }));
   }
 
 function getSearchableText(record, indices) {
@@ -250,9 +194,7 @@ function getSearchableText(record, indices) {
   }
 
 function fillLevelSelect(select, includeAllLabel) {
-  const levels = Object.entries(LEVEL_LABELS)
-    .map(([level]) => ({ level: Number(level) }))
-    .sort((left, right) => left.level - right.level);
+  const levels = dataIndexUtils.getLevelOptions();
 
   select.innerHTML = '';
   if (includeAllLabel) {
@@ -331,134 +273,6 @@ function createTomSelectRenderConfig() {
   };
   }
 
-  // 遞迴往下拆解，僅把最基礎的素材累加起來，供合成樹與隊伍分析共用。
-function getBaseMaterialQuantities(record, indices, counts = new Map(), visited = new Set()) {
-  if (!record) {
-    return counts;
-  }
-
-  if (visited.has(record.character_id)) {
-    return counts;
-  }
-  visited.add(record.character_id);
-
-  if (record.level === 0 || record.level === 1) {
-    const currentCount = counts.get(record.character_id) || 0;
-    counts.set(record.character_id, currentCount + 1);
-    visited.delete(record.character_id);
-    return counts;
-  }
-
-  (record.materials || []).forEach((material) => {
-    const childRecord = indices.byCharacterId.get(material.material_id);
-    if (childRecord) {
-        getBaseMaterialQuantities(childRecord, indices, counts, visited);
-    } else {
-        const currentCount = counts.get(material.material_id) || 0;
-        counts.set(material.material_id, currentCount + 1);
-    }
-  });
-
-  visited.delete(record.character_id);
-  return counts;
-  }
-
-function formatBaseMaterialsText(record, indices) {
-  const countsMap = getBaseMaterialQuantities(record, indices);
-  if (countsMap.size === 0) {
-    return '無基礎材料';
-  }
-  const customSortId = ['1-8','1-5','1-4','1-9','1-3','1-6','1-2','1-7','1-1'];
-  const sortedCounts = Array.from(countsMap).sort((a, b) => {
-    let leftIndex = customSortId.indexOf(a[0]);
-    let rightIndex = customSortId.indexOf(b[0]);
-    if (leftIndex === -1) leftIndex = Infinity;
-    if (rightIndex === -1) rightIndex = Infinity;
-    return leftIndex - rightIndex;
-  });
-
-  const resultSegments = [];
-  sortedCounts.forEach(([characterId, count]) => {
-    const childRecord = indices.byCharacterId.get(characterId);
-    //const name = childRecord ? childRecord.name : characterId;
-    const name = childRecord ? getDisplayName(childRecord) : characterId;
-    resultSegments.push(`${name} * ${count}`);
-  });
-
-  return resultSegments.join(' + ');
-}
-
-function readStoredArray(storage, key) {
-  try {
-    const parsed = JSON.parse(storage.getItem(key) || '[]');
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
-  }
-}
-
-function writeStoredArray(storage, key, values) {
-  storage.setItem(key, JSON.stringify(values));
-}
-
-function getTeamMaterialGroups(selectedTeamIds, indices) {
-  const totalCounts = new Map();
-  selectedTeamIds.forEach((characterId) => {
-    const record = indices.byCharacterId.get(characterId);
-    if (record) {
-        getBaseMaterialQuantities(record, indices, totalCounts);
-    }
-  });
-
-  const level0Items = [];
-  const level1Items = [];
-
-  totalCounts.forEach((count, characterId) => {
-    const record = indices.byCharacterId.get(characterId);
-    const item = {
-        id: characterId,
-        name: record ? getDisplayName(record) : characterId,
-        count,
-        level: record ? record.level : 0
-    };
-
-    if (item.level === 1) {
-        level1Items.push(item);
-    } else if (item.level === 0) {
-        level0Items.push(item);
-    }
-  });
-  const sortId = ['1-8','1-5','1-4','1-9','1-3','1-6','1-2','1-7','1-1']
-  level1Items.sort((left, right) => {
-    let leftIndex = sortId.indexOf(left.id);
-    let rightIndex = sortId.indexOf(right.id);
-    if (leftIndex === -1) leftIndex = Infinity;
-    if (rightIndex === -1) rightIndex = Infinity;
-    return leftIndex - rightIndex;
-  });
-  level0Items.sort((left, right) => left.name.localeCompare(right.name, 'zh-Hant'));
-
-  return { totalCounts, level0Items, level1Items };
-}
-
-function setCanMaintain(value) {
-  localStorage.setItem('canMaintain', value ? 'true' : 'false');
-}
-
-function getIfCanMaintain() {
-  return localStorage.getItem('canMaintain') === 'true';
-}
-
-function showMaintenanceNav() {
-  if (!getIfCanMaintain()) {
-    return;
-  }
-
-  const navLink = document.querySelector('.nav-link[data-page="maintenance"]');
-  if (navLink) {
-    navLink.style.display = 'block';
-  }
-}
 
 //begin tmo data
 const TMO_TRANSFER_DATA = new Map([
@@ -671,21 +485,20 @@ const TMO_TRANSFER_DATA = new Map([
 //end tmo data
 
 const api = {
-  LEVEL_LABELS,
-  SKILL_TYPE_LABELS,
-  cloneData,
-  normalizeText,
-  escapeHtml,
-  compareRecords,
-  getLevelLabel,
-  getDisplayName,
-  createIndices,
-  getPrimaryRecord,
+  cloneData: dataIndexUtils.cloneData,
+  normalizeText: dataIndexUtils.normalizeText,
+  escapeHtml: dataIndexUtils.escapeHtml,
+  compareRecords: dataIndexUtils.compareRecords,
+  getLevelLabel: dataIndexUtils.getLevelLabel,
+  getDisplayName: dataIndexUtils.getDisplayName,
+  createIndices: dataIndexUtils.createIndices,
+  getPrimaryRecord: dataIndexUtils.getPrimaryRecord,
   resolveRecordLabel,
   getMaterialNames,
-  getSkillTypeLabel,
-  getSkillTypeLabels,
-  createSkillTypeOptions,
+  getSkillTypeLabel: dataIndexUtils.getSkillTypeLabel,
+  getSkillTypeLabels: dataIndexUtils.getSkillTypeLabels,
+  createSkillTypeOptions: dataIndexUtils.createSkillTypeOptions,
+  getLevelOptions: dataIndexUtils.getLevelOptions,
   getSearchableText,
   fillLevelSelect,
   markActiveNav,
@@ -695,23 +508,24 @@ const api = {
   readQueryParam,
   createTomSelectOptions,
   createTomSelectRenderConfig,
-  getBaseMaterialQuantities,
-  formatBaseMaterialsText,
-  readStoredArray,
-  writeStoredArray,
-  getTeamMaterialGroups,
-  setCanMaintain,
-  getIfCanMaintain,
-  showMaintenanceNav,
-  TMO_TRANSFER_DATA
+  getBaseMaterialQuantities: recipeUtils.getBaseMaterialQuantities,
+  formatBaseMaterialsText: recipeUtils.formatBaseMaterialsText,
+  readStoredArray: storageUtils.readStoredArray,
+  writeStoredArray: storageUtils.writeStoredArray,
+  getTeamMaterialGroups: recipeUtils.getTeamMaterialGroups,
+  setCanMaintain: storageUtils.setCanMaintain,
+  getIfCanMaintain: storageUtils.getIfCanMaintain,
+  showMaintenanceNav: storageUtils.showMaintenanceNav,
+  TMO_TRANSFER_DATA,
+  TMO_CONFIG
 };
 
 Object.assign(app, api);
 
 if (typeof window !== 'undefined') {
   // 保留舊的全域入口，避免既有書籤或手動 console 操作失效。
-  window.setCanMaintain = setCanMaintain;
-  window.getIfCanMaintain = getIfCanMaintain;
+  window.setCanMaintain = storageUtils.setCanMaintain;
+  window.getIfCanMaintain = storageUtils.getIfCanMaintain;
 }
 
 export default api;

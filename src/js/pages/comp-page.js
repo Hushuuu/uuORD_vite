@@ -2,12 +2,12 @@ import appShared from './../shared/app-shared.js';
 import { ORDI18n } from './../i18n.js';
 
 const {
-  LEVEL_LABELS,
   createSkillTypeOptions,
   createIndices,
   escapeHtml,
   formatBaseMaterialsText,
   getLevelLabel,
+  getLevelOptions,
   getMaterialNames,
   getPrimaryRecord,
   getSearchableText,
@@ -139,9 +139,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
 
     function renderLevelCheckboxes() {
       levelCheckboxGroup.innerHTML = '';
-      const sortedLevels = Object.entries(LEVEL_LABELS)
-        .map(([level, label]) => ({ level: Number(level), label }))
-        .sort((left, right) => left.level - right.level);
+      const sortedLevels = getLevelOptions();
 
       sortedLevels.forEach(({ level, label }) => {
         if(level >= 3){ 
@@ -776,4 +774,3 @@ if (typeof window !== 'undefined' && window.ORDApp) {
 
 export { initCompPage, initCompTreePage };
 export default initCompPage;
-

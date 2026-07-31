@@ -138,6 +138,18 @@ function getSkillTypeLabels(skillTypes) {
   return (skillTypes || []).map((skillType) => getSkillTypeLabel(skillType));
 }
 
+function getLevelOptions() {
+  const labels = LEVEL_LABELS[currentLang] || LEVEL_LABELS[DEFAULT_LANG];
+  return Object.keys(labels)
+    .map((level) => ({ level: Number(level), label: labels[level] }))
+    .sort((left, right) => left.level - right.level);
+}
+
+function getSkillTypeOptions() {
+  const labels = SKILL_TYPE_LABELS[currentLang] || SKILL_TYPE_LABELS[DEFAULT_LANG];
+  return Object.entries(labels).map(([value, label]) => ({ value, label }));
+}
+
 function getDisplayName(record) {
   if (!record) {
     return '';
@@ -290,6 +302,8 @@ export const ORDI18n = {
   getLevelLabel,
   getSkillTypeLabel,
   getSkillTypeLabels,
+  getLevelOptions,
+  getSkillTypeOptions,
   getDisplayName,
   getAllRarityLabel,
   getAllLabel,
@@ -302,4 +316,3 @@ if (typeof window !== 'undefined') {
 }
 
 applyDocumentLang();
-
