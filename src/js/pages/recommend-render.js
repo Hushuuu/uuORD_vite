@@ -50,7 +50,10 @@ function renderMaterialTree(
     const ownedMark = owned ? '<span class="recommend-owned-mark" aria-label="已擁有">✓</span>' : '';
     const summaryContent = `
       <span class="recommend-material-chip badge badge-${childRecord.level}">${escapeHtml(getLevelLabel(childRecord.level))}</span>
-      <strong class="recommend-material-name">${escapeHtml(getDisplayName(childRecord))}</strong>
+      <strong class="recommend-material-name">
+        ${escapeHtml(getDisplayName(childRecord))}
+        ${childRecord.key_code ? `(${childRecord.key_code})` : ''}
+      </strong>
       ${ownedMark}
     `;
 
