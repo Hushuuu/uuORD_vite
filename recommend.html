@@ -201,13 +201,15 @@
             <select id="recommendOwnedSelect" multiple class=""></select>
             <div class="helper-text"></div>
           </div>
-          <div class="field-group">
+          <div class="field-group" style="grid-column: span 4;">
             <!-- <span class="field-label" data-i18n="field.actions">操作</span> -->
             <div class="controls-actions">
               <button id="recommendRefreshBtn" type="button" data-i18n="recommend.action.refresh">重新推薦</button>
               <button id="recommendResetBtn" type="button" class="secondary" data-i18n="action.reset">重置條件</button>
               <button id="collapseFilterBtn" type="button" class="secondary"
                 data-i18n="action.collapseFilters">收合條件</button>
+              <button id="recommendExportHighLevelBtn" type="button" class="secondary"
+                 data-i18n="recommend.export_team">匯出隊伍</button>
             </div>
           </div>
           <div class="toggle-container" style="grid-column: span 4;">
@@ -262,6 +264,17 @@
     </section>
   </div>
   <my-footer></my-footer>
+  <my-modal id="recommendExportHighLevelDialog" size="small">
+    <h2 class="dialog-title" data-i18n="recommend.export_team_title">隊伍代碼</h2>
+    <div class="dialog-body">
+      <p data-i18n="recommend.export_team_desc">至我的隊伍頁面進行載入隊伍</p>
+      <input id="recommendHighLevelCode" type="text" readonly style="width: 100%; margin-top: 12px;">
+      <button id="recommendCopyHighLevelCode" type="button" style="margin-top: 10px;"
+        data-i18n="recommend.copy_code">複製代碼</button>
+      <span id="recommendCopyHighLevelStatus" class="helper-text" style="margin-left: 8px;"></span>
+      <ul id="recommendHighLevelCharacters" style="margin: 14px 0 0; padding-left: 24px;"></ul>
+    </div>
+  </my-modal>
   <my-modal id="thirdPartyTutorialModal" size="large">
     <div>
       <h3 data-i18n="thirdPartyTutorial_title">第三方程式使用教學</h3>

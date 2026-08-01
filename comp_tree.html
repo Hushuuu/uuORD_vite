@@ -41,8 +41,12 @@
       <div class="panel-header">
         <div class="panel-header-row">
           <h1 class="panel-title" data-i18n="page.comp_tree.analyze.title">隊伍分析</h1>
-          <button id="teamSkillEffectsButton" type="button" class="success"
-            data-i18n="comp_tree.team_skill_effects">隊伍技能效果</button>
+          <div class="panel-header-row">
+            <button id="teamImportCodeButton" type="button" class="secondary"
+              data-i18n="comp_tree.import_code">載入角色代碼</button>
+            <button id="teamSkillEffectsButton" type="button" class="success"
+              data-i18n="comp_tree.team_skill_effects">隊伍技能效果</button>
+          </div>
         </div>
         <p class="panel-desc" data-i18n="page.comp_tree.analyze.desc">點擊隊伍角色查看各自的合成樹</p>
       </div>
@@ -89,15 +93,28 @@
     </section>
   </div>
 
-  <dialog id="teamSkillEffectsDialog" class="team-skill-effects-dialog">
+  <my-modal id="teamSkillEffectsDialog" size="small">
     <div class="dialog-header">
       <h2 class="dialog-title" data-i18n="comp_tree.team_skill_effects_dialog.title">隊伍技能效果</h2>
-      <button type="button" class="dialog-close" data-close-dialog>&times;</button>
+      <button type="button" class="dialog-close" data-action="close">&times;</button>
     </div>
     <div id="teamSkillEffectsContent" class="dialog-body">
       <!-- JS 動態生成 -->
     </div>
-  </dialog>
+  </my-modal>
+  <my-modal id="teamImportCodeDialog" size="small">
+    <div class="dialog-header">
+      <h2 class="dialog-title" data-i18n="comp_tree.import_code_title">載入角色代碼</h2>
+      <button type="button" class="dialog-close" data-action="close">&times;</button>
+    </div>
+    <div class="dialog-body">
+      <p data-i18n="comp_tree.import_code_desc">貼上從合成推薦頁複製的代碼，載入到目前隊伍。</p>
+      <input id="teamImportCodeInput" type="text" style="width: 100%;" autocomplete="off">
+      <div id="teamImportCodeError" class="helper-text" style="color: var(--danger-color); margin-top: 8px;"></div>
+      <button id="teamImportCodeSubmit" type="button" style="margin-top: 10px;"
+        data-i18n="comp_tree.import_code_submit">載入</button>
+    </div>
+  </my-modal>
   <my-footer></my-footer>
 </body>
 

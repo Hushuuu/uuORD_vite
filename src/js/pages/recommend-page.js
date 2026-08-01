@@ -22,6 +22,7 @@ import {
   buildPinnedCharactersHtml as buildPinnedCharactersHtmlUtil,
 } from './recommend-storage.js';
 import { createTmoPoller } from './recommend-tmo.js';
+import { encodeTeamCharacterIds } from './../shared/team-codec.js';
 
 const {
   compareRecords,
@@ -55,6 +56,12 @@ function initRecommendPage(records) {
     const refreshButton = document.getElementById('recommendRefreshBtn');
     const resetButton = document.getElementById('recommendResetBtn');
     const collapseFilterButton = document.getElementById('collapseFilterBtn');
+    const exportHighLevelButton = document.getElementById('recommendExportHighLevelBtn');
+    const exportHighLevelDialog = document.getElementById('recommendExportHighLevelDialog');
+    const highLevelCharacters = document.getElementById('recommendHighLevelCharacters');
+    const highLevelCode = document.getElementById('recommendHighLevelCode');
+    const copyHighLevelCodeButton = document.getElementById('recommendCopyHighLevelCode');
+    const copyHighLevelCodeStatus = document.getElementById('recommendCopyHighLevelStatus');
     const level1Records = [...records.filter((record) => record.level === 1)].sort((left, right) => {
       const sortId = ['1-8','1-5','1-4','1-9','1-3','1-6','1-2','1-7','1-1'];
       let leftIndex = sortId.indexOf(left.character_id);
@@ -687,6 +694,46 @@ function initRecommendPage(records) {
         scheduleRecommendationsRender();
       })
     }
+
+    function getOwnedHighLevelRecords() {
+      const selectedOwnedIds = ownedSelector
+        ? normalizeOwnedValuesUtil(ownedSelector.getValue())
+        : Array.from(ownedSelect.selectedOptions).map((option) => option.value);
+      const ownedIds = new Set(selectedOwnedIds);
+      return extraRecords.filter((record) => record.level >= 5 && ownedIds.has(record.character_id));
+    }
+
+    exportHighLevelButton?.addEventListener('click', () => {
+      const ownedRecords = getOwnedHighLevelRecords();
+      highLevelCharacters.innerHTML = ownedRecords.length > 0
+        ? ownedRecords
+          .map((record) => `<li><span class="text-lv-${record.level}">${escapeHtml(getDisplayName(record))}</span></li>`)
+          .join('')
+        : `<li class="muted">${escapeHtml(i18n.t('recommend.no_high_level_characters'))}</li>`;
+      highLevelCode.value = encodeTeamCharacterIds(ownedRecords.map((record) => record.character_id));
+      if (copyHighLevelCodeStatus) {
+        copyHighLevelCodeStatus.textContent = '';
+      }
+      exportHighLevelDialog?.open();
+    });
+
+    exportHighLevelDialog?.querySelector('[data-action="close"]')?.addEventListener('click', () => {
+      exportHighLevelDialog.close();
+    });
+
+    copyHighLevelCodeButton?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(highLevelCode.value);
+        if (copyHighLevelCodeStatus) {
+          copyHighLevelCodeStatus.textContent = i18n.t('recommend.copy_success');
+        }
+      } catch (error) {
+        console.error('Failed to copy team code:', error);
+        if (copyHighLevelCodeStatus) {
+          copyHighLevelCodeStatus.textContent = i18n.t('recommend.copy_failed');
+        }
+      }
+    });
   }
 
 if (typeof window !== 'undefined' && window.ORDApp) {

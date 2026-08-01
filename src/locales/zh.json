@@ -112,6 +112,11 @@
     "materials": "材料",
     "comp_tree": {
       "team_skill_effects": "隊伍技能效果",
+      "import_code": "載入角色代碼",
+      "import_code_title": "載入角色代碼",
+      "import_code_desc": "貼上從合成推薦頁複製的代碼，載入到目前隊伍。",
+      "import_code_submit": "載入",
+      "import_code_invalid": "代碼無效，或內容不是 Level 5 以上角色。",
       "team_skill_effects_dialog": {
         "title": "隊伍技能效果",
         "close": "關閉"
@@ -171,7 +176,14 @@
       "needMaterials": "缺少",
       "canCraft": "可合成",
       "selected": "已選擇",
-      "auto_update_owned": "👑自動更新擁有角色(需第三方程式)"
+      "auto_update_owned": "👑自動更新擁有角色(需第三方程式)",
+      "export_team": "匯出隊伍",
+      "export_team_title": "隊伍代碼",
+      "export_team_desc": "至我的隊伍頁面進行載入隊伍",
+      "copy_code": "複製代碼",
+      "copy_success": "已複製",
+      "copy_failed": "複製失敗，請手動複製代碼。",
+      "no_high_level_characters": "目前沒有傳說以上角色。"
     },
     "tmo":{
       "connect_success": "連接成功",

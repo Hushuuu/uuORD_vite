@@ -112,6 +112,11 @@
     "materials": "Materials",
     "comp_tree": {
       "team_skill_effects": "Team Skill Effects",
+      "import_code": "Load Character Code",
+      "import_code_title": "Load Character Code",
+      "import_code_desc": "Paste the code copied from the recommendation page to load the current team.",
+      "import_code_submit": "Load",
+      "import_code_invalid": "Invalid code, or it does not contain Level 5+ characters.",
       "team_skill_effects_dialog": {
         "title": "Team Skill Effects",
         "close": "Close"
@@ -171,7 +176,14 @@
       "needMaterials": "Missing",
       "canCraft": "Can Craft",
       "selected": "Selected",
-      "auto_update_owned": "👑Auto-update owned characters (3rd-party tool required)"
+      "auto_update_owned": "👑Auto-update owned characters (3rd-party tool required)",
+      "export_team": "Export Team",
+      "export_team_title": "Team Code",
+      "export_team_desc": "Load the team on the My Teams page",
+      "copy_code": "Copy Code",
+      "copy_success": "Copied",
+      "copy_failed": "Copy failed. Please copy the code manually.",
+      "no_high_level_characters": "No legend characters are currently owned."
     },
     "tmo":{
       "connect_success": "Connection successful",

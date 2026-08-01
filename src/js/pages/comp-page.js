@@ -1,5 +1,6 @@
 import appShared from './../shared/app-shared.js';
 import { ORDI18n } from './../i18n.js';
+import { decodeTeamCharacterIds } from './../shared/team-codec.js';
 
 const {
   createSkillTypeOptions,
@@ -428,11 +429,53 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     const teamSkillEffectsButton = document.getElementById('teamSkillEffectsButton');
     const teamSkillEffectsDialog = document.getElementById('teamSkillEffectsDialog');
     const teamSkillEffectsContent = document.getElementById('teamSkillEffectsContent');
+    const teamImportCodeButton = document.getElementById('teamImportCodeButton');
+    const teamImportCodeDialog = document.getElementById('teamImportCodeDialog');
+    const teamImportCodeInput = document.getElementById('teamImportCodeInput');
+    const teamImportCodeSubmit = document.getElementById('teamImportCodeSubmit');
+    const teamImportCodeError = document.getElementById('teamImportCodeError');
 
     // 1. 定義讀取 3 個隊伍的 Key
     function getTeamStorageKey(idx) {
       return `selectedTeamIds_${idx}`;
     }
+
+    function closeTeamImportCodeDialog() {
+      teamImportCodeDialog?.close();
+    }
+
+    function importTeamCode() {
+      try {
+        const importedIds = decodeTeamCharacterIds(teamImportCodeInput?.value);
+        const validIds = importedIds.filter((id) => {
+          const record = indices.byCharacterId.get(id);
+          return record && record.level >= 5;
+        });
+        if (validIds.length === 0 || validIds.length !== importedIds.length) {
+          throw new Error('invalid team code');
+        }
+        writeStoredArray(localStorage, getTeamStorageKey(currentMainTeamIdx), validIds);
+        closeTeamImportCodeDialog();
+        compTreeEmptyState.classList.add('is-hidden');
+        compTreeContent.classList.remove('is-hidden');
+        if (compTreeGroupTabs) compTreeGroupTabs.style.display = '';
+        switchMainTeam(currentMainTeamIdx);
+      } catch (error) {
+        console.error('Failed to import team code:', error);
+        if (teamImportCodeError) {
+          teamImportCodeError.textContent = i18n.t('comp_tree.import_code_invalid');
+        }
+      }
+    }
+
+    teamImportCodeButton?.addEventListener('click', () => {
+      if (teamImportCodeError) teamImportCodeError.textContent = '';
+      if (teamImportCodeInput) teamImportCodeInput.value = '';
+      teamImportCodeDialog?.open();
+      teamImportCodeInput?.focus();
+    });
+    teamImportCodeSubmit?.addEventListener('click', importTeamCode);
+    teamImportCodeDialog?.querySelector('[data-action="close"]')?.addEventListener('click', closeTeamImportCodeDialog);
 
     // 2. 狀態管理
     let currentMainTeamIdx = 0; // 當前選擇的大隊伍 (0, 1, 2)
@@ -645,8 +688,8 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
 
     function openTeamSkillEffectsDialog() {
       renderTeamSkillEffects();
-      if (teamSkillEffectsDialog && typeof teamSkillEffectsDialog.showModal === 'function') {
-        teamSkillEffectsDialog.showModal();
+      if (teamSkillEffectsDialog && typeof teamSkillEffectsDialog.open === 'function') {
+        teamSkillEffectsDialog.open();
       }
     }
 
@@ -743,18 +786,12 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       teamSkillEffectsButton.addEventListener('click', openTeamSkillEffectsDialog);
     }
     if (teamSkillEffectsDialog) {
-      teamSkillEffectsDialog.addEventListener('click', (event) => {
-        if (event.target === teamSkillEffectsDialog) {
-          closeTeamSkillEffectsDialog();
-        }
-      });
-      teamSkillEffectsDialog.querySelectorAll('[data-close-dialog]').forEach((button) => {
-        button.addEventListener('click', closeTeamSkillEffectsDialog);
-      });
+      teamSkillEffectsDialog.querySelector('[data-action="close"]')
+        ?.addEventListener('click', closeTeamSkillEffectsDialog);
     }
 
     let defaultTeamIdx = 0;
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 5; i++) {
       const savedIds = readStoredArray(localStorage, getTeamStorageKey(i))
         .filter((id) => indices.byCharacterId.has(id));
       if (savedIds.length > 0) {
