@@ -3856,7 +3856,7 @@ const ORD_DATA = [
         "remark": ""
       },
       "stl-4-2": {
-        "value": 18,
+        "value": 20,
         "remark": "10%"
       },
       "stl-5-3": {
@@ -5373,7 +5373,8 @@ const ORD_DATA = [
     "suitable_partners": [],
     "skill_types": [
       "stl-1-3",
-      "stl-6-3"
+      "stl-6-3",
+      "stl-4-4",
     ]
   },
   {
@@ -7139,20 +7140,11 @@ const ORD_DATA = [
     "en_name": "Sabo",
     "materials": [
       {
+        "material_id": "7-4"
+      },
+      {
         "material_id": "5-23"
       },
-      {
-        "material_id": "6-19"
-      },
-      {
-        "material_id": "4-3"
-      },
-      {
-        "material_id": "2-5"
-      },
-      {
-        "material_id": "10-1"
-      }
     ],
     "key_code": "sabo tr",
     "remark": "",
@@ -7188,7 +7180,7 @@ const ORD_DATA = [
         "remark": ""
       },
       "stl-4-2": {
-        "value": 30,
+        "value": 35,
         "remark": ""
       },
       "stl-5-1": {
