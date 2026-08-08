@@ -29,7 +29,8 @@ const PAGE_MODULES = {
   comp: () => import('./pages/comp-page.js'),
   comp_tree: () => import('./pages/comp-page.js').then((module) => ({ default: module.initCompTreePage })),
   recommend: () => import('./pages/recommend-page.js'),
-  maintenance: () => import('./pages/maintenance-page.js')
+  maintenance: () => import('./pages/maintenance-page.js'),
+  patch_notes: () => import('./pages/patch-notes-page.js')
 };
 
 function initI18n() {

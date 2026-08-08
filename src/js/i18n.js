@@ -41,11 +41,18 @@ function readStoredLang() {
   } catch {
     // localStorage may be unavailable in some contexts.
   }
-  return DEFAULT_LANG;
+  return '';
 }
 
 function readInitialLang() {
-  return readUrlLang() || readStoredLang() || DEFAULT_LANG;
+  const browserLang = navigator.language || navigator.userLanguage;
+  let browserLangShort = ''
+  if(browserLang.startsWith('zh')) {
+    browserLangShort = 'zh';
+  }else{
+    browserLangShort = 'en';
+  }
+  return readUrlLang() || readStoredLang() || browserLangShort || DEFAULT_LANG;
 }
 
 function writeStoredLang(lang) {

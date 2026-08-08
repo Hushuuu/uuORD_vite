@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="no-js">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORDR 2.310 Patch Notes｜版本更新公告</title>
+  <meta name="description" content="ORDR 版本更新公告與歷次 Patch Notes。">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://uuord.nijidakku.cc/patch-notes.html">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ORDR 2.310 Patch Notes｜版本更新公告">
+  <meta property="og:description" content="查看 ORDR 最新版本與歷次更新內容。">
+  <meta property="og:url" content="https://uuord.nijidakku.cc/patch-notes.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/src/css/styles.css">
+  <link rel="stylesheet" href="/src/css/patch-notes.css">
+  <script src="/pwa-init.js?v=260711001"></script>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/resource/192x192.png">
+  <link rel="icon" type="image/png" href="/resource/192x192.png">
+  <script type="module" src="/src/js/app.js"></script>
+</head>
+
+<body data-page="patch_notes">
+  <div id="app-loading" aria-hidden="true">
+    <div class="app-loading-spinner"></div>
+  </div>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-title">版本更新公告</div>
+        <div class="brand-subtitle">ORDR Patch Notes｜目前版本 2.310</div>
+      </div>
+      <my-navbar></my-navbar>
+    </header>
+
+    <section class="panel patch-notes-panel">
+      <div class="panel-header patch-notes-intro">
+        <div>
+          <span class="patch-note-kicker">UPDATE ARCHIVE</span>
+          <h1 class="panel-title">版本更新公告</h1>
+        </div>
+        <div class="patch-notes-intro-badge">
+          <span>目前版本</span>
+          <strong>v2.310</strong>
+        </div>
+      </div>
+
+      <div class="patch-notes-layout">
+        <aside class="patch-version-sidebar" aria-label="版本列表">
+          <div class="patch-sidebar-heading">
+            <div>
+              <span class="patch-note-kicker">VERSIONS</span>
+              <h2>版本列表</h2>
+            </div>
+          </div>
+
+          <label class="patch-version-search" style="display:none;">
+            <span>搜尋版本</span>
+            <input id="patchVersionSearch" class="field-input" type="search">
+          </label>
+
+          <div id="patchVersionList" class="patch-version-list"></div>
+        </aside>
+
+        <main id="patchNoteContent" class="patch-note-content" aria-live="polite"></main>
+      </div>
+    </section>
+  </div>
+
+  <my-footer></my-footer>
+</body>
+
+</html>

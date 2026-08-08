@@ -62,6 +62,9 @@ function createTmoPoller({
         if (tmoConnectStatus) tmoConnectStatus.textContent = t('tmo.connect_success');
         const data = await response.json();
         const units = data.units || {};
+        if(Object.keys(units).length === 0) {
+          return;
+        }
         let effectCount = 0;
         let ownedCountsChanged = false;
 
