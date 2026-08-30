@@ -17,6 +17,52 @@ function renderMaterialPreview(record, inventory, indices, getDisplayName, escap
   }).join('');
 }
 
+// 產生推薦角色的上層角色 tooltip；沒有上層角色時不產生控制項。
+function renderUpwardCharacterAction(record, indices, getDisplayName, escapeHtml, translate) {
+  const parentRecords = [
+    ...new Map(
+      (indices.parentMap.get(record.character_id) || [])
+        .map((parent) => [parent.character_id, parent])
+    ).values(),
+  ];
+  if (parentRecords.length === 0) {
+    return '';
+  }
+
+  const namesMarkup = `
+    <ul class="recommend-upward-names">
+      ${parentRecords
+        .map((parent) => `
+          <li>
+            <span class="recommend-upward-level-dot badge-${parent.level}" aria-hidden="true"></span>
+            <span>${escapeHtml(getDisplayName(parent) || parent.character_id)}</span>
+          </li>
+        `)
+        .join('')}
+    </ul>
+  `;
+
+  return `
+    <div class="recommend-upward-tooltip">
+      <button
+        type="button"
+        class="recommend-card-action recommend-upward-btn"
+        aria-label="${escapeHtml(translate('tree.upwardShow'))}"
+        title="${escapeHtml(translate('tree.upwardShow'))}"
+        aria-describedby="recommend-upward-tooltip-${escapeHtml(record.character_id)}"
+      >⬆️</button>
+      <div
+        id="recommend-upward-tooltip-${escapeHtml(record.character_id)}"
+        class="recommend-upward-list"
+        role="tooltip"
+      >
+        <span class="recommend-upward-list-label">${escapeHtml(translate('tree.upwardLabel'))}</span>
+        ${namesMarkup}
+      </div>
+    </div>
+  `;
+}
+
 // 遞迴產生可展開的推薦材料合成樹。
 function renderMaterialTree(
   record,
@@ -106,6 +152,7 @@ function renderOwnedCountCard(record, count, level, getDisplayName, escapeHtml) 
 
 export {
   renderMaterialPreview,
+  renderUpwardCharacterAction,
   renderMaterialTree,
   renderOwnedCountCard,
 };

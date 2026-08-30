@@ -12,6 +12,7 @@ import {
 } from './recommend-algorithm.js';
 import {
   renderMaterialPreview as renderMaterialPreviewUtil,
+  renderUpwardCharacterAction as renderUpwardCharacterActionUtil,
   renderMaterialTree as renderMaterialTreeUtil,
   renderOwnedCountCard as renderOwnedCountCardUtil,
 } from './recommend-render.js';
@@ -357,8 +358,16 @@ function initRecommendPage(records) {
                 ${group.candidates
                   .map(({ record, requiredText, completionRatio, isPinned }) => `
                     <article class="recommend-card ${isPinned ? 'card-pinned' : ''}">
-                      <span tabindex="-1" style="position:absolute; top: 10px; right: 25px;" class="pinned-character-btn" data-pinned-character="${escapeHtml(record.character_id)}" aria-label="釘選">📌</span>
-                      ${DEFAULT_SHOW_AMOUNT === 100 ? '' : `<span style="position:absolute; top: 10px; right: 2px;" class="recommend-dismiss-btn" data-dismiss-character="${escapeHtml(record.character_id)}" aria-label="隱藏此推薦">❌</span>`}
+                      <div class="recommend-card-actions">
+                        ${renderUpwardCharacterActionUtil(record, indices, getDisplayName, escapeHtml, t)}
+                        <button
+                          type="button"
+                          class="recommend-card-action pinned-character-btn"
+                          data-pinned-character="${escapeHtml(record.character_id)}"
+                          aria-label="釘選"
+                        >📌</button>
+                        ${DEFAULT_SHOW_AMOUNT === 100 ? '' : `<button type="button" class="recommend-card-action recommend-dismiss-btn" data-dismiss-character="${escapeHtml(record.character_id)}" aria-label="隱藏此推薦">❌</button>`}
+                      </div>
                       <div class="card-top-progress-container">
                         <div 
                           class="card-top-progress-bar-bg" 
