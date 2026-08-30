@@ -3721,7 +3721,7 @@ const ORD_DATA = [
     "en_name": "Dragon",
     "materials": [
       {
-        "material_id": "6-6"
+        "material_id": "4-9"
       },
       {
         "material_id": "4-37"
