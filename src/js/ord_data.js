@@ -7144,6 +7144,9 @@ const ORD_DATA = [
       },
       {
         "material_id": "5-23"
+      }, 
+      {
+        "material_id": "10-1"
       },
     ],
     "key_code": "sabo tr",
