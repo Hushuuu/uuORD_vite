@@ -455,7 +455,17 @@ const TMO_TRANSFER_DATA = new Map([
   ["KC0h", "8-4"],
   ["J70h", "8-5"],
   //lv9
-  ["I50h","9-8"], //rebecca
+  ["I50h", "9-8"],   // rebecca
+  ["Q90h", "9-10"],  // marco
+  ["Q80h", "9-3"],   // alvida
+  ["I70h", "9-1"],   // katakuri
+  ["F50h", "9-9"],   // crocodile
+  ["IA0h", "9-6"],   // king
+  ["G50h", "9-7"],   // redfield
+  ["O80h", "9-10"],  // marco (human form)
+  ["480h", "9-4"],   // shinobu
+  ["040h", "9-5"],   // ein
+  ["E50h", "9-2"],   // enel
   //lv16
   ["U60h", "16-1"],
   ["V60h", "16-2"],
@@ -484,7 +494,94 @@ const TMO_TRANSFER_DATA = new Map([
   ["3A0h","23-4"],
   //
   ["S40h", "10-1"], //超越熊
-  ["Y50h", "4-7"] //古船
+  ["Y50h", "4-7"], //古船
+  //lv10
+  ["E90H", "10-13"], // joker
+  ["890H", "10-36"], // robin
+  ["LB0H", "10-24"], // ryokugyu
+  ["990H", "10-16"], // luffy
+  ["490H", "10-17"], // hawkins
+  ["XB0H", "10-7"],  // bonney
+  ["290H", "10-20"], // sabo
+  ["DB0H", "10-26"], // yamato
+  ["B90H", "10-27"], // usopp
+  ["F90H", "10-8"],  // zoro
+  ["A90H", "10-28"], // jinbe
+  ["190H", "10-29"], // chopper
+  ["X80H", "10-14"], // fujitora
+  ["AA0H", "10-2"],  // vegapunk
+  ["090H", "10-15"], // teach tr
+  ["V80H", "10-35"], // nami tr
+  ["B80H", "10-35"], // nami tr
+  ["690H", "10-33"], // law tr
+  ["W80H", "10-12"], // lucci tr
+  ["LC0H", "10-12"], // lucci tr
+  ["2B0H", "10-11"], // snakeman tr
+  ["3B0H", "10-11"], // snakeman tr
+  ["I90H", "10-18"], // brook tr
+  ["H90H", "10-21"], // sanji tr
+  ["G90H", "10-21"], // sanji tr
+  ["Z80H", "10-22"], // shanks tr
+  ["U80H", "10-23"], // shirahoshi tr
+  ["790H", "10-31"], // aokiji tr
+  ["1B0H", "10-31"], // aokiji tr
+  ["590H", "10-25"], // akainu tr
+  ["OC0H", "10-30"], // koby tr
+  ["4B0H", "10-10"], // kid tr
+  ["5B0H", "10-32"], // kizaru tr
+  ["J80H", "10-32"], // kizaru tr
+  ["N50H", "10-19"], // tashigi tr
+  ["5A0H", "10-19"], // tashigi tr
+  ["Y80H", "10-34"], // franky tr
+  ["VB0H", "10-34"], // franky tr
+  // lv11
+  ["C40h", "11-13"], // garp im
+  ["940h", "11-3"],  // rayleigh im
+  ["J40h", "11-8"],  // roger im
+  ["180h", "11-1"],  // bullet im
+  ["F40h", "11-7"],  // gaban im
+  ["M70h", "11-4"],  // kaido im
+  ["DA0h", "11-4"],  // kaido im
+  ["A40h", "11-12"], // newgate im
+  ["VA0h", "11-12"], // newgate im
+  ["D40h", "11-2"],  // dragon im
+  ["Q40h", "11-9"],  // bigmom im
+  ["E40h", "11-11"], // sengoku im
+  ["MB0h", "11-11"], // sengoku im
+  ["B40h", "11-6"],  // shiki im
+  ["G40h", "11-5"],  // Z im
+  // lv12
+  ["KB0H", "12-2"],  // nika et
+  ["KB0H_", "12-1"], // nika et (蛇人)
+  ["A50h", "12-10"], // buggy et
+  ["B50h", "12-3"],  // cavendish et
+  ["JC0h", "12-8"],  // ryuma et
+  ["7C0h", "12-8"],  // ryuma et
+  ["850h", "12-12"], // mihawk et
+  ["Z70h", "12-12"], // mihawk et
+  ["750h", "12-9"],  // vivi et
+  ["950h", "12-13"], // ace et
+  ["R80h", "12-4"],  // oden et
+  ["760h", "12-5"],  // u-ta et
+  ["FA0h", "12-5"],  // u-ta et
+  ["C50h", "12-11"], // hancock et
+  ["U90h", "12-11"], // hancock et
+  ["A60h", "12-6"],  // tesoro et
+  // lv18
+  ["2A0h", "18-6"],  // 료우기 시키 (Ryougi Shiki)
+  ["380h", "18-3"],  // 샌즈 (Sans)
+  ["CC0h", "18-10"], // 요우무 (Youmu)
+  ["R90h", "18-8"],  // 죠타로 (Jotaro)
+  ["CB0h", "18-11"], // 타츠마키 (Tatsumaki)
+  ["M90h", "18-2"],  // 고죠사토루 (Satoru Gojo)
+  ["EC0h", "18-2"],  // 고죠사토루 (Satoru Gojo)
+  ["FB0h", "18-12"], // 네즈코 (Nezuko)
+  ["W90h", "18-7"],  // 미나토 (Minato)
+  ["I80h", "18-5"],  // 바쿠야 (Byakuya)
+  ["N90h", "18-9"],  // 부릉냐 (Bronya)
+  ["M80h", "18-4"],  // 아냐 (Anya)
+  ["6A0h", "18-1"],  // 유카리 (Yukari)
+  ["CA0h", "18-13"], // 히그마 (Higuma)
 ]);
 //end tmo data
 
