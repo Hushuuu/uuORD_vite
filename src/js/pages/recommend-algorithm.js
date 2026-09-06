@@ -204,9 +204,12 @@ function createRecipeAnalyzer(indices) {
     traverse(rootRecord, true);
     requiredMaterialIds.forEach((materialId) => {
       const excessCount = inv.get(materialId) || 0;
-      if (excessCount > 0) {
-        result.excessCounts.set(materialId, excessCount);
+      const materialRecord = indices.byCharacterId.get(materialId);
+      if (excessCount <= 0 || materialRecord?.level !== 1) {
+        return;
       }
+
+      result.excessCounts.set(materialId, excessCount);
     });
     return result;
   };
