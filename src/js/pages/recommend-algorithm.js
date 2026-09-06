@@ -56,8 +56,8 @@ function createInventoryMap(records, ownedCountsByLevel, selectedOwnedIds) {
   return map;
 }
 
-// 將推薦結果中的缺少基礎材料格式化成文字。
-function formatRequiredBaseMaterialsFromCounts(counts, indices, getPrimaryRecord, getDisplayName) {
+// 將材料數量格式化成文字。
+function formatMaterialCounts(counts, indices, getPrimaryRecord, getDisplayName, emptyText, sortUnknown = false) {
   const sortId = ['1-8', '1-5', '1-4', '1-9', '1-3', '1-6', '1-2', '1-7', '1-1'];
   const segments = [...counts.entries()]
     .filter(([, count]) => count > 0)
@@ -66,10 +66,34 @@ function formatRequiredBaseMaterialsFromCounts(counts, indices, getPrimaryRecord
       let rightIndex = sortId.indexOf(right[0]);
       if (leftIndex === -1) leftIndex = Infinity;
       if (rightIndex === -1) rightIndex = Infinity;
-      return leftIndex - rightIndex;
+      if (leftIndex !== rightIndex) {
+        return leftIndex - rightIndex;
+      }
+      if (!sortUnknown) {
+        return 0;
+      }
+
+      const leftRecord = getPrimaryRecord(left[0], indices);
+      const rightRecord = getPrimaryRecord(right[0], indices);
+      const levelCompare = Number(leftRecord?.level ?? Infinity) - Number(rightRecord?.level ?? Infinity);
+      if (levelCompare !== 0) {
+        return levelCompare;
+      }
+
+      return String(left[0]).localeCompare(String(right[0]), undefined, { numeric: true });
     })
     .map(([materialId, count]) => `${getDisplayName(getPrimaryRecord(materialId, indices)) || materialId}*${count}`);
-  return segments.join(' + ') || '無需額外素材';
+  return segments.join(' + ') || emptyText;
+}
+
+// 將推薦結果中的缺少基礎材料格式化成文字。
+function formatRequiredBaseMaterialsFromCounts(counts, indices, getPrimaryRecord, getDisplayName) {
+  return formatMaterialCounts(counts, indices, getPrimaryRecord, getDisplayName, '無需額外素材');
+}
+
+// 將推薦結果中的超過材料格式化成文字。
+function formatExcessMaterialsFromCounts(counts, indices, getPrimaryRecord, getDisplayName) {
+  return formatMaterialCounts(counts, indices, getPrimaryRecord, getDisplayName, '無', true);
 }
 
 // 建立合成分析器，並重用已快取的材料權重。
@@ -109,6 +133,7 @@ function createRecipeAnalyzer(indices) {
         status: { scoreOwned: 0, scoreTotal: 0 },
         missingBaseCounts: new Map(),
         missingTierCounts: new Map(),
+        excessCounts: new Map(),
       };
     }
 
@@ -116,8 +141,22 @@ function createRecipeAnalyzer(indices) {
       status: { scoreOwned: 0, scoreTotal: getRealWeight(rootRecord.character_id) },
       missingBaseCounts: new Map(),
       missingTierCounts: new Map(),
+      excessCounts: new Map(),
     };
     const visited = new Set();
+    const requiredMaterialIds = new Set();
+
+    function collectMaterialIds(record, trail = new Set()) {
+      if (!record || trail.has(record.character_id)) return;
+      trail.add(record.character_id);
+
+      (record.materials || []).forEach((material) => {
+        requiredMaterialIds.add(material.material_id);
+        collectMaterialIds(indices.byCharacterId.get(material.material_id), trail);
+      });
+
+      trail.delete(record.character_id);
+    }
 
     function traverse(record, isFirstCall = false) {
       if (!record || visited.has(record.character_id)) return;
@@ -161,7 +200,14 @@ function createRecipeAnalyzer(indices) {
       visited.delete(record.character_id);
     }
 
+    collectMaterialIds(rootRecord);
     traverse(rootRecord, true);
+    requiredMaterialIds.forEach((materialId) => {
+      const excessCount = inv.get(materialId) || 0;
+      if (excessCount > 0) {
+        result.excessCounts.set(materialId, excessCount);
+      }
+    });
     return result;
   };
 }
@@ -181,7 +227,9 @@ export {
   countMapTotal,
   normalizeOwnedValues,
   createInventoryMap,
+  formatMaterialCounts,
   formatRequiredBaseMaterialsFromCounts,
+  formatExcessMaterialsFromCounts,
   createRecipeAnalyzer,
   compareMissingTierCounts,
 };

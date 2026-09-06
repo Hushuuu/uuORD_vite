@@ -737,7 +737,7 @@ button.success {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 14px;
+  padding: 14px 14px 5px 14px;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(17, 24, 39, 0.62);
@@ -911,6 +911,12 @@ button.success {
   align-items: center;
 }
 
+.recommend-card-statuses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 .recommend-shortage {
   display: inline-flex;
   align-items: center;
@@ -923,10 +929,18 @@ button.success {
   font-size: 0.75rem;
 }
 
-.recommend-shortage.is-ready {
-  background: rgba(34, 197, 94, 0.18);
-  color: #bbf7d0;
+.recommend-excess {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.16);
+  color: #bfdbfe;
+  font-weight: 700;
+  font-size: 0.75rem;
 }
+
 .badge-skill-type{
   display: inline-flex;
   align-items: center;

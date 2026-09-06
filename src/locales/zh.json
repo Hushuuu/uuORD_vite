@@ -175,6 +175,8 @@
       "levelSeparator": "｜",
       "noTargetRaritySelected": "請先選擇至少一個目標稀有度。",
       "needMaterials": "缺少",
+      "excessMaterials": "超過",
+      "noExcessMaterials": "無",
       "canCraft": "可合成",
       "selected": "已選擇",
       "auto_update_owned": "👑自動更新擁有角色(需第三方程式)",

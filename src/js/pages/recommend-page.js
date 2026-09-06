@@ -7,6 +7,7 @@ import {
   normalizeOwnedValues as normalizeOwnedValuesUtil,
   createInventoryMap as createInventoryMapUtil,
   formatRequiredBaseMaterialsFromCounts as formatRequiredBaseMaterialsFromCountsUtil,
+  formatExcessMaterialsFromCounts as formatExcessMaterialsFromCountsUtil,
   createRecipeAnalyzer,
   compareMissingTierCounts as compareMissingTierCountsUtil,
 } from './recommend-algorithm.js';
@@ -274,6 +275,8 @@ function initRecommendPage(records) {
                 record,
                 requiredCounts : analyzeResult.missingBaseCounts,
                 requiredText: formatRequiredBaseMaterialsFromCountsUtil(analyzeResult.missingBaseCounts, indices, getPrimaryRecord, getDisplayName),
+                excessCounts: analyzeResult.excessCounts,
+                excessText: formatExcessMaterialsFromCountsUtil(analyzeResult.excessCounts, indices, getPrimaryRecord, getDisplayName),
                 missingTierCounts: analyzeResult.missingTierCounts,
                 completionRatio,
                 isPinned: pinnedCharacterIds.has(record.character_id),
@@ -356,7 +359,7 @@ function initRecommendPage(records) {
               </div>
               <div class="recommend-result-group-body">
                 ${group.candidates
-                  .map(({ record, requiredText, completionRatio, isPinned }) => `
+                  .map(({ record, requiredCounts, requiredText, excessCounts, excessText, completionRatio, isPinned }) => `
                     <article class="recommend-card ${isPinned ? 'card-pinned' : ''}">
                       <div class="recommend-card-actions">
                         ${renderUpwardCharacterActionUtil(record, indices, getDisplayName, escapeHtml, t)}
@@ -403,10 +406,15 @@ function initRecommendPage(records) {
                         </summary>
                         <div class="recommend-material-body" data-material-tree-container></div>
                       </details>
-                      <div class="recommend-card-foot">
-                        <span class="recommend-shortage ${requiredText === '無需額外素材' ? 'is-ready' : ''}">${requiredText === '無需額外素材' ? '' : `${i18n.t('recommend.needMaterials')}: ${escapeHtml(requiredText)}`}</span>
-                        <span class="muted"></span>
-                      </div>
+                      ${requiredCounts.size > 0 || excessCounts.size > 0 ? `
+                        <div class="recommend-card-foot">
+                          <div class="recommend-card-statuses">
+                            ${requiredCounts.size > 0 ? `<span class="recommend-shortage">${i18n.t('recommend.needMaterials')}: ${escapeHtml(requiredText)}</span>` : ''}
+                            ${excessCounts.size > 0 ? `<span class="recommend-excess">${i18n.t('recommend.excessMaterials')}: ${escapeHtml(excessText)}</span>` : ''}
+                          </div>
+                          <span class="muted"></span>
+                        </div>
+                      ` : ''}
                     </article>
                   `)
                   .join('')}

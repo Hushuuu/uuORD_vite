@@ -175,6 +175,8 @@
       "levelSeparator": "|",
       "noTargetRaritySelected": "Please select at least one target rarity first.",
       "needMaterials": "Missing",
+      "excessMaterials": "Excess",
+      "noExcessMaterials": "None",
       "canCraft": "Can Craft",
       "selected": "Selected",
       "auto_update_owned": "👑Auto-update owned characters (3rd-party tool required)",
