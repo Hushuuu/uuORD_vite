@@ -2979,7 +2979,7 @@ const ORD_DATA = [
         "material_id": "4-17"
       },
       {
-        "material_id": "6-6"
+        "material_id": "4-9"
       },
       {
         "material_id": "4-4"
@@ -10321,6 +10321,41 @@ const ORD_DATA = [
     "skill_types": [
       "stl-5-3"
     ]
+  },
+  {
+    "character_id": "18-14",
+    "level": 18,
+    "name": "范馬勇次郎",
+    "kr_name": "",
+    "en_name": "",
+    "materials": [
+      {
+        "material_id": "16-13"
+      },
+      {
+        "material_id": "5-33"
+      },
+      {
+        "material_id": "6-6"
+      },
+      {
+        "material_id": "4-38"
+      },
+      {
+        "material_id": "0-9"
+      },
+      {
+        "material_id": "0-32"
+      }
+    ],
+    "key_code": "",
+    "remark": "10000金+木*7",
+    "major": "",
+    "suitable_partners": [],
+    "skill_types": [
+    ],
+    "skill_values": {
+    }
   },
   {
     "character_id": "23-1",
