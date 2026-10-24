@@ -4,18 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ORD 海賊王隨機防禦合成表｜合成推薦</title>
+  <title>ORD 航海王隨機防禦｜角色查詢與隊伍工具</title>
   <meta name="description" content="ORD 海賊王隨機防禦合成表，提供航海王隨機防禦角色資料、合成材料、合成樹、隊伍分析與合成推薦。">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://uuord.nijidakku.cc/">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="ORD 海賊王隨機防禦合成表">
-  <meta property="og:description" content="查詢 ORD 航海王隨機防禦角色與合成材料。">
+  <meta property="og:title" content="ORD 航海王隨機防禦｜角色查詢與隊伍工具">
+  <meta property="og:description" content="從角色總覽、合成推薦到隊伍規劃，找到你需要的 ORD 工具。">
   <meta property="og:url" content="https://uuord.nijidakku.cc/">
   <meta name="twitter:card" content="summary">
   <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" href="/src/css/styles.css">
+  <link rel="stylesheet" href="/src/css/home.css">
   <script src="/pwa-init.js?v=260711001"></script>
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -24,7 +25,7 @@
   <script type="module" src="/src/js/app.js"></script>
 </head>
 
-<body data-page="lookup">
+<body data-page="home">
   <div id="app-loading" aria-hidden="true">
     <div class="app-loading-spinner"></div>
   </div>
@@ -32,74 +33,91 @@
     <header class="topbar">
       <div class="brand">
         <div class="brand-title" data-i18n="brand.title">ORD 航海王隨機防禦合成表</div>
-        <div class="brand-subtitle">
-          <span>ver. 2.310[R] | updated. 2026/08/08</span>
-          <span>
-            | <a style="text-decoration: underline;" href="#" onclick="openEmail()"
-              data-i18n="brand.feedback">Feedback</a>
-          </span>
-        </div>
+        <div class="brand-subtitle" data-i18n="home.brand_subtitle">角色資料・合成規劃・隊伍工具</div>
       </div>
       <my-navbar></my-navbar>
     </header>
 
-    <section class="panel">
-      <div class="panel-header">
-        <h1 class="panel-title" data-i18n="page.lookup.title">ORD 海賊王（航海王）隨機防禦合成表｜角色總覽</h1>
-        <p class="panel-desc" data-i18n="page.lookup.desc">查詢 ORD 航海王隨機防禦的角色、合成材料與合成樹；名稱和材料皆可搜尋。</p>
-      </div>
-      <div class="panel-body">
-        <div class="controls-grid">
-          <label class="field-group">
-            <span class="field-label" data-i18n="field.rarity">稀有度</span>
-            <select id="levelFilter" class="field-select"></select>
-          </label>
-          <label class="field-group">
-            <span class="field-label" data-i18n="field.search">搜尋</span>
-            <input id="searchInput" class="field-input" type="text" placeholder=""
-              data-i18n-placeholder="placeholder.searchCharacter">
-          </label>
-          <div class="field-group">
-            <span class="field-label" data-i18n="field.actions">操作</span>
-            <div class="controls-actions">
-              <button id="clearButton" type="button" class="secondary" data-i18n="action.reset">重置條件</button>
-            </div>
+    <svg class="home-icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <symbol id="home-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+        <symbol id="home-spark" viewBox="0 0 24 24"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></symbol>
+        <symbol id="home-team" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M17 4a3 3 0 0 1 0 6m2 11v-3a6 6 0 0 0-2-4.5"/></symbol>
+        <symbol id="home-list" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="m8 9 1 1 2-2m2 1h3m-8 6 1 1 2-2m2 1h3"/></symbol>
+        <symbol id="home-tree" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="5" rx="1"/><rect x="2" y="17" width="6" height="5" rx="1"/><rect x="16" y="17" width="6" height="5" rx="1"/><path d="M12 7v5M5 17v-5h14v5"/></symbol>
+        <symbol id="home-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      </defs>
+    </svg>
+
+    <main class="home-main">
+      <section class="home-hero" aria-labelledby="homeTitle">
+        <div class="home-hero-copy">
+          <span class="home-eyebrow">ONE PIECE RANDOM DEFENSE</span>
+          <h1 id="homeTitle" data-i18n="home.hero_title">查角色、看合成，組出你的隊伍。</h1>
+          <p class="home-hero-desc" data-i18n="home.hero_desc">查詢角色與合成材料、根據手上的角色取得推薦，再把想玩的陣容整理成隊伍。需要的工具，都從這裡開始。</p>
+          <div class="home-hero-actions">
+            <a class="home-button home-button-primary" href="lookup.html"><span data-i18n="home.lookup_action">查詢角色總覽</span><span aria-hidden="true">↗</span></a>
+            <a class="home-button home-button-secondary" href="recommend.html" data-i18n="home.recommend_action">開始合成推薦</a>
           </div>
+          <p class="home-version"><span class="home-version-dot" aria-hidden="true"></span><span data-i18n="home.data_version">角色資料版本 2.310[R]・更新於 2026/08/08</span></p>
         </div>
+        <aside class="home-start" aria-labelledby="homeStartTitle">
+          <span class="home-eyebrow" data-i18n="home.start_label">快速開始</span>
+          <h2 id="homeStartTitle" data-i18n="home.start_title">你現在想做什麼？</h2>
+          <a href="lookup.html" class="home-start-link"><span class="home-step">01</span><span><strong data-i18n="home.start_lookup_title">想查某個角色怎麼合成</strong><small data-i18n="home.start_lookup_desc">在總覽表搜尋名稱或材料</small></span><span class="home-arrow" aria-hidden="true">→</span></a>
+          <a href="recommend.html" class="home-start-link"><span class="home-step">02</span><span><strong data-i18n="home.start_recommend_title">想知道手上的角色能做什麼</strong><small data-i18n="home.start_recommend_desc">輸入擁有角色，查看合成推薦</small></span><span class="home-arrow" aria-hidden="true">→</span></a>
+          <a href="comp.html" class="home-start-link"><span class="home-step">03</span><span><strong data-i18n="home.start_comp_title">想規劃一整隊角色</strong><small data-i18n="home.start_comp_desc">選取目標角色，彙整所需材料</small></span><span class="home-arrow" aria-hidden="true">→</span></a>
+        </aside>
+      </section>
 
-        <div class="summary-bar">
-          <div id="summaryText" class="summary-text" data-i18n="loading.loading">載入中...</div>
-          <div class="helper-text" data-i18n="helper.clickHint">提示：點角色名或材料可直接把關鍵字帶回搜尋框。</div>
+      <section class="home-features" aria-labelledby="homeFeaturesTitle">
+        <div class="home-section-heading">
+          <div><span class="home-eyebrow" data-i18n="home.features_label">功能導覽</span><h2 id="homeFeaturesTitle" data-i18n="home.features_title">找到你需要的工具</h2></div>
+          <p data-i18n="home.features_desc">從單一角色到完整隊伍，依照需求選擇入口。</p>
         </div>
-
-        <div class="table-scroll">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th data-i18n="table.rarity">稀有度</th>
-                <th data-i18n="table.name">名稱</th>
-                <th data-i18n="table.materials">材料</th>
-                <th data-i18n="table.key">金鑰</th>
-                <th data-i18n="table.remark">備註</th>
-                <th data-i18n="table.actions">功能</th>
-              </tr>
-            </thead>
-            <tbody id="lookupTableBody"></tbody>
-          </table>
+        <div class="home-feature-grid">
+          <a class="home-feature-card" href="lookup.html">
+            <span class="home-feature-icon"><svg aria-hidden="true"><use href="#home-search"/></svg></span>
+            <h3 data-i18n="nav.lookup">總覽表</h3>
+            <p data-i18n="home.lookup_desc">依稀有度與關鍵字查詢角色，快速查看合成材料、金鑰與備註，也能直接開啟合成樹。</p>
+            <span class="home-card-action"><span data-i18n="home.lookup_action">查詢角色總覽</span><span aria-hidden="true">→</span></span>
+          </a>
+          <a class="home-feature-card home-feature-teal" href="recommend.html">
+            <span class="home-feature-icon"><svg aria-hidden="true"><use href="#home-spark"/></svg></span>
+            <h3 data-i18n="page.recommend.title">合成推薦</h3>
+            <p data-i18n="home.recommend_desc">填入現有角色，依目標稀有度與技能類型取得推薦，查看完成度與缺少材料，釘選想合成的角色。</p>
+            <span class="home-card-action"><span data-i18n="home.recommend_action">開始合成推薦</span><span aria-hidden="true">→</span></span>
+          </a>
+          <a class="home-feature-card home-feature-blue" href="comp.html">
+            <span class="home-feature-icon"><svg aria-hidden="true"><use href="#home-team"/></svg></span>
+            <h3 data-i18n="nav.comp">隊伍組成</h3>
+            <p data-i18n="home.comp_desc">篩選並挑選目標角色，建立不同隊伍，彙整整隊需要的基礎材料，提前規劃陣容。</p>
+            <span class="home-card-action"><span data-i18n="home.comp_action">開始組隊</span><span aria-hidden="true">→</span></span>
+          </a>
+          <a class="home-feature-card home-feature-blue" href="comp_tree.html">
+            <span class="home-feature-icon"><svg aria-hidden="true"><use href="#home-list"/></svg></span>
+            <h3 data-i18n="nav.comp_tree">我的隊伍</h3>
+            <p data-i18n="home.comp_tree_desc">查看已建立的隊伍與角色合成樹，分析隊伍組成，或透過隊伍代碼載入角色。</p>
+            <span class="home-card-action"><span data-i18n="home.comp_tree_action">查看我的隊伍</span><span aria-hidden="true">→</span></span>
+          </a>
+          <a class="home-feature-card home-feature-teal" href="tree.html">
+            <span class="home-feature-icon"><svg aria-hidden="true"><use href="#home-tree"/></svg></span>
+            <h3 data-i18n="nav.tree">合成樹</h3>
+            <p data-i18n="home.tree_desc">從角色向下展開所需材料，也能往上查看可合成的角色，釐清每一步合成關係。</p>
+            <span class="home-card-action"><span data-i18n="home.tree_action">探索合成樹</span><span aria-hidden="true">→</span></span>
+          </a>
+          <a class="home-feature-card" href="patch-notes.html">
+            <span class="home-feature-icon"><svg aria-hidden="true"><use href="#home-clock"/></svg></span>
+            <h3 data-i18n="nav.patch_notes">版本更新</h3>
+            <p data-i18n="home.patch_notes_desc">瀏覽遊戲版本更新公告，追蹤角色調整與改版內容，配隊時掌握版本變化。</p>
+            <span class="home-card-action"><span data-i18n="home.patch_notes_action">閱讀更新公告</span><span aria-hidden="true">→</span></span>
+          </a>
         </div>
-      </div>
-    </section>
+      </section>
+      <div class="home-about"><p data-i18n="home.about_desc">想更了解網站與遊戲相關資訊？</p><a href="about.html"><span data-i18n="home.about_action">關於這個網站</span><span aria-hidden="true">↗</span></a></div>
+    </main>
   </div>
   <my-footer></my-footer>
-  <script>
-    function openEmail() {
-      const user = "jim";
-      const domain = "nijidakku.cc";
-      const subject = encodeURIComponent("【ORD網站使用者來信】");
-
-      window.open("https://mail.google.com/mail/?view=cm&fs=1&to=" + user + "@" + domain + "&su=" + subject, "_blank");
-    }
-  </script>
 </body>
 
 </html>

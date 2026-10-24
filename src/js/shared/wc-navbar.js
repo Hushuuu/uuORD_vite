@@ -73,10 +73,11 @@ class MyNavbar extends HTMLElement {
 
     this.innerHTML = `
 <style>
-:host {
+my-navbar {
     display: block;
     position: relative;
     z-index: 1000;
+    max-width: 100%;
 }
 
 /* 頂部導覽外殼 */
@@ -107,8 +108,9 @@ class MyNavbar extends HTMLElement {
 /* 導覽連結容器 */
 .nav-container {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 28px;
+    gap: 0 20px;
     width: 100%;
 }
 
@@ -199,7 +201,8 @@ class MyNavbar extends HTMLElement {
     <button class="hamburger-btn" aria-label="Toggle Navigation">☰</button>
 
     <nav class="nav-container" aria-label="主要導覽">
-        <a class="nav-link ${currentPath === 'index.html' ? 'active' : ''}" data-page="lookup" href="index.html">${t('nav.lookup')}</a>
+        <a class="nav-link ${currentPath === 'index.html' ? 'active' : ''}" data-page="home" href="index.html">${t('nav.home')}</a>
+        <a class="nav-link ${currentPath === 'lookup.html' ? 'active' : ''}" data-page="lookup" href="lookup.html">${t('nav.lookup')}</a>
         <!-- <a class="nav-link ${currentPath === 'tree.html' ? 'active' : ''}" data-page="tree" href="tree.html">${t('nav.tree')}</a> -->
         <a class="nav-link ${currentPath === 'comp.html' ? 'active' : ''}" data-page="comp" href="comp.html">${t('nav.comp')}</a>
         <a class="nav-link ${currentPath === 'comp_tree.html' ? 'active' : ''}" data-page="comp_tree" href="comp_tree.html">${t('nav.comp_tree')}</a>

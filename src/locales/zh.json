@@ -5,6 +5,7 @@
       "en": "EN"
     },
     "nav": {
+      "home": "首頁",
       "lookup": "總覽表",
       "tree": "合成樹",
       "comp": "隊伍組成",
@@ -18,6 +19,38 @@
     "brand": {
       "title": "ORD 航海王隨機防禦合成表",
       "feedback": "Feedback"
+    },
+    "home": {
+      "page_title": "ORD 航海王隨機防禦｜角色查詢與隊伍工具",
+      "brand_subtitle": "角色資料・合成規劃・隊伍工具",
+      "hero_title": "查角色、看合成，組出你的隊伍。",
+      "hero_desc": "查詢角色與合成材料、根據手上的角色取得推薦，再把想玩的陣容整理成隊伍。需要的工具，都從這裡開始。",
+      "data_version": "角色資料版本 2.310[R]・更新於 2026/08/08",
+      "start_label": "快速開始",
+      "start_title": "你現在想做什麼？",
+      "start_lookup_title": "想查某個角色怎麼合成",
+      "start_lookup_desc": "在總覽表搜尋名稱或材料",
+      "start_recommend_title": "想知道手上的角色能做什麼",
+      "start_recommend_desc": "輸入擁有角色，查看合成推薦",
+      "start_comp_title": "想規劃一整隊角色",
+      "start_comp_desc": "選取目標角色，彙整所需材料",
+      "features_label": "功能導覽",
+      "features_title": "找到你需要的工具",
+      "features_desc": "從單一角色到完整隊伍，依照需求選擇入口。",
+      "lookup_desc": "依稀有度與關鍵字查詢角色，快速查看合成材料、金鑰與備註，也能直接開啟合成樹。",
+      "lookup_action": "查詢角色總覽",
+      "recommend_desc": "填入現有角色，依目標稀有度與技能類型取得推薦，查看完成度與缺少材料，釘選想合成的角色。",
+      "recommend_action": "開始合成推薦",
+      "comp_desc": "篩選並挑選目標角色，建立不同隊伍，彙整整隊需要的基礎材料，提前規劃陣容。",
+      "comp_action": "開始組隊",
+      "comp_tree_desc": "查看已建立的隊伍與角色合成樹，分析隊伍組成，或透過隊伍代碼載入角色。",
+      "comp_tree_action": "查看我的隊伍",
+      "tree_desc": "從角色向下展開所需材料，也能往上查看可合成的角色，釐清每一步合成關係。",
+      "tree_action": "探索合成樹",
+      "patch_notes_desc": "瀏覽遊戲版本更新公告，追蹤角色調整與改版內容，配隊時掌握版本變化。",
+      "patch_notes_action": "閱讀更新公告",
+      "about_desc": "想更了解網站與遊戲相關資訊？",
+      "about_action": "關於這個網站"
     },
     "page": {
       "lookup": {
@@ -162,6 +195,9 @@
       "owned_title": "擁有基本角色",
       "result_title": "推薦結果",
       "result_desc": "顯示前10個建議，點x可推薦其他角色",
+      "search_label": "搜尋角色",
+      "search_placeholder": "輸入角色名稱、英文名",
+      "no_search_results": "查無符合關鍵字的推薦角色。",
       "target_rarity": "目標稀有度",
       "target_skill_type": "技能類型",
       "owned_characters": "擁有其他角色",

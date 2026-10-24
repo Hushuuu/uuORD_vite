@@ -10,6 +10,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         index: resolve(__dirname, 'index.html'),
+        lookup: resolve(__dirname, 'lookup.html'),
         tree: resolve(__dirname, 'tree.html'),
         comp: resolve(__dirname, 'comp.html'),
         comp_tree: resolve(__dirname, 'comp_tree.html'),

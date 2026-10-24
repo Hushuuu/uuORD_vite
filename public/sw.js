@@ -3,6 +3,7 @@ const CACHE_NAME = 'v=260906001';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
+  '/lookup.html',
   '/manifest.json',
   '/resource/192x192.png',
   '/resource/512x512.png',

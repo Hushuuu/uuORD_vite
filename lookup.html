@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="no-js">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORD 海賊王隨機防禦合成表｜角色總覽</title>
+  <meta name="description" content="ORD 海賊王隨機防禦合成表，提供航海王隨機防禦角色資料、合成材料、合成樹、隊伍分析與合成推薦。">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://uuord.nijidakku.cc/lookup.html">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ORD 海賊王隨機防禦合成表｜角色總覽">
+  <meta property="og:description" content="查詢 ORD 航海王隨機防禦角色與合成材料。">
+  <meta property="og:url" content="https://uuord.nijidakku.cc/lookup.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/src/css/styles.css">
+  <script src="/pwa-init.js?v=260711001"></script>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/resource/192x192.png">
+  <link rel="icon" type="image/png" href="/resource/192x192.png" />
+  <script type="module" src="/src/js/app.js"></script>
+</head>
+
+<body data-page="lookup">
+  <div id="app-loading" aria-hidden="true">
+    <div class="app-loading-spinner"></div>
+  </div>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-title" data-i18n="brand.title">ORD 航海王隨機防禦合成表</div>
+        <div class="brand-subtitle">
+          <span>ver. 2.310[R] | updated. 2026/08/08</span>
+          <span>
+            | <a style="text-decoration: underline;" href="#" onclick="openEmail()"
+              data-i18n="brand.feedback">Feedback</a>
+          </span>
+        </div>
+      </div>
+      <my-navbar></my-navbar>
+    </header>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h1 class="panel-title" data-i18n="page.lookup.title">ORD 海賊王（航海王）隨機防禦合成表｜角色總覽</h1>
+        <p class="panel-desc" data-i18n="page.lookup.desc">查詢 ORD 航海王隨機防禦的角色、合成材料與合成樹；名稱和材料皆可搜尋。</p>
+      </div>
+      <div class="panel-body">
+        <div class="controls-grid">
+          <label class="field-group">
+            <span class="field-label" data-i18n="field.rarity">稀有度</span>
+            <select id="levelFilter" class="field-select"></select>
+          </label>
+          <label class="field-group">
+            <span class="field-label" data-i18n="field.search">搜尋</span>
+            <input id="searchInput" class="field-input" type="text" placeholder=""
+              data-i18n-placeholder="placeholder.searchCharacter">
+          </label>
+          <div class="field-group">
+            <span class="field-label" data-i18n="field.actions">操作</span>
+            <div class="controls-actions">
+              <button id="clearButton" type="button" class="secondary" data-i18n="action.reset">重置條件</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="summary-bar">
+          <div id="summaryText" class="summary-text" data-i18n="loading.loading">載入中...</div>
+          <div class="helper-text" data-i18n="helper.clickHint">提示：點角色名或材料可直接把關鍵字帶回搜尋框。</div>
+        </div>
+
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th data-i18n="table.rarity">稀有度</th>
+                <th data-i18n="table.name">名稱</th>
+                <th data-i18n="table.materials">材料</th>
+                <th data-i18n="table.key">金鑰</th>
+                <th data-i18n="table.remark">備註</th>
+                <th data-i18n="table.actions">功能</th>
+              </tr>
+            </thead>
+            <tbody id="lookupTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+  <my-footer></my-footer>
+  <script>
+    function openEmail() {
+      const user = "jim";
+      const domain = "nijidakku.cc";
+      const subject = encodeURIComponent("【ORD網站使用者來信】");
+
+      window.open("https://mail.google.com/mail/?view=cm&fs=1&to=" + user + "@" + domain + "&su=" + subject, "_blank");
+    }
+  </script>
+</body>
+
+</html>

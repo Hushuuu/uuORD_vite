@@ -54,6 +54,7 @@ function initRecommendPage(records) {
     const ownedTabs = document.getElementById('recommendOwnedTabs');
     const ownedPanels = document.getElementById('recommendOwnedPanels');
     const resultList = document.getElementById('recommendResultList');
+    const recommendSearchInput = document.getElementById('recommendSearchInput');
     const summary = document.getElementById('recommendSummary');
     const refreshButton = document.getElementById('recommendRefreshBtn');
     const resetButton = document.getElementById('recommendResetBtn');
@@ -90,6 +91,27 @@ function initRecommendPage(records) {
     };
     let dismissedCharacterIds = new Set();
     let activeResultLevel = null;
+    let recommendationSearchQuery = '';
+
+    function normalizeSearchText(value) {
+      return String(value || '').normalize('NFKC').toLowerCase();
+    }
+
+    function matchesRecommendationSearch(record) {
+      if (!recommendationSearchQuery) {
+        return true;
+      }
+
+      const searchableText = normalizeSearchText([
+        getDisplayName(record),
+        record.name,
+        record.en_name,
+        record.kr_name,
+        record.character_id,
+        record.key_code,
+      ].join(' '));
+      return searchableText.includes(recommendationSearchQuery);
+    }
 
     const ownedSelector = hasTomSelect
       ? new window.TomSelect(ownedSelect, {
@@ -266,6 +288,7 @@ function initRecommendPage(records) {
           const candidates = records
             .filter((record) => record.level === targetLevel 
             && !defaultDismissedIds.includes(record.character_id)
+            && matchesRecommendationSearch(record)
             && (selectedTargetSkillTypes.length === 0 || record.skill_types?.some((skillType) => selectedTargetSkillTypes.includes(skillType))))
             .map((record) => {
               // 整併計算缺口與完成度分數
@@ -345,7 +368,9 @@ function initRecommendPage(records) {
       }
 
       if (resultGroups.length === 0) {
-        resultList.innerHTML = '<div class="empty-state">此條件沒有可推薦的角色。</div>';
+        resultList.innerHTML = `<div class="empty-state">${recommendationSearchQuery
+          ? escapeHtml(i18n.t('recommend.no_search_results'))
+          : '此條件沒有可推薦的角色。'}</div>`;
         renderLevelTabs(selectedTargetLevels);
         return;
       }
@@ -549,6 +574,10 @@ function initRecommendPage(records) {
 
     resetButton.addEventListener('click', () => {
       dismissedCharacterIds = new Set();
+      recommendationSearchQuery = '';
+      if (recommendSearchInput) {
+        recommendSearchInput.value = '';
+      }
       targetState.selectedTargetLevels = new Set();
       targetState.checkedSkillTypes = new Set();
       targetState.activeOwnedLevel = 1;
@@ -660,6 +689,11 @@ function initRecommendPage(records) {
     } else {
       ownedSelect.addEventListener('change', scheduleRecommendationsRender);
     }
+
+    recommendSearchInput?.addEventListener('input', () => {
+      recommendationSearchQuery = normalizeSearchText(recommendSearchInput.value).trim();
+      scheduleRecommendationsRender();
+    });
 
     collapseFilterButton.addEventListener('click', () => {
       const filterSections = document.querySelectorAll('.controls-grid .field-group');

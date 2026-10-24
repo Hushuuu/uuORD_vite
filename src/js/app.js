@@ -14,7 +14,8 @@ const {
 const i18n = ORDI18n;
 
 const PAGE_TITLE_KEYS = {
-  lookup: 'brand.title',
+  home: 'home.page_title',
+  lookup: 'page.lookup.title',
   tree: 'page.tree.title',
   comp: 'page.comp.title',
   comp_tree: 'page.comp_tree.title',
@@ -52,6 +53,15 @@ function markAppReady() {
 }
 
 async function initApp() {
+  // 保留舊首頁帶入搜尋關鍵字的書籤與外部連結。
+  if (document.body.dataset.page === 'home' && new URLSearchParams(window.location.search).has('q')) {
+    const lookupUrl = new URL('lookup.html', window.location.href);
+    lookupUrl.search = window.location.search;
+    lookupUrl.hash = window.location.hash;
+    window.location.replace(lookupUrl.href);
+    return;
+  }
+
   initI18n();
   markActiveNav();
 

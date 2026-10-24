@@ -5,6 +5,7 @@
       "en": "EN"
     },
     "nav": {
+      "home": "Home",
       "lookup": "Lookup",
       "tree": "Craft Tree",
       "comp": "Team Builder",
@@ -18,6 +19,38 @@
     "brand": {
       "title": "ORD One Piece Random Defense Recipe",
       "feedback": "Feedback"
+    },
+    "home": {
+      "page_title": "ORD One Piece Random Defense | Character & Team Tools",
+      "brand_subtitle": "Character data · Craft planning · Team tools",
+      "hero_title": "Find your characters. Plan your crafts. Build your team.",
+      "hero_desc": "Look up characters and recipes, get craft recommendations based on what you own, and plan your next team. Start with the tool you need.",
+      "data_version": "Character data 2.310[R] · Updated Aug 8, 2026",
+      "start_label": "QUICK START",
+      "start_title": "What would you like to do?",
+      "start_lookup_title": "Find a character's recipe",
+      "start_lookup_desc": "Search the lookup by name or material",
+      "start_recommend_title": "See what you can craft next",
+      "start_recommend_desc": "Enter owned characters for recommendations",
+      "start_comp_title": "Plan a full team",
+      "start_comp_desc": "Pick target characters and review materials",
+      "features_label": "EXPLORE THE TOOLS",
+      "features_title": "Find the tool you need",
+      "features_desc": "From a single character to a full team, choose where to start.",
+      "lookup_desc": "Search characters by rarity or keyword. Check recipes, key codes, and notes, or open a character's craft tree.",
+      "lookup_action": "Look up characters",
+      "recommend_desc": "Enter your owned characters and filter by rarity or skill type. Review craft progress, missing materials, and pin your targets.",
+      "recommend_action": "Get recommendations",
+      "comp_desc": "Filter and select target characters, build different teams, and review the basic materials needed for each lineup.",
+      "comp_action": "Build a team",
+      "comp_tree_desc": "Review saved teams, explore each character's craft tree, analyze your lineup, or load characters using a team code.",
+      "comp_tree_action": "View my teams",
+      "tree_desc": "Expand a character's required materials or look upward to see what it can become. Follow each step of the crafting path.",
+      "tree_action": "Explore craft trees",
+      "patch_notes_desc": "Browse game patch notes and keep track of character adjustments and version changes while planning your team.",
+      "patch_notes_action": "Read patch notes",
+      "about_desc": "Want to learn more about the site and the game?",
+      "about_action": "About this site"
     },
     "page": {
       "lookup": {
@@ -162,6 +195,9 @@
       "owned_title": "Owned Basic Characters",
       "result_title": "Recommendations",
       "result_desc": "Shows top 10 suggestions; click x to recommend other characters",
+      "search_label": "Search recommended characters",
+      "search_placeholder": "Enter a name, English name, or code",
+      "no_search_results": "No recommended characters match this keyword.",
       "target_rarity": "Rarity",
       "target_skill_type": "Skill Type",
       "owned_characters": "Owned Characters",
