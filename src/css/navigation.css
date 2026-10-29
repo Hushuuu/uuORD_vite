@@ -1,0 +1,277 @@
+.navigation-guide {
+  max-width: 1200px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.navigation-intro {
+  padding: 28px 0 32px;
+}
+
+.navigation-kicker {
+  color: #fbbf24;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.navigation-intro h1 {
+  margin: 8px 0;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.navigation-intro p,
+.route-heading p {
+  margin: 0;
+  color: #b5c1d2;
+}
+
+.navigation-jumps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.navigation-jumps a {
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: #182335;
+  color: #e2e8f0;
+}
+
+.navigation-jumps a:hover,
+.navigation-back:hover {
+  color: #ffd28a;
+  border-color: #f59e0b;
+}
+
+.navigation-guide a:focus-visible {
+  outline: 2px solid #fbbf24;
+  outline-offset: 4px;
+}
+
+.navigation-route {
+  margin-bottom: 28px;
+  padding: 28px;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background: rgba(20, 30, 46, 0.9);
+  scroll-margin-top: 20px;
+}
+
+.route-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.route-number {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border: 1px solid #775628;
+  border-radius: 12px;
+  background: #362c20;
+  color: #ffd28a;
+  font-weight: 700;
+}
+
+.route-heading h2 {
+  margin: 0 0 4px;
+  font-size: 1.5rem;
+}
+
+.navigation-guide [lang="ko"] {
+  display: block;
+  color: #a7b5ca;
+  font-size: 0.82rem;
+  font-weight: 400;
+}
+
+.route-heading [lang="ko"] {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.route-base {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 18px;
+  border-left: 3px solid #eab308;
+  border-radius: 6px;
+  background: rgba(234, 179, 8, 0.07);
+}
+
+.route-base strong {
+  flex-shrink: 0;
+  color: #fcd68c;
+}
+
+.route-base p {
+  margin: 0;
+}
+
+.route-branches {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.route-branch,
+.exchange-item {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  background: #1c293b;
+  overflow-wrap: anywhere;
+}
+
+.route-branch h3,
+.route-exchange h3,
+.exchange-item h4 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+}
+
+.navigation-guide ul {
+  margin: 10px 0 0;
+  padding-left: 22px;
+}
+
+.navigation-guide li + li {
+  margin-top: 6px;
+}
+
+.navigation-guide li::marker {
+  color: #93a6c1;
+}
+
+.navigation-guide blockquote {
+  margin: 18px 0 0;
+  padding-left: 12px;
+  border-left: 2px solid #64748b;
+  color: #b4c0d1;
+  font-size: 0.9rem;
+}
+
+.route-penalty {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  border-radius: 8px;
+  background: rgba(239, 68, 68, 0.08);
+  font-size: 0.9rem;
+}
+
+.route-penalty strong {
+  color: #fca5a5;
+}
+
+.route-base-penalty {
+  margin-top: 12px;
+}
+
+.route-mode {
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: #283d53;
+  color: #a8dafa;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.route-exchange {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.exchange-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.exchange-item p {
+  margin: 8px 0;
+}
+
+.exchange-item table {
+  width: 100%;
+  margin: 14px 0;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.exchange-item caption {
+  color: #b5c1d2;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.exchange-item th,
+.exchange-item td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #3b4b63;
+}
+
+.exchange-item th {
+  background: #26364c;
+  color: #fcd68c;
+}
+
+.exchange-cost strong {
+  color: #fcd68c;
+}
+
+.navigation-back {
+  display: inline-block;
+  padding: 8px 0;
+  color: #b5c1d2;
+}
+
+@media (max-width: 1000px) {
+  .route-branches {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .navigation-intro {
+    padding-top: 16px;
+  }
+
+  .navigation-route {
+    padding: 18px 14px;
+  }
+
+  .route-heading {
+    gap: 12px;
+  }
+
+  .route-heading [lang="ko"] {
+    display: block;
+    margin-left: 0;
+  }
+
+  .route-base {
+    display: block;
+  }
+
+  .exchange-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .route-branch,
+  .exchange-item {
+    padding: 16px;
+  }
+}

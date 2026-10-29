@@ -207,6 +207,7 @@ my-navbar {
         <a class="nav-link ${currentPath === 'comp.html' ? 'active' : ''}" data-page="comp" href="comp.html">${t('nav.comp')}</a>
         <a class="nav-link ${currentPath === 'comp_tree.html' ? 'active' : ''}" data-page="comp_tree" href="comp_tree.html">${t('nav.comp_tree')}</a>
         <a class="nav-link ${currentPath === 'recommend.html' ? 'active' : ''}" data-page="recommend" href="recommend.html">${t('nav.recommend')}</a>
+        <a class="nav-link ${currentPath === 'navigation.html' ? 'active' : ''}" data-page="navigation" href="navigation.html">${t('nav.navigation')}</a>
         <a class="nav-link ${currentPath === 'patch-notes.html' ? 'active' : ''}" data-page="patch_notes" href="patch-notes.html">${t('nav.patch_notes')}</a>
         <a class="nav-link ${currentPath === 'about.html' ? 'active' : ''}" data-page="about" href="about.html">${t('nav.about')}</a>
         

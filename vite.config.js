@@ -17,6 +17,7 @@ export default defineConfig({
         recommend: resolve(__dirname, 'recommend.html'),
         maintenance: resolve(__dirname, 'maintenance.html'),
         patch_notes: resolve(__dirname, 'patch-notes.html'),
+        navigation: resolve(__dirname, 'navigation.html'),
         about : resolve(__dirname, 'about.html'),
       },
     },
