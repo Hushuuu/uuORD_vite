@@ -31,16 +31,32 @@ class MyNavbar extends HTMLElement {
         event.preventDefault();
         const navContainer = this.querySelector('.nav-container');
         hamburgerBtn.classList.toggle('active');
+        hamburgerBtn.setAttribute('aria-expanded', String(hamburgerBtn.classList.contains('active')));
         navContainer.classList.toggle('mobile-open');
         return;
       }
 
       // 3. 點擊點選連結時，若在手機版則自動收起選單
-      const navLink = event.target.closest('.nav-link');
+      const navLink = event.target.closest('a.nav-link');
       if (navLink && !navLink.classList.contains('lang-toggle')) {
         this._closeMobileMenu();
       }
     });
+
+    this.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        const group = event.target.closest('.nav-group');
+        this._closeMobileMenu();
+        if (group) group.querySelector('summary').focus();
+      }
+    });
+
+    this.addEventListener('toggle', (event) => {
+      if (!event.target.matches('.nav-group[open]')) return;
+      this.querySelectorAll('.nav-group[open]').forEach((group) => {
+        if (group !== event.target) group.open = false;
+      });
+    }, true);
 
     // 點擊選單外部時關閉手機選單
     document.addEventListener('click', (event) => {
@@ -60,7 +76,11 @@ class MyNavbar extends HTMLElement {
   _closeMobileMenu() {
     const hamburgerBtn = this.querySelector('.hamburger-btn');
     const navContainer = this.querySelector('.nav-container');
-    if (hamburgerBtn) hamburgerBtn.classList.remove('active');
+    if (hamburgerBtn) {
+      hamburgerBtn.classList.remove('active');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    }
+    this.querySelectorAll('.nav-group[open]').forEach((group) => { group.open = false; });
     if (navContainer) navContainer.classList.remove('mobile-open');
   }
 
@@ -70,6 +90,26 @@ class MyNavbar extends HTMLElement {
     const currentLang = i18n ? i18n.getLang() : 'zh';
 
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+
+    const groups = [
+      ['characters', [['lookup', 'lookup.html'], ['tree', 'tree.html']]],
+      ['teams', [['comp', 'comp.html'], ['comp_tree', 'comp_tree.html']]],
+      ['assistant', [['recommend', 'recommend.html']]],
+      ['info', [['navigation', 'navigation.html'], ['patch_notes', 'patch-notes.html'], ['about', 'about.html']]],
+    ];
+    const groupMarkup = groups.map(([key, links]) => {
+      if (key === 'assistant') {
+        return `<a class="nav-link ${currentPath === 'recommend.html' ? 'active' : ''}" data-page="recommend" href="recommend.html" ${currentPath === 'recommend.html' ? 'aria-current="page"' : ''}>${t('nav.recommend')}</a>`;
+      }
+      return `
+      <details class="nav-group ${links.some(([, path]) => path === currentPath) ? 'active' : ''}">
+        <summary class="nav-link nav-group-label">${t('nav.' + key)}<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg></summary>
+        <div class="nav-submenu">${links.map(([page, path]) => `
+          <a class="nav-link ${currentPath === path ? 'active' : ''}" data-page="${page}" href="${path}" ${currentPath === path ? 'aria-current="page"' : ''}>${t('nav.' + page)}</a>
+        `).join('')}</div>
+      </details>
+    `;
+    }).join('');
 
     this.innerHTML = `
 <style>
@@ -138,6 +178,40 @@ my-navbar {
     font-weight: 600;
 }
 
+.nav-group { position: relative; }
+.nav-group-label { cursor: pointer; list-style: none; }
+.nav-group-label::-webkit-details-marker { display: none; }
+.nav-group.active > summary { color: #ffd28a; font-weight: 600; }
+.nav-chevron {
+    width: 14px;
+    height: 14px;
+    margin-left: 2px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.7;
+    transition: transform 0.2s ease;
+}
+.nav-group[open] .nav-chevron { transform: rotate(180deg); }
+.nav-submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    padding: 8px;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    background: #0f172a;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+.nav-submenu .nav-link { display: flex; padding: 12px; border-radius: 6px; }
+.nav-submenu .nav-link:hover { background: #1e293b; }
+.nav-submenu .nav-link.active::after { display: none; }
+my-navbar :focus-visible { outline: 2px solid #ffd28a; outline-offset: 3px; }
+
 /* 桌機版底線高亮 */
 @media (min-width: 768px) {
     .nav-link.active::after {
@@ -190,6 +264,19 @@ my-navbar {
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
+    .nav-container { box-sizing: border-box; max-height: 80dvh; overflow-y: auto; }
+    .nav-group { width: 100%; }
+    .nav-group-label { justify-content: space-between; }
+    .nav-submenu {
+        position: static;
+        min-width: 0;
+        padding: 0 0 0 16px;
+        border: 0;
+        box-shadow: none;
+        background: transparent;
+    }
+    .nav-submenu .nav-link { box-sizing: border-box; }
+
     .lang-toggle {
         border-bottom: none;
         margin-top: 4px;
@@ -198,19 +285,11 @@ my-navbar {
 </style>
 
 <div class="navbar-wrapper">
-    <button class="hamburger-btn" aria-label="Toggle Navigation">☰</button>
+    <button class="hamburger-btn" aria-label="${t('nav.toggle')}" aria-expanded="false">☰</button>
 
-    <nav class="nav-container" aria-label="主要導覽">
+    <nav class="nav-container" aria-label="${t('nav.main')}">
         <a class="nav-link ${currentPath === 'index.html' ? 'active' : ''}" data-page="home" href="index.html">${t('nav.home')}</a>
-        <a class="nav-link ${currentPath === 'lookup.html' ? 'active' : ''}" data-page="lookup" href="lookup.html">${t('nav.lookup')}</a>
-        <!-- <a class="nav-link ${currentPath === 'tree.html' ? 'active' : ''}" data-page="tree" href="tree.html">${t('nav.tree')}</a> -->
-        <a class="nav-link ${currentPath === 'comp.html' ? 'active' : ''}" data-page="comp" href="comp.html">${t('nav.comp')}</a>
-        <a class="nav-link ${currentPath === 'comp_tree.html' ? 'active' : ''}" data-page="comp_tree" href="comp_tree.html">${t('nav.comp_tree')}</a>
-        <a class="nav-link ${currentPath === 'recommend.html' ? 'active' : ''}" data-page="recommend" href="recommend.html">${t('nav.recommend')}</a>
-        <a class="nav-link ${currentPath === 'patch-notes.html' ? 'active' : ''}" data-page="patch_notes" href="patch-notes.html">${t('nav.patch_notes')}</a>
-        <a class="nav-link ${currentPath === 'about.html' ? 'active' : ''}" data-page="about" href="about.html">${t('nav.about')}</a>
-        
-        <a class="nav-link" style="display: none;" data-page="maintenance" href="maintenance.html">${t('nav.maintenance')}</a>
+        ${groupMarkup}
 
         <!-- 語系切換 -->
         <a href="#" class="nav-link lang-toggle" data-action="toggle-lang" aria-label="Switch language">

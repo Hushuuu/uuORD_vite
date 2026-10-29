@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="no-js">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>航路資訊｜ORDR 航法列表</title>
+  <meta name="description" content="ORDR 五種航法介紹：聯合勢力、霸王之路、賭博狂、最強輔助與隨機選擇，完整收錄基本效果、分支能力、懲罰與兌換所機率。">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://uuord.nijidakku.cc/navigation.html">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="航路資訊｜ORDR 航法列表">
+  <meta property="og:description" content="查看五種航法的效果、分支能力、懲罰與兌換所機率。">
+  <meta property="og:url" content="https://uuord.nijidakku.cc/navigation.html">
+  <meta name="twitter:card" content="summary">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/src/css/styles.css">
+  <link rel="stylesheet" href="/src/css/navigation.css">
+  <script src="/pwa-init.js?v=260711001"></script>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/resource/192x192.png">
+  <link rel="icon" type="image/png" href="/resource/192x192.png">
+  <script type="module" src="/src/js/app.js"></script>
+</head>
+
+<body data-page="navigation">
+  <div id="app-loading" aria-hidden="true">
+    <div class="app-loading-spinner"></div>
+  </div>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-title">航路資訊</div>
+        <div class="brand-subtitle">ORDR 航法指南｜效果・分支・懲罰</div>
+      </div>
+      <my-navbar></my-navbar>
+    </header>
+    <main class="navigation-guide" id="navigation-top">
+      <header class="navigation-intro">
+        <span class="navigation-kicker">NAVIGATION GUIDE</span>
+        <h1>航路資訊</h1>
+        <p>第20關到第25關前請務必選擇，在左側第一間房子內</p>
+        <nav class="navigation-jumps" aria-label="航法快速跳轉">
+          <a href="#alliance">01 聯合勢力</a>
+          <a href="#conqueror">02 霸王之路</a>
+          <a href="#gambler">03 賭博狂</a>
+          <a href="#support">04 最強輔助</a>
+          <a href="#random">05 隨機選擇</a>
+        </nav>
+      </header>
+
+      <section class="navigation-route" id="alliance" aria-labelledby="alliance-title">
+        <header class="route-heading"><span class="route-number">01</span>
+          <div>
+            <h2 id="alliance-title">聯合勢力</h2>
+          </div>
+        </header>
+        <div class="route-base"><strong>基本效果</strong>
+          <p>合成「傳說、隱藏」以上等級的單位時，獲得 1 個隨機 精靈。</p>
+        </div>
+        <div class="route-branches">
+          <article class="route-branch">
+            <h3>一石二鳥</h3>
+            <ul>
+              <li>觸發航法基本效果時，額外獲得 1 個「隨機 精靈」。</li>
+              <li>已經合成的「傳說、隱藏、變化」以上等級單位，也會追溯補發，每個單位各獲得 1 個。</li>
+            </ul>
+          </article>
+          <article class="route-branch">
+            <h3>緊急召集</h3>
+            <ul>
+              <li>獲得 3 個可以選擇「特殊」等級單位的萬用卡。</li>
+              <li>可在「記錄指令」中使用。</li>
+            </ul>
+            <div class="route-penalty"><strong>懲罰</strong>
+              <ul>
+                <li>停用航法基本效果。</li>
+              </ul>
+            </div>
+          </article>
+          <article class="route-branch">
+            <h3>特性工程</h3>
+            <ul>
+              <li>在「記錄指令」中新增「特性工程」技能。</li>
+              <li>獲得 1 點特性點數。</li>
+              <li>增加 1 次變化機會。</li>
+            </ul>
+            <div class="route-penalty"><strong>懲罰</strong>
+              <ul>
+                <li>無法從輔助所獲得「自選 精靈」。</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="navigation-route" id="conqueror" aria-labelledby="conqueror-title">
+        <header class="route-heading"><span class="route-number">02</span>
+          <div>
+            <h2 id="conqueror-title">霸王之路</h2>
+          </div>
+        </header>
+        <div class="route-base"><strong>基本效果</strong>
+          <p>召喚「傳說」等級單位「雷歐」。</p>
+        </div>
+        <div class="route-penalty route-base-penalty"><strong>基本懲罰</strong>
+          <ul>
+            <li>最上位單位最多只能合成 1 隻。</li>
+          </ul>
+        </div>
+        <div class="route-branches">
+          <article class="route-branch">
+            <h3>戒嚴令</h3>
+            <ul>
+              <li>強化雷歐的能力。</li>
+              <li>提高對路線怪物的傷害及移動速度降低效果。</li>
+              <li>新增暈眩能力。</li>
+            </ul>
+            <div class="route-penalty"><strong>懲罰</strong>
+              <ul>
+                <li>無法合成最上位單位（超越、不滅、永遠、限制、神秘）。</li>
+              </ul>
+            </div>
+          </article>
+          <article class="route-branch">
+            <h3>賞金獵人</h3>
+            <ul>
+              <li>擊殺路線怪物時，有低機率發現寶箱。</li>
+              <li>寶箱可以獲得各種資源。</li>
+            </ul>
+            <blockquote>「說不定能發現未知的寶藏……」</blockquote>
+          </article>
+          <article class="route-branch">
+            <h3>皇家之路</h3>
+            <ul>
+              <li>合成最上位單位時，賦予該單位額外能力值。</li>
+              <li>攻擊速度 +25%。</li>
+              <li>攻擊力 +25,000。</li>
+              <li>攻擊時有 8% 機率，對 400 範圍造成 255,000 固定傷害。</li>
+              <li>單位的基礎攻擊速度越慢，造成的傷害越高。</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="navigation-route" id="gambler" aria-labelledby="gambler-title">
+        <header class="route-heading"><span class="route-number">03</span>
+          <div>
+            <h2 id="gambler-title">賭博狂</h2>
+          </div>
+        </header>
+        <div class="route-base"><strong>基本效果</strong>
+          <p>稀有單位重抽次數 +1。</p>
+        </div>
+        <div class="route-branches">
+          <article class="route-branch">
+            <h3>賭場</h3>
+            <ul>
+              <li>「單位賭博：高級」成功時，必定獲得稀有單位。</li>
+              <li><span class="route-mode">異世界</span> 異世界賭博次數增加為 2 倍。</li>
+              <li><span class="route-mode">異世界</span> 異世界賭博失敗時，有 50% 機率獲得稀有單位。</li>
+            </ul>
+            <div class="route-penalty"><strong>懲罰</strong>
+              <ul>
+                <li>停用初級、中級單位賭博。</li>
+                <li>無法透過賭博獲得「席爾巴斯・雷利－稀有」。</li>
+              </ul>
+            </div>
+          </article>
+          <article class="route-branch">
+            <h3>風險對沖</h3>
+            <ul>
+              <li>「單位賭博：高級」失敗時，額外獲得：<ul>
+                  <li>幸運代幣 ×1</li>
+                  <li>木材 ×1</li>
+                </ul>
+              </li>
+              <li>移除稀有單位重抽費用。</li>
+              <li>稀有單位重抽次數 +1。</li>
+              <li><span class="route-mode">異世界</span> 異世界賭博失敗時，機率增加 15%。</li>
+              <li><span class="route-mode">異世界</span> 移除異世界單位重抽費用。</li>
+            </ul>
+          </article>
+          <article class="route-branch">
+            <h3>兌換所</h3>
+            <ul>
+              <li>嘗試「單位賭博：中級」時，獲得可以兌換各種資源的「Compo（콤푸）」。</li>
+              <li><span class="route-mode">異世界</span> 兌換所新增隨機專用單位。</li>
+            </ul>
+            <div class="route-penalty"><strong>懲罰</strong>
+              <ul>
+                <li>停用航法基本效果。</li>
+                <li>停用「單位賭博：高級」。</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+        <section class="route-exchange" aria-labelledby="exchange-title">
+          <h3 id="exchange-title">兌換所項目</h3>
+          <div class="exchange-item exchange-table-wrap">
+            <table>
+              <caption>兌換所消耗與獎勵清單</caption>
+              <thead>
+                <tr>
+                  <th scope="col">消耗 Compo</th>
+                  <th scope="col">兌換</th>
+                  <th scope="col">內容</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1</strong></td>
+                  <td>隨機 精靈</td>
+                  <td>40% 隨機 精靈、20% 選擇型 精靈、40% 落空</td>
+                </tr>
+                <tr>
+                  <td><strong>3</strong></td>
+                  <td>選擇型 精靈</td>
+                  <td>50% 得到 1 個、50% 得到 2 個</td>
+                </tr>
+                <tr>
+                  <td><strong>3</strong></td>
+                  <td>木材</td>
+                  <td>50% 得到 1 個、50% 得到 2 個</td>
+                </tr>
+                <tr>
+                  <td><strong>5</strong></td>
+                  <td>船</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><strong>待確認</strong></td>
+                  <td>隨機箱</td>
+                  <td>可以抽出 金幣、精靈 等獎勵</td>
+                </tr>
+                <tr>
+                  <td><strong>待確認</strong></td>
+                  <td>隨機專用單位</td>
+                  <td>異世界</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <section class="navigation-route" id="support" aria-labelledby="support-title">
+        <header class="route-heading"><span class="route-number">04</span>
+          <div>
+            <h2 id="support-title">最強輔助</h2>
+          </div>
+        </header>
+        <div class="route-base"><strong>基本效果</strong>
+          <p>輔助所每秒魔力恢復量 +0.7。</p>
+        </div>
+        <div class="route-branches">
+          <article class="route-branch">
+            <h3>最大輸出</h3>
+            <ul>
+              <li>強化以下技能：<ul>
+                  <li>屠魔令</li>
+                  <li>海樓石</li>
+                  <li>大地震</li>
+                  <li>落雷</li>
+                  <li>毒藥</li>
+                </ul>
+              </li>
+              <li>輔助所新增「魔力藥水」技能。</li>
+              <li>使用魔力藥水時可恢復魔力。</li>
+            </ul>
+          </article>
+          <article class="route-branch">
+            <h3>鍊金術</h3>
+            <ul>
+              <li>輔助所新增「鍊金術」技能。</li>
+              <li>鍊金術可以消耗魔力來分解單位。</li>
+            </ul>
+          </article>
+          <article class="route-branch">
+            <h3>逆向思考</h3>
+            <ul>
+              <li>立即獲得「席爾巴斯・雷利－稀有」。</li>
+              <li>獲得 1 層獨特道具挖掘次數。</li>
+            </ul>
+            <div class="route-penalty"><strong>懲罰</strong>
+              <ul>
+                <li>停用航法基本效果。</li>
+                <li>只能使用魔力消耗量 150 以下的技能。</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="navigation-route" id="random" aria-labelledby="random-title">
+        <header class="route-heading"><span class="route-number">05</span>
+          <div>
+            <h2 id="random-title">隨機選擇</h2>
+          </div>
+        </header>
+        <div class="route-base"><strong>基本效果</strong>
+          <p>隨機選擇一種航法。</p>
+        </div>
+        <div class="route-branches">
+          <article class="route-branch">
+            <h3>藍色口味</h3>
+            <ul>
+              <li>隨機選擇一種航法。</li>
+              <li>額外獲得隨機 精靈 ×1。</li>
+            </ul>
+          </article>
+          <article class="route-branch">
+            <h3>綠色口味</h3>
+            <ul>
+              <li>隨機選擇一種航法。</li>
+              <li>額外獲得木材 ×1。</li>
+            </ul>
+          </article>
+          <article class="route-branch">
+            <h3>黃色口味</h3>
+            <ul>
+              <li>隨機選擇一種航法。</li>
+              <li>額外獲得阿布薩羅姆 ×1。</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+      <a class="navigation-back" href="#navigation-top">回到頂端 ↑</a>
+    </main>
+  </div>
+  <my-footer></my-footer>
+</body>
+
+</html>

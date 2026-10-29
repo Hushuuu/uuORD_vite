@@ -98,72 +98,6 @@
         font-size: 0.85rem;
       }
     }
-
-    /* 容器：設定開關的大小 */
-    .switch {
-      position: relative;
-      display: inline-block;
-      width: 40px;
-      height: 20px;
-      flex-shrink: 0;
-      /* 防止縮小 */
-    }
-
-    /* 隱藏原本的 checkbox */
-    .switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    /* 開關的背景軌道（預設關閉：灰色） */
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      transition: .4s;
-      border-radius: 15px;
-      /* 圓角 */
-    }
-
-    /* 開關裡面的白色小圓球 */
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 14px;
-      width: 14px;
-      left: 2px;
-      bottom: 3px;
-      background-color: white;
-      transition: .4s;
-      border-radius: 50%;
-      /* 圓形 */
-    }
-
-    /* 當 checkbox 被勾選時（開啟狀態），變更背景顏色（綠色） */
-    input:checked+.slider {
-      background-color: #4cd964;
-    }
-
-    /* 當 checkbox 被勾選時，將小圓球向右移動 */
-    input:checked+.slider:before {
-      transform: translateX(20px);
-    }
-
-    .toggle-container {
-      display: flex;
-      /* 開啟彈性排版，強制所有子元素排在同一行 */
-      align-items: center;
-      /* 讓文字和開關「垂直居中對齊」，畫面最漂亮 */
-      gap: 10px;
-      /* 讓文字、開關、後方文字之間有固定的間距，不用自己寫 margin */
-      flex-wrap: nowrap;
-      /* 強制絕對不換行 */
-    }
   </style>
   <link rel="stylesheet" href="/src/css/recommend.css">
 </head>
@@ -187,88 +121,132 @@
         <p class="panel-desc"></p>
       </div> -->
       <div class="panel-body">
-        <div class="controls-grid">
-          <div class="field-group" style="grid-column: span 4;">
-            <span class="field-label" data-i18n="recommend.target_rarity">目標稀有度</span>
-            <div id="recommendTargetLevelGrid" class="checkbox-badge-grid recommend-target-grid"></div>
+        <section id="recommendModePicker" class="recommend-mode-picker" aria-labelledby="recommendModeTitle">
+          <div class="recommend-mode-options">
+            <article class="recommend-mode-card recommend-mode-card-auto">
+              <span class="recommend-mode-badge" data-i18n="recommend.mode.recommended">推薦使用</span>
+              <h2 data-i18n="recommend.mode.auto_title">自動更新擁有角色</h2>
+              <p data-i18n="recommend.mode.auto_desc">連接遊戲資料，自動同步角色與數量，推薦結果隨之更新。</p>
+              <ul class="recommend-mode-benefits">
+                <li data-i18n="recommend.mode.benefit_sync">不用逐一輸入角色數量</li>
+                <li data-i18n="recommend.mode.benefit_live">邊玩遊戲，邊查看合成推薦</li>
+              </ul>
+              <p class="helper-text" data-i18n="recommend.mode.requirement">需先啟動 TMOGG 與轉代理工具，並允許網站連線權限。</p>
+              <div class="recommend-mode-actions">
+                <button type="button" data-recommend-mode="auto" data-i18n="recommend.mode.choose_auto">使用自動模式
+                  →</button>
+                <button type="button" class="secondary" data-tmo-tutorial
+                  data-i18n="recommend.mode.tutorial">查看設定教學</button>
+              </div>
+            </article>
+            <article class="recommend-mode-card">
+              <span class="recommend-mode-tag" data-i18n="recommend.mode.no_install">免安裝工具</span>
+              <h2 data-i18n="recommend.mode.manual_title">手動輸入角色</h2>
+              <p data-i18n="recommend.mode.manual_desc">自行選擇擁有的角色與數量，依目前的陣容取得合成推薦。</p>
+              <p class="helper-text" data-i18n="recommend.mode.manual_hint">適合先試用推薦功能，或不方便安裝第三方程式時使用。</p>
+              <div class="recommend-mode-actions">
+                <button type="button" class="secondary" data-recommend-mode="manual"
+                  data-i18n="recommend.mode.choose_manual">使用手動模式 →</button>
+              </div>
+            </article>
           </div>
-          <div class="field-group" style="grid-column: span 4;">
-            <span class="field-label" data-i18n="recommend.target_skill_type">技能類型</span>
-            <div id="recommendTargetSkillGrid" class="checkbox-badge-grid recommend-target-grid"></div>
+        </section>
+        <div id="recommendWorkspace" hidden>
+          <div class="recommend-mode-bar">
+            <strong id="recommendModeLabel" tabindex="-1"></strong>
+            <button id="recommendChangeModeBtn" type="button" class="secondary"
+              data-i18n="recommend.mode.change">切換模式</button>
           </div>
-          <div class="field-group" style="grid-column: span 4;">
-            <span class="field-label" data-i18n="recommend.owned_characters">擁有其他角色</span>
-            <select id="recommendOwnedSelect" multiple class=""></select>
+          <section id="recommendAutoSync" class="recommend-auto-sync" hidden aria-labelledby="recommendAutoSyncTitle">
+            <div class="recommend-sync-heading">
+              <div>
+                <h2 id="recommendAutoSyncTitle" data-i18n="recommend.mode.auto_title">自動更新擁有角色</h2>
+                <p data-i18n="recommend.mode.sync_hint">先完成工具設定，再開啟同步。連線後，角色與推薦會自動更新。</p>
+              </div>
+              <label class="recommend-sync-toggle" for="tmoConnectToggle">
+                <span data-i18n="recommend.mode.sync_toggle">啟用自動同步</span>
+                <span class="switch">
+                  <input type="checkbox" id="tmoConnectToggle" role="switch" aria-describedby="tmoConnectStatus">
+                  <span class="slider"></span>
+                </span>
+              </label>
+            </div>
+            <div class="recommend-sync-footer">
+              <span id="tmoConnectStatus" class="recommend-sync-status" role="status" aria-live="polite"
+                data-state="idle" data-i18n="recommend.mode.sync_idle">尚未啟用同步</span>
+              <button type="button" class="secondary" data-tmo-tutorial
+                data-i18n="recommend.mode.tutorial">查看設定教學</button>
+            </div>
+          </section>
+          <div class="controls-grid">
+            <div class="field-group" style="grid-column: span 4;">
+              <span class="field-label" data-i18n="recommend.target_rarity">目標稀有度</span>
+              <div id="recommendTargetLevelGrid" class="checkbox-badge-grid recommend-target-grid"></div>
+            </div>
+            <div class="field-group" style="grid-column: span 4;">
+              <span class="field-label" data-i18n="recommend.target_skill_type">技能類型</span>
+              <div id="recommendTargetSkillGrid" class="checkbox-badge-grid recommend-target-grid"></div>
+            </div>
+            <div class="field-group" data-manual-only style="grid-column: span 4;">
+              <span class="field-label" data-i18n="recommend.owned_characters">擁有其他角色</span>
+              <select id="recommendOwnedSelect" multiple class=""></select>
+              <div class="helper-text"></div>
+            </div>
+            <div class="field-group" style="grid-column: span 4;">
+              <!-- <span class="field-label" data-i18n="field.actions">操作</span> -->
+              <div class="controls-actions">
+                <button data-manual-only id="recommendRefreshBtn" type="button"
+                  data-i18n="recommend.action.refresh">重新推薦</button>
+                <button id="recommendResetBtn" type="button" class="secondary" data-i18n="action.reset">重置條件</button>
+                <button id="collapseFilterBtn" type="button" class="secondary"
+                  data-i18n="action.collapseFilters">收合條件</button>
+                <button id="recommendExportHighLevelBtn" type="button" class="secondary"
+                  data-i18n="recommend.export_team">匯出隊伍</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="summary-bar">
+            <div id="recommendSummary" class="summary-text"></div>
             <div class="helper-text"></div>
           </div>
-          <div class="field-group" style="grid-column: span 4;">
-            <!-- <span class="field-label" data-i18n="field.actions">操作</span> -->
-            <div class="controls-actions">
-              <button id="recommendRefreshBtn" type="button" data-i18n="recommend.action.refresh">重新推薦</button>
-              <button id="recommendResetBtn" type="button" class="secondary" data-i18n="action.reset">重置條件</button>
-              <button id="collapseFilterBtn" type="button" class="secondary"
-                data-i18n="action.collapseFilters">收合條件</button>
-              <button id="recommendExportHighLevelBtn" type="button" class="secondary"
-                 data-i18n="recommend.export_team">匯出隊伍</button>
-            </div>
-          </div>
-          <div class="toggle-container" style="grid-column: span 4;">
-            <label class="field-label" data-i18n="recommend.auto_update_owned">自動更新擁有角色(需第三方程式)</label>
-            <img src="/resource/help.svg" style="width: 24px; height: 24px; cursor: pointer;" alt="Tutorial"
-              onclick="document.getElementById('thirdPartyTutorialModal').open()" title="點擊查看使用教學/ Tutorial">
-            <label class="switch">
-              <input type="checkbox" id="tmoConnectToggle">
-              <span class="slider"></span>
-            </label>
-            <label class="field-label" id="tmoConnectStatus"></label>
-          </div>
-        </div>
 
-        <div class="summary-bar">
-          <div id="recommendSummary" class="summary-text"></div>
-          <div class="helper-text"></div>
-        </div>
-
-        <div class="recommend-grid">
-          <section class="panel" style="margin-top: 12px;">
-            <div class="panel-header">
-              <h2 class="panel-title" style="display: flex;" id="recommendOwnedTitle">
-                <span data-i18n="recommend.owned_title">擁有基本角色</span>
-                <img src="/resource/arrow_drop_down.svg" />
-              </h2>
-            </div>
-            <div id="recommendOwnedTabs" class="recommend-owned-tabs collapsed"></div>
-            <div id="recommendOwnedPanels" class="recommend-owned-panels collapsed"></div>
-          </section>
-
-          <section class="panel" style="margin-top: 12px;">
-            <div class="panel-header">
-              <div style="display: flex;gap:10px;">
-                <h2 class="panel-title" data-i18n="recommend.result_title">推薦結果</h2>
-                <button id="recommendShowLessBtn" type="button" class="secondary"
-                  data-i18n="action.showLess">顯示較少筆數(效能提升)</button>
+          <div class="recommend-grid">
+            <section class="panel" data-manual-only style="margin-top: 12px;">
+              <div class="panel-header">
+                <h2 class="panel-title" style="display: flex;" id="recommendOwnedTitle">
+                  <span data-i18n="recommend.owned_title">擁有基本角色</span>
+                  <img src="/resource/arrow_drop_down.svg" />
+                </h2>
               </div>
-              <!-- <p class="panel-desc" data-i18n="recommend.result_desc">顯示前10個建議，點x可推薦其他角色</p> -->
-              <div style="margin-top:5px;">
-                <span class="" data-i18n="action.pin">釘選角色</span>:
-                <button id="recommendClearPinnedBtn" type="button" class="secondary"
-                  data-i18n="action.clearPinned">清除</button>
-                <span class="helper-text" id="pinnedCharactersText"></span>
+              <div id="recommendOwnedTabs" class="recommend-owned-tabs collapsed"></div>
+              <div id="recommendOwnedPanels" class="recommend-owned-panels collapsed"></div>
+            </section>
+
+            <section class="panel" style="margin-top: 12px;">
+              <div class="panel-header">
+                <div style="display: flex;gap:10px;">
+                  <h2 class="panel-title" data-i18n="recommend.result_title">推薦結果</h2>
+                  <button id="recommendShowLessBtn" type="button" class="secondary"
+                    data-i18n="action.showLess">顯示較少筆數(效能提升)</button>
+                </div>
+                <!-- <p class="panel-desc" data-i18n="recommend.result_desc">顯示前10個建議，點x可推薦其他角色</p> -->
+                <div style="margin-top:5px;">
+                  <span class="" data-i18n="action.pin">釘選角色</span>:
+                  <button id="recommendClearPinnedBtn" type="button" class="secondary"
+                    data-i18n="action.clearPinned">清除</button>
+                  <span class="helper-text" id="pinnedCharactersText"></span>
+                </div>
               </div>
-            </div>
-            <div id="recommendLevelTab" style="margin: 10px 0 10px 5px;line-height: 2;"></div>
-            <div class="recommend-search">
-              <label class="field-label" for="recommendSearchInput" data-i18n="recommend.search_label">搜尋推薦角色</label>
-              <input
-                id="recommendSearchInput"
-                type="search"
-                autocomplete="off"
-                data-i18n-placeholder="recommend.search_placeholder"
-                placeholder="輸入角色名稱、英文名或代碼"
-              >
-            </div>
-            <div id="recommendResultList" class="recommend-result-list"></div>
-          </section>
+              <div id="recommendLevelTab" style="margin: 10px 0 10px 5px;line-height: 2;"></div>
+              <div class="recommend-search">
+                <label class="field-label" for="recommendSearchInput" data-i18n="recommend.search_label">搜尋推薦角色</label>
+                <input id="recommendSearchInput" class="field-input" type="search" autocomplete="off"
+                  data-i18n-placeholder="recommend.search_placeholder" placeholder="輸入角色名稱、英文名或代碼">
+              </div>
+              <div id="recommendResultList" class="recommend-result-list"></div>
+            </section>
+          </div>
         </div>
       </div>
     </section>
@@ -285,7 +263,7 @@
       <ul id="recommendHighLevelCharacters" style="margin: 14px 0 0; padding-left: 24px;"></ul>
     </div>
   </my-modal>
-  <my-modal id="thirdPartyTutorialModal" size="large">
+  <my-modal id="thirdPartyTutorialModal" size="large" class="recommend-tutorial">
     <div>
       <h3 data-i18n="thirdPartyTutorial_title">第三方程式使用教學</h3>
       <p data-i18n="thirdPartyTutorial_h1">若要使用自動更新擁有角色功能，請先安裝並啟用第三方程式。</p>
@@ -293,12 +271,12 @@
       <ol>
         <li>
           <a style="text-decoration: underline;color:lightcoral" href="https://tmo.gg/notice/12" target="_blank"
-            data-i18n="thirdPartyTutorial_l1">下載TMOGG程式</a>
+            rel="noopener noreferrer" data-i18n="thirdPartyTutorial_l1">下載TMOGG程式</a>
         </li>
         <li>
           <a style="text-decoration: underline;color:lightcoral"
             href="https://mega.nz/file/07txiBBK#qyz4kZhdanHvDsEaBFw7iDJoaOcMMfNSR7qNInQ_ang" target="_blank"
-            data-i18n="thirdPartyTutorial_l2_1">下載轉代理TMO工具(內有說明文件)</a>
+            rel="noopener noreferrer" data-i18n="thirdPartyTutorial_l2_1">下載轉代理TMO工具(內有說明文件)</a>
           <span style="font-style: italic;" data-i18n="thirdPartyTutorial_l2_2">若用區網模式再設定IP</span>
           <input type="text" id="tmoProxyIpInput" placeholder="192.168.0.X" />
         </li>
@@ -320,9 +298,9 @@
         </li>
       </ul>
       <div>
-        <img src="/public/resource/教學-網站權限en.png" alt="教學-網站權限" style="width: 100%; max-width: 300px; margin-top: 12px;">
-        <img src="/public/resource/教學-網站權限en2.png" alt="教學-網站權限" style="width: 100%; max-width: 300px; margin-top: 12px;">
-        <img src="/public/resource/tmogg展示.webp" alt="自動程式展示" style="width: 100%; max-width: 500px; margin-top: 12px;">
+        <img src="/resource/教學-網站權限en.png" alt="教學-網站權限" style="width: 100%; max-width: 300px; margin-top: 12px;">
+        <img src="/resource/教學-網站權限en2.png" alt="教學-網站權限" style="width: 100%; max-width: 300px; margin-top: 12px;">
+        <!-- <img src="/resource/tmogg展示.webp" alt="自動程式展示" style="width: 100%; max-width: 500px; margin-top: 12px;"> -->
       </div>
     </div>
   </my-modal>

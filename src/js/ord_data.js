@@ -1986,8 +1986,7 @@ const ORD_DATA = [
     "major": "",
     "suitable_partners": [],
     "skill_types": [
-      "stl-2-3",
-      "stl-4-3"
+      "stl-2-3"
     ]
   },
   {
@@ -2326,7 +2325,6 @@ const ORD_DATA = [
     "suitable_partners": [],
     "skill_types": [
       "stl-4-2",
-      "stl-4-3",
       "stl-5-3"
     ],
     "skill_values": {
@@ -2523,16 +2521,11 @@ const ORD_DATA = [
     "major": "",
     "suitable_partners": [],
     "skill_types": [
-      "stl-4-3",
       "stl-5-3",
       "stl-6-4",
       "stl-8-2"
     ],
     "skill_values": {
-      "stl-4-3": {
-        "value": null,
-        "remark": ""
-      },
       "stl-5-3": {
         "value": 30,
         "remark": ""
@@ -3624,16 +3617,11 @@ const ORD_DATA = [
     "suitable_partners": [],
     "skill_types": [
       "stl-3-2",
-      "stl-4-3",
       "stl-5-1",
       "stl-8-2"
     ],
     "skill_values": {
       "stl-3-2": {
-        "value": null,
-        "remark": ""
-      },
-      "stl-4-3": {
         "value": null,
         "remark": ""
       },
@@ -4907,16 +4895,11 @@ const ORD_DATA = [
     "suitable_partners": [],
     "skill_types": [
       "stl-2-3",
-      "stl-4-3",
       "stl-5-1",
       "stl-8-2"
     ],
     "skill_values": {
       "stl-2-3": {
-        "value": null,
-        "remark": ""
-      },
-      "stl-4-3": {
         "value": null,
         "remark": ""
       },
@@ -5374,7 +5357,7 @@ const ORD_DATA = [
     "skill_types": [
       "stl-1-3",
       "stl-6-3",
-      "stl-4-4",
+      "stl-4-4"
     ]
   },
   {
@@ -6096,7 +6079,6 @@ const ORD_DATA = [
       "stl-2-2",
       "stl-3-2",
       "stl-4-2",
-      "stl-4-3",
       "stl-5-2",
       "stl-5-3",
       "stl-6-3",
@@ -6126,10 +6108,6 @@ const ORD_DATA = [
       "stl-4-2": {
         "value": 40,
         "remark": "莉莉絲"
-      },
-      "stl-4-3": {
-        "value": null,
-        "remark": ""
       },
       "stl-5-2": {
         "value": 2.75,
@@ -6180,7 +6158,6 @@ const ORD_DATA = [
       "stl-2-2",
       "stl-3-2",
       "stl-4-2",
-      "stl-4-3",
       "stl-5-2",
       "stl-5-3",
       "stl-6-3",
@@ -6210,10 +6187,6 @@ const ORD_DATA = [
       "stl-4-2": {
         "value": 40,
         "remark": "莉莉絲"
-      },
-      "stl-4-3": {
-        "value": null,
-        "remark": ""
       },
       "stl-5-2": {
         "value": 2.75,
@@ -6264,7 +6237,6 @@ const ORD_DATA = [
       "stl-2-2",
       "stl-3-2",
       "stl-4-2",
-      "stl-4-3",
       "stl-5-2",
       "stl-5-3",
       "stl-6-3",
@@ -6294,10 +6266,6 @@ const ORD_DATA = [
       "stl-4-2": {
         "value": 40,
         "remark": "莉莉絲"
-      },
-      "stl-4-3": {
-        "value": null,
-        "remark": ""
       },
       "stl-5-2": {
         "value": 2.75,
@@ -6348,7 +6316,6 @@ const ORD_DATA = [
       "stl-2-2",
       "stl-3-2",
       "stl-4-2",
-      "stl-4-3",
       "stl-5-2",
       "stl-5-3",
       "stl-6-3",
@@ -6378,10 +6345,6 @@ const ORD_DATA = [
       "stl-4-2": {
         "value": 40,
         "remark": "莉莉絲"
-      },
-      "stl-4-3": {
-        "value": null,
-        "remark": ""
       },
       "stl-5-2": {
         "value": 2.75,
@@ -6599,7 +6562,6 @@ const ORD_DATA = [
     "suitable_partners": [],
     "skill_types": [
       "stl-1-3",
-      "stl-4-3",
       "stl-5-1",
       "stl-6-1",
       "stl-6-3",
@@ -6607,10 +6569,6 @@ const ORD_DATA = [
     ],
     "skill_values": {
       "stl-1-3": {
-        "value": null,
-        "remark": ""
-      },
-      "stl-4-3": {
         "value": null,
         "remark": ""
       },
@@ -7147,7 +7105,7 @@ const ORD_DATA = [
       }, 
       {
         "material_id": "10-1"
-      },
+      }
     ],
     "key_code": "sabo tr",
     "remark": "",
@@ -7776,7 +7734,6 @@ const ORD_DATA = [
     "skill_types": [
       "stl-1-2",
       "stl-3-2",
-      "stl-4-3",
       "stl-5-1",
       "stl-6-1",
       "stl-6-2",
@@ -7788,10 +7745,6 @@ const ORD_DATA = [
         "remark": ""
       },
       "stl-3-2": {
-        "value": null,
-        "remark": ""
-      },
-      "stl-4-3": {
         "value": null,
         "remark": ""
       },
@@ -7966,7 +7919,6 @@ const ORD_DATA = [
       "stl-1-1",
       "stl-1-3",
       "stl-3-3",
-      "stl-4-3",
       "stl-5-3",
       "stl-6-2",
       "stl-8-2"
@@ -7981,10 +7933,6 @@ const ORD_DATA = [
         "remark": ""
       },
       "stl-3-3": {
-        "value": null,
-        "remark": ""
-      },
-      "stl-4-3": {
         "value": null,
         "remark": ""
       },
@@ -8726,7 +8674,6 @@ const ORD_DATA = [
     "skill_types": [
       "stl-1-1",
       "stl-3-3",
-      "stl-4-3",
       "stl-5-2",
       "stl-8-2"
     ],
@@ -8736,10 +8683,6 @@ const ORD_DATA = [
         "remark": ""
       },
       "stl-3-3": {
-        "value": null,
-        "remark": ""
-      },
-      "stl-4-3": {
         "value": null,
         "remark": ""
       },
@@ -9156,7 +9099,6 @@ const ORD_DATA = [
       "stl-2-2",
       "stl-2-3",
       "stl-4-1",
-      "stl-4-3",
       "stl-4-4",
       "stl-5-2",
       "stl-5-3",
@@ -9181,10 +9123,6 @@ const ORD_DATA = [
         "remark": ""
       },
       "stl-4-1": {
-        "value": null,
-        "remark": ""
-      },
-      "stl-4-3": {
         "value": null,
         "remark": ""
       },
@@ -9570,16 +9508,11 @@ const ORD_DATA = [
     "major": "",
     "suitable_partners": [],
     "skill_types": [
-      "stl-4-3",
       "stl-5-1",
       "stl-5-3",
       "stl-8-2"
     ],
     "skill_values": {
-      "stl-4-3": {
-        "value": null,
-        "remark": ""
-      },
       "stl-5-1": {
         "value": null,
         "remark": ""
@@ -10325,9 +10258,9 @@ const ORD_DATA = [
   {
     "character_id": "18-14",
     "level": 18,
-    "name": "范馬勇次郎",
-    "kr_name": "",
-    "en_name": "",
+    "name": "範馬勇次郎",
+    "kr_name": "한마 유지로",
+    "en_name": "Yujiro Hanma",
     "materials": [
       {
         "material_id": "16-13"

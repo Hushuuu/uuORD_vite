@@ -28,6 +28,14 @@ function createTmoPoller({
   let tmoTimerId = null;
   let activeFetchController = null;
   let tmoFailedCount = 0;
+  let pollSession = 0;
+
+  function setStatus(key, state) {
+    if (!tmoConnectStatus) return;
+    tmoConnectStatus.removeAttribute('data-i18n');
+    tmoConnectStatus.textContent = t(key);
+    tmoConnectStatus.dataset.state = state;
+  }
 
   // 取得一次 TMO 資料；啟用時安排下一次輪詢。
   async function pollTmoData() {
@@ -40,6 +48,7 @@ function createTmoPoller({
       return;
     }
 
+    const session = pollSession;
     const tmoProxyIpInput = document.getElementById('tmoProxyIpInput');
     activeFetchController = new AbortController();
     const timeoutId = setTimeout(() => activeFetchController?.abort(), TMO_CONFIG.requestTimeout);
@@ -57,10 +66,13 @@ function createTmoPoller({
         signal: activeFetchController.signal,
       });
       clearTimeout(timeoutId);
+      if (session !== pollSession) return;
 
       if (response.ok) {
-        if (tmoConnectStatus) tmoConnectStatus.textContent = t('tmo.connect_success');
         const data = await response.json();
+        if (session !== pollSession) return;
+        tmoFailedCount = 0;
+        setStatus('tmo.connect_success', 'connected');
         const units = data.units || {};
         if(Object.keys(units).length === 0) {
           return;
@@ -92,23 +104,27 @@ function createTmoPoller({
           scheduleRecommendationsRender({ renderOwnedControls: ownedCountsChanged });
         }
       } else {
-        if (tmoConnectStatus) tmoConnectStatus.textContent = t('tmo.connect_failed');
+        setStatus('tmo.connect_failed', 'error');
         tmoFailedCount += 1;
       }
     } catch (error) {
+      if (session !== pollSession) return;
       console.error(error);
-      if (tmoConnectStatus) tmoConnectStatus.textContent = t('tmo.connect_failed');
+      setStatus('tmo.connect_failed', 'error');
       tmoFailedCount += 1;
     } finally {
+      clearTimeout(timeoutId);
+      if (session !== pollSession) return;
       activeFetchController = null;
       if (tmoFailedCount >= TMO_CONFIG.maxFailures) {
         tmoFailedCount = 0;
         tmoToggle.checked = false;
-        if (tmoConnectStatus) tmoConnectStatus.textContent = t('tmo.stop_by_failed_5_times');
+        setStatus('tmo.stop_by_failed_5_times', 'error');
       }
       if (tmoFailedCount > 0) {
         const permissionName = tmoProxyIpInput?.value ? 'local-network' : 'loopback-network';
         const hasPermission = await checkSitePermission(permissionName);
+        if (session !== pollSession) return;
         if (!hasPermission && tmoConnectStatus) {
           tmoConnectStatus.textContent += `(${t('tmo.please_grant_permission')})`;
         }
@@ -123,8 +139,10 @@ function createTmoPoller({
   function bind() {
     if (!tmoToggle) return;
     tmoToggle.addEventListener('change', function onTmoToggleChange() {
+      pollSession += 1;
       tmoFailedCount = 0;
       if (this.checked) {
+        setStatus('recommend.mode.sync_connecting', 'connecting');
         if (tmoTimerId) clearTimeout(tmoTimerId);
         tmoTimerId = setTimeout(pollTmoData, TMO_CONFIG.initialPollDelay);
       } else {
@@ -136,7 +154,7 @@ function createTmoPoller({
           activeFetchController.abort();
           activeFetchController = null;
         }
-        if (tmoConnectStatus) tmoConnectStatus.textContent = '';
+        setStatus('recommend.mode.sync_idle', 'idle');
       }
     });
   }

@@ -1986,8 +1986,7 @@
     "major": "",
     "suitable_partners": [],
     "skill_types": [
-      "stl-2-3",
-      "stl-4-3"
+      "stl-2-3"
     ]
   },
   {
@@ -2326,7 +2325,6 @@
     "suitable_partners": [],
     "skill_types": [
       "stl-4-2",
-      "stl-4-3",
       "stl-5-3"
     ],
     "skill_values": {
@@ -2523,16 +2521,11 @@
     "major": "",
     "suitable_partners": [],
     "skill_types": [
-      "stl-4-3",
       "stl-5-3",
       "stl-6-4",
       "stl-8-2"
     ],
     "skill_values": {
-      "stl-4-3": {
-        "value": null,
-        "remark": ""
-      },
       "stl-5-3": {
         "value": 30,
         "remark": ""
@@ -2979,7 +2972,7 @@
         "material_id": "4-17"
       },
       {
-        "material_id": "6-6"
+        "material_id": "4-9"
       },
       {
         "material_id": "4-4"
@@ -3624,16 +3617,11 @@
     "suitable_partners": [],
     "skill_types": [
       "stl-3-2",
-      "stl-4-3",
       "stl-5-1",
       "stl-8-2"
     ],
     "skill_values": {
       "stl-3-2": {
-        "value": null,
-        "remark": ""
-      },
-      "stl-4-3": {
         "value": null,
         "remark": ""
       },
@@ -3721,7 +3709,7 @@
     "en_name": "Dragon",
     "materials": [
       {
-        "material_id": "6-6"
+        "material_id": "4-9"
       },
       {
         "material_id": "4-37"
@@ -3856,7 +3844,7 @@
         "remark": ""
       },
       "stl-4-2": {
-        "value": 18,
+        "value": 20,
         "remark": "10%"
       },
       "stl-5-3": {
@@ -4907,16 +4895,11 @@
     "suitable_partners": [],
     "skill_types": [
       "stl-2-3",
-      "stl-4-3",
       "stl-5-1",
       "stl-8-2"
     ],
     "skill_values": {
       "stl-2-3": {
-        "value": null,
-        "remark": ""
-      },
-      "stl-4-3": {
         "value": null,
         "remark": ""
       },
@@ -5373,7 +5356,8 @@
     "suitable_partners": [],
     "skill_types": [
       "stl-1-3",
-      "stl-6-3"
+      "stl-6-3",
+      "stl-4-4"
     ]
   },
   {
@@ -6095,7 +6079,6 @@
       "stl-2-2",
       "stl-3-2",
       "stl-4-2",
-      "stl-4-3",
       "stl-5-2",
       "stl-5-3",
       "stl-6-3",
@@ -6125,10 +6108,6 @@
       "stl-4-2": {
         "value": 40,
         "remark": "莉莉絲"
-      },
-      "stl-4-3": {
-        "value": null,
-        "remark": ""
       },
       "stl-5-2": {
         "value": 2.75,
@@ -6179,7 +6158,6 @@
       "stl-2-2",
       "stl-3-2",
       "stl-4-2",
-      "stl-4-3",
       "stl-5-2",
       "stl-5-3",
       "stl-6-3",
@@ -6209,10 +6187,6 @@
       "stl-4-2": {
         "value": 40,
         "remark": "莉莉絲"
-      },
-      "stl-4-3": {
-        "value": null,
-        "remark": ""
       },
       "stl-5-2": {
         "value": 2.75,
@@ -6263,7 +6237,6 @@
       "stl-2-2",
       "stl-3-2",
       "stl-4-2",
-      "stl-4-3",
       "stl-5-2",
       "stl-5-3",
       "stl-6-3",
@@ -6293,10 +6266,6 @@
       "stl-4-2": {
         "value": 40,
         "remark": "莉莉絲"
-      },
-      "stl-4-3": {
-        "value": null,
-        "remark": ""
       },
       "stl-5-2": {
         "value": 2.75,
@@ -6347,7 +6316,6 @@
       "stl-2-2",
       "stl-3-2",
       "stl-4-2",
-      "stl-4-3",
       "stl-5-2",
       "stl-5-3",
       "stl-6-3",
@@ -6377,10 +6345,6 @@
       "stl-4-2": {
         "value": 40,
         "remark": "莉莉絲"
-      },
-      "stl-4-3": {
-        "value": null,
-        "remark": ""
       },
       "stl-5-2": {
         "value": 2.75,
@@ -6598,7 +6562,6 @@
     "suitable_partners": [],
     "skill_types": [
       "stl-1-3",
-      "stl-4-3",
       "stl-5-1",
       "stl-6-1",
       "stl-6-3",
@@ -6606,10 +6569,6 @@
     ],
     "skill_values": {
       "stl-1-3": {
-        "value": null,
-        "remark": ""
-      },
-      "stl-4-3": {
         "value": null,
         "remark": ""
       },
@@ -6831,7 +6790,7 @@
         "material_id": "5-31"
       },
       {
-        "material_id": "4-4"
+        "material_id": "3-2"
       },
       {
         "material_id": "10-1"
@@ -7139,16 +7098,10 @@
     "en_name": "Sabo",
     "materials": [
       {
+        "material_id": "7-4"
+      },
+      {
         "material_id": "5-23"
-      },
-      {
-        "material_id": "6-19"
-      },
-      {
-        "material_id": "4-3"
-      },
-      {
-        "material_id": "2-5"
       },
       {
         "material_id": "10-1"
@@ -7188,7 +7141,7 @@
         "remark": ""
       },
       "stl-4-2": {
-        "value": 30,
+        "value": 35,
         "remark": ""
       },
       "stl-5-1": {
@@ -7781,7 +7734,6 @@
     "skill_types": [
       "stl-1-2",
       "stl-3-2",
-      "stl-4-3",
       "stl-5-1",
       "stl-6-1",
       "stl-6-2",
@@ -7793,10 +7745,6 @@
         "remark": ""
       },
       "stl-3-2": {
-        "value": null,
-        "remark": ""
-      },
-      "stl-4-3": {
         "value": null,
         "remark": ""
       },
@@ -7971,7 +7919,6 @@
       "stl-1-1",
       "stl-1-3",
       "stl-3-3",
-      "stl-4-3",
       "stl-5-3",
       "stl-6-2",
       "stl-8-2"
@@ -7986,10 +7933,6 @@
         "remark": ""
       },
       "stl-3-3": {
-        "value": null,
-        "remark": ""
-      },
-      "stl-4-3": {
         "value": null,
         "remark": ""
       },
@@ -8115,7 +8058,7 @@
         "material_id": "5-30"
       },
       {
-        "material_id": "3-12"
+        "material_id": "3-10"
       },
       {
         "material_id": "2-4"
@@ -8731,7 +8674,6 @@
     "skill_types": [
       "stl-1-1",
       "stl-3-3",
-      "stl-4-3",
       "stl-5-2",
       "stl-8-2"
     ],
@@ -8741,10 +8683,6 @@
         "remark": ""
       },
       "stl-3-3": {
-        "value": null,
-        "remark": ""
-      },
-      "stl-4-3": {
         "value": null,
         "remark": ""
       },
@@ -9161,7 +9099,6 @@
       "stl-2-2",
       "stl-2-3",
       "stl-4-1",
-      "stl-4-3",
       "stl-4-4",
       "stl-5-2",
       "stl-5-3",
@@ -9186,10 +9123,6 @@
         "remark": ""
       },
       "stl-4-1": {
-        "value": null,
-        "remark": ""
-      },
-      "stl-4-3": {
         "value": null,
         "remark": ""
       },
@@ -9575,16 +9508,11 @@
     "major": "",
     "suitable_partners": [],
     "skill_types": [
-      "stl-4-3",
       "stl-5-1",
       "stl-5-3",
       "stl-8-2"
     ],
     "skill_values": {
-      "stl-4-3": {
-        "value": null,
-        "remark": ""
-      },
       "stl-5-1": {
         "value": null,
         "remark": ""
@@ -10326,6 +10254,39 @@
     "skill_types": [
       "stl-5-3"
     ]
+  },
+  {
+    "character_id": "18-14",
+    "level": 18,
+    "name": "范馬勇次郎",
+    "kr_name": "",
+    "en_name": "",
+    "materials": [
+      {
+        "material_id": "16-13"
+      },
+      {
+        "material_id": "5-33"
+      },
+      {
+        "material_id": "6-6"
+      },
+      {
+        "material_id": "4-38"
+      },
+      {
+        "material_id": "0-9"
+      },
+      {
+        "material_id": "0-32"
+      }
+    ],
+    "key_code": "",
+    "remark": "10000金+木*7",
+    "major": "",
+    "suitable_partners": [],
+    "skill_types": [],
+    "skill_values": {}
   },
   {
     "character_id": "23-1",
