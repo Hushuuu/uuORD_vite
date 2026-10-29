@@ -197,6 +197,26 @@
       "jsonExported": "Latest JSON exported."
     },
     "recommend": {
+      "mode": {
+        "recommended": "Recommended",
+        "auto_title": "Automatically update owned characters",
+        "auto_desc": "Connect your game data to sync characters and counts, and update recommendations automatically.",
+        "benefit_sync": "No need to enter character counts one by one",
+        "benefit_live": "Follow recommendations while you play",
+        "requirement": "Requires TMOGG, the proxy tool, and permission for this site to connect.",
+        "choose_auto": "Use automatic mode →",
+        "tutorial": "Setup guide",
+        "no_install": "No tools required",
+        "manual_title": "Enter characters manually",
+        "manual_desc": "Select your characters and counts to get recommendations for your current lineup.",
+        "manual_hint": "Try out recommendations or use this mode when you cannot install third-party tools.",
+        "choose_manual": "Use manual mode →",
+        "change": "Change mode",
+        "sync_hint": "Complete the tool setup, then enable sync. Once connected, your characters and recommendations update automatically.",
+        "sync_toggle": "Enable automatic sync",
+        "sync_idle": "Sync is off",
+        "sync_connecting": "Connecting, please wait…"
+      },
       "brand": "Craft Recommendations",
       "brand_subtitle": "Recommend the closest craft based on owned characters",
       "owned_title": "Owned Basic Characters",

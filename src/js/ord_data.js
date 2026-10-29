@@ -10258,9 +10258,9 @@ const ORD_DATA = [
   {
     "character_id": "18-14",
     "level": 18,
-    "name": "范馬勇次郎",
-    "kr_name": "",
-    "en_name": "",
+    "name": "範馬勇次郎",
+    "kr_name": "한마 유지로",
+    "en_name": "Yujiro Hanma",
     "materials": [
       {
         "material_id": "16-13"

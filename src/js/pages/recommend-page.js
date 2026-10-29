@@ -718,6 +718,49 @@ function initRecommendPage(records) {
     }
     const tmoConnectStatus = document.getElementById('tmoConnectStatus');
     const tmoToggle = document.getElementById('tmoConnectToggle');
+    const modePicker = document.getElementById('recommendModePicker');
+    const workspace = document.getElementById('recommendWorkspace');
+    const autoSync = document.getElementById('recommendAutoSync');
+    const modeLabel = document.getElementById('recommendModeLabel');
+
+    function stopAutoSync() {
+      if (tmoToggle.checked) {
+        tmoToggle.checked = false;
+        tmoToggle.dispatchEvent(new Event('change'));
+      }
+    }
+
+    document.querySelectorAll('[data-recommend-mode]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const isAuto = button.dataset.recommendMode === 'auto';
+        stopAutoSync();
+        modePicker.hidden = true;
+        workspace.hidden = false;
+        autoSync.hidden = !isAuto;
+        document.querySelectorAll('[data-manual-only]').forEach((element) => {
+          element.hidden = isAuto;
+        });
+        modeLabel.textContent = t(`recommend.mode.${isAuto ? 'auto_title' : 'manual_title'}`);
+        // 手動模式直接展開角色數量，讓使用者可以立即輸入。
+        if (!isAuto) {
+          ownedTabs.classList.remove('collapsed');
+          ownedPanels.classList.remove('collapsed');
+        }
+        modeLabel.focus();
+      });
+    });
+
+    document.getElementById('recommendChangeModeBtn')?.addEventListener('click', () => {
+      stopAutoSync();
+      workspace.hidden = true;
+      modePicker.hidden = false;
+      modePicker.querySelector('[data-recommend-mode]')?.focus();
+    });
+
+    document.querySelectorAll('[data-tmo-tutorial]').forEach((button) => {
+      button.addEventListener('click', () => document.getElementById('thirdPartyTutorialModal')?.open());
+    });
+
     createTmoPoller({
       indices,
       ownedCountState,
