@@ -38,8 +38,7 @@ self.addEventListener('install', event => {
 
 // 2. 激活階段：清理舊快取
 self.addEventListener('activate', event => {
-  // 💡 這裡千萬「不要」寫 self.clients.claim()
-  // 這樣才能保證新 SW 不會主動、默默地去搶控制權，而是乖乖等待 SKIP_WAITING 的指令
+  // 不主動接管頁面；新版等待所有舊版頁面關閉後自然啟用。
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
@@ -131,9 +130,4 @@ self.addEventListener('fetch', event => {
   );
 });
 
-// 4. 監聽前端發送的 SKIP_WAITING 指令
-self.addEventListener('message', event => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
-});
+// 不呼叫 skipWaiting：讓瀏覽器在舊版頁面全部關閉後自然啟用新版。

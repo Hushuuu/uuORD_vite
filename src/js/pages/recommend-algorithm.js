@@ -106,7 +106,9 @@ function createRecipeAnalyzer(indices) {
     if (!record) return 1;
 
     const materials = record.materials || [];
-    if (record.level <= 1) {
+    if (record.level <= 1 
+      || characterId === '10-1' //超越熊比重低一點
+    ) {
       realWeightCache.set(characterId, 1);
       return 1;
     }
