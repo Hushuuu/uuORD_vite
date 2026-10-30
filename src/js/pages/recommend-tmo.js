@@ -77,6 +77,10 @@ function createTmoPoller({
         if(Object.keys(units).length === 0) {
           return;
         }
+        if (['FOOD', 'GOLD', 'LUMBER'].every(key => units[key] === 0)
+          && Object.keys(units).length === 3) {
+          return; // 試試看最後輸掉不要清空
+        }
         let effectCount = 0;
         let ownedCountsChanged = false;
 
