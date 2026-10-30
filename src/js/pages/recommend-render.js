@@ -1,3 +1,23 @@
+import { getSkills } from '../shared/skill-description.js';
+
+const actionIcon = (paths) => `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${paths}</svg>`;
+const ACTION_ICONS = {
+  upward: actionIcon('<path d="M12 20v-7M5 10V5h14v5M5 5v-2M19 5V3M12 13V5"/><path d="m9 16 3-3 3 3"/>'),
+  skills: actionIcon('<path d="M12 6c-3-2-6-2-9-1v14c3-1 6-1 9 1 3-2 6-2 9-1V5c-3-1-6-1-9 1Z"/><path d="M12 6v14M6 9h3M6 12h3M15 9h3M15 12h3"/>'),
+  pin: actionIcon('<path d="M9 3h6M9 3v6l-3 3v3h12v-3l-3-3V3M12 15v7"/>'),
+  dismiss: actionIcon('<path d="m6 6 12 12M18 6 6 18"/>')
+};
+
+function renderRecommendationActions(record, indices, getDisplayName, escapeHtml, translate, isPinned, canDismiss) {
+  const action = (data, label, icon, extra = '') => `<button type="button" class="recommend-card-action ${data === 'pinned-character' ? 'pinned-character-btn' : ''}" data-${data}="${escapeHtml(record.character_id)}" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}" ${extra}>${icon}</button>`;
+  return `<div class="recommend-card-actions">
+    ${renderUpwardCharacterAction(record, indices, getDisplayName, escapeHtml, translate)}
+    ${getSkills(record).length ? action('view-skills', translate('recommend.actions.skills'), ACTION_ICONS.skills, 'aria-haspopup="dialog"') : ''}
+    ${action('pinned-character', translate(isPinned ? 'recommend.actions.unpin' : 'recommend.actions.pin'), ACTION_ICONS.pin, `aria-pressed="${Boolean(isPinned)}"`)}
+    ${canDismiss ? action('dismiss-character', translate('recommend.actions.dismiss'), ACTION_ICONS.dismiss) : ''}
+  </div>`;
+}
+
 // 顯示推薦角色的直接材料，並標示已擁有的材料。
 function renderMaterialPreview(record, inventory, indices, getDisplayName, escapeHtml) {
   const materials = record.materials || [];
@@ -50,7 +70,7 @@ function renderUpwardCharacterAction(record, indices, getDisplayName, escapeHtml
         aria-label="${escapeHtml(translate('tree.upwardShow'))}"
         title="${escapeHtml(translate('tree.upwardShow'))}"
         aria-describedby="recommend-upward-tooltip-${escapeHtml(record.character_id)}"
-      >⬆️</button>
+      >${ACTION_ICONS.upward}</button>
       <div
         id="recommend-upward-tooltip-${escapeHtml(record.character_id)}"
         class="recommend-upward-list"
@@ -151,6 +171,7 @@ function renderOwnedCountCard(record, count, level, getDisplayName, escapeHtml) 
 }
 
 export {
+  renderRecommendationActions,
   renderMaterialPreview,
   renderUpwardCharacterAction,
   renderMaterialTree,

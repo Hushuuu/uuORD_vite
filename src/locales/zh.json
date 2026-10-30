@@ -197,6 +197,12 @@
       "jsonExported": "已匯出最新 JSON。"
     },
     "recommend": {
+      "actions": {
+        "skills": "技能說明",
+        "pin": "釘選角色",
+        "unpin": "取消釘選",
+        "dismiss": "隱藏此推薦"
+      },
       "mode": {
         "recommended": "推薦使用",
         "auto_title": "自動更新擁有角色",

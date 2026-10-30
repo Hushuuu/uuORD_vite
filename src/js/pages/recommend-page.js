@@ -1,5 +1,6 @@
 import appShared from './../shared/app-shared.js';
 import { ORDI18n } from './../i18n.js';
+import { createSkillDialog } from '../shared/skill-description.js';
 import {
   formatSkillLabelsWithValues as formatSkillLabelsWithValuesUtil,
   buildTargetLevelOptions as buildTargetLevelOptionsUtil,
@@ -13,7 +14,7 @@ import {
 } from './recommend-algorithm.js';
 import {
   renderMaterialPreview as renderMaterialPreviewUtil,
-  renderUpwardCharacterAction as renderUpwardCharacterActionUtil,
+  renderRecommendationActions,
   renderMaterialTree as renderMaterialTreeUtil,
   renderOwnedCountCard as renderOwnedCountCardUtil,
 } from './recommend-render.js';
@@ -47,6 +48,7 @@ let DEFAULT_SHOW_AMOUNT = 100;
 
 function initRecommendPage(records) {
     const indices = createIndices(records);
+    const openSkills = createSkillDialog();
     const analyzeRecipe = createRecipeAnalyzer(indices);
     const targetLevelGrid = document.getElementById('recommendTargetLevelGrid');
     const targetSkillGrid = document.getElementById('recommendTargetSkillGrid');
@@ -386,16 +388,6 @@ function initRecommendPage(records) {
                 ${group.candidates
                   .map(({ record, requiredCounts, requiredText, excessCounts, excessText, completionRatio, isPinned }) => `
                     <article class="recommend-card ${isPinned ? 'card-pinned' : ''}">
-                      <div class="recommend-card-actions">
-                        ${renderUpwardCharacterActionUtil(record, indices, getDisplayName, escapeHtml, t)}
-                        <button
-                          type="button"
-                          class="recommend-card-action pinned-character-btn"
-                          data-pinned-character="${escapeHtml(record.character_id)}"
-                          aria-label="釘選"
-                        >📌</button>
-                        ${DEFAULT_SHOW_AMOUNT === 100 ? '' : `<button type="button" class="recommend-card-action recommend-dismiss-btn" data-dismiss-character="${escapeHtml(record.character_id)}" aria-label="隱藏此推薦">❌</button>`}
-                      </div>
                       <div class="card-top-progress-container">
                         <div 
                           class="card-top-progress-bar-bg" 
@@ -407,9 +399,11 @@ function initRecommendPage(records) {
                           ${((completionRatio || 0) * 100).toFixed(0)}%
                         </div>
                       </div>
-                      <div class="recommend-card-top">
-                        <!--<span class="badge badge-${record.level}">${escapeHtml(getLevelLabel(record.level))}</span>-->
-                        <strong>${escapeHtml(getDisplayName(record))} ${record.key_code ? `(${escapeHtml(record.key_code)})` : ''}</strong>
+                      <div class="recommend-card-heading">
+                        <div class="recommend-card-top">
+                          <strong>${escapeHtml(getDisplayName(record))} ${record.key_code ? `(${escapeHtml(record.key_code)})` : ''}</strong>
+                        </div>
+                        ${renderRecommendationActions(record, indices, getDisplayName, escapeHtml, t, isPinned, DEFAULT_SHOW_AMOUNT !== 100)}
                       </div>
                       <div>
                         <span>${formatSkillLabelsWithValuesUtil(record.skill_types, record.skill_values, getSkillTypeLabel).map((label) => `<span class="badge-skill-type">${escapeHtml(label)}</span>`).join('/')}</span>
@@ -630,6 +624,12 @@ function initRecommendPage(records) {
     });
 
     resultList.addEventListener('click', (event) => {
+      const skillButton = event.target.closest('[data-view-skills]');
+      if (skillButton) {
+        const record = indices.byCharacterId.get(skillButton.dataset.viewSkills);
+        if (record) openSkills(record, getDisplayName(record), i18n?.getLang() === 'en');
+        return;
+      }
       // 點擊「隱藏此推薦」按鈕
       let needRender = false;
       const button = event.target.closest('[data-dismiss-character]');

@@ -197,6 +197,12 @@
       "jsonExported": "Latest JSON exported."
     },
     "recommend": {
+      "actions": {
+        "skills": "View skills",
+        "pin": "Pin character",
+        "unpin": "Unpin character",
+        "dismiss": "Hide recommendation"
+      },
       "mode": {
         "recommended": "Recommended",
         "auto_title": "Automatically update owned characters",
