@@ -18,11 +18,14 @@ test('說明、標色內容與技能名稱中的 HTML 都會跳脫', () => {
   assert.ok(html.includes('&lt;img'));
 });
 
-test('相容舊資料、簡述技能與可展開的詳細說明', () => {
+test('直接呈現詳細說明，只有簡述的舊資料仍可顯示', () => {
   assert.deepEqual(getSkills({}), []);
   assert.deepEqual(getSkills({ skills: null }), []);
   assert.deepEqual(getSkills({ skills: [null, 'bad'] }), []);
-  assert.ok(!renderSkills([{ name: '簡易', summary: '簡述' }]).includes('<details>'));
-  assert.ok(renderSkills([{ name: '完整', description: '內容' }]).includes('<details>'));
+  assert.ok(renderSkills([{ name: '簡易', summary: '舊簡述' }]).includes('舊簡述'));
+  const html = renderSkills([{ name: '完整', summary: '不應顯示的簡述', description: '{magic|詳細內容}' }]);
+  assert.ok(html.includes('<span class="skill-mark-magic">詳細內容</span>'));
+  assert.ok(!html.includes('不應顯示的簡述'));
+  assert.ok(!html.includes('<details>'));
   assert.ok(renderSkills([]).includes('尚未補上'));
 });

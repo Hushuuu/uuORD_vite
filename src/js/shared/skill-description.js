@@ -28,8 +28,7 @@ export function renderSkills(skills, english = false) {
   const types = english ? { active: 'Active', passive: 'Passive' } : { active: '主動', passive: '被動' };
   return skills.map((skill) => `<article class="skill-card">
     <h3>${escapeSkillText(skill.name || (english ? 'Unnamed skill' : '未命名技能'))}${types[skill.type] ? ` <small class="muted">${types[skill.type]}</small>` : ''}</h3>
-    ${skill.summary ? `<p class="skill-rich-text">${renderSkillText(skill.summary)}</p>` : ''}
-    ${skill.description ? `<details><summary>${english ? 'Details' : '詳細說明'}</summary><div class="skill-rich-text">${renderSkillText(skill.description)}</div></details>` : ''}
+    ${skill.description || skill.summary ? `<div class="skill-rich-text">${renderSkillText(skill.description || skill.summary)}</div>` : ''}
   </article>`).join('');
 }
 
