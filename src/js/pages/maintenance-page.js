@@ -1,3 +1,4 @@
+import { createSkillEditor } from './../shared/skill-editor.js';
 import appShared from './../shared/app-shared.js';
 import { ORDI18n } from './../i18n.js';
 
@@ -40,6 +41,10 @@ function initMaintenancePage(records) {
     const partnerPickerSelect = document.getElementById('partnerPickerSelect');
     const skillTypesGroup = document.getElementById('fieldSkillTypesGroup');
     const skillValuesGroup = document.getElementById('fieldSkillValuesGroup');
+    const skillEditor = createSkillEditor(document.getElementById('fieldSkillsEditor'));
+    document.getElementById('addSkillButton').addEventListener('click', () => {
+      if (getSelectedRecord()) skillEditor.add();
+    });
     const hasTomSelect = typeof window.TomSelect === 'function';
 
     const fields = {
@@ -292,6 +297,7 @@ function initMaintenancePage(records) {
 
     function fillForm() {
       const record = getSelectedRecord();
+      skillEditor.load(record);
       if (!record) {
         Object.values(fields).forEach((field) => {
           if ('value' in field) {
@@ -418,6 +424,7 @@ function initMaintenancePage(records) {
         remark: fields.remark.value.trim(),
         skill_types: nextSkillTypes,
         skill_values: getSkillValues(),
+        skills: skillEditor.read(),
         materials: nextMaterials,
         suitable_partners: nextPartners
       });
@@ -442,6 +449,7 @@ function initMaintenancePage(records) {
         major: '',
         skill_types: [],
         skill_values: {},
+        skills: [],
         suitable_partners: []
       };
 

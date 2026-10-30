@@ -1,3 +1,39 @@
+.skill-mark-physical { color: #ffac80; }
+.skill-mark-magic { color: #c4b5fd; }
+.skill-mark-control { color: #fde047; }
+.skill-mark-buff { color: #86efac; }
+.skill-mark-chance { color: #67e8f9; }
+.skill-mark-important { color: #f9a8d4; }
+.skill-rich-text { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.7; margin: 12px 0; }
+.skill-rich-text span { font-weight: 700; }
+.skill-card, .skill-editor-card {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 12px 0;
+  min-width: 0;
+}
+.skill-card h3 { margin: 0 0 10px; overflow-wrap: anywhere; }
+.skill-card summary { cursor: pointer; color: var(--muted-color); }
+.skill-editor-card .field-group { margin-top: 12px; }
+.skill-editor-card .inline-actions { flex-wrap: wrap; }
+.skill-editor-card button:disabled { opacity: .4; cursor: default; }
+.skill-live-preview { margin-top: 16px; }
+.skill-view-button { align-self: flex-start; font-size: .85rem; }
+.skill-dialog {
+  background: var(--surface-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  width: min(700px, calc(100vw - 24px));
+  max-height: 85dvh;
+  padding: 20px;
+  overflow-y: auto;
+}
+.skill-dialog::backdrop { background: rgb(0 0 0 / .65); }
+.skill-dialog > button { float: right; }
+.skill-dialog h2 { padding-right: 80px; overflow-wrap: anywhere; }
+
 :root {
   --bg-color: #111827;
   --surface-color: #1f2937;

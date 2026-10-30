@@ -1,3 +1,4 @@
+import { createSkillDialog, getSkills } from './../shared/skill-description.js';
 import appShared from './../shared/app-shared.js';
 import { ORDI18n } from './../i18n.js';
 
@@ -30,6 +31,9 @@ function createNameStack(record) {
     lines.push(`<span class="name-secondary">${escapeHtml(record.kr_name)}</span>`);
   }
 
+  if (getSkills(record).length) {
+    lines.push(`<button type="button" class="link-button skill-view-button" data-view-skills="${escapeHtml(record.character_id)}">${i18n?.getLang() === 'en' ? 'Skills' : '技能說明'}</button>`);
+  }
   return `<div class="name-stack">${lines.join('')}</div>`;
 }
 
@@ -50,6 +54,7 @@ function createMaterialChips(record, indices) {
 
 function initQuickLookup(records) {
   const indices = createIndices(records);
+  const openSkills = createSkillDialog();
   const searchInput = document.getElementById('searchInput');
   const levelFilter = document.getElementById('levelFilter');
   const clearButton = document.getElementById('clearButton');
@@ -121,6 +126,12 @@ function initQuickLookup(records) {
   }
 
   body.addEventListener('click', (event) => {
+    const skillButton = event.target.closest('[data-view-skills]');
+    if (skillButton) {
+      const record = indices.byCharacterId.get(skillButton.dataset.viewSkills);
+      if (record) openSkills(record, getDisplayName(record), i18n?.getLang() === 'en');
+      return;
+    }
     const target = event.target.closest('[data-search-name]');
     if (!target) {
       return;
