@@ -5375,6 +5375,29 @@ const ORD_DATA = [
     "suitable_partners": []
   },
   {
+    "character_id": "5-42",
+    "level": 5,
+    "name": "軍子",
+    "kr_name": "군코",
+    "en_name": "Gunko",
+    "materials": [
+      {
+        "material_id": "4-8"
+      },
+      {
+        "material_id": "4-18"
+      },
+      {
+        "material_id": "4-21"
+      }
+    ],
+    "key_code": "",
+    "remark": "木*3",
+    "major": "",
+    "suitable_partners": [],
+    "skill_types": []
+  },
+  {
     "character_id": "6-1",
     "level": 6,
     "name": "千陽號",
@@ -5567,7 +5590,7 @@ const ORD_DATA = [
     "en_name": "Stussy",
     "materials": [
       {
-        "material_id": "4-44"
+        "material_id": "4-45"
       },
       {
         "material_id": "4-33"
@@ -14528,7 +14551,7 @@ const ORD_DATA = [
         "material_id": "16-2"
       },
       {
-        "material_id": "8-5"
+        "material_id": "6-3"
       },
       {
         "material_id": "5-12"
