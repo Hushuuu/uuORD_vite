@@ -213,6 +213,20 @@ function applyStaticTranslations(root = document) {
     }
   });
 
+  root.querySelectorAll('[data-i18n-content]').forEach((element) => {
+    const key = element.dataset.i18nContent;
+    if (key) {
+      element.setAttribute('content', t(key));
+    }
+  });
+
+  root.querySelectorAll('[data-i18n-aria-label]').forEach((element) => {
+    const key = element.dataset.i18nAriaLabel;
+    if (key) {
+      element.setAttribute('aria-label', t(key));
+    }
+  });
+
   root.querySelectorAll('[data-i18n-title]').forEach((element) => {
     const key = element.dataset.i18nTitle;
     if (key) {

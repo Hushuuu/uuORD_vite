@@ -952,3 +952,819 @@ export const PATCH_NOTES = [
 `
   }
 ];
+
+// Keep translated title, summary, and content here by release ID; untranslated fields fall back to the source entry.
+export const PATCH_NOTE_TRANSLATIONS = {
+  'ordr-2-330': {
+    en: {
+      title: 'ORDR 2.330 Patch Notes',
+      summary: 'Adds Gunko (Legendary) and Golden Week (Special), with system, navigation, and character updates.',
+      content: `
+## Classic Version
+- Classic versions 2.323 and earlier can only be loaded and saved until November 2 at 23:00.
+
+## Official Map Registration on Teemo.gg
+- The 2.330 map file will be registered in the Teemo.gg program.
+- Features such as detecting modified maps and saving clear records require the latest Teemo.gg update.
+-# Teemo.gg will show an update notice when launched. If it is already open, restart the program to update.
+-# Versions 2.323 and earlier will only be recognized as official maps until November 2 at 23:00.
+
+## System
+- Fixed an issue that allowed the camera to move on the difficulty selection screen.
+- Adjusted the evolution requirements for the evolved unit granted at the start of the game.
+-# Kill count required to obtain the Special unit: 152 -> 140.
+- Optimized map load by cleaning up duplicate effects and making other improvements.
+- Adjusted the notification ON/OFF feature.
+-# Treasure hunt cooldown notifications are now shown whether notifications are enabled or disabled.
+-# When notifications are disabled, messages about other players' crafting and gambling are no longer shown.
+- Special titles are now granted through registered account IDs.
+-# Special titles can no longer be obtained by editing save data.
+- Support Cow no longer restores mana when its Delete skill is used on an invalid target.
+- Resource sharing through F11 has been reopened, and its related commands can be used again.
+- Multi-board model previews have replaced the static images.
+- Removed Offline Mode and its related commands.
+
+## Five Elders
+- Changed the models of the Five Elders.
+- Adjusted Saturn's health regeneration.
+-# God difficulty: 225,000 -> 250,000.
+-# Nightmare difficulty: 350,000 -> 400,000.
+
+## Fixes for Remastered Version Updates
+**These fixes address issues introduced by the Remastered update; other issues may still occur.**
+- Fixed an issue where Shanks and Roger's Divine Departure skill ignored its cooldown.
+- Fixed missing effects after the Remastered update, including the Beacon and opening screen effects.
+
+## Navigation (Node)
+- Navigation (Node) selection is now available upon reaching Round 20.
+- Bounty Hunter nodes no longer generate treasure chests from enemies before Round 20.
+- Adjusted the Maximum Output node effect.
+-# After choosing the node, Support Cow's Earthquake skill is replaced with Mother Flame.
+-# Mother Flame consumes all of Support Cow's mana when cast and deals additional damage based on the mana consumed.
+- Leo summoned through the Path of the Conqueror node now deals only 33% damage to Story targets.
+
+## Utility Board
+- Added a display for the Justice Gate's health.
+-# Use the gear icon (Extensions) at the 11 o'clock position in-game to turn the feature on or off.
+-# Removed the old input commands such as "ㅍㅁ" and "va".
+- Utility Board text now uses a fixed color instead of changing with the player's color.
+- Fixed incorrect debuff values shown on the board for some units, including Eternal Uta and Transcendent Nami.
+
+## Golden Week - Special
+- Added a new unit.
+
+## Yujiro - Mysterious
+- Using Disdain for the Weak on Brulee repeatedly now cancels the cast and displays a special line.
+- Changed the entrance quote.
+- Fixed a typo in the Back Demon skill description that said "Crush your skull" instead of "I'll kill you."
+
+## Minato - Mysterious
+- Since Mutation Carrot has been removed, the recipe now uses Hidden Carrot instead.
+
+## Usopp - Transcendent
+- Adjusted the costs of plants that can be summoned through Talent Enhancement.
+-# Sunflower: 3 -> 4.
+-# Snow Pea: 4 -> 5.
+-# Pea: 5 -> 6.
+-# Chomper: 3 -> 4.
+
+## Nami - Transcendent
+- Changed Zeus's animation.
+
+## Koby - Transcendent
+- Fixed an issue where Koby also received the Marine Hero buff.
+
+## Fujitora - Transcendent
+- Adjusted Tiger Gravity Blade.
+-# Stun duration: 2.6 seconds -> 2.5 seconds.
+- Adjusted Sky Pit.
+-# Added a 2.6-second stun in a 650 area.
+-# Removed the aftershock that was not working correctly.
+-# Cast time: 1.5 seconds -> 1.8 seconds.
+-# Talent-enhanced damage: 6,500,000 Magic Damage -> 2,500,000 + Armor Break x 100,000 Physical Damage.
+
+## Green Bull - Transcendent
+- Fixed an issue where the Haki effect of Tree Burial was not working correctly.
+- Adjusted Tree Burial.
+-# Required Armor Break: 20 -> 40.
+-# All Damage amplification: 20% -> 50%.
+
+## Bullet - Immortal
+- Base Attack Power: 260,000 -> 250,000.
+- Reworked all Talent Enhancements.
+- Fixed an issue that allowed Talent Enhancement without consuming a unit.
+
+## Gaban - Immortal
+- Adjusted Eighty Fold Blade and Eight Thousand Fold Blade.
+-# Absolute cooldown: 2.5 seconds -> 3 seconds.
+- Adjusted Mountain Eater.
+-# Requirement for an additional Heavenly Fireworks trigger: Mountain Eater activations 25 -> 30.
+
+## Buggy - Eternal
+- Minotaurus's base Attack Power: 117,500 -> 100,000.
+
+## Oden - Eternal
+- Updated the Togen Totsuka skill description to match its actual effect.
+- Adjusted Kin'emon's Fire-Cutting skill when summoned through Talent Enhancement.
+-# Added effect: when the target is affected by Eternal Scar, the activation chance becomes 75%.
+
+## Uta - Eternal
+- Fixed missing effects on the I'm the Strongest skill.
+
+## Cavendish - Eternal
+- Adjusted Beautiful Sword: Round Table.
+-# Added 3 Armor Break in a 550 area when activated.
+
+## Rebecca - Limited
+- Adjusted Repeated Training and Thunder Judgment.
+-# Mana cost 120 -> costs 50 HP and restores 0.5 HP per second.
+-# Added a stun effect to Thunder Judgment.
+- Adjusted Smash.
+-# Activation condition: 8% chance -> once every 10 attacks.
+
+## Marco - Limited
+- Adjusted some skills, including Talent Enhancements.
+
+## Burgess - Distortion
+- Base attack interval: 1.15 -> 0.8 (attack speed increased).
+- Adjusted Unsinkable Ship Lariat.
+-# Damage: 100,000 -> 70,000.
+-# Bonus damage to Boss, Berserk, and Story targets: 200,000 -> 140,000.
+-# Current HP proportional damage to lane monsters: 10% -> 7%.
+
+## Black Maria - Distortion
+- Adjusted Maria's Web.
+-# Cast time: 2 seconds -> 15 seconds.
+-# Cooldown: 30 seconds -> 15 seconds.
+- Adjusted Oiran Knuckle.
+-# Physical damage equal to 0.75% of missing HP -> 150,000 + physical damage equal to 0.75% of missing HP.
+- Adjusted Burn.
+-# Physical damage equal to 5% of missing HP -> 500,000 + physical damage equal to 5% of missing HP.
+
+## S-Snake - Seraphim
+- Kiss Gun activation chance: 8% -> 9%.
+
+## S-Bear - Seraphim
+- Ursus Shock absolute cooldown: 15 seconds -> 16 seconds.
+
+## Dragon - Legendary
+- Adjusted Dragon-Dragon Fruit.
+-# Activation chance: 10% -> 11%.
+-# Area stun duration: 2.75 seconds -> 2.5 seconds.
+
+## Bartolomeo - Legendary
+- Adjusted Barrier-Barrier Fruit.
+-# Activation chance: 10% -> 12.5%.
+-# Area stun duration: 2.75 seconds -> 2.2 seconds.
+
+## Shiki - Legendary
+- Adjusted Sea Water Imprisonment.
+-# Activation chance: 10% -> 12%.
+-# Area stun duration: 3 seconds -> 2.5 seconds.
+
+## Nami - Legendary
+- The chance to find 2 treasures at once is now 65%.
+
+## Hibari - Legendary
+- Deliberately stopping a unit during its attack no longer triggers its skill.
+
+## Gunko - Legendary
+- Added a new unit.
+-# Recipe: Brook (Rare) + Zeff (Rare) + Aokiji (Rare) + 3 Wood.
+
+## Whitebeard - Legendary
+- Fixed an issue where the aftershock duration of Tremor-Tremor Fruit was too short.
+
+## Reiju - Legendary
+- Adjusted Poison Pink.
+-# Single-target burst damage equal to 10.5% of current HP -> 11% of current HP.
+- Adjusted Pink Hornet.
+-# Single-target burst damage equal to 8.25% of current HP -> 8.5% of current HP.
+
+## King - Legendary
+- Fixed an issue with Story contribution calculations.
+
+## Hancock - Legendary
+- Changed the unit's animation.
+- Kiss Gun activation chance: 8% -> 9%.
+
+## Zoro - Legendary
+- Adjusted Lion's Song.
+-# Removed the execution mechanic and moved it to Death Realm.
+-# Added magic damage equal to 5% of lane monsters' maximum HP.
+- Adjusted Death Realm.
+-# Added an execution effect that triggers when the target's HP is below 10%.
+-# The execution threshold is affected by Magic Damage amplification and can reach up to 12.5%.
+
+## Sugar - Legendary
+- Reworked Hobby-Hobby Fruit.
+- Toys no longer generate loot.
+- Adjusted Special Officer.
+-# Mana regeneration 1.25 -> HP regeneration 1.2.
+
+## Green Bull - Hidden
+- Adjusted Forbidden Hate Woods.
+-# Duration of the 15 Armor reduction on activation: 3.5 seconds -> 3 seconds.
+
+## Stussy - Hidden
+- **Changed the recipe.**
+-# Rare Kaku in the recipe -> Rare X Drake.
+
+## Ryuma - Hidden
+- Adjusted Black Blade Shusui.
+-# Activation chance: 14% -> 15%.
+-# Single-target burst damage equal to 20% of current HP -> magic damage equal to 25% of current HP.
+
+## Carrot - Hidden
+- Removed Mutation Carrot and merged it into Hidden Carrot as a form switch.
+- Reworked all skills.
+
+## Red Force - Hidden
+- Updated skill descriptions to match their actual effects.
+- Adjusted Mediator Ship.
+-# Attack increase: 30% -> 25%.
+
+## Kaku - Shift
+- Adjusted Tempest Kick: Line.
+-# Single-target burst damage equal to 5% of maximum HP -> burst damage equal to 20% of current HP.
+
+## Carrot - Shift
+- Removed Mutation Carrot and merged it into Hidden Carrot as a form switch.
+
+## Sugar - Rare
+- Adjusted Special Officer.
+-# Mana regeneration 0.6 -> HP regeneration 0.5.
+`
+    }
+  },
+  'ordr-2-320': {
+    zh: {
+      title: 'ORDR 2.320 更新公告',
+      summary: '新增工具面板、個人任務重刷新與 VIP 稱號，並調整劇情獎勵、航法節點及多名角色。'
+    },
+    en: {
+      title: 'ORDR 2.320 Patch Notes',
+      summary: 'Adds the Utility Board, personal mission rerolls, and the VIP title, with updates to Story rewards, Navigation nodes, and many units.',
+      content: `
+## System
+- Added the personal mission "Unit Combination (Mysterious)", available only in Otherworld Mode.
+- Added a personal mission reroll feature, usable only before Round 10.
+-# Each player can use it once per game. Click the button above a mission to reroll it.
+- Added a command to check the Golden Bell's health at the 7 o'clock position in-game.
+-# Commands: -황금종, ㅎㄱㅈ, grw, -bell.
+- Special skins earned through tournaments and events can now be viewed on the in-game Multi-board.
+- Added a Distortion-tier wing effect for special titles other than Sprout (Newbie), including Adventurer, New World, and tournament titles.
+- Changed the message shown when selecting a Random Node.
+- Fixed an issue where Navigation stopped working if Path of the Conqueror was selected from a Random Node after crafting a high-tier unit.
+- Fixed an issue where some units could not use skills when their Attack Power was reduced by 100% or more, reaching zero or below.
+- Mysterious units now spawn in the center of the Line Zone when crafted.
+- The clear condition for the Quick Demolition mission is now before Round 9 begins (by the end of Round 8).
+- Added the new VIP special title, available for 500 Berry.
+-# While wearing VIP, players can use its exclusive skin. The skin changes periodically; previews are available in the Discord preview channel.
+- The Remastered update caused crashes when sending resources to other players with F11, so a temporary workaround was added.
+- F11 can no longer be used to send resources to other players.
+- Added a temporary command for sending resources (Gold or Wood) while a unit owned by another player is selected.
+-# Commands: -골드 xx (Gold xx), -목재 xx (Wood xx).
+- Fixed features that stopped working after the update.
+-# Affected: Ryuma Eternal, Kizaru Transcendent, Green Bull Transcendent, Blackbeard, Berserk units, and others.
+
+## Utility Board
+- Added a Utility Board that displays current in-game information.
+- It can be turned on or off using the gear icon (Extensions) at the 11 o'clock position.
+- Story Contribution
+-# View Story Contribution in real time on the Utility Board.
+-# No manual refresh is needed; Story Contribution updates automatically.
+- Unit Stats (Board Totals)
+-# View the combined special abilities of your currently owned units.
+-# Available totals include armor-reduction auras, slow auras, triggered armor reduction, and triggered slow effects.
+-# Triggered values assume that all units activate their effects and may differ from the values actually applied.
+-# These stats do not update in real time. Click refresh to update them.
+
+## Main Story
+-# Adjusted reward thresholds so all players can earn contribution rewards in four-player games.
+-# Early-story reward thresholds were also relaxed so players can earn the full rewards earlier.
+- Adjusted the threshold for the extra Story Contribution reward (1 Fairy):
+-# Four players: contribution of 25% or more -> 20% or more.
+-# Three players: contribution of 25% or more (unchanged).
+-# Two players: contribution of 25% or more -> 30% or more.
+- All players now receive Story Contribution rewards for Stages 1, 2, and 3, regardless of their contribution.
+
+## Unit Gamble (Otherworld)
+- The success chance for Otherworld Unit Gamble is now 15%.
+- The Justice Gate stack mechanic now gains stacks when you kill Stage 3 creeps.
+
+## Navigation (Nodes)
+- The Continuous Betting node was renamed Exchange Shop and now has a new function.
+-# Earn points each time you try Intermediate Gamble, then spend them on rewards of your choice.
+- Changed the Otherworld bonuses for Casino, Risk Hedge, and Exchange Shop nodes.
+- Adjusted Risk Hedge.
+-# Otherworld Unit Gamble failure bonus: success chance +11% -> +15%.
+- Adjusted the base effect of Path of the Conqueror.
+-# Changed from Boss Wood +2 and 7% slow to summoning Leo, a Legend-rarity unit.
+-# Leo has a 10% slow aura and can serve as a sub-DPS.
+- Adjusted the Martial Law node.
+-# Changed from Berry +1 on clear to enhancing Leo's skills.
+- Two Birds with One Stone now also compensates target units crafted before the node was selected. (Only the Two Birds with One Stone node effect is applied.)
+
+## Five Elders
+- Changed the curses applied by the Five Elders on God and Nightmare difficulties.
+- Saturn
+-# [God] HP regeneration per second: 200,000 -> 225,000.
+-# [Nightmare] HP regeneration per second: 300,000 -> 350,000.
+
+## Mysterious Units
+- Nezuko - Mysterious: adjusted Sweep.
+-# Removed its absolute activation cooldown.
+-# Activation chance: 18% -> 9%.
+- Minato - Mysterious: adjusted Flash Dance.
+-# Activation chance: 15% -> 13.5%.
+-# Area: 525 -> 600.
+-# Stun duration: 2.75 seconds -> 3 seconds.
+- Shiki - Mysterious: adjusted Hidden Dagger.
+-# Single-target stun: 3 seconds -> 1.25 seconds (ignores resistance).
+- Byakuya - Mysterious: adjusted Senbonzakura.
+- Fixed an issue where maximum-HP percentage damage also affected Bosses, Story monsters, and Berserk units.
+-# Single-target damage based on maximum HP every 0.12 seconds -> every 0.16 seconds.
+-# 180,000 damage in a 415 area every 0.15 seconds -> 180,000 damage in a 750 area around the unit every 0.16 seconds.
+- Kuma - Mysterious: adjusted Pistol Throw.
+-# Damage: 100,000 x 15–35 hits -> 250,000 x 10 hits.
+- Adjusted Bullet Baptism.
+-# Damage: 175,000 x 2 hits -> 350,000.
+- Purple - Mysterious: simplified the One-Way Ticket effect and adjusted its performance.
+-# Damage and area: 500,000 x 5 in a 600 area -> 800,000 x 3 in an 800 area.
+- Gojo - Mysterious: adjusted Blue.
+-# Damage: 150,000 every 0.2 seconds -> 150,000 every 0.1 seconds.
+-# Removed the aftershock (slow) effect.
+- Adjusted Red.
+-# Activation chance: 5% -> 10%.
+-# Added an aftershock (slow) effect.
+- Adjusted Unlimited Void.
+-# Added a 0.7-second cast time.
+-# Damage: 250,000 + 0.9% of maximum HP -> 450,000 + 0.45% of maximum HP.
+-# Area: the entire lane around the unit -> a 1,600 area centered on the unit.
+
+## Transcendent Units
+- Koby - Transcendent: clones summoned by skills now share Koby's base Attack Power and base Attack Speed.
+-# Clones are affected by Legend-tier Upgrades.
+- Improved the clones' turning so they face and attack their target immediately after a move-and-attack command.
+- Reduced the teleport distance of the clone skill.
+- Green Bull - Transcendent: fixed Forbidden Hate Woods consuming 115 mana instead of 130.
+- Jinbe - Transcendent: adjusted Demon Aura Fish-Man Karate.
+-# Its trigger against high-Armor-Break targets now affects only regular Line Monsters.
+-# Against targets with 75 or more Armor Break: maximum-HP damage 3% -> 2%.
+- Kid - Transcendent: adjusted Punk Gibson.
+-# Added a 0.5-second cast time.
+-# Stun duration: 2 seconds -> 2.2 seconds.
+-# Damage: 4,000,000 -> 4,400,000.
+- Adjusted Punk Crash.
+-# Added a 0.5-second cast time.
+-# Stun duration: 2.6 seconds x 2 -> 2.85 seconds x 2.
+-# Damage: 1,800,000 x 3 -> 2,000,000 x 3.
+- Vegapunk - Transcendent: adjusted Mother Flame.
+-# Area: 800 -> 575.
+-# Stun duration: 3 seconds (ignores resistance) -> 2.75 seconds.
+- York (Vegapunk) - Transcendent: adjusted Punk Rocket.
+-# Stun duration: 2.75 seconds -> 3.75 seconds.
+-# Fixed an issue where the stun did not work in certain situations.
+- Doflamingo - Transcendent: fixed an issue where Birdcage could trigger endlessly in certain situations.
+
+## Immortal Units
+- Big Mom - Immortal: adjusted Trait Enhancement.
+-# Chance for stacks to increase on activation: 50% -> 100%.
+-# Soul Devourer damage per stack: 2% -> 1%.
+-# Special Homies damage per stack: 1% -> 0.5%.
+- Kaido - Immortal: added a new Trait Enhancement.
+- Adjusted the nearby allied Attack Power reduction aura.
+-# Nearby allied Attack Power reduction: 75% -> 45%.
+- Gaban - Immortal: changed skill names.
+-# Slash -> Eighty Fold Blade.
+-# Eight-Thousand-Fold Snake -> Eight Thousand Fold Blade.
+- Adjusted Eighty Fold Blade.
+-# Damage type: Fixed Damage -> Physical Damage.
+- Adjusted Eight Thousand Fold Blade.
+-# Its extra attacks on random enemies in the area now deal Physical Damage equal to 80% of the skill damage.
+
+## Seraphim
+- Adjusted the shared Seraphim skill Lunaria.
+-# Single-target stun: 2.5 seconds -> 1.8 seconds.
+- Kuma (S-Bear) - Seraphim: adjusted Pacifista Laser.
+-# Aftershock (slow): 40% -> 30%.
+-# Magic Damage amplification: 4% -> 3%.
+
+## Legendary Units
+- Hancock - Legendary: removed the effect that added 50,000 Physical Damage to attacks during Pistol Kiss.
+- Jack - Legendary: fixed an issue where Conqueror's Haki - Jack :: Lv.1 did not stun enemy units.
+- Nightmare Luffy - Legendary: adjusted Soul Explosion.
+-# Additional maximum-HP damage to Boss targets: 1.5% -> 2%.
+-# Additional maximum-HP damage to Berserk targets: 1.25% -> 2%.
+`
+    }
+  },
+  'ordr-2-310': {
+    zh: {
+      title: 'ORDR 2.310 更新公告',
+      summary: '調整系統、賭博與懸賞任務，並更新多名角色的技能效果。',
+      content: `
+## 經典版本
+- 經典版 2.305 及更早版本僅能載入與存檔至 8 月 6 日 23:00。
+
+## Tmo.gg 正式地圖登錄
+- Tmo.gg 程式將登錄 2.305 版地圖檔案。
+- 辨識修改地圖、儲存通關紀錄等功能，需更新 Tmo.gg 後才能正常使用。
+-# 啟動 Tmo.gg 時會顯示更新通知；若程式已開啟，重新啟動即可更新。
+-# 2.305 及更早版本僅會被辨識為正式地圖至 8 月 6 日 23:00。
+
+## Tmo.gg 獎勵發放
+- 發放 Tmo.gg 6 月及 7 月累積通關活動獎勵。
+
+## 五老星
+- 調整「神」與「惡夢」難度下五老星施加的詛咒。
+- 納斯壽郎
+-# [神] Boss 生命值增加 1,000 萬 -> 路線怪物生命值增加 1,000 萬。
+-# [惡夢] Boss 生命值增加 1,500 萬 -> 路線怪物生命值增加 1,500 萬。
+- 沃丘利
+-# [神] 路線怪物生命值增加 700 萬 -> Boss 生命值增加 1,000 萬。
+-# [神] 護甲、魔法抗性增加 7 -> 增加 10。
+-# [惡夢] 路線怪物生命值增加 1,000 萬 -> Boss 生命值增加 1,500 萬。
+-# [惡夢] 護甲、魔法抗性增加 10 -> 增加 15。
+- 薩坦
+-# [神] 每秒生命恢復 25 萬 -> 20 萬。
+-# [惡夢] 每秒生命恢復 37.5 萬 -> 30 萬。
+- 共通
+-# [神] 每秒生命恢復 15 萬 -> 25 萬。
+-# [惡夢] 每秒生命恢復 30 萬 -> 50 萬。
+
+## 攻擊力增益光環改善
+- 緩解攻擊力增益光環反覆開關的現象（俗稱「攻擊增益閃爍」）。
+
+## 移除無視護甲傷害系統
+- 無視護甲傷害只能透過提高攻擊力來增加，成長性較低，因此移除此類傷害並改為爆發傷害。
+
+## 系統
+- 為避免拖曳選取時同時選到多個召喚物，部分單位的召喚物已改為不可選取。
+-# 對象：忍（傳說）、忍（限定）、式（傳說）、索隆（超越）、卡文迪許、式（不朽）、龍（不朽）、雷利（不朽）等。
+- 拖曳選取單位時，羅、伊萬科夫、巴拉蒂等常用技能單位會優先被選取。
+- 調整輔助所技能「啟航」效果。
+-# 攻擊力增加：50% -> 40%。
+- 將單位賭博與金幣賭博中的「初級賭博」更名為「低級賭博」。
+- 插入一般精靈時，現在會顯示獲得海賊船的機率。
+- 調整賭博所單位賭博的金幣需求。
+-# 低級賭博：250 -> 200。
+-# 中級賭博：1,500 -> 1,000。
+-# 高級賭博：2,500 -> 2,000。
+- 使用精靈進行木材賭博失敗時，新增獲得少量金幣的功能。
+- 插入稀有精靈時，獲得特殊單位的機率調整為 1%。
+- 將暈眩類技能說明改為「技能命中的敵人在 xx 秒內移動速度降低 xx%」。
+- 修正皇家道路增益對部分單位造成過高額外傷害的問題。
+
+## 懸賞任務
+- 將金與克里克任務改為每局限完成 1 次。
+- 調整伯吉斯任務獎勵。
+-# 一般自選精靈 1 個 -> 3,000 金幣 + 木材 3 個 + 一般自選精靈 1 個。
+- 調整摩利亞任務獎勵。
+-# 特殊精靈 1 個 + 2,000 金幣 + 木材 1 個 -> 特殊精靈 1 個 + 3,000 金幣 + 木材 3 個。
+- 調整琵卡任務獎勵。
+-# 特性點數 1 點 -> 特性點數 1 點 + 3,000 金幣 + 木材 3 個。
+- 更換瓦波爾的模型。
+
+## 福克西－特殊
+- 大隊接力失敗 3 次時，現在會獲得 1 層一般道具挖掘次數。
+- 新增執行任務等用途的普通攻擊功能。
+
+## 蓋蒙－特殊
+- 新增單位。
+
+## 冰山－特殊
+- 將「船匠」技能更名為「頂級船匠」並調整效果。
+-# 可使用 1 次。
+-# 消耗木材，選擇並合成以下其中一艘船。
+-# 海賊船：木材 2 個。
+-# 巴拉蒂：木材 10 個。
+-# 莫比・迪克號：木材 10 個。
+-# 方舟箴言：木材 15 個。
+-# 千陽號：木材 15 個。
+-# 赤色勢力號：木材 20 個。
+
+## 摩根－特殊
+- 移除「搜索」技能。
+- 將「貪婪」技能更名為「斧手」並調整效果。
+-# 攻擊時依目標類型（路線怪物、狂暴化、Boss）造成額外傷害。
+-# 攻擊時暈眩單一目標。
+- 調整單位攻擊範圍。
+-# 攻擊範圍：285 -> 525。
+
+## 佩爾－特殊
+- 調整「阿拉巴斯坦守護神」技能效果。
+-# 攻擊力增加：60% -> 40%。
+
+## 貝蒂－特殊
+- 調整「鼓舞果實 :: 能量」技能效果。
+-# 每秒生命恢復：2 -> 1.25。
+- 新增「鼓舞」技能，使用時可恢復目標友軍的生命與魔力。
+
+## 綠牛－超越
+- 修正「萬物吸收」在非變身狀態下效果異常強大的問題。
+- 調整「萬物吸收」技能效果。
+-# 傷害：90 萬物理傷害 -> 75 萬物理傷害。
+- 調整「禁憎森森」技能效果。
+-# 需求魔力：115 -> 130。
+
+## 佛朗基－超越
+- 調整「佛朗基將軍」技能效果。
+-# 發動機率：10% -> 8%。
+-# 傷害：25 萬 -> 20 萬。
+- 調整「將軍大砲」技能效果。
+-# 發動機率：10% -> 7.5%。
+
+## 香克斯－超越
+- 調整「天空劈裂霸氣」技能效果。
+-# 發動機率：10% -> 9%。
+-# 暈眩時間：1.8 秒 -> 2 秒。
+- 為「神避」新增範圍暈眩效果，並更新技能說明以符合遊戲內實際效果。
+
+## 黑鬍子－超越
+- 修正「重力震動」技能傷害被視為其他玩家造成，因而未計入劇情貢獻度的問題。
+- 調整「震震果實」技能效果。
+-# 暈眩：移動速度降低 70% -> 75%。
+
+## 吉貝爾－超越
+- 調整「浪浪鑽頭」技能效果。
+-# 需求魔力：70 -> 100。
+-# 暈眩時間：1.8 秒 -> 2.4 秒。
+- 調整「魔鬼擊打」與「魔鬼拳」技能效果。
+-# 傷害：100 萬物理傷害 -> 75 萬物理傷害。
+
+## 路基－超越
+- 調整單位攻擊範圍。
+-# 攻擊範圍：550 -> 650。
+- 更新「嵐腳改」技能說明，以符合遊戲內實際效果。
+
+## 白星－超越
+- 調整每個航行目標提供的經驗值。
+-# 經驗值：265 -> 270。
+
+## 喬巴－超越
+- 調整「醫生」技能效果。
+-# 攻擊力增加：50% -> 40%。
+- 調整「醫療補給」技能效果。
+-# 攻擊力增加：50% -> 40%。
+- 調整「重量強化」技能效果。
+-# 攻擊速度增加：30% -> 40%。
+- 更換「怪物強化」型態模型。
+- 調整「刻蹄・櫻吹雪」技能特效。
+
+## 多佛朗明哥－超越
+- 為「邪惡子彈」新增暴擊功能。
+- 更新「線線果實」與「完美白線」技能說明，以符合遊戲內實際數值。
+
+## 羅－超越
+- 將無視護甲傷害改為爆發傷害並調整效果。
+-# 375 範圍、目前攻擊力 50% 的額外無視護甲傷害 -> 415 範圍、目前攻擊力 55% 的爆發傷害。
+
+## 蛇人魯夫－超越
+- 將無視護甲傷害改為爆發傷害並調整效果。
+-# 375 範圍、目前攻擊力 45% 的額外無視護甲傷害 -> 525 範圍、目前攻擊力 50% 的爆發傷害。
+- 修正「武裝色霸氣 ver 蛇人」在變身期間效果異常強大的問題。
+- 為「高彈力」新增依橡膠果實移動速度比例造成額外傷害的功能。
+- 修正「黑曼巴」冷卻期間施放時，單位短暫停止的問題。
+- 修正「王蛇」缺少單體暈眩能力的問題。
+
+## 娜美－超越
+- 調整「氣候控制」技能效果。
+-# 範圍：500 -> 600。
+- 調整「維薩利亞」技能效果。
+-# 範圍：400 -> 525。
+
+## 克比－超越
+- 調整「組合攻擊」技能效果。
+-# 分身攻擊力：100,000 -> 125,000。
+
+## 薩波－超越
+- 調整合成配方。
+-# 配方：伯吉斯（扭曲）+ 馬可（傳說）。
+- 調整「戰鬥意志」技能效果。
+-# 附近敵人減防：30 -> 35。
+
+## 阿特拉斯（貝卡帕庫）－超越
+- 將無視護甲傷害改為爆發傷害並調整效果。
+-# 425 範圍、攻擊力 55% 的額外無視護甲傷害 -> 400 範圍、攻擊力 45% 的爆發傷害。
+
+## 騙人布－超越
+- 移除「十噸大槌」對 Boss 造成的最大生命值比例傷害。
+- 「十噸大槌」期間的暴擊倍率調整為 15% 機率造成 5.5 倍暴擊。
+- 移除「十噸大槌」期間每次攻擊恢復 0.5 魔力的效果（不會恢復魔力）。
+
+## 大和－超越
+- 更換混合型態模型。
+
+## 賈巴－不朽
+- 修正原本只對特定單位生效的增益（如貝卡帕庫召喚物增益）也會套用到賈巴的問題。
+- 全面調整技能與特性強化。
+- 調整合成指令。
+-# 역전의강자 -> 산먹깨비。
+
+## 戰國－不朽
+- 將無視護甲傷害改為爆發傷害並調整效果。
+-# 385 範圍、攻擊力 50% 的額外無視護甲傷害 -> 400 範圍、攻擊力 50% 的爆發傷害。
+
+## 白鬍子－不朽
+- 修正「大地震」技能的暈眩效果未生效的問題。
+- 修正「海震」暈眩時間過長的問題，並更新技能說明以符合遊戲內實際效果。
+- 調整「嚴重地震」技能效果。
+-# 發動機率：4.5% -> 5%。
+-# 額外效果：單體造成 150% 額外物理傷害 -> 單體額外造成相當於技能傷害 75% 的純粹傷害。
+- 調整「天崩地裂」技能效果。
+-# 發動機率：4.5% -> 5%。
+-# 傷害：2,127,500 + 最大生命值 3.45% -> 2,220,000 + 最大生命值 3.5%。
+-# 額外效果：單體造成 150% 額外物理傷害 -> 單體額外造成相當於技能傷害 75% 的純粹傷害。
+
+## 羅傑－不朽
+- 更新「神避」技能說明，以符合遊戲內實際效果。
+- 修正「神避」技能說明錯誤顯示為香克斯版本的問題。
+- 為「神避」新增範圍暈眩功能，並更新技能說明以符合遊戲內實際效果。
+
+## 龍－不朽
+- 修正「冷風」部分劇情貢獻度被計為 1P 傷害的問題。
+
+## 烏塔－永遠
+- 修正「Tot Musica」技能效果異常強大的問題。
+- 修正「Tot Musica」模型特效缺失的問題。
+- 調整「音符士兵」與「音符彈射」的生命值比例傷害，使其不再套用於狂暴化單位。
+- 調整「音符士兵」技能效果。
+-# 範圍傷害：750,000 -> 550,000。
+-# 單體傷害：1,750,000 -> 1,550,000。
+
+## 薇薇－永遠
+- 阿拉巴斯坦槍術達到 Lv.10 時，新增掃射冷卻時間縮短效果。
+
+## 鷹眼－永遠
+- 新增特性強化。
+- 將無視護甲傷害改為爆發傷害。
+
+## 巴其－永遠
+- 更換召喚物模型。
+- 新增特性強化。
+- 移除部分技能召喚物優先攻擊巴其同一目標的功能。
+-# 伊萬科夫（隱藏）、小丑海賊團（變異）。
+
+## 泰佐羅－永遠
+- 調整「黃金堅城」技能效果。
+-# 每 25,000 金幣造成已損失生命值 1% 比例傷害 -> 0.9%。
+- 調整「黃金地獄」技能效果。
+-# 每攻擊 3 次，在範圍內依每 25,000 金幣造成已損失生命值 0.5% 比例傷害 -> 0.45%。
+
+## 卡塔庫栗－限定
+- 修正「糯團突刺」技能未觸發的問題。
+
+## 馬可－限定
+- 補上「鳳凰印」技能說明中缺少的部分效果。
+
+## 忍－限定
+- 調整「忍法::影分身」技能效果。
+-# 發動機率：7.5% -> 9%。
+-# 強化分身發動機率：4% -> 5%。
+
+## 伯吉斯－扭曲
+- 調整「肘擊」。
+-# 傷害：425,000 -> 360,000。
+-# 對路線怪物造成的當前生命值比例傷害：40% -> 36%。
+-# 對特殊單位傷害：850,000 -> 720,000。
+- 調整「帆船套索」。
+-# 補上缺少的技能說明。
+-# 對路線怪物造成的當前生命值比例傷害：11% -> 10%。
+-# 對特殊單位傷害：220,000 -> 200,000。
+
+## 培羅娜－扭曲
+- 將所有技能傷害類型改為爆發傷害。
+- 調整「消極幽靈」。
+-# 新增觸發時對 500 範圍內敵人施加 2% 爆發傷害增幅。
+-# 移除對特殊單位觸發時降低單體目標 7 點魔法抗性的效果。
+- 即使合成鷹眼（永遠），爆發傷害增幅效果也會保留。
+
+## 黑色瑪麗亞－扭曲
+- 移除單位數量限制，可依需求合成多隻。
+- 調整「花魁鐵拳」技能效果。
+-# 依已損失生命值造成的傷害：0.65% -> 0.75%。
+
+## 艾斯－扭曲
+- 單位名稱更改為「波特卡斯・D・艾斯－扭曲」。
+- 調整「炎帝」技能效果。
+-# 攻擊力增加：20% -> 25%。
+-# 移動速度降低：20% -> 25%。
+
+## 摩利亞－傳說
+- 調整基礎攻擊力。
+-# 攻擊力：74,000 -> 56,000。
+- 調整技能召喚的普通殭屍持續時間。
+-# 持續時間：20 秒 -> 18 秒。
+- 調整「影影果實」技能效果。
+-# 發動機率：17% -> 10%。
+- 將無視護甲傷害改為爆發傷害並調整效果。
+-# 375 範圍、攻擊力 60% 的額外無視護甲傷害 -> 攻擊力 50% 的爆發傷害。
+
+## 澤法－傳說
+- 調整「黑腕」技能效果。
+-# 單體暈眩：0.7 秒 -> 0.8 秒。
+-# 攻擊 Boss 時，425 範圍造成最大生命值 0.35% 魔法傷害 -> 650 範圍造成最大生命值 0.4% 魔法傷害。
+
+## 噩夢魯夫－傳說
+- 調整「怨魂爆發」技能效果。
+-# 移除對 Boss 額外造成 500,000 傷害及對狂暴化目標額外造成 3,000,000 傷害的效果。
+-# 單體額外傷害：400,000 -> 500,000。
+-# 對 Boss 造成最大生命值比例傷害：0.75% -> 1.5%。
+-# 對狂暴化目標造成最大生命值比例傷害：0.75% -> 1.25%。
+
+## 路基－傳說
+- 調整「六王槍」技能效果。
+-# 對路線怪物造成當前生命值 30% 的爆發傷害 -> 34% 魔法傷害。
+
+## 索隆－傳說
+- 調整「獅子歌歌」技能效果。
+-# 範圍 150,000、單體 1,100,000 傷害 -> 範圍 150,000、單體 900,000 傷害。
+-# 處決發動門檻：13% -> 15%。
+
+## 蕾玖－傳說
+- 調整「粉紅蜂」技能效果。
+-# 對路線怪物造成當前生命值 7.5% 的爆發傷害 -> 8.25%。
+- 調整「劇毒粉紅」技能效果。
+-# 傷害：100,000 -> 210,000。
+-# 對路線怪物造成當前生命值 9.5% 的爆發傷害 -> 10.5%。
+
+## 忍－傳說
+- 將分身使用的「襲擊」技能發動機率與效果調整為 50%。
+- 調整「忍法::影分身」技能效果。
+-# 發動機率：7.5% -> 8%。
+
+## 香吉士－傳說
+- 更換模型。
+
+## 漢考克－傳說
+- 更換模型。
+
+## 戰國－傳說
+- 調整「正義」技能效果。
+-# 攻擊力增加：40% -> 30%。
+-# 減防：18 -> 20。
+
+## 雷利－傳說
+- 調整「霸氣訓練」技能效果。
+-# 攻擊力增加：30% -> 25%。
+
+## 娜美－傳說
+- 調整「天候棒」技能效果。
+-# 技能範圍：475 -> 575。
+
+## 黑色瑪麗亞－傳說
+- 更新「花魁鐵拳」技能說明，以符合遊戲內實際效果。
+- 調整「右手通往地獄」技能效果。
+-# 傷害：5 倍目前攻擊力 + 最大生命值 0.9% 額外爆發傷害（對劇情目標為 75%）。
+- 將無視護甲傷害改為爆發傷害並調整效果。
+-# 400 範圍、攻擊力 50% 的額外無視護甲傷害 -> 375 範圍、攻擊力 50% 的爆發傷害。
+
+## 赤犬－隱藏
+- 將「大噴火」技能改為單體敵人技能。
+
+## 雨之希留－隱藏
+- 調整「凶猛劍術」技能效果。
+-# 對路線怪物造成最大生命值 7% 的爆發傷害 -> 8% 魔法傷害。
+- 調整「血雨」技能效果。
+-# 傷害：2,500,000 + 最大生命值 1% -> 2,250,000 + 最大生命值 1.75%。
+
+## 龍馬－隱藏
+- 修正「黑刀秋水」技能中的文字錯誤。
+
+## 薩波－隱藏
+- 調整「龍爪」技能效果。
+-# 對路線怪物造成最大生命值 1% 物理傷害 -> 3% 物理傷害。
+
+## Baby 5－變異
+- 新增「加速」技能（效果與巴拉蒂（隱藏）相同）。
+- 調整「武器果實」技能效果。
+-# 發動機率：20% -> 10%。
+-# 傷害：50,000 -> 100,000。
+-# 移除對 Boss 與狂暴化目標的額外傷害。
+-# 新增範圍破甲 1 效果。
+
+## 多佛朗明哥－變異
+- 調整「過熱」技能效果。
+-# 對路線怪物造成當前生命值 20% 的爆發傷害 -> 25% 魔法傷害。
+
+## 香吉士－稀有
+- 更換模型。
+
+## 赤犬－稀有
+- 修正在特定情況下「大噴火」傷害減半或未計入劇情貢獻度的問題。
+
+## X・德雷克－稀有
+- 將「龍龍果實」技能的無視護甲傷害改為爆發傷害。
+-# 「龍龍果實」技能不會套用於劇情。
+
+## 龍馬－稀有
+- 修正「黑刀秋水」技能中的文字錯誤。
+`
+    },
+    en: {
+      summary: 'System, gambling, bounty mission, and character balance updates.'
+    }
+  }
+};

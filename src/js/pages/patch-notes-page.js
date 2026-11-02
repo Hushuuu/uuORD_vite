@@ -1,7 +1,13 @@
 import appShared from './../shared/app-shared.js';
-import { PATCH_NOTES } from './patch-notes-data.js';
+import { ORDI18n } from './../i18n.js';
+import { PATCH_NOTES, PATCH_NOTE_TRANSLATIONS } from './patch-notes-data.js';
 
 const { escapeHtml } = appShared;
+
+function getPatchText(patch, field) {
+  const localizedText = PATCH_NOTE_TRANSLATIONS[patch.id]?.[ORDI18n.getLang()]?.[field];
+  return localizedText ?? patch[field] ?? '';
+}
 
 const state = {
   activePatchId: PATCH_NOTES[0]?.id || null,
@@ -39,7 +45,7 @@ function parsePatchContent(content) {
 
       if (!currentSection) {
         currentSection = {
-          title: '更新內容',
+          title: ORDI18n.t('page.patch_notes.content'),
           blocks: []
         };
         sections.push(currentSection);
@@ -117,14 +123,14 @@ function renderPatchContent(patch, contentElement) {
   if (!patch) {
     contentElement.innerHTML = `
       <div class="patch-empty-state">
-        <strong>目前沒有可顯示的版本更新。</strong>
-        <span>請在 patch-notes-data.js 的 PATCH_NOTES 陣列中加入新的版本資料。</span>
+        <strong>${escapeHtml(ORDI18n.t('page.patch_notes.empty'))}</strong>
+        <span>${escapeHtml(ORDI18n.t('page.patch_notes.empty_hint'))}</span>
       </div>
     `;
     return;
   }
 
-  const sections = parsePatchContent(patch.content);
+  const sections = parsePatchContent(getPatchText(patch, 'content'));
   const itemCount = sections.reduce(
     (count, section) => count + section.blocks.filter((block) => block.type === 'bullet').length,
     0
@@ -135,8 +141,8 @@ function renderPatchContent(patch, contentElement) {
       <header class="patch-note-article-header">
         <div>
           <span class="patch-note-kicker">PATCH NOTES</span>
-          <h2>${escapeHtml(patch.title)}</h2>
-          <p>${escapeHtml(patch.summary)}</p>
+          <h2>${escapeHtml(getPatchText(patch, 'title'))}</h2>
+          <p>${escapeHtml(getPatchText(patch, 'summary'))}</p>
         </div>
         <div class="patch-note-meta">
           <span class="patch-note-version">v${escapeHtml(patch.version)}</span>
@@ -167,7 +173,18 @@ function getVisiblePatches() {
   }
 
   return PATCH_NOTES.filter((patch) =>
-    [patch.version, patch.title, patch.releasedAt, patch.summary, patch.content].some((value) =>
+    [
+      patch.version,
+      patch.title,
+      patch.releasedAt,
+      patch.summary,
+      patch.content,
+      ...Object.values(PATCH_NOTE_TRANSLATIONS[patch.id] || {}).flatMap((translation) => [
+        translation.title,
+        translation.summary,
+        translation.content
+      ])
+    ].some((value) =>
       String(value || '').toLowerCase().includes(keyword)
     )
   );
@@ -179,7 +196,7 @@ function renderVersionList(versionListElement) {
   if (visiblePatches.length === 0) {
     versionListElement.innerHTML = `
       <div class="patch-empty-state patch-empty-state-small">
-        <strong>找不到符合的版本。</strong>
+        <strong>${escapeHtml(ORDI18n.t('page.patch_notes.no_matches'))}</strong>
       </div>
     `;
     return;
@@ -196,10 +213,10 @@ function renderVersionList(versionListElement) {
         >
           <span class="patch-version-button-topline">
             <strong>v${escapeHtml(patch.version)}</strong>
-            ${index === 0 && PATCH_NOTES[0]?.id === patch.id ? '<span class="patch-latest-badge">LATEST</span>' : ''}
+            ${index === 0 && PATCH_NOTES[0]?.id === patch.id ? `<span class="patch-latest-badge">${escapeHtml(ORDI18n.t('page.patch_notes.latest'))}</span>` : ''}
           </span>
           <span class="patch-version-date">${escapeHtml(patch.releasedAt)}</span>
-          <span class="patch-version-summary">${escapeHtml(patch.summary)}</span>
+          <span class="patch-version-summary">${escapeHtml(getPatchText(patch, 'summary'))}</span>
         </button>
       `
     )

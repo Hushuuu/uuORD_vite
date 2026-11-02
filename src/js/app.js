@@ -20,7 +20,9 @@ const PAGE_TITLE_KEYS = {
   comp: 'page.comp.title',
   comp_tree: 'page.comp_tree.title',
   recommend: 'page.recommend.title',
+  patch_notes: 'page.patch_notes.title',
   maintenance: 'page.maintenance.title',
+  navigation: 'page.navigation.title',
   about: 'about.title'
 };
 
