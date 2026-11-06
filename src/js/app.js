@@ -14,12 +14,12 @@ const {
 const i18n = ORDI18n;
 
 const PAGE_TITLE_KEYS = {
-  home: 'home.page_title',
-  lookup: 'page.lookup.title',
-  tree: 'page.tree.title',
-  comp: 'page.comp.title',
-  comp_tree: 'page.comp_tree.title',
-  recommend: 'page.recommend.title',
+  home: 'seo.home.title',
+  lookup: 'seo.lookup.title',
+  tree: 'seo.tree.title',
+  comp: 'seo.comp.title',
+  comp_tree: 'seo.comp_tree.title',
+  recommend: 'seo.recommend.title',
   patch_notes: 'page.patch_notes.title',
   maintenance: 'page.maintenance.title',
   navigation: 'page.navigation.title',

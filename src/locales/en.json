@@ -213,7 +213,8 @@
         "characters": {
           "title": "Character Library"
         },
-        "basicMaterials": "Basic Materials"
+        "basicMaterials": "Basic Materials",
+        "heading": "ORD Team Builder"
       },
       "comp_tree": {
         "title": "My Teams",
@@ -396,7 +397,7 @@
       "copy_failed": "Copy failed. Please copy the code manually.",
       "no_high_level_characters": "No legend characters are currently owned."
     },
-    "tmo":{
+    "tmo": {
       "connect_success": "Connection successful",
       "connect_failed": "Connection failed",
       "please_grant_permission": "Please grant site permission",
@@ -550,7 +551,33 @@
     "thirdPartyTutorial_l5": "Enable the switch for this feature, you must allow the website permission the first time, 'connect success' will be displayed upon success",
     "thirdPartyTutorial_l6_1": "Allow the website's [Apps on your device] permission. If not allowed, it will fail, and you need to manually enable the permission (on mobile, also grant 'Local Network' permission)",
     "thirdPartyTutorial_l6_2": "(Click the 'lock/control' icon on the left side of the URL. In the pop-up menu, click 'Site Settings' and enable the 'Apps on your device' or 'Local Network' permission. After that, refresh the page to apply the changes.)",
-    "thirdPartyTutorial_manualSteps" : "Manual steps to enable permission"
+    "thirdPartyTutorial_manualSteps": "Manual steps to enable permission",
+    "seo": {
+      "home": {
+        "title": "ORD Tools | Craft Recommendations, Team Builder & Craft Trees",
+        "description": "Plan your next craft, build teams, analyze team requirements and explore craft paths with One Piece Random Defense tools."
+      },
+      "lookup": {
+        "title": "ORD Lookup Tool | Search & Filter Characters",
+        "description": "Search and filter the ORD craft table by keyword and rarity, check recipes and open a craft tree to plan your next step."
+      },
+      "recommend": {
+        "title": "ORD Craft Recommendation Tool | Plan Your Next Craft",
+        "description": "Enter your owned units, filter by target rarity and skill type, compare craft progress and missing requirements, and pin your goals."
+      },
+      "comp": {
+        "title": "ORD Team Builder | Plan Lineups & Craft Requirements",
+        "description": "Filter and select target units, build multiple ORD lineups and analyze team craft requirements to plan your team."
+      },
+      "comp_tree": {
+        "title": "ORD Team Analysis | Team Craft Trees & Team Codes",
+        "description": "Review saved ORD lineups, inspect each unit’s craft tree and team requirements, or load a lineup with a team code."
+      },
+      "tree": {
+        "title": "ORD Craft Tree Tool | Explore Craft Paths & Requirements",
+        "description": "Choose a target, expand its craft requirements or explore what it can craft into, and plan each step with the ORD craft tree tool."
+      }
+    }
   },
   "levelLabels": {
     "0": "Item",

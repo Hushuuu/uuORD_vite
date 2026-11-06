@@ -147,6 +147,18 @@ my-navbar {
   min-height: 44px;
 }
 
+.static-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  padding: 16px 24px;
+}
+
+.static-nav a:hover,
+.static-nav a:focus-visible {
+  text-decoration: underline;
+}
+
 button,
 input,
 select,

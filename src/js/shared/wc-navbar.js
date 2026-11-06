@@ -288,7 +288,7 @@ my-navbar :focus-visible { outline: 2px solid #ffd28a; outline-offset: 3px; }
     <button class="hamburger-btn" aria-label="${t('nav.toggle')}" aria-expanded="false">☰</button>
 
     <nav class="nav-container" aria-label="${t('nav.main')}">
-        <a class="nav-link ${currentPath === 'index.html' ? 'active' : ''}" data-page="home" href="index.html">${t('nav.home')}</a>
+        <a class="nav-link ${currentPath === 'index.html' ? 'active' : ''}" data-page="home" href="/">${t('nav.home')}</a>
         ${groupMarkup}
 
         <!-- 語系切換 -->

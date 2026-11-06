@@ -1,8 +1,10 @@
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
+import { renderSeoHtml } from './scripts/seo-html.js';
 
 export default defineConfig({
   base: '/',
+  plugins: [{ name: 'static-seo-content', transformIndexHtml: renderSeoHtml }],
   build: {
     outDir: 'dist',
     emptyOutDir: true,
