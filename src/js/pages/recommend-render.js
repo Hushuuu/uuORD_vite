@@ -83,7 +83,7 @@ function renderUpwardCharacterAction(record, indices, getDisplayName, escapeHtml
   `;
 }
 
-// 遞迴產生可展開的推薦材料合成樹。
+// 只產生下一層材料；更深的分支由展開事件載入。
 function renderMaterialTree(
   record,
   inventory,
@@ -114,7 +114,7 @@ function renderMaterialTree(
     }
 
     const owned = (inventory.get(childRecord.character_id) || 0) > 0;
-    // 回呼只提供給第一層；深層遞迴維持原本樣式與計算成本。
+    // 每列獨立計算進度，回呼共用本輪推薦的快取。
     const progressClass = getMaterialCompletion ? ' recommend-material-row--progress' : '';
     const progressStyle = getMaterialCompletion
       ? ` style="--material-completion: ${((owned ? 1 : getMaterialCompletion(childRecord.character_id)) * 100).toFixed(2)}%;"`
@@ -130,20 +130,16 @@ function renderMaterialTree(
     `;
 
     if (childRecord.level > 2 && (childRecord.materials || []).length && !trail.has(childRecord.character_id)) {
-      const nextTrail = new Set(trail);
-      nextTrail.add(childRecord.character_id);
       return `
         <li>
-          <details class="branch-details recommend-material-branch" data-tree-key="${treeKey}">
+          <details class="branch-details recommend-material-branch" data-tree-key="${escapeHtml(treeKey)}" data-character-id="${escapeHtml(childRecord.character_id)}">
             <summary class="branch-summary recommend-material-row${progressClass}"${progressStyle}>
               ${summaryContent}
               <span class="branch-toggle-hint">
                 <img style="vertical-align: middle" width="22" height="22" src="/resource/arrow_drop_down.svg" alt="展開">
               </span>
             </summary>
-            <ul class="recommend-material-tree">
-              ${renderMaterialTree(childRecord, inventory, indices, getLevelLabel, getDisplayName, escapeHtml, nextTrail, treeKey)}
-            </ul>
+            <div data-material-tree-container></div>
           </details>
         </li>
       `;

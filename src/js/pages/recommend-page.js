@@ -143,7 +143,7 @@ function initRecommendPage(records) {
     }
 
     function loadMaterialTree(details, openKeys) {
-      if (!details.open || details.dataset.treeLoaded === 'true') {
+      if (!resultList.contains(details) || !details.open || details.dataset.treeLoaded === 'true') {
         return;
       }
 
@@ -154,6 +154,13 @@ function initRecommendPage(records) {
       }
 
       const inventory = createCurrentInventory();
+      // 從目前 DOM 路徑取得祖先，避免循環配方無限展開。
+      const trail = new Set();
+      let ancestor = details;
+      while (ancestor) {
+        trail.add(ancestor.dataset.characterId);
+        ancestor = ancestor.parentElement?.closest('details[data-character-id]');
+      }
       const getMaterialCompletion = (characterId) => {
         if (!materialCompletionCache.has(characterId)) {
           const { status } = analyzeRecipe(characterId, inventory);
@@ -165,7 +172,7 @@ function initRecommendPage(records) {
       };
       container.innerHTML = `
         <ul class="recommend-material-tree">
-          ${renderMaterialTreeUtil(record, inventory, indices, getLevelLabel, getDisplayName, escapeHtml, new Set(), record.character_id, getMaterialCompletion)}
+          ${renderMaterialTreeUtil(record, inventory, indices, getLevelLabel, getDisplayName, escapeHtml, trail, details.dataset.treeKey, getMaterialCompletion)}
         </ul>
       `;
       details.dataset.treeLoaded = 'true';
@@ -173,6 +180,8 @@ function initRecommendPage(records) {
       if (openKeys) {
         container.querySelectorAll('details[data-tree-key]').forEach((childDetails) => {
           childDetails.open = openKeys.has(childDetails.dataset.treeKey);
+          // 只重建先前展開的路徑，收合分支仍保留延後載入。
+          if (childDetails.open) loadMaterialTree(childDetails, openKeys);
         });
       }
     }
@@ -690,7 +699,7 @@ function initRecommendPage(records) {
 
     resultList.addEventListener('toggle', (event) => {
       if (!(event.target instanceof HTMLDetailsElement)
-        || !event.target.classList.contains('recommend-material-details')) {
+        || !event.target.matches('.recommend-material-details, .recommend-material-branch')) {
         return;
       }
 

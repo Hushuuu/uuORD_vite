@@ -1,4 +1,4 @@
-/* 第一層材料的獨立完成度：靜態淡色填充，不增加 DOM 或動畫。 */
+/* 各層材料的獨立完成度：靜態淡色填充，不增加進度元素或動畫。 */
 .recommend-material-row--progress {
   background-image: linear-gradient(
     to right,
