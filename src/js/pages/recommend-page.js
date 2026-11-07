@@ -50,6 +50,7 @@ function initRecommendPage(records) {
     const indices = createIndices(records);
     const openSkills = createSkillDialog();
     const analyzeRecipe = createRecipeAnalyzer(indices);
+    const materialCompletionCache = new Map();
     const targetLevelGrid = document.getElementById('recommendTargetLevelGrid');
     const targetSkillGrid = document.getElementById('recommendTargetSkillGrid');
     const ownedSelect = document.getElementById('recommendOwnedSelect');
@@ -152,9 +153,19 @@ function initRecommendPage(records) {
         return;
       }
 
+      const inventory = createCurrentInventory();
+      const getMaterialCompletion = (characterId) => {
+        if (!materialCompletionCache.has(characterId)) {
+          const { status } = analyzeRecipe(characterId, inventory);
+          materialCompletionCache.set(characterId, status.scoreTotal > 0
+            ? Math.max(0, Math.min(1, status.scoreOwned / status.scoreTotal))
+            : 0);
+        }
+        return materialCompletionCache.get(characterId);
+      };
       container.innerHTML = `
         <ul class="recommend-material-tree">
-          ${renderMaterialTreeUtil(record, createCurrentInventory(), indices, getLevelLabel, getDisplayName, escapeHtml, new Set(), record.character_id)}
+          ${renderMaterialTreeUtil(record, inventory, indices, getLevelLabel, getDisplayName, escapeHtml, new Set(), record.character_id, getMaterialCompletion)}
         </ul>
       `;
       details.dataset.treeLoaded = 'true';
@@ -343,6 +354,8 @@ function initRecommendPage(records) {
     }
 
     function renderRecommendationResults(recommendations) {
+      // 本輪展開的卡片共用材料進度；持有資料更新後不沿用舊結果。
+      materialCompletionCache.clear();
       const {
         inventory,
         resultGroups,

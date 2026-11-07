@@ -92,7 +92,8 @@ function renderMaterialTree(
   getDisplayName,
   escapeHtml,
   trail = new Set(),
-  parentPath = ''
+  parentPath = '',
+  getMaterialCompletion = null
 ) {
   const materials = record.materials || [];
   if (!materials.length) return '';
@@ -113,6 +114,11 @@ function renderMaterialTree(
     }
 
     const owned = (inventory.get(childRecord.character_id) || 0) > 0;
+    // 回呼只提供給第一層；深層遞迴維持原本樣式與計算成本。
+    const progressClass = getMaterialCompletion ? ' recommend-material-row--progress' : '';
+    const progressStyle = getMaterialCompletion
+      ? ` style="--material-completion: ${((owned ? 1 : getMaterialCompletion(childRecord.character_id)) * 100).toFixed(2)}%;"`
+      : '';
     const ownedMark = owned ? '<span class="recommend-owned-mark" aria-label="已擁有">✓</span>' : '';
     const summaryContent = `
       <span class="recommend-material-chip badge badge-${childRecord.level}">${escapeHtml(getLevelLabel(childRecord.level))}</span>
@@ -129,7 +135,7 @@ function renderMaterialTree(
       return `
         <li>
           <details class="branch-details recommend-material-branch" data-tree-key="${treeKey}">
-            <summary class="branch-summary recommend-material-row">
+            <summary class="branch-summary recommend-material-row${progressClass}"${progressStyle}>
               ${summaryContent}
               <span class="branch-toggle-hint">
                 <img style="vertical-align: middle" width="22" height="22" src="/resource/arrow_drop_down.svg" alt="展開">
@@ -145,7 +151,7 @@ function renderMaterialTree(
 
     return `
       <li>
-        <div class="recommend-material-row recommend-material-row--leaf">
+        <div class="recommend-material-row recommend-material-row--leaf${progressClass}"${progressStyle}>
           ${summaryContent}
         </div>
       </li>
