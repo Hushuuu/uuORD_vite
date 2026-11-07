@@ -1666,7 +1666,8 @@
     "suitable_partners": [],
     "skill_types": [
       "stl-2-3",
-      "stl-5-1"
+      "stl-5-1",
+      "stl-8-3"
     ],
     "skills": [
       {
@@ -1708,7 +1709,8 @@
     "suitable_partners": [],
     "skill_types": [
       "stl-2-3",
-      "stl-5-1"
+      "stl-5-1",
+      "stl-8-3"
     ],
     "skills": [
       {
@@ -2235,7 +2237,8 @@
     "major": "",
     "suitable_partners": [],
     "skill_types": [
-      "stl-2-3"
+      "stl-2-3",
+      "stl-8-3"
     ],
     "skills": [
       {
@@ -2599,7 +2602,8 @@
     "suitable_partners": [],
     "skill_types": [
       "stl-4-2",
-      "stl-5-3"
+      "stl-5-3",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-4-2": {
@@ -2652,7 +2656,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -2716,7 +2720,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -2780,7 +2784,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -2837,14 +2841,15 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
       "stl-2-3",
       "stl-5-3",
       "stl-6-1",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-2-3": {
@@ -2913,13 +2918,14 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
       "stl-5-3",
       "stl-6-4",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-5-3": {
@@ -2977,7 +2983,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -3058,7 +3064,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -3129,7 +3135,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -3208,7 +3214,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -3288,7 +3294,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -3297,7 +3303,8 @@
       "stl-5-1",
       "stl-7-1",
       "stl-7-2",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-1": {
@@ -3367,14 +3374,15 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
       "stl-2-2",
       "stl-5-1",
       "stl-6-3",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-2-2": {
@@ -3436,13 +3444,14 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
       "stl-2-2",
       "stl-5-1",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-2-2": {
@@ -3500,7 +3509,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -3550,7 +3559,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -3626,7 +3635,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -3681,7 +3690,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skills": [
@@ -3719,7 +3728,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -3795,7 +3804,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -3859,7 +3868,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -3950,7 +3959,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -4031,7 +4040,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -4100,7 +4109,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -4176,7 +4185,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -4245,7 +4254,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -4307,7 +4316,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -4371,7 +4380,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -4445,7 +4454,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -4521,7 +4530,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -4602,13 +4611,14 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
       "stl-3-2",
       "stl-5-1",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-3-2": {
@@ -4673,7 +4683,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -4769,7 +4779,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -4846,7 +4856,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -4920,7 +4930,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -5001,7 +5011,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -5087,7 +5097,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -5144,7 +5154,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -5197,7 +5207,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -5253,7 +5263,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -5309,7 +5319,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -5392,7 +5402,7 @@
       }
     ],
     "key_code": "",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [],
@@ -5620,7 +5630,7 @@
     "en_name": "Stussy",
     "materials": [
       {
-        "material_id": "4-44"
+        "material_id": "4-45"
       },
       {
         "material_id": "4-33"
@@ -5636,7 +5646,8 @@
     "skill_types": [
       "stl-2-3",
       "stl-6-2",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-2-3": {
@@ -6033,7 +6044,8 @@
       "stl-1-6",
       "stl-4-1",
       "stl-5-2",
-      "stl-5-3"
+      "stl-5-3",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-5-3": {
@@ -6515,7 +6527,8 @@
     "skill_types": [
       "stl-2-3",
       "stl-5-1",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-2-3": {
@@ -6635,7 +6648,8 @@
     "skill_types": [
       "stl-1-6",
       "stl-5-2",
-      "stl-5-3"
+      "stl-5-3",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-5-3": {
@@ -6770,7 +6784,7 @@
       }
     ],
     "key_code": "koala",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -6832,7 +6846,7 @@
       }
     ],
     "key_code": "queen",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -6902,7 +6916,7 @@
       }
     ],
     "key_code": "blackmaria",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -6973,13 +6987,14 @@
       }
     ],
     "key_code": "burgess",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
       "stl-2-3",
       "stl-5-2",
-      "stl-6-1"
+      "stl-6-1",
+      "stl-8-3"
     ],
     "skills": [
       {
@@ -7023,7 +7038,7 @@
       }
     ],
     "key_code": "ace",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -7086,7 +7101,7 @@
       }
     ],
     "key_code": "perona",
-    "remark": "木*3",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -7096,7 +7111,8 @@
       "stl-5-3",
       "stl-6-1",
       "stl-6-3",
-      "stl-6-4"
+      "stl-6-4",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-5-3": {
@@ -7290,7 +7306,8 @@
     "suitable_partners": [],
     "skill_types": [
       "stl-2-2",
-      "stl-6-2"
+      "stl-6-2",
+      "stl-8-3"
     ],
     "skills": [
       {
@@ -7327,7 +7344,8 @@
     "skill_types": [
       "stl-1-6",
       "stl-5-1",
-      "stl-6-1"
+      "stl-6-1",
+      "stl-8-3"
     ],
     "skills": [
       {
@@ -7374,7 +7392,7 @@
       }
     ],
     "key_code": "",
-    "remark": "30000金 + 木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -7468,7 +7486,7 @@
       }
     ],
     "key_code": "",
-    "remark": "5000金 + 木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -7586,7 +7604,7 @@
       }
     ],
     "key_code": "",
-    "remark": "能力點*4 + 5000金 + 木頭*5",
+    "remark": "需能力點*4",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -7672,7 +7690,7 @@
       }
     ],
     "key_code": "",
-    "remark": "5000金 + 木頭*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -7779,7 +7797,7 @@
       }
     ],
     "key_code": "",
-    "remark": "5000金 + 木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -7853,7 +7871,7 @@
       }
     ],
     "key_code": "",
-    "remark": "5000金 + 木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -7934,7 +7952,7 @@
       }
     ],
     "key_code": "",
-    "remark": "5000金 + 木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -8018,7 +8036,7 @@
       }
     ],
     "key_code": "",
-    "remark": "5000金 + 木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -8109,7 +8127,7 @@
       }
     ],
     "key_code": "",
-    "remark": "5000金+木*5",
+    "remark": "5000金+",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -8190,7 +8208,7 @@
       }
     ],
     "key_code": "",
-    "remark": "5000金 + 木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -8199,7 +8217,8 @@
       "stl-5-1",
       "stl-5-3",
       "stl-7-2",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-5": {
@@ -11462,7 +11481,7 @@
       }
     ],
     "key_code": "bullet im",
-    "remark": "木*10",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -11570,7 +11589,7 @@
       }
     ],
     "key_code": "dragon im",
-    "remark": "木*10",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -11578,7 +11597,8 @@
       "stl-5-2",
       "stl-6-3",
       "stl-6-4",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-2": {
@@ -11665,7 +11685,7 @@
       }
     ],
     "key_code": "rayleigh im",
-    "remark": "木*10",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -11763,7 +11783,7 @@
       }
     ],
     "key_code": "kaido im",
-    "remark": "木*10",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -11854,7 +11874,7 @@
       }
     ],
     "key_code": "Z im",
-    "remark": "木*10",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -11957,7 +11977,7 @@
       }
     ],
     "key_code": "shiki im",
-    "remark": "木*10",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -12043,7 +12063,7 @@
       }
     ],
     "key_code": "gaban im",
-    "remark": "木*10",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -12141,7 +12161,7 @@
       }
     ],
     "key_code": "roger im",
-    "remark": "木*10",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -12227,7 +12247,7 @@
       }
     ],
     "key_code": "bigmom im",
-    "remark": "木*10",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -12325,14 +12345,15 @@
       }
     ],
     "key_code": "sengoku im",
-    "remark": "木*10",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
       "stl-1-1",
       "stl-3-3",
       "stl-5-2",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-1": {
@@ -12401,7 +12422,7 @@
       }
     ],
     "key_code": "newgate im",
-    "remark": "木*10",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -12487,7 +12508,7 @@
       }
     ],
     "key_code": "garp im",
-    "remark": "木*10",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -12586,7 +12607,7 @@
       }
     ],
     "key_code": "nika et",
-    "remark": "木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -12678,7 +12699,7 @@
       }
     ],
     "key_code": "nika et",
-    "remark": "木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -12767,7 +12788,7 @@
       }
     ],
     "key_code": "cavendish et",
-    "remark": "木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -12878,7 +12899,7 @@
       }
     ],
     "key_code": "oden et",
-    "remark": "木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -12971,7 +12992,7 @@
       }
     ],
     "key_code": "u-ta et",
-    "remark": "木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -13077,7 +13098,7 @@
       }
     ],
     "key_code": "tesoro et",
-    "remark": "木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -13089,7 +13110,8 @@
       "stl-5-2",
       "stl-6-3",
       "stl-6-4",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-2": {
@@ -13178,7 +13200,7 @@
       }
     ],
     "key_code": "ryuma et",
-    "remark": "木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -13280,7 +13302,7 @@
       }
     ],
     "key_code": "vivi et",
-    "remark": "木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -13378,7 +13400,7 @@
       }
     ],
     "key_code": "buggy et",
-    "remark": "木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -13477,7 +13499,7 @@
       }
     ],
     "key_code": "hancock et",
-    "remark": "木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -13579,13 +13601,14 @@
       }
     ],
     "key_code": "mihawk et",
-    "remark": "木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
       "stl-5-1",
       "stl-5-3",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-5-1": {
@@ -13647,7 +13670,7 @@
       }
     ],
     "key_code": "ace et",
-    "remark": "木*5",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -14178,7 +14201,7 @@
       }
     ],
     "key_code": "",
-    "remark": "10000金 + 木*7 東方Project",
+    "remark": "東方Project",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -14238,14 +14261,14 @@
         "material_id": "6-21"
       },
       {
-        "material_id": "5-40"
+        "material_id": "4-15"
       },
       {
         "material_id": "0-9"
       }
     ],
     "key_code": "",
-    "remark": "10000金 + 木*7 咒術迴戰",
+    "remark": "咒術迴戰",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -14308,7 +14331,7 @@
       }
     ],
     "key_code": "",
-    "remark": "10000金 + 木*7 Undertale",
+    "remark": "Undertale",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -14381,7 +14404,7 @@
       }
     ],
     "key_code": "",
-    "remark": "10000金 + 木*7 間諜家家酒",
+    "remark": "間諜家家酒",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -14455,7 +14478,7 @@
       }
     ],
     "key_code": "",
-    "remark": "10000金 + 木*7 死神",
+    "remark": "死神",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -14518,7 +14541,7 @@
       }
     ],
     "key_code": "",
-    "remark": "10000金+木*7 空之境界",
+    "remark": "10000金+ 空之境界",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -14581,7 +14604,7 @@
         "material_id": "16-2"
       },
       {
-        "material_id": "8-5"
+        "material_id": "6-3"
       },
       {
         "material_id": "5-12"
@@ -14591,7 +14614,7 @@
       }
     ],
     "key_code": "",
-    "remark": "10000金 + 木*7 火影忍者",
+    "remark": "火影忍者",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -14656,7 +14679,7 @@
       }
     ],
     "key_code": "",
-    "remark": "10000金 + 木*7 JoJo",
+    "remark": "JoJo",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -14727,7 +14750,7 @@
       }
     ],
     "key_code": "",
-    "remark": "10000金 + 木*7 崩壞系列",
+    "remark": "崩壞系列",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -14791,7 +14814,7 @@
       }
     ],
     "key_code": "",
-    "remark": "10000金 + 木*7 東方Project",
+    "remark": "東方Project",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -14852,7 +14875,7 @@
       }
     ],
     "key_code": "",
-    "remark": "10000金 + 木*7 一拳超人",
+    "remark": "一拳超人",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -14931,7 +14954,7 @@
       }
     ],
     "key_code": "",
-    "remark": "10000金 + 木*7 鬼滅之刃",
+    "remark": "鬼滅之刃",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -14995,7 +15018,7 @@
       }
     ],
     "key_code": "",
-    "remark": "10000金 + 木*7",
+    "remark": "10000金 + ",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -15035,9 +15058,9 @@
   {
     "character_id": "18-14",
     "level": 18,
-    "name": "范馬勇次郎",
-    "kr_name": "",
-    "en_name": "",
+    "name": "範馬勇次郎",
+    "kr_name": "한마 유지로",
+    "en_name": "Yujiro Hanma",
     "materials": [
       {
         "material_id": "16-13"
@@ -15059,7 +15082,7 @@
       }
     ],
     "key_code": "",
-    "remark": "10000金+木*7",
+    "remark": "10000金+",
     "major": "",
     "suitable_partners": [],
     "skill_types": [],

@@ -623,6 +623,7 @@
     "stl-7-1": "Mana Regen",
     "stl-7-2": "HP Regen",
     "stl-8-1": "Mainly Phys Dmg",
-    "stl-8-2": "Mainly Magic Dmg"
+    "stl-8-2": "Mainly Magic Dmg",
+    "stl-8-3": "Burst Dmg"
   }
 }
