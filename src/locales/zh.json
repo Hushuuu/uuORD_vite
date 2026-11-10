@@ -130,7 +130,7 @@
           "martial_1": "強化雷歐的能力。",
           "martial_2": "提高對路線怪物的傷害及移動速度降低效果。",
           "martial_3": "新增暈眩能力。",
-          "martial_penalty": "無法合成最上位單位（超越、不滅、永遠、限制、神秘）。",
+          "martial_penalty": "無法合成最上位單位（超越、不滅、永恆、限制、神秘）。",
           "bounty_hunter": "賞金獵人",
           "bounty_1": "擊殺路線怪物時，有低機率發現寶箱。",
           "bounty_2": "寶箱可以獲得各種資源。",
@@ -536,7 +536,7 @@
     },
     "footer": {
       "brand": "航海王隨機防守 (ORDR) 小幫手",
-      "desc": "本網站基於 Namu Wiki/ordsearch.net 等網路公開資訊編寫，內容僅作為學術研究、玩家攻略與社群推廣之用。",
+      "desc": "本網站基於 Namu Wiki/ordsearch.net/tmogg社群與討論區 等網路公開資訊編寫，內容僅作為學術研究、玩家攻略與社群推廣之用。",
       "feedback": "若有任何疑慮或資料有誤，請聯絡"
     },
     "thirdPartyTutorial_title": "第三方程式使用教學",
@@ -547,7 +547,7 @@
     "thirdPartyTutorial_l2_2": "(若用區網模式才在此設定IP[手機+電腦])",
     "thirdPartyTutorial_l3": "分別打開TMOGG程式與轉代理工具",
     "thirdPartyTutorial_l4": "開啟遊戲主程式",
-    "thirdPartyTutorial_l5": "啟用本功能之開關，首次須允許網站權限，成功會顯示connect success",
+    "thirdPartyTutorial_l5": "啟用本功能之開關，首次須允許網站權限",
     "thirdPartyTutorial_l6_1": "允許網站之[裝置上的應用程式]權限，若未允許會失敗，需手動開啟權限，(手機另須「區域網路」權限)",
     "thirdPartyTutorial_l6_2": "(點擊網址左側的「鎖頭/控制項」圖示。在彈出的選單中，點擊 「網站設定」，並啟用「裝置上的應用程式」或「區域網路」權限。完成後，重新整理頁面以套用更改。)",
     "thirdPartyTutorial_manualSteps": "手動開啟權限步驟",
