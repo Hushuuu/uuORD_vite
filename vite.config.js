@@ -20,6 +20,7 @@ export default defineConfig({
         maintenance: resolve(__dirname, 'maintenance.html'),
         patch_notes: resolve(__dirname, 'patch-notes.html'),
         navigation: resolve(__dirname, 'navigation.html'),
+        tips: resolve(__dirname, 'tips.html'),
         about : resolve(__dirname, 'about.html'),
       },
     },

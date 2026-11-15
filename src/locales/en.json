@@ -21,7 +21,8 @@
       "navigation": "Navigation Guide",
       "maintenance": "Maintenance",
       "official": "Official",
-      "about": "About"
+      "about": "About",
+      "tips": "Information & Tips"
     },
     "brand": {
       "title": "ORD One Piece Random Defense Recipe",
@@ -232,6 +233,185 @@
       },
       "maintenance": {
         "title": "Data Maintenance"
+      },
+      "tips": {
+        "title": "Information & Tips | ORDR Guide",
+        "heading": "Information & Tips",
+        "subtitle": "Round planning · Side quests · Progress rewards",
+        "description": "ORDR round priorities, side quest locations and entry requirements, trait point sources, and rewards for total clears.",
+        "intro": "Plan your progress each round and quickly find side quest entrances and clear rewards.",
+        "quick_nav": "Guide quick navigation",
+        "rounds": {
+          "title": "Round-by-round priorities",
+          "headers": [
+            "Round",
+            "Recommended tasks"
+          ],
+          "rows": [
+            [
+              "1–7",
+              "Prepare your first Rare unit and send it to the story area."
+            ],
+            [
+              "10",
+              "Defeat the Boss, start treasure exploration, and gamble with gold."
+            ],
+            [
+              "15",
+              "Defeat Gin to start the quest cooldown."
+            ],
+            [
+              "15–20",
+              "Prepare your first Legendary unit to speed up story progress."
+            ],
+            [
+              "20",
+              "Defeat the Boss, Krieg, and Wapol."
+            ],
+            [
+              "21",
+              "Choose a navigation route to guide resource allocation."
+            ],
+            [
+              "21–30",
+              "Choose physical or magic damage and keep progressing through the story."
+            ],
+            [
+              "Before 30",
+              "Try to complete the Burgess quest."
+            ],
+            [
+              "Before 36",
+              "Complete the main story required by your difficulty."
+            ],
+            [
+              "36–40",
+              "Start strengthening your defenses."
+            ],
+            [
+              "After 41",
+              "Work on the Pica quest, map side quests, and trait upgrades."
+            ],
+            [
+              "Mid to late game",
+              "Ensure your team can slow, stun, and defeat Bosses."
+            ],
+            [
+              "Final stage",
+              "Use support skills to clear enemies and ease pressure."
+            ]
+          ]
+        },
+        "quests": {
+          "title": "Side quests",
+          "headers": [
+            "Location",
+            "Side quest",
+            "How to enter"
+          ],
+          "rows": [
+            [
+              "1 o’clock",
+              "Soul",
+              "Teleportation, terrain bypass"
+            ],
+            [
+              "3 o’clock",
+              "Gates of Justice",
+              "Flight, water movement"
+            ],
+            [
+              "7 o’clock",
+              "Shandora Golden Bell",
+              "Flight, water movement"
+            ],
+            [
+              "9 o’clock",
+              "Sea Kings",
+              "Flight, water movement"
+            ],
+            [
+              "11 o’clock",
+              "Final quest beacon",
+              "Complete the prerequisite quests, then send in a Legendary unit."
+            ],
+            [
+              "Below the story area",
+              "Neutral monsters",
+              "Units with special movement abilities"
+            ]
+          ]
+        },
+        "traits": {
+          "title": "Trait point sources",
+          "headers": [
+            "Source",
+            "Amount"
+          ],
+          "rows": [
+            [
+              "Base points",
+              "2 points"
+            ],
+            [
+              "Gates of Justice",
+              "1 point"
+            ],
+            [
+              "Shop purchase",
+              "1 point"
+            ],
+            [
+              "5, 15, and 25 total clears",
+              "3 points total"
+            ]
+          ],
+          "total": [
+            "Total from the sources above",
+            "7 points"
+          ]
+        },
+        "rewards": {
+          "title": "Clear milestone rewards",
+          "headers": [
+            "Total clears",
+            "Unlocked reward"
+          ],
+          "rows": [
+            [
+              "5 clears",
+              "Trait point +1"
+            ],
+            [
+              "10 clears",
+              "Random spirit +1"
+            ],
+            [
+              "15 clears",
+              "Trait point +1"
+            ],
+            [
+              "20 clears",
+              "Lumber +1"
+            ],
+            [
+              "25 clears",
+              "Trait point +1"
+            ],
+            [
+              "30 clears",
+              "Random spirit +1"
+            ],
+            [
+              "35 clears",
+              "Random spirit +1"
+            ],
+            [
+              "40 clears",
+              "Random spirit +1"
+            ]
+          ]
+        }
       }
     },
     "field": {

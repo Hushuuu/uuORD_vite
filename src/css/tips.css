@@ -1,0 +1,35 @@
+.tips-intro { padding: 8px 0; }
+.tips-intro h1 { margin: 0 0 12px; font-size: clamp(1.75rem, 4vw, 2.5rem); }
+.tips-intro p { margin: 0; color: var(--muted-color); line-height: 1.7; }
+.tips-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.tips-nav a {
+  padding: 9px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--surface-color);
+  font-size: .9rem;
+}
+.tips-nav a:hover { border-color: var(--primary-color); color: #ffd28a; }
+.tips-nav a:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 4px; }
+.tips-content { display: grid; gap: 24px; min-width: 0; }
+.tips-section { overflow: hidden; scroll-margin-top: 24px; min-width: 0; }
+.tips-section h2 { margin: 0; font-size: 1.2rem; }
+.tips-section .panel-header { display: flex; align-items: center; gap: 12px; }
+.tips-section-number { color: #ffd28a; font-size: .8rem; font-weight: 700; letter-spacing: .08em; }
+.tips-table { width: 100%; border-collapse: collapse; text-align: left; line-height: 1.65; }
+.tips-table th, .tips-table td { padding: 14px 24px; border-top: 1px solid var(--border-color); vertical-align: top; overflow-wrap: anywhere; }
+.tips-table thead { background: rgba(15, 23, 42, .5); color: var(--muted-color); font-size: .85rem; }
+.tips-table th { font-weight: 600; }
+.tips-table tbody th { width: 25%; color: #ffd28a; }
+.tips-table tbody tr:hover { background: rgba(255, 255, 255, .025); }
+.tips-table tfoot { background: rgba(245, 158, 11, .08); color: #ffd28a; font-weight: 700; }
+.tips-table tfoot td { font-size: 1.15rem; }
+.tips-secondary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.tips-secondary .tips-table tbody th { width: 65%; }
+@media (max-width: 767px) {
+  .tips-secondary { grid-template-columns: minmax(0, 1fr); }
+  .tips-table th, .tips-table td { padding: 12px; font-size: .9rem; }
+  .tips-table tbody th { width: 28%; }
+  .tips-nav { gap: 8px; }
+  .tips-nav a { padding: 8px 12px; }
+}

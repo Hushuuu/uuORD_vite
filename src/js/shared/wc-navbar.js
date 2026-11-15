@@ -95,7 +95,7 @@ class MyNavbar extends HTMLElement {
       ['characters', [['lookup', 'lookup.html'], ['tree', 'tree.html']]],
       ['teams', [['comp', 'comp.html'], ['comp_tree', 'comp_tree.html']]],
       ['assistant', [['recommend', 'recommend.html']]],
-      ['info', [['navigation', 'navigation.html'], ['patch_notes', 'patch-notes.html'], ['about', 'about.html']]],
+      ['info', [['tips', 'tips.html'], ['navigation', 'navigation.html'], ['patch_notes', 'patch-notes.html'], ['about', 'about.html']]],
     ];
     const groupMarkup = groups.map(([key, links]) => {
       if (key === 'assistant') {

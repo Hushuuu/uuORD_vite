@@ -23,6 +23,7 @@ const PAGE_TITLE_KEYS = {
   patch_notes: 'page.patch_notes.title',
   maintenance: 'page.maintenance.title',
   navigation: 'page.navigation.title',
+  tips: 'page.tips.title',
   about: 'about.title'
 };
 
