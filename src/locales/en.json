@@ -78,6 +78,16 @@
         "final_unit_count": "Remaining units",
         "navigation": "Navigation",
         "node": "Node",
+        "filters": {
+          "all": "All",
+          "reset": "Clear filters",
+          "character_stats": "Character appearances",
+          "character_help": "Counts follow the current difficulty, elder, and navigation filters. Each character counts once per clear. Select multiple characters to find clears that include them all.",
+          "character_count": "{name}, clears: {count}",
+          "result_count": "Matching clears: {count} · Selected characters: {selected}",
+          "no_characters": "No Transcendent, Immortal, Eternal, Limited, or Mystery characters in these clears.",
+          "no_matches": "No clear records match these filters."
+        },
         "gambling": {
           "heading": "Gambling stats",
           "high": "High-tier gambling",

@@ -5,6 +5,7 @@ import historiesUrl from '../../data/ord-clear-histories.json?url';
 
 const { TMO_TRANSFER_DATA, escapeHtml, getDisplayName, getLevelLabel } = appShared;
 const pageSize = 20;
+const trackedLevels = [10, 11, 12, 9, 18];
 const routes = new Map([
   ['연합세력', 'routes.alliance'],
   ['패왕의길', 'routes.conqueror'],
@@ -139,6 +140,11 @@ function renderHistory(history, characters, dateFormatter, metadataId) {
 }
 
 function renderDifficultyPanel(panel, runs, characters, dateFormatter) {
+  if (!runs.length) {
+    panel.innerHTML = `<p class="clear-muted">${escapeHtml(translate('filters.no_matches'))}</p>`;
+    return;
+  }
+
   panel.innerHTML = `
     <div class="clear-history-list"></div>
     <button type="button" class="clear-load-more">${escapeHtml(translate('more'))}</button>
@@ -165,8 +171,60 @@ function renderDifficultyPanel(panel, runs, characters, dateFormatter) {
   });
 }
 
+function renderFilterSelect(histories, field, getOptionLabel) {
+  const values = new Set(histories.map((history) => history[field]).filter(Boolean));
+  const options = [...values].map((value) => (
+    `<option value="${escapeHtml(value)}">${escapeHtml(getOptionLabel(value))}</option>`
+  ));
+  return `
+    <label class="clear-filter-field">
+      <span>${escapeHtml(translate(field))}</span>
+      <select name="${field}">
+        <option value="">${escapeHtml(translate('filters.all'))}</option>
+        ${options.join('')}
+      </select>
+    </label>
+  `;
+}
+
+function renderCharacterStats(container, runs, runCharacters, characters, selectedCharacters, locale) {
+  const counts = new Map();
+  for (const history of runs) {
+    for (const id of runCharacters.get(history)) {
+      counts.set(id, (counts.get(id) ?? 0) + 1);
+    }
+  }
+  for (const id of selectedCharacters) {
+    if (!counts.has(id)) counts.set(id, 0);
+  }
+
+  const entries = [...counts].map(([id, count]) => {
+    const character = characters.get(id);
+    return { id, count, level: character.level, name: getDisplayName(character) };
+  }).sort((left, right) => right.count - left.count || left.name.localeCompare(right.name, locale));
+
+  container.innerHTML = trackedLevels.map((level) => {
+    const buttons = entries.filter((entry) => entry.level === level).map(({ id, name, count }) => `
+      <button type="button" class="clear-stat-button" data-character-id="${escapeHtml(id)}"
+        aria-pressed="${selectedCharacters.has(id)}"
+        aria-label="${escapeHtml(translate('filters.character_count', { name, count }))}">
+        ${escapeHtml(name)} <span class="clear-stat-count">${count}</span>
+      </button>
+    `).join('');
+    if (!buttons) return '';
+
+    return `
+      <section class="clear-stat-group">
+        <h3 class="badge badge-${level}">${escapeHtml(getLevelLabel(level))}</h3>
+        <div class="clear-stat-buttons">${buttons}</div>
+      </section>
+    `;
+  }).join('') || `<p class="clear-muted">${escapeHtml(translate('filters.no_characters'))}</p>`;
+}
+
 function renderGroups(container, histories, characters) {
-  const dateFormatter = new Intl.DateTimeFormat(ORDI18n.getLang() === 'zh' ? 'zh-TW' : 'en', {
+  const locale = ORDI18n.getLang() === 'zh' ? 'zh-TW' : 'en';
+  const dateFormatter = new Intl.DateTimeFormat(locale, {
     dateStyle: 'medium',
     timeStyle: 'short',
     timeZone: 'Asia/Taipei',
@@ -178,11 +236,43 @@ function renderGroups(container, histories, characters) {
     groups.get(history.difficulty).push(history);
   }
 
+  const runCharacters = new Map(histories.map((history) => {
+    const ids = new Set();
+    for (const { code } of history.units) {
+      const id = TMO_TRANSFER_DATA.get(code);
+      if (trackedLevels.includes(characters.get(id)?.level)) ids.add(id);
+    }
+    return [history, ids];
+  }));
+  const selectedCharacters = new Set();
+
   const tablist = document.createElement('div');
   tablist.className = 'clear-difficulty-tabs';
   tablist.setAttribute('role', 'tablist');
   tablist.setAttribute('aria-label', translate('difficulty'));
   container.append(tablist);
+
+  const filters = document.createElement('div');
+  filters.className = 'clear-filters';
+  filters.innerHTML = `
+    <div class="clear-filter-controls">
+      ${renderFilterSelect(histories, 'elder', (value) => getHistoryLabel('elders', value))}
+      ${renderFilterSelect(histories, 'navigation', (value) => getNavigationLabel(routes, value))}
+      <button type="button" class="clear-reset-filters">${escapeHtml(translate('filters.reset'))}</button>
+    </div>
+    <details class="clear-character-stats" open>
+      <summary>${escapeHtml(translate('filters.character_stats'))}</summary>
+      <p class="clear-muted">${escapeHtml(translate('filters.character_help'))}</p>
+      <div class="clear-stat-groups"></div>
+    </details>
+    <p class="clear-result-count" role="status"></p>
+  `;
+  container.append(filters);
+  const elderFilter = filters.querySelector('[name="elder"]');
+  const navigationFilter = filters.querySelector('[name="navigation"]');
+  const reset = filters.querySelector('.clear-reset-filters');
+  const stats = filters.querySelector('.clear-stat-groups');
+  const resultCount = filters.querySelector('.clear-result-count');
 
   const tabs = [...groups].map(([difficulty, runs], index) => {
     const label = getHistoryLabel('difficulties', difficulty);
@@ -202,16 +292,68 @@ function renderGroups(container, histories, characters) {
     return { tab, panel, runs };
   });
 
+  let activeIndex = 0;
+  let metadataMatches = [];
+
+  function updateResults() {
+    const { panel } = tabs[activeIndex];
+    const matches = metadataMatches.filter((history) => {
+      const ids = runCharacters.get(history);
+      for (const id of selectedCharacters) {
+        if (!ids.has(id)) return false;
+      }
+      return true;
+    });
+    renderDifficultyPanel(panel, matches, characters, dateFormatter);
+    resultCount.textContent = translate('filters.result_count', {
+      count: matches.length,
+      selected: selectedCharacters.size,
+    });
+  }
+
+  function updateMetadataMatches() {
+    metadataMatches = tabs[activeIndex].runs.filter((history) => (
+      (!elderFilter.value || history.elder === elderFilter.value)
+      && (!navigationFilter.value || history.navigation === navigationFilter.value)
+    ));
+    renderCharacterStats(stats, metadataMatches, runCharacters, characters, selectedCharacters, locale);
+    updateResults();
+  }
+
+  elderFilter.addEventListener('change', updateMetadataMatches);
+  navigationFilter.addEventListener('change', updateMetadataMatches);
+  reset.addEventListener('click', () => {
+    elderFilter.value = '';
+    navigationFilter.value = '';
+    selectedCharacters.clear();
+    updateMetadataMatches();
+  });
+  stats.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-character-id]');
+    if (!button) return;
+    const id = button.dataset.characterId;
+    const selected = !selectedCharacters.delete(id);
+    if (selected) selectedCharacters.add(id);
+    if (!selected && !metadataMatches.some((history) => runCharacters.get(history).has(id))) {
+      button.closest('.clear-character-stats').querySelector('summary').focus();
+      renderCharacterStats(stats, metadataMatches, runCharacters, characters, selectedCharacters, locale);
+    } else {
+      button.setAttribute('aria-pressed', String(selected));
+    }
+    updateResults();
+  });
+
   function selectTab(index, focusTab = false) {
+    const changed = index !== activeIndex || !tabs[index].panel.firstElementChild;
+    activeIndex = index;
     tabs.forEach(({ tab, panel }, tabIndex) => {
       const selected = index === tabIndex;
       tab.setAttribute('aria-selected', String(selected));
       tab.tabIndex = selected ? 0 : -1;
       panel.hidden = !selected;
     });
-    const { tab, panel, runs } = tabs[index];
-    if (!panel.firstElementChild) renderDifficultyPanel(panel, runs, characters, dateFormatter);
-    if (focusTab) tab.focus();
+    if (changed) updateMetadataMatches();
+    if (focusTab) tabs[index].tab.focus();
   }
 
   tabs.forEach(({ tab }, index) => {

@@ -78,6 +78,16 @@
         "final_unit_count": "通關剩餘單位數",
         "navigation": "航法",
         "node": "節點",
+        "filters": {
+          "all": "全部",
+          "reset": "清除篩選",
+          "character_stats": "角色出場統計",
+          "character_help": "依目前難度、五老星與航法統計。同一角色每場計一次，點選多個角色可查找同時包含這些角色的紀錄。",
+          "character_count": "{name}，{count} 場",
+          "result_count": "符合條件 {count} 筆，已選 {selected} 個角色",
+          "no_characters": "這個範圍內沒有超越、不朽、永恆、限制或神秘角色。",
+          "no_matches": "沒有符合篩選條件的通關紀錄。"
+        },
         "gambling": {
           "heading": "賭博統計",
           "high": "高級賭博",

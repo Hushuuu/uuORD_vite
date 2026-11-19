@@ -541,7 +541,7 @@ const TMO_TRANSFER_DATA = new Map([
   ["C40h", "11-13"], // garp im
   ["940h", "11-3"],  // rayleigh im
   ["J40h", "11-8"],  // roger im
-  ["180h", "11-1"],  // bullet im
+  ["180h", "11-1"], ["unit_1760968958760_649", "11-1"], // bullet im
   ["F40h", "11-7"],  // gaban im
   ["M70h", "11-4"],  // kaido im
   ["DA0h", "11-4"],  // kaido im
@@ -569,7 +569,7 @@ const TMO_TRANSFER_DATA = new Map([
   ["FA0h", "12-5"],  // u-ta et
   ["C50h", "12-11"], // hancock et
   ["U90h", "12-11"], // hancock et
-  ["A60h", "12-6"],  // tesoro et
+  ["A60h", "12-6"], ["unit_1767351451517_6594", "12-6"], // tesoro et
   // lv18
   ["2A0h", "18-6"],  // 료우기 시키 (Ryougi Shiki)
   ["380h", "18-3"],["unit_1760976564396_7685", "18-3"],  // 샌즈 (Sans)

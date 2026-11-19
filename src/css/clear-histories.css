@@ -47,6 +47,118 @@
   font-size: 0.875rem;
 }
 
+.clear-filters {
+  margin-bottom: 12px;
+}
+
+.clear-filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 8px 12px;
+  margin-bottom: 12px;
+}
+
+.clear-filter-field {
+  display: grid;
+  gap: 4px;
+  min-width: min(100%, 9rem);
+  color: var(--muted-color);
+  font-size: 0.875rem;
+}
+
+.clear-filter-field select,
+.clear-reset-filters,
+.clear-stat-button {
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--surface-alt-color);
+  color: var(--text-color);
+  font: inherit;
+  cursor: pointer;
+}
+
+.clear-filter-field select,
+.clear-reset-filters {
+  min-height: 36px;
+  padding: 4px 10px;
+  font-size: 0.875rem;
+}
+
+.clear-character-stats {
+  padding: 12px 14px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.clear-character-stats summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.clear-character-stats .clear-muted {
+  margin: 6px 0;
+}
+
+.clear-stat-groups {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.clear-stat-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.clear-stat-group h3 {
+  flex: none;
+  margin: 3px 0 0;
+}
+
+.clear-stat-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
+}
+
+.clear-stat-button {
+  max-width: 100%;
+  min-height: 32px;
+  padding: 3px 8px;
+  font-size: 0.875rem;
+  overflow-wrap: anywhere;
+}
+
+.clear-stat-count {
+  margin-inline-start: 3px;
+  color: #ffd28a;
+  font-variant-numeric: tabular-nums;
+}
+
+.clear-reset-filters:hover,
+.clear-stat-button:hover,
+.clear-stat-button[aria-pressed="true"] {
+  border-color: #ffd28a;
+}
+
+.clear-stat-button[aria-pressed="true"] {
+  background: rgba(255, 210, 138, 0.14);
+}
+
+.clear-filters :is(button, select, summary):focus-visible {
+  outline: 2px solid #ffd28a;
+  outline-offset: 2px;
+}
+
+.clear-result-count {
+  margin: 10px 0 0;
+  color: var(--muted-color);
+  font-size: 0.875rem;
+}
+
 .clear-history-list {
   display: grid;
   gap: 10px;
@@ -268,5 +380,9 @@
 @media (max-width: 600px) {
   .clear-histories-content {
     padding: 12px;
+  }
+
+  .clear-stat-group {
+    flex-direction: column;
   }
 }
