@@ -25,6 +25,13 @@ const nodes = new Map([
   ['최대출력', 'support.max_output'],
   ['연금술', 'support.alchemy'],
 ]);
+const gamblingMetrics = {
+  high: ['attempts', 'rare', 'special'],
+  mid: ['attempts', 'successes'],
+  low: ['attempts', 'common', 'uncommon'],
+  lumber: ['attempts', 'successes'],
+  other_world: ['attempts', 'successes'],
+};
 
 function translate(field, values) {
   return ORDI18n.t(`page.clear_histories.${field}`, values);
@@ -72,6 +79,31 @@ function renderUnit(unit, characters) {
   `;
 }
 
+function renderGambling(gambling) {
+  const groups = Object.entries(gamblingMetrics).map(([group, metrics]) => {
+    const stats = metrics.map((metric) => `
+      <div>
+        <dt>${escapeHtml(translate(`gambling.${metric}`))}</dt>
+        <dd>${escapeHtml(gambling?.[group]?.[metric] ?? '—')}</dd>
+      </div>
+    `).join('');
+
+    return `
+      <div class="clear-gambling-group">
+        <h4>${escapeHtml(translate(`gambling.${group}`))}</h4>
+        <dl>${stats}</dl>
+      </div>
+    `;
+  }).join('');
+
+  return `
+    <section class="clear-gambling">
+      <h3>${escapeHtml(translate('gambling.heading'))}</h3>
+      <div class="clear-gambling-list">${groups}</div>
+    </section>
+  `;
+}
+
 function renderHistory(history, characters, dateFormatter, metadataId) {
   const units = history.units.length
     ? history.units.map((unit) => renderUnit(unit, characters)).join('')
@@ -92,21 +124,22 @@ function renderHistory(history, characters, dateFormatter, metadataId) {
   return `
     <article class="clear-history">
       <button type="button" class="clear-history-heading" aria-expanded="false" aria-controls="${metadataId}">
-        <span class="clear-history-player">${escapeHtml(history.playerName || '—')}</span>
         <time datetime="${escapeHtml(history.createdAt)}" title="UTC+08:00">
           ${escapeHtml(dateFormatter.format(new Date(history.createdAt)))}
         </time>
         <span class="clear-history-action">${escapeHtml(translate('details'))}</span>
       </button>
       <div class="clear-units">${units}</div>
-      <dl id="${metadataId}" class="clear-history-metadata" hidden>${metadata}</dl>
+      <div id="${metadataId}" class="clear-history-details" hidden>
+        <dl class="clear-history-metadata">${metadata}</dl>
+        ${renderGambling(history.gambling)}
+      </div>
     </article>
   `;
 }
 
 function renderDifficultyPanel(panel, runs, characters, dateFormatter) {
   panel.innerHTML = `
-    <p class="clear-group-count">${escapeHtml(translate('count', { count: runs.length }))}</p>
     <div class="clear-history-list"></div>
     <button type="button" class="clear-load-more">${escapeHtml(translate('more'))}</button>
   `;

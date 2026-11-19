@@ -16,6 +16,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  margin-bottom: 12px;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -41,11 +42,6 @@
   color: #ffd28a;
 }
 
-.clear-group-count {
-  margin: 12px 0;
-}
-
-.clear-group-count,
 .clear-muted {
   color: var(--muted-color);
   font-size: 0.875rem;
@@ -89,11 +85,6 @@
 .clear-history-heading:hover,
 .clear-history-heading[aria-expanded="true"] {
   background: rgba(255, 255, 255, 0.04);
-}
-
-.clear-history-player {
-  font-weight: 700;
-  overflow-wrap: anywhere;
 }
 
 .clear-history-heading time {
@@ -183,17 +174,16 @@
   background: rgba(255, 210, 138, 0.14);
 }
 
+.clear-history-details {
+  padding: 14px;
+  border-top: 1px solid var(--border-color);
+}
+
 .clear-history-metadata {
   display: flex;
   flex-wrap: wrap;
   gap: 12px 24px;
   margin: 0;
-  padding: 14px;
-  border-top: 1px solid var(--border-color);
-}
-
-.clear-history-metadata[hidden] {
-  display: none;
 }
 
 .clear-history-metadata dt {
@@ -209,6 +199,55 @@
 
 .clear-history-metadata > div {
   min-width: 0;
+}
+
+.clear-gambling {
+  margin-top: 16px;
+}
+
+.clear-gambling h3 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+}
+
+.clear-gambling-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  gap: 8px;
+}
+
+.clear-gambling-group {
+  padding: 8px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+}
+
+.clear-gambling-group h4 {
+  margin: 0 0 6px;
+  font-size: 0.85rem;
+}
+
+.clear-gambling-group dl {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+}
+
+.clear-gambling-group dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.clear-gambling-group dt {
+  color: var(--muted-color);
+  font-size: 0.8rem;
+}
+
+.clear-gambling-group dd {
+  margin: 0;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .clear-load-more {

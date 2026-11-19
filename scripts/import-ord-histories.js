@@ -44,6 +44,30 @@ function normalizeHistory(history) {
     finalUnitCount: stats.finalUnitCount ?? null,
     navigation: stats.navigation ?? null,
     node: stats.node ?? null,
+    gambling: {
+      high: {
+        attempts: stats.gambleHighAttempts ?? null,
+        rare: stats.gambleHighRare ?? null,
+        special: stats.gambleHighSpecial ?? null,
+      },
+      mid: {
+        attempts: stats.gambleMidAttempts ?? null,
+        successes: stats.gambleMidSuccesses ?? null,
+      },
+      low: {
+        attempts: stats.gambleLowAttempts ?? null,
+        common: stats.gambleLowCommon ?? null,
+        uncommon: stats.gambleLowUncommon ?? null,
+      },
+      lumber: {
+        attempts: stats.gambleLumberAttempts ?? null,
+        successes: stats.gambleLumberSuccesses ?? null,
+      },
+      other_world: {
+        attempts: stats.gambleOtherWorldAttempts ?? null,
+        successes: stats.gambleOtherWorldSuccesses ?? null,
+      },
+    },
     units: normalizeUnits(history.units),
   };
 }

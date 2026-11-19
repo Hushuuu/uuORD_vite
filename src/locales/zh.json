@@ -70,7 +70,6 @@
         "load_error": "無法載入通關紀錄，請重新整理頁面。",
         "empty": "目前沒有通關紀錄。",
         "no_units": "沒有單位資料",
-        "count": "{count} 筆紀錄",
         "more": "顯示更多",
         "details": "通關詳情",
         "difficulty": "難度",
@@ -79,6 +78,20 @@
         "final_unit_count": "通關剩餘單位數",
         "navigation": "航法",
         "node": "節點",
+        "gambling": {
+          "heading": "賭博統計",
+          "high": "高級賭博",
+          "mid": "中級賭博",
+          "low": "低級賭博",
+          "lumber": "木材賭博",
+          "other_world": "異世界賭博",
+          "attempts": "次數",
+          "successes": "成功",
+          "rare": "稀有獲得",
+          "special": "特別獲得",
+          "common": "普通獲得",
+          "uncommon": "不凡獲得"
+        },
         "difficulties": {
           "신": "神難度",
           "악몽": "夢魘難度",

@@ -70,7 +70,6 @@
         "load_error": "Could not load clear datas. Refresh the page to try again.",
         "empty": "No clears recorded yet.",
         "no_units": "No unit data",
-        "count": "Runs: {count}",
         "more": "Show more",
         "details": "Run details",
         "difficulty": "Difficulty",
@@ -79,6 +78,20 @@
         "final_unit_count": "Remaining units",
         "navigation": "Navigation",
         "node": "Node",
+        "gambling": {
+          "heading": "Gambling stats",
+          "high": "High-tier gambling",
+          "mid": "Mid-tier gambling",
+          "low": "Low-tier gambling",
+          "lumber": "Lumber gambling",
+          "other_world": "Otherworld gambling",
+          "attempts": "Attempts",
+          "successes": "Successes",
+          "rare": "Rare obtained",
+          "special": "Special obtained",
+          "common": "Common obtained",
+          "uncommon": "Uncommon obtained"
+        },
         "difficulties": {
           "신": "God",
           "악몽": "Nightmare",
