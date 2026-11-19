@@ -16,6 +16,7 @@ export default defineConfig({
         tree: resolve(__dirname, 'tree.html'),
         comp: resolve(__dirname, 'comp.html'),
         comp_tree: resolve(__dirname, 'comp_tree.html'),
+        clear_histories: resolve(__dirname, 'clear-histories.html'),
         recommend: resolve(__dirname, 'recommend.html'),
         maintenance: resolve(__dirname, 'maintenance.html'),
         patch_notes: resolve(__dirname, 'patch-notes.html'),

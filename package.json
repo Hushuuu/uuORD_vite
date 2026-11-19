@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "import:histories": "node scripts/import-ord-histories.js",
     "build": "vite build && node scripts/generate-seo.js && node scripts/generate-sw-assets.js",
     "preview": "vite preview"
   },

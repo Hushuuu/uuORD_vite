@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="no-js">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page.clear_histories.title">通關參考｜ORDR 通關陣容</title>
+  <meta name="description" data-i18n-content="page.clear_histories.description"
+    content="按難度查看 ORDR 通關陣容，展開紀錄可查看五老星、航法節點與通關剩餘單位數。">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://uuord.nijidakku.cc/clear-histories.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" data-i18n-content="page.clear_histories.title" content="通關參考｜ORDR 通關陣容">
+  <meta property="og:description" data-i18n-content="page.clear_histories.description"
+    content="按難度查看 ORDR 通關陣容，展開紀錄可查看五老星、航法節點與通關剩餘單位數。">
+  <meta property="og:url" content="https://uuord.nijidakku.cc/clear-histories.html">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" href="/resource/192x192.png">
+  <link rel="stylesheet" href="/src/css/styles.css">
+  <link rel="stylesheet" href="/src/css/clear-histories.css">
+  <script type="module" src="/src/js/pwa-init.js"></script>
+  <script type="module" src="/src/js/app.js"></script>
+</head>
+
+<body data-page="clear_histories">
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-title" data-i18n="brand.title">ORD 航海王隨機防禦合成表</div>
+      </div>
+      <my-navbar></my-navbar>
+    </header>
+
+    <main class="panel clear-histories-panel">
+      <header class="panel-header clear-histories-header">
+        <h1 class="panel-title" data-i18n="page.clear_histories.heading">通關參考</h1>
+        <p data-i18n="page.clear_histories.description">
+          按難度查看 ORDR 通關陣容，展開紀錄可查看五老星、航法節點與通關剩餘單位數。
+        </p>
+      </header>
+      <div class="clear-histories-content">
+        <p id="clearHistoryStatus" role="status" data-i18n="page.clear_histories.loading">正在載入通關紀錄…</p>
+        <noscript><p>請啟用 JavaScript 以查看通關紀錄。</p></noscript>
+        <div id="clearHistoryGroups"></div>
+      </div>
+    </main>
+  </div>
+  <my-footer></my-footer>
+</body>
+
+</html>

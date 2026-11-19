@@ -1,0 +1,2665 @@
+[
+  {
+    "id": "6cbe1228ec8676579b5e4ab777d80485",
+    "createdAt": "2026-11-18T18:21:12.294Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 3,
+      "difficulty": "신",
+      "elder": "새턴",
+      "finalUnitCount": 5,
+      "gambleAbsalomAttempts": 1,
+      "gambleAbsalomSuccesses": 1,
+      "gambleHighAttempts": 4,
+      "gambleHighRare": 1,
+      "gambleHighSpecial": 1,
+      "gambleLowAttempts": 10,
+      "gambleLowCommon": 6,
+      "gambleLowUncommon": 4,
+      "gambleLumberAttempts": 20,
+      "gambleLumberSuccesses": 12,
+      "gambleMidAttempts": 21,
+      "gambleMidSuccesses": 17,
+      "gambleOtherWorldAttempts": 0,
+      "gambleOtherWorldSuccesses": 0,
+      "mode": "일반 / 이세계",
+      "navigation": "도박광",
+      "node": "환전소",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 24225,
+      "selectionWispUsed": 47,
+      "topTierUnitCount": 1,
+      "treasureCommon": 7,
+      "treasureUncommon": 2,
+      "unitCount": 5,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 24225,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "V80H",
+        "count": 1,
+        "name": "나미(초월)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/namitr.webp",
+        "group": "초월",
+        "grade": "초월"
+      },
+      {
+        "code": "130h",
+        "count": 1,
+        "name": "후지토라(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/fujitorald.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "730h",
+        "count": 1,
+        "name": "슈가(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/sugar.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "P20h",
+        "count": 1,
+        "name": "나미(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/namitr.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "unit_622e986a-d2e8-4fad-9d33-c2bdcbd3787b",
+        "count": 1,
+        "name": "맨마이어 군코(전설)",
+        "image": "https://media.tmo.gg/production-build-helper-one-piece-random-defense-de55c89ab98df89f2dac1ebf93c30761e0480483c252b962a7a7128ba15abe66.png",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "R20h",
+        "count": 1,
+        "name": "로브 루치(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/luccild.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "Y20h",
+        "count": 1,
+        "name": "루피 나이트메어(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/luffynmld.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "140h",
+        "count": 1,
+        "name": "아오키지(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/aokiji.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "550h",
+        "count": 1,
+        "name": "스튜시(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/stussy.png",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "J30h",
+        "count": 1,
+        "name": "시류(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/shiryu.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "KC0h",
+        "count": 1,
+        "name": "카쿠(변화된)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/kaku.webp",
+        "group": "변화된",
+        "grade": "변화된"
+      },
+      {
+        "code": "S50h",
+        "count": 1,
+        "name": "도플라밍고(변화된)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/joker.webp",
+        "group": "변화된",
+        "grade": "변화된"
+      },
+      {
+        "code": "010h",
+        "count": 1,
+        "name": "압살롬(특별함)",
+        "image": "https://media.tmo.gg/production-5fe44592-0d07-4bb8-b06b-c4b6fc15a0ed",
+        "group": "특별함",
+        "grade": "특별함"
+      },
+      {
+        "code": "unit_1779025594661_4005",
+        "count": 1,
+        "name": "S-스네이크(세라핌)",
+        "image": "https://media.tmo.gg/production-5548e9fa-b86c-4666-91dd-c40e175f2522",
+        "group": "세라핌",
+        "grade": "세라핌"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-f315b6ac-5ffe-4653-aa72-026280fd3b2f"
+  },
+  {
+    "id": "36ad320c43785d4e75cc377eafb53589",
+    "createdAt": "2026-11-18T17:28:43.757Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 10,
+      "difficulty": "신",
+      "elder": "나스쥬로",
+      "finalUnitCount": 11,
+      "gambleHighAttempts": 4,
+      "gambleHighRare": 2,
+      "gambleHighSpecial": 1,
+      "gambleLowAttempts": 47,
+      "gambleLowCommon": 16,
+      "gambleLowUncommon": 24,
+      "gambleLumberAttempts": 20,
+      "gambleLumberSuccesses": 10,
+      "gambleMidAttempts": 0,
+      "gambleMidSuccesses": 0,
+      "mode": "일반 / 이세계",
+      "navigation": "패왕의길",
+      "node": "로얄로더",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 21796,
+      "selectionWispUsed": 35,
+      "topTierUnitCount": 1,
+      "treasureCommon": 5,
+      "treasureUncommon": 1,
+      "unitCount": 11,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 21796,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "Q40h",
+        "count": 1,
+        "name": "빅맘(불멸)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/bigmam.webp",
+        "group": "불멸",
+        "grade": "불멸"
+      },
+      {
+        "code": "unit_1779023133532_2668",
+        "count": 1,
+        "name": "바제스(왜곡됨)",
+        "image": "https://media.tmo.gg/production-f1cbee80-c513-4fe3-a011-23f3625f9177",
+        "group": "왜곡됨",
+        "grade": "왜곡됨"
+      },
+      {
+        "code": "230h",
+        "count": 1,
+        "name": "핸콕(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/hancock.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "8C0h",
+        "count": 1,
+        "name": "레오(전설)",
+        "image": "https://media.tmo.gg/production-build-helper-one-piece-random-defense-47fae6a08e64e4fab67c4112a7308f2c411e50ef824be7cabd70b52b1eae899a.png",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "F30h",
+        "count": 1,
+        "name": "카르가라(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/kalgara.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "R20h",
+        "count": 1,
+        "name": "로브 루치(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/luccild.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "W20h",
+        "count": 1,
+        "name": "드래곤(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/dragon.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "Z90h",
+        "count": 1,
+        "name": "네코마무시(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/nekomamushi.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "S50h",
+        "count": 1,
+        "name": "도플라밍고(변화된)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/joker.webp",
+        "group": "변화된",
+        "grade": "변화된"
+      },
+      {
+        "code": "unit_1779025246540_1323",
+        "count": 1,
+        "name": "S-베어(세라핌)",
+        "image": "https://media.tmo.gg/production-a0d4859b-1f49-4d5a-8b1e-cc358a2035be",
+        "group": "세라핌",
+        "grade": "세라핌"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-66bcf452-7f67-4f97-a9ad-078c05d9fc18"
+  },
+  {
+    "id": "4aa5f8ff0dbdf1ebab9c9e677cfb9ac9",
+    "createdAt": "2026-11-18T16:43:37.123Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 15,
+      "difficulty": "신",
+      "elder": "새턴",
+      "finalUnitCount": 9,
+      "gambleAbsalomAttempts": 2,
+      "gambleAbsalomSuccesses": 1,
+      "gambleHighAttempts": 8,
+      "gambleHighRare": 3,
+      "gambleHighSpecial": 2,
+      "gambleLowAttempts": 18,
+      "gambleLowCommon": 6,
+      "gambleLowUncommon": 8,
+      "gambleLumberAttempts": 2,
+      "gambleLumberSuccesses": 1,
+      "gambleMidAttempts": 0,
+      "gambleMidSuccesses": 0,
+      "mode": "일반 / 이세계",
+      "navigation": "패왕의길",
+      "node": "바운티헌터",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 20619,
+      "selectionWispUsed": 42,
+      "topTierUnitCount": 1,
+      "treasureCommon": 3,
+      "treasureUncommon": 1,
+      "unitCount": 9,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 20619,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "G50h",
+        "count": 1,
+        "name": "레드필드(제한됨)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/redfield.webp",
+        "group": "제한됨",
+        "grade": "제한됨"
+      },
+      {
+        "code": "430h",
+        "count": 1,
+        "name": "상디(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/sanji2.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "780h",
+        "count": 1,
+        "name": "코즈키 토키(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/toki.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "8C0h",
+        "count": 1,
+        "name": "레오(전설)",
+        "image": "https://media.tmo.gg/production-build-helper-one-piece-random-defense-47fae6a08e64e4fab67c4112a7308f2c411e50ef824be7cabd70b52b1eae899a.png",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "unit_622e986a-d2e8-4fad-9d33-c2bdcbd3787b",
+        "count": 1,
+        "name": "맨마이어 군코(전설)",
+        "image": "https://media.tmo.gg/production-build-helper-one-piece-random-defense-de55c89ab98df89f2dac1ebf93c30761e0480483c252b962a7a7128ba15abe66.png",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "Q20h",
+        "count": 1,
+        "name": "라분(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/laboon.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "R20h",
+        "count": 1,
+        "name": "로브 루치(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/luccild.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "Z90h",
+        "count": 1,
+        "name": "네코마무시(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/nekomamushi.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "340h",
+        "count": 1,
+        "name": "미호크(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/mihawk.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "S50h",
+        "count": 1,
+        "name": "도플라밍고(변화된)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/joker.webp",
+        "group": "변화된",
+        "grade": "변화된"
+      },
+      {
+        "code": "X30h",
+        "count": 1,
+        "name": "방주맥심(해적선)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/maxim.webp",
+        "group": "해적선",
+        "grade": "해적선"
+      },
+      {
+        "code": "H00h",
+        "count": 1,
+        "name": "좀비(기타)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/zombie.png",
+        "group": "기타",
+        "grade": "기타"
+      },
+      {
+        "code": "unit_1779025246540_1323",
+        "count": 1,
+        "name": "S-베어(세라핌)",
+        "image": "https://media.tmo.gg/production-a0d4859b-1f49-4d5a-8b1e-cc358a2035be",
+        "group": "세라핌",
+        "grade": "세라핌"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-7bf323f9-9ee4-403e-a042-172a7cb918a8"
+  },
+  {
+    "id": "68b11a3f88832cdee39b752a443da7ec",
+    "createdAt": "2026-11-18T12:21:46.298Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 3,
+      "difficulty": "신",
+      "elder": "나스쥬로",
+      "finalUnitCount": 5,
+      "gambleAbsalomAttempts": 0,
+      "gambleAbsalomSuccesses": 0,
+      "gambleHighAttempts": 4,
+      "gambleHighRare": 3,
+      "gambleHighSpecial": 1,
+      "gambleLowAttempts": 59,
+      "gambleLowCommon": 23,
+      "gambleLowUncommon": 25,
+      "gambleLumberAttempts": 30,
+      "gambleLumberSuccesses": 16,
+      "gambleMidAttempts": 0,
+      "gambleMidSuccesses": 0,
+      "mode": "일반 / 이세계",
+      "navigation": "최고의도움",
+      "node": "역발상",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 21015,
+      "selectionWispUsed": 43,
+      "topTierUnitCount": 1,
+      "treasureCommon": 2,
+      "treasureUncommon": 4,
+      "unitCount": 5,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 21015,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "C50h",
+        "count": 1,
+        "name": "핸콕(영원)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/hancocket.webp",
+        "group": "영원",
+        "grade": "영원"
+      },
+      {
+        "code": "V30h",
+        "count": 1,
+        "name": "코알라(왜곡됨)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/koala.webp",
+        "group": "왜곡됨",
+        "grade": "왜곡됨"
+      },
+      {
+        "code": "N20h",
+        "count": 1,
+        "name": "겟코모리아(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/moriald.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "unit_622e986a-d2e8-4fad-9d33-c2bdcbd3787b",
+        "count": 1,
+        "name": "맨마이어 군코(전설)",
+        "image": "https://media.tmo.gg/production-build-helper-one-piece-random-defense-de55c89ab98df89f2dac1ebf93c30761e0480483c252b962a7a7128ba15abe66.png",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "R20h",
+        "count": 1,
+        "name": "로브 루치(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/luccild.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "U20h",
+        "count": 1,
+        "name": "마샬.D.티치(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/teach.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "W20h",
+        "count": 1,
+        "name": "드래곤(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/dragon.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "Z90h",
+        "count": 1,
+        "name": "네코마무시(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/nekomamushi.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "640h",
+        "count": 1,
+        "name": "키쿠(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/kiku.png",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "S50h",
+        "count": 2,
+        "name": "도플라밍고(변화된)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/joker.webp",
+        "group": "변화된",
+        "grade": "변화된"
+      },
+      {
+        "code": "G10h",
+        "count": 1,
+        "name": "파이러츠 도킹 5(특별함)",
+        "image": "https://media.tmo.gg/production-5adaaf78-b0ad-417c-bd49-170dafa33d4e",
+        "group": "특별함",
+        "grade": "특별함"
+      },
+      {
+        "code": "P30h",
+        "count": 1,
+        "name": "발라티에(해적선)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/baratie.webp",
+        "group": "해적선",
+        "grade": "해적선"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-714627a9-a290-4bfd-9745-349981832176"
+  },
+  {
+    "id": "edfb5580d690db55e0b83f0481dffc18",
+    "createdAt": "2026-11-18T11:33:16.285Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 6,
+      "difficulty": "신",
+      "elder": "새턴",
+      "finalUnitCount": 13,
+      "gambleAbsalomAttempts": 1,
+      "gambleHighAttempts": 8,
+      "gambleHighRare": 4,
+      "gambleHighSpecial": 1,
+      "gambleLowAttempts": 31,
+      "gambleLowCommon": 10,
+      "gambleLowUncommon": 13,
+      "gambleLumberAttempts": 27,
+      "gambleLumberSuccesses": 15,
+      "gambleMidAttempts": 0,
+      "gambleMidSuccesses": 0,
+      "mode": "일반 / 이세계",
+      "navigation": "패왕의길",
+      "node": "바운티헌터",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 16240,
+      "selectionWispUsed": 34,
+      "topTierUnitCount": 1,
+      "treasureCommon": 5,
+      "treasureUncommon": 3,
+      "unitCount": 13,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 16240,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "H90H",
+        "count": 1,
+        "name": "상디(초월)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/sanjitr.webp",
+        "group": "초월",
+        "grade": "초월"
+      },
+      {
+        "code": "430h",
+        "count": 1,
+        "name": "상디(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/sanji2.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "780h",
+        "count": 1,
+        "name": "코즈키 토키(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/toki.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "8C0h",
+        "count": 1,
+        "name": "레오(전설)",
+        "image": "https://media.tmo.gg/production-build-helper-one-piece-random-defense-47fae6a08e64e4fab67c4112a7308f2c411e50ef824be7cabd70b52b1eae899a.png",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "unit_622e986a-d2e8-4fad-9d33-c2bdcbd3787b",
+        "count": 1,
+        "name": "맨마이어 군코(전설)",
+        "image": "https://media.tmo.gg/production-build-helper-one-piece-random-defense-de55c89ab98df89f2dac1ebf93c30761e0480483c252b962a7a7128ba15abe66.png",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "Q20h",
+        "count": 1,
+        "name": "라분(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/laboon.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "R20h",
+        "count": 1,
+        "name": "로브 루치(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/luccild.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "U20h",
+        "count": 1,
+        "name": "마샬.D.티치(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/teach.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "Z20h",
+        "count": 1,
+        "name": "바르톨로메오(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/bartolomeo.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "KC0h",
+        "count": 1,
+        "name": "카쿠(변화된)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/kaku.webp",
+        "group": "변화된",
+        "grade": "변화된"
+      },
+      {
+        "code": "S50h",
+        "count": 1,
+        "name": "도플라밍고(변화된)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/joker.webp",
+        "group": "변화된",
+        "grade": "변화된"
+      },
+      {
+        "code": "H00h",
+        "count": 1,
+        "name": "좀비(기타)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/zombie.png",
+        "group": "기타",
+        "grade": "기타"
+      },
+      {
+        "code": "unit_1779025246540_1323",
+        "count": 1,
+        "name": "S-베어(세라핌)",
+        "image": "https://media.tmo.gg/production-a0d4859b-1f49-4d5a-8b1e-cc358a2035be",
+        "group": "세라핌",
+        "grade": "세라핌"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-05d0c52f-0a0f-42a7-aa21-08d6a9aa4057"
+  },
+  {
+    "id": "5d307e0861bb73aa6fb5da496a5ee776",
+    "createdAt": "2026-11-18T10:43:08.881Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 6,
+      "difficulty": "신",
+      "elder": "워큐리",
+      "finalUnitCount": 9,
+      "gambleAbsalomAttempts": 3,
+      "gambleAbsalomSuccesses": 2,
+      "gambleHighAttempts": 14,
+      "gambleHighRare": 9,
+      "gambleLumberAttempts": 34,
+      "gambleLumberSuccesses": 19,
+      "gambleMidAttempts": 0,
+      "gambleMidSuccesses": 0,
+      "mode": "일반 / 이세계",
+      "navigation": "도박광",
+      "node": "카지노",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 16077,
+      "selectionWispUsed": 29,
+      "topTierUnitCount": 1,
+      "treasureCommon": 4,
+      "treasureUncommon": 1,
+      "unitCount": 9,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 16077,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "AA0H",
+        "count": 1,
+        "name": "베가펑크(초월)",
+        "image": "https://media.tmo.gg/production-0714ae8f-cc7f-495e-9175-8836c7741326",
+        "group": "초월",
+        "grade": "초월"
+      },
+      {
+        "code": "840h",
+        "count": 1,
+        "name": "페로나(왜곡됨)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/perona.webp",
+        "group": "왜곡됨",
+        "grade": "왜곡됨"
+      },
+      {
+        "code": "unit_1779023133532_2668",
+        "count": 1,
+        "name": "바제스(왜곡됨)",
+        "image": "https://media.tmo.gg/production-f1cbee80-c513-4fe3-a011-23f3625f9177",
+        "group": "왜곡됨",
+        "grade": "왜곡됨"
+      },
+      {
+        "code": "430h",
+        "count": 1,
+        "name": "상디(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/sanji2.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "630h",
+        "count": 1,
+        "name": "센고쿠(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/sengoku.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "780h",
+        "count": 1,
+        "name": "코즈키 토키(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/toki.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "unit_622e986a-d2e8-4fad-9d33-c2bdcbd3787b",
+        "count": 1,
+        "name": "맨마이어 군코(전설)",
+        "image": "https://media.tmo.gg/production-build-helper-one-piece-random-defense-de55c89ab98df89f2dac1ebf93c30761e0480483c252b962a7a7128ba15abe66.png",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "X20h",
+        "count": 1,
+        "name": "블랙마리아(전설)",
+        "image": "https://media.tmo.gg/production-d6904b6b-724a-411a-8bf9-b1f5fec4619c",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "Z30h",
+        "count": 1,
+        "name": "아카이누(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/akainu.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "KC0h",
+        "count": 1,
+        "name": "카쿠(변화된)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/kaku.webp",
+        "group": "변화된",
+        "grade": "변화된"
+      },
+      {
+        "code": "S50h",
+        "count": 1,
+        "name": "도플라밍고(변화된)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/joker.webp",
+        "group": "변화된",
+        "grade": "변화된"
+      },
+      {
+        "code": "H00h",
+        "count": 1,
+        "name": "좀비(기타)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/zombie.png",
+        "group": "기타",
+        "grade": "기타"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-ab8921df-968d-44d4-bbd7-1f6562fb5a3e"
+  },
+  {
+    "id": "f5c20d5cc04ae92711b5c7dde9fb46e8",
+    "createdAt": "2026-11-18T09:58:03.305Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 12,
+      "difficulty": "신",
+      "elder": "워큐리",
+      "finalUnitCount": 1,
+      "gambleHighAttempts": 6,
+      "gambleHighRare": 2,
+      "gambleHighSpecial": 3,
+      "gambleLowAttempts": 30,
+      "gambleLowCommon": 12,
+      "gambleLowUncommon": 9,
+      "gambleLumberAttempts": 3,
+      "gambleLumberSuccesses": 2,
+      "mode": "이세계",
+      "navigation": "연합세력",
+      "node": "일석이조",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 27429,
+      "selectionWispUsed": 43,
+      "topTierUnitCount": 2,
+      "treasureCommon": 3,
+      "treasureUncommon": 1,
+      "unitCount": 1,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 27429,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "F90H",
+        "count": 1,
+        "name": "조로(초월)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/zorotr.webp",
+        "group": "초월",
+        "grade": "초월"
+      },
+      {
+        "code": "F50h",
+        "count": 1,
+        "name": "크로커다일(제한됨)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/crocodileltd.webp",
+        "group": "제한됨",
+        "grade": "제한됨"
+      },
+      {
+        "code": "unit_1752903381904_1445",
+        "count": 1,
+        "name": "블랙마리아(왜곡됨)",
+        "image": "https://media.tmo.gg/production-d6904b6b-724a-411a-8bf9-b1f5fec4619c",
+        "group": "왜곡됨",
+        "grade": "왜곡됨"
+      },
+      {
+        "code": "830h",
+        "count": 1,
+        "name": "시저(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/caesar.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "F30h",
+        "count": 1,
+        "name": "카르가라(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/kalgara.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "unit_1752901441310_3608",
+        "count": 1,
+        "name": "쵸파 유력강화(전설)",
+        "image": "https://media.tmo.gg/production-8b615435-0338-4b96-be0b-1347f3155abf",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "W20h",
+        "count": 1,
+        "name": "드래곤(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/dragon.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "Y20h",
+        "count": 1,
+        "name": "루피 나이트메어(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/luffynmld.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "K50h",
+        "count": 1,
+        "name": "페로나(희귀함)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/perona.webp",
+        "group": "희귀함",
+        "grade": "희귀함"
+      },
+      {
+        "code": "unit_1779025675237_5632",
+        "count": 1,
+        "name": "S-호크(세라핌)",
+        "image": "https://media.tmo.gg/production-b6d27bfe-88e7-4be8-9d63-8e4ccd357853",
+        "group": "세라핌",
+        "grade": "세라핌"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-fefe6629-8982-43b2-ab03-bea24c0b97f3"
+  },
+  {
+    "id": "c898ecf9a20e83d78b5a033f16663d1d",
+    "createdAt": "2026-11-18T06:05:42.373Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 0,
+      "difficulty": "신",
+      "elder": "나스쥬로",
+      "finalUnitCount": 0,
+      "gambleHighAttempts": 5,
+      "gambleHighRare": 2,
+      "gambleHighSpecial": 2,
+      "gambleLowAttempts": 36,
+      "gambleLowCommon": 17,
+      "gambleLowUncommon": 15,
+      "gambleMidAttempts": 4,
+      "gambleMidSuccesses": 3,
+      "mode": "이세계",
+      "navigation": "최고의도움",
+      "node": "역발상",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 25458,
+      "selectionWispUsed": 48,
+      "topTierUnitCount": 1,
+      "treasureCommon": 6,
+      "treasureUncommon": 3,
+      "unitCount": 0,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 25458,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "unit_1760968958760_649",
+        "count": 1,
+        "name": "불릿(불멸)",
+        "image": "https://media.tmo.gg/production-21fdda9c-b78b-47cd-9ecb-beb3909ff805",
+        "group": "불멸",
+        "grade": "불멸"
+      },
+      {
+        "code": "230h",
+        "count": 1,
+        "name": "핸콕(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/hancock.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "A30h",
+        "count": 1,
+        "name": "레일리(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/rayleighld.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "B30h",
+        "count": 1,
+        "name": "흰수염(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/whitebeard.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "H30h",
+        "count": 1,
+        "name": "샬롯 크래커(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/cracker.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "T20h",
+        "count": 1,
+        "name": "마르코(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/marco.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "Z20h",
+        "count": 1,
+        "name": "바르톨로메오(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/bartolomeo.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "M30h",
+        "count": 1,
+        "name": "사보(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/sabo.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "Q30h",
+        "count": 1,
+        "name": "모비딕호(해적선)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/mobydick.webp",
+        "group": "해적선",
+        "grade": "해적선"
+      },
+      {
+        "code": "unit_1779025675237_5632",
+        "count": 1,
+        "name": "S-호크(세라핌)",
+        "image": "https://media.tmo.gg/production-b6d27bfe-88e7-4be8-9d63-8e4ccd357853",
+        "group": "세라핌",
+        "grade": "세라핌"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-53662c1f-e547-4ecf-8099-a63a7b9e31f8"
+  },
+  {
+    "id": "486999551feb7aef46d51a4e0f0577c3",
+    "createdAt": "2026-11-18T05:21:25.525Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 8,
+      "difficulty": "신",
+      "elder": "워큐리",
+      "finalUnitCount": 5,
+      "gambleAbsalomAttempts": 1,
+      "gambleAbsalomSuccesses": 1,
+      "gambleHighAttempts": 12,
+      "gambleHighRare": 8,
+      "gambleLumberAttempts": 4,
+      "gambleLumberSuccesses": 3,
+      "mode": "이세계",
+      "navigation": "도박광",
+      "node": "카지노",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 25726,
+      "selectionWispUsed": 39,
+      "topTierUnitCount": 1,
+      "treasureCommon": 7,
+      "treasureUncommon": 4,
+      "unitCount": 5,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 25726,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "850h",
+        "count": 1,
+        "name": "미호크(영원)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/mihawket.webp",
+        "group": "영원",
+        "grade": "영원"
+      },
+      {
+        "code": "unit_1779023133532_2668",
+        "count": 1,
+        "name": "바제스(왜곡됨)",
+        "image": "https://media.tmo.gg/production-f1cbee80-c513-4fe3-a011-23f3625f9177",
+        "group": "왜곡됨",
+        "grade": "왜곡됨"
+      },
+      {
+        "code": "780h",
+        "count": 1,
+        "name": "코즈키 토키(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/toki.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "E30h",
+        "count": 2,
+        "name": "코비(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/koby.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "unit_622e986a-d2e8-4fad-9d33-c2bdcbd3787b",
+        "count": 1,
+        "name": "맨마이어 군코(전설)",
+        "image": "https://media.tmo.gg/production-build-helper-one-piece-random-defense-de55c89ab98df89f2dac1ebf93c30761e0480483c252b962a7a7128ba15abe66.png",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "Z90h",
+        "count": 1,
+        "name": "네코마무시(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/nekomamushi.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "740h",
+        "count": 2,
+        "name": "피셔타이거(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/tiger.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "Y30h",
+        "count": 1,
+        "name": "이완코브(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/ivankov.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "G60h",
+        "count": 1,
+        "name": "토큰(기타)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/token.png",
+        "group": "기타",
+        "grade": "기타"
+      },
+      {
+        "code": "unit_1779025594661_4005",
+        "count": 1,
+        "name": "S-스네이크(세라핌)",
+        "image": "https://media.tmo.gg/production-5548e9fa-b86c-4666-91dd-c40e175f2522",
+        "group": "세라핌",
+        "grade": "세라핌"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-9f6a414e-b903-4374-8b40-d7b893d96ce7"
+  },
+  {
+    "id": "c20676b0f04333e202fbdedab174247c",
+    "createdAt": "2026-11-18T04:36:02.241Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 9,
+      "difficulty": "신",
+      "elder": "나스쥬로",
+      "finalUnitCount": 7,
+      "gambleAbsalomAttempts": 3,
+      "gambleHighAttempts": 7,
+      "gambleHighRare": 6,
+      "gambleHighSpecial": 1,
+      "gambleLowAttempts": 32,
+      "gambleLowCommon": 12,
+      "gambleLowUncommon": 12,
+      "gambleLumberAttempts": 2,
+      "gambleLumberSuccesses": 1,
+      "mode": "이세계",
+      "navigation": "패왕의길",
+      "node": "바운티헌터",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 25762,
+      "selectionWispUsed": 40,
+      "topTierUnitCount": 1,
+      "treasureCommon": 1,
+      "treasureUncommon": 2,
+      "unitCount": 7,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 25762,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "H90H",
+        "count": 1,
+        "name": "상디(초월)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/sanjitr.webp",
+        "group": "초월",
+        "grade": "초월"
+      },
+      {
+        "code": "unit_1779023133532_2668",
+        "count": 1,
+        "name": "바제스(왜곡됨)",
+        "image": "https://media.tmo.gg/production-f1cbee80-c513-4fe3-a011-23f3625f9177",
+        "group": "왜곡됨",
+        "grade": "왜곡됨"
+      },
+      {
+        "code": "130h",
+        "count": 1,
+        "name": "후지토라(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/fujitorald.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "780h",
+        "count": 1,
+        "name": "코즈키 토키(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/toki.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "8C0h",
+        "count": 1,
+        "name": "레오(전설)",
+        "image": "https://media.tmo.gg/production-build-helper-one-piece-random-defense-47fae6a08e64e4fab67c4112a7308f2c411e50ef824be7cabd70b52b1eae899a.png",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "unit_622e986a-d2e8-4fad-9d33-c2bdcbd3787b",
+        "count": 1,
+        "name": "맨마이어 군코(전설)",
+        "image": "https://media.tmo.gg/production-build-helper-one-piece-random-defense-de55c89ab98df89f2dac1ebf93c30761e0480483c252b962a7a7128ba15abe66.png",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "J30h",
+        "count": 2,
+        "name": "시류(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/shiryu.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "T30h",
+        "count": 1,
+        "name": "레베카(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/rebecca.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "KC0h",
+        "count": 1,
+        "name": "카쿠(변화된)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/kaku.webp",
+        "group": "변화된",
+        "grade": "변화된"
+      },
+      {
+        "code": "A10h",
+        "count": 1,
+        "name": "크로커다일(특별함)",
+        "image": "https://media.tmo.gg/production-f0e25ad7-4c7f-4a21-aec0-c2d364b3b17b",
+        "group": "특별함",
+        "grade": "특별함"
+      },
+      {
+        "code": "G10h",
+        "count": 1,
+        "name": "파이러츠 도킹 5(특별함)",
+        "image": "https://media.tmo.gg/production-5adaaf78-b0ad-417c-bd49-170dafa33d4e",
+        "group": "특별함",
+        "grade": "특별함"
+      },
+      {
+        "code": "Y00h",
+        "count": 1,
+        "name": "캡틴 키드(특별함)",
+        "image": "https://media.tmo.gg/production-1f0c0c53-f14d-49fa-bb52-76c009a54eb9",
+        "group": "특별함",
+        "grade": "특별함"
+      },
+      {
+        "code": "H20h",
+        "count": 1,
+        "name": "크로커다일(희귀함)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/crocodile.webp",
+        "group": "희귀함",
+        "grade": "희귀함"
+      },
+      {
+        "code": "unit_1779025246540_1323",
+        "count": 1,
+        "name": "S-베어(세라핌)",
+        "image": "https://media.tmo.gg/production-a0d4859b-1f49-4d5a-8b1e-cc358a2035be",
+        "group": "세라핌",
+        "grade": "세라핌"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-d648e66d-9b62-414b-b298-6ae7f6ecc48b"
+  },
+  {
+    "id": "3ea735bfc426c911da7abe47ddeaf836",
+    "createdAt": "2026-11-18T03:51:52.896Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 9,
+      "difficulty": "신",
+      "elder": "나스쥬로",
+      "finalUnitCount": 0,
+      "gambleLumberAttempts": 4,
+      "gambleLumberSuccesses": 2,
+      "gambleMidAttempts": 30,
+      "gambleMidSuccesses": 22,
+      "mode": "이세계",
+      "navigation": "도박광",
+      "node": "환전소",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 26339,
+      "selectionWispUsed": 57,
+      "topTierUnitCount": 1,
+      "treasureCommon": 2,
+      "unitCount": 0,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 26339,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "DB0H",
+        "count": 1,
+        "name": "야마토(초월)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/yamato.webp",
+        "group": "초월",
+        "grade": "초월"
+      },
+      {
+        "code": "unit_1752903381904_1445",
+        "count": 2,
+        "name": "블랙마리아(왜곡됨)",
+        "image": "https://media.tmo.gg/production-d6904b6b-724a-411a-8bf9-b1f5fec4619c",
+        "group": "왜곡됨",
+        "grade": "왜곡됨"
+      },
+      {
+        "code": "830h",
+        "count": 1,
+        "name": "시저(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/caesar.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "unit_1752901441310_3608",
+        "count": 1,
+        "name": "쵸파 유력강화(전설)",
+        "image": "https://media.tmo.gg/production-8b615435-0338-4b96-be0b-1347f3155abf",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "W20h",
+        "count": 1,
+        "name": "드래곤(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/dragon.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "540h",
+        "count": 1,
+        "name": "킬러(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/killer.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "T30h",
+        "count": 1,
+        "name": "레베카(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/rebecca.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "Y30h",
+        "count": 1,
+        "name": "이완코브(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/ivankov.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "G10h",
+        "count": 1,
+        "name": "파이러츠 도킹 5(특별함)",
+        "image": "https://media.tmo.gg/production-5adaaf78-b0ad-417c-bd49-170dafa33d4e",
+        "group": "특별함",
+        "grade": "특별함"
+      },
+      {
+        "code": "Y00h",
+        "count": 1,
+        "name": "캡틴 키드(특별함)",
+        "image": "https://media.tmo.gg/production-1f0c0c53-f14d-49fa-bb52-76c009a54eb9",
+        "group": "특별함",
+        "grade": "특별함"
+      },
+      {
+        "code": "K50h",
+        "count": 1,
+        "name": "페로나(희귀함)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/perona.webp",
+        "group": "희귀함",
+        "grade": "희귀함"
+      },
+      {
+        "code": "Q30h",
+        "count": 1,
+        "name": "모비딕호(해적선)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/mobydick.webp",
+        "group": "해적선",
+        "grade": "해적선"
+      },
+      {
+        "code": "unit_1779027698446_6586",
+        "count": 1,
+        "name": "S-샤크(세라핌)",
+        "image": "https://media.tmo.gg/production-295f5935-2e58-412c-9185-c3aa1280dce5",
+        "group": "세라핌",
+        "grade": "세라핌"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-fb4e14a2-ca56-41e9-9ead-3ac8390425bc"
+  },
+  {
+    "id": "26223ad4a6fa045e2676d44345deae11",
+    "createdAt": "2026-11-17T11:35:27.853Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 3,
+      "difficulty": "신",
+      "elder": "새턴",
+      "finalUnitCount": 0,
+      "gambleAbsalomAttempts": 1,
+      "gambleAbsalomSuccesses": 1,
+      "gambleHighAttempts": 7,
+      "gambleHighRare": 3,
+      "gambleLowAttempts": 39,
+      "gambleLowCommon": 9,
+      "gambleLowUncommon": 21,
+      "gambleLumberAttempts": 23,
+      "gambleLumberSuccesses": 15,
+      "gambleMidAttempts": 0,
+      "gambleMidSuccesses": 0,
+      "gambleOtherWorldAttempts": 2,
+      "gambleOtherWorldSuccesses": 1,
+      "mode": "일반 / 이세계",
+      "navigation": "패왕의길",
+      "node": "바운티헌터",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 21990,
+      "selectionWispUsed": 34,
+      "topTierUnitCount": 1,
+      "treasureCommon": 6,
+      "treasureUncommon": 3,
+      "unitCount": 0,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 21990,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "F40h",
+        "count": 1,
+        "name": "스코퍼가반(불멸)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/gaban.webp",
+        "group": "불멸",
+        "grade": "불멸"
+      },
+      {
+        "code": "8C0h",
+        "count": 1,
+        "name": "레오(전설)",
+        "image": "https://media.tmo.gg/production-build-helper-one-piece-random-defense-47fae6a08e64e4fab67c4112a7308f2c411e50ef824be7cabd70b52b1eae899a.png",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "unit_1752901441310_3608",
+        "count": 1,
+        "name": "쵸파 유력강화(전설)",
+        "image": "https://media.tmo.gg/production-8b615435-0338-4b96-be0b-1347f3155abf",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "MC0h",
+        "count": 1,
+        "name": "히바리(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/hibari.png",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "T20h",
+        "count": 1,
+        "name": "마르코(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/marco.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "V20h",
+        "count": 1,
+        "name": "스모커(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/smoker.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "W20h",
+        "count": 1,
+        "name": "드래곤(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/dragon.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "O30h",
+        "count": 1,
+        "name": "봉쿠레(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/bonkurei.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "T30h",
+        "count": 1,
+        "name": "레베카(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/rebecca.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "unit_1746886908796_490",
+        "count": 1,
+        "name": "이치의 율자(랜덤유닛)",
+        "image": "https://media.tmo.gg/production-d8b9ab5e-8a17-467a-aa66-082ae2220155",
+        "group": "랜덤유닛",
+        "grade": "랜덤유닛"
+      },
+      {
+        "code": "W50h",
+        "count": 1,
+        "name": "비비(변화된)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/vivi.webp",
+        "group": "변화된",
+        "grade": "변화된"
+      },
+      {
+        "code": "H10h",
+        "count": 1,
+        "name": "트라팔가 로우(특별함)",
+        "image": "https://media.tmo.gg/production-4ee89d54-37c9-4ff3-a833-daef77f2eb2e",
+        "group": "특별함",
+        "grade": "특별함"
+      },
+      {
+        "code": "U30h",
+        "count": 1,
+        "name": "레드포스호(해적선)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/redforce.webp",
+        "group": "해적선",
+        "grade": "해적선"
+      },
+      {
+        "code": "unit_1779025675237_5632",
+        "count": 1,
+        "name": "S-호크(세라핌)",
+        "image": "https://media.tmo.gg/production-b6d27bfe-88e7-4be8-9d63-8e4ccd357853",
+        "group": "세라핌",
+        "grade": "세라핌"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-9640775f-d3a8-4873-a22a-a6f760a847e5"
+  },
+  {
+    "id": "08a330823c186289ce4f1addfa5c057f",
+    "createdAt": "2026-11-17T10:49:31.286Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 39,
+      "difficulty": "신",
+      "elder": "워큐리",
+      "finalUnitCount": 31,
+      "gambleAbsalomAttempts": 0,
+      "gambleAbsalomSuccesses": 0,
+      "gambleHighAttempts": 10,
+      "gambleHighRare": 4,
+      "gambleHighSpecial": 4,
+      "gambleLowAttempts": 22,
+      "gambleLowCommon": 8,
+      "gambleLowUncommon": 9,
+      "gambleLumberAttempts": 4,
+      "gambleLumberSuccesses": 3,
+      "gambleMidAttempts": 0,
+      "gambleMidSuccesses": 0,
+      "mode": "일반 / 이세계",
+      "navigation": "연합세력",
+      "node": "긴급소집",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 20136,
+      "selectionWispUsed": 34,
+      "topTierUnitCount": 3,
+      "treasureCommon": 12,
+      "treasureUncommon": 0,
+      "unitCount": 31,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 20136,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "990H",
+        "count": 1,
+        "name": "루피(초월)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/luffytr.webp",
+        "group": "초월",
+        "grade": "초월"
+      },
+      {
+        "code": "F40h",
+        "count": 1,
+        "name": "스코퍼가반(불멸)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/gaban.webp",
+        "group": "불멸",
+        "grade": "불멸"
+      },
+      {
+        "code": "F50h",
+        "count": 1,
+        "name": "크로커다일(제한됨)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/crocodileltd.webp",
+        "group": "제한됨",
+        "grade": "제한됨"
+      },
+      {
+        "code": "540h",
+        "count": 1,
+        "name": "킬러(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/killer.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "D20h",
+        "count": 1,
+        "name": "캡틴 키드(희귀함)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/kid.webp",
+        "group": "희귀함",
+        "grade": "희귀함"
+      },
+      {
+        "code": "L50h",
+        "count": 1,
+        "name": "사보(희귀함)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/sabo.webp",
+        "group": "희귀함",
+        "grade": "희귀함"
+      },
+      {
+        "code": "unit_1779027698446_6586",
+        "count": 1,
+        "name": "S-샤크(세라핌)",
+        "image": "https://media.tmo.gg/production-295f5935-2e58-412c-9185-c3aa1280dce5",
+        "group": "세라핌",
+        "grade": "세라핌"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-3a153e2a-b318-4028-9324-e9192635e87a"
+  },
+  {
+    "id": "e03af3924bdd110c354e3d8ef8790aa9",
+    "createdAt": "2026-11-16T17:28:31.751Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 7,
+      "difficulty": "신",
+      "elder": "새턴",
+      "finalUnitCount": 4,
+      "gambleAbsalomAttempts": 3,
+      "gambleAbsalomSuccesses": 2,
+      "gambleHighAttempts": 7,
+      "gambleHighRare": 3,
+      "gambleHighSpecial": 2,
+      "gambleLowAttempts": 41,
+      "gambleLowCommon": 19,
+      "gambleLowUncommon": 17,
+      "gambleLumberAttempts": 12,
+      "gambleLumberSuccesses": 8,
+      "mode": "일반 / 이세계",
+      "navigation": "패왕의길",
+      "node": "바운티헌터",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 20913,
+      "selectionWispUsed": 40,
+      "topTierUnitCount": 1,
+      "treasureCommon": 6,
+      "treasureUncommon": 1,
+      "unitCount": 4,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 20913,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "B90H",
+        "count": 1,
+        "name": "우솝(초월)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/usopptr.webp",
+        "group": "초월",
+        "grade": "초월"
+      },
+      {
+        "code": "840h",
+        "count": 1,
+        "name": "페로나(왜곡됨)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/perona.webp",
+        "group": "왜곡됨",
+        "grade": "왜곡됨"
+      },
+      {
+        "code": "130h",
+        "count": 1,
+        "name": "후지토라(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/fujitorald.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "240h",
+        "count": 1,
+        "name": "시노부(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/shinobu.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "8C0h",
+        "count": 1,
+        "name": "레오(전설)",
+        "image": "https://media.tmo.gg/production-build-helper-one-piece-random-defense-47fae6a08e64e4fab67c4112a7308f2c411e50ef824be7cabd70b52b1eae899a.png",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "E30h",
+        "count": 2,
+        "name": "코비(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/koby.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "P20h",
+        "count": 1,
+        "name": "나미(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/namitr.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "140h",
+        "count": 1,
+        "name": "아오키지(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/aokiji.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "640h",
+        "count": 1,
+        "name": "키쿠(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/kiku.png",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "KC0h",
+        "count": 1,
+        "name": "카쿠(변화된)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/kaku.webp",
+        "group": "변화된",
+        "grade": "변화된"
+      },
+      {
+        "code": "H00h",
+        "count": 1,
+        "name": "좀비(기타)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/zombie.png",
+        "group": "기타",
+        "grade": "기타"
+      },
+      {
+        "code": "unit_1779025594661_4005",
+        "count": 1,
+        "name": "S-스네이크(세라핌)",
+        "image": "https://media.tmo.gg/production-5548e9fa-b86c-4666-91dd-c40e175f2522",
+        "group": "세라핌",
+        "grade": "세라핌"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-ab26b6b9-1ab7-451f-a993-652822a3a8af"
+  },
+  {
+    "id": "58637129de0370d19195f46e83ede52d",
+    "createdAt": "2026-11-16T16:42:47.499Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 4,
+      "difficulty": "신",
+      "elder": "나스쥬로",
+      "finalUnitCount": 8,
+      "gambleHighAttempts": 11,
+      "gambleHighRare": 2,
+      "gambleHighSpecial": 5,
+      "gambleLowAttempts": 10,
+      "gambleLowCommon": 4,
+      "gambleLowUncommon": 3,
+      "gambleLumberAttempts": 26,
+      "gambleLumberSuccesses": 14,
+      "gambleMidAttempts": 4,
+      "gambleMidSuccesses": 4,
+      "mode": "일반 / 이세계",
+      "navigation": "도박광",
+      "node": "리스크헷지",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 18752,
+      "selectionWispUsed": 39,
+      "topTierUnitCount": 1,
+      "treasureCommon": 2,
+      "treasureUncommon": 1,
+      "unitCount": 8,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 18752,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "090H",
+        "count": 1,
+        "name": "검은수염(초월)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/teachtr.webp",
+        "group": "초월",
+        "grade": "초월"
+      },
+      {
+        "code": "130h",
+        "count": 1,
+        "name": "후지토라(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/fujitorald.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "230h",
+        "count": 1,
+        "name": "핸콕(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/hancock.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "430h",
+        "count": 1,
+        "name": "상디(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/sanji2.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "unit_622e986a-d2e8-4fad-9d33-c2bdcbd3787b",
+        "count": 2,
+        "name": "맨마이어 군코(전설)",
+        "image": "https://media.tmo.gg/production-build-helper-one-piece-random-defense-de55c89ab98df89f2dac1ebf93c30761e0480483c252b962a7a7128ba15abe66.png",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "Z90h",
+        "count": 1,
+        "name": "네코마무시(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/nekomamushi.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "440h",
+        "count": 1,
+        "name": "류마(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/ryuma.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "KC0h",
+        "count": 1,
+        "name": "카쿠(변화된)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/kaku.webp",
+        "group": "변화된",
+        "grade": "변화된"
+      },
+      {
+        "code": "S50h",
+        "count": 1,
+        "name": "도플라밍고(변화된)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/joker.webp",
+        "group": "변화된",
+        "grade": "변화된"
+      },
+      {
+        "code": "L30h",
+        "count": 1,
+        "name": "써니호(해적선)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/sunny.webp",
+        "group": "해적선",
+        "grade": "해적선"
+      },
+      {
+        "code": "unit_1779025246540_1323",
+        "count": 1,
+        "name": "S-베어(세라핌)",
+        "image": "https://media.tmo.gg/production-a0d4859b-1f49-4d5a-8b1e-cc358a2035be",
+        "group": "세라핌",
+        "grade": "세라핌"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-4eaa88c6-be10-4804-99d4-1252e60ac0ad"
+  },
+  {
+    "id": "9da18533182fbb8aa8e741c4a308970c",
+    "createdAt": "2026-11-16T15:56:42.609Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 16,
+      "difficulty": "신",
+      "elder": "워큐리",
+      "finalUnitCount": 10,
+      "gambleHighAttempts": 5,
+      "gambleHighRare": 1,
+      "gambleHighSpecial": 3,
+      "gambleLowAttempts": 1,
+      "gambleLowCommon": 0,
+      "gambleLowUncommon": 1,
+      "gambleLumberAttempts": 25,
+      "gambleLumberSuccesses": 16,
+      "gambleMidAttempts": 0,
+      "gambleMidSuccesses": 0,
+      "gambleOtherWorldAttempts": 8,
+      "gambleOtherWorldSuccesses": 3,
+      "mode": "일반 / 이세계",
+      "navigation": "도박광",
+      "node": "리스크헷지",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 16714,
+      "selectionWispUsed": 35,
+      "topTierUnitCount": 2,
+      "treasureCommon": 8,
+      "treasureUncommon": 2,
+      "unitCount": 10,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 16714,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "750h",
+        "count": 1,
+        "name": "비비(영원)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/viviet.webp",
+        "group": "영원",
+        "grade": "영원"
+      },
+      {
+        "code": "I80h",
+        "count": 1,
+        "name": "쿠치키 바쿠야(신비함)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/bakuya.webp",
+        "group": "신비함",
+        "grade": "신비함"
+      },
+      {
+        "code": "780h",
+        "count": 1,
+        "name": "코즈키 토키(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/toki.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "Z20h",
+        "count": 1,
+        "name": "바르톨로메오(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/bartolomeo.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "L70h",
+        "count": 1,
+        "name": "캐럿(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/carrotcd.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "unit_1746886446335_7287",
+        "count": 1,
+        "name": "센토 이스즈(랜덤유닛)",
+        "image": "https://media.tmo.gg/production-6f95aaf0-0b69-413a-aecd-3b172fe244d8",
+        "group": "랜덤유닛",
+        "grade": "랜덤유닛"
+      },
+      {
+        "code": "G10h",
+        "count": 1,
+        "name": "파이러츠 도킹 5(특별함)",
+        "image": "https://media.tmo.gg/production-5adaaf78-b0ad-417c-bd49-170dafa33d4e",
+        "group": "특별함",
+        "grade": "특별함"
+      },
+      {
+        "code": "D20h",
+        "count": 1,
+        "name": "캡틴 키드(희귀함)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/kid.webp",
+        "group": "희귀함",
+        "grade": "희귀함"
+      },
+      {
+        "code": "Q30h",
+        "count": 1,
+        "name": "모비딕호(해적선)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/mobydick.webp",
+        "group": "해적선",
+        "grade": "해적선"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-b11ef389-f75d-48fd-bb2a-a37f3eb9d87b"
+  },
+  {
+    "id": "e84e8abe92b7476da88bab0d6dbb7fad",
+    "createdAt": "2026-11-16T14:57:18.903Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 42,
+      "difficulty": "신",
+      "elder": "미확인",
+      "finalUnitCount": 0,
+      "gambleHighAttempts": 5,
+      "gambleHighRare": 1,
+      "gambleHighSpecial": 3,
+      "gambleLowAttempts": 37,
+      "gambleLowCommon": 14,
+      "gambleLowUncommon": 16,
+      "gambleLumberAttempts": 3,
+      "gambleLumberSuccesses": 3,
+      "gambleMidAttempts": 0,
+      "gambleMidSuccesses": 0,
+      "gambleOtherWorldAttempts": 5,
+      "gambleOtherWorldSuccesses": 2,
+      "mode": "일반 / 이세계",
+      "navigation": "도박광",
+      "node": "리스크헷지",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 18882,
+      "selectionWispUsed": 30,
+      "topTierUnitCount": 3,
+      "treasureCommon": 6,
+      "treasureUncommon": 1,
+      "unitCount": 0,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 18882,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "A90H",
+        "count": 1,
+        "name": "징베(초월)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/jinbetr.webp",
+        "group": "초월",
+        "grade": "초월"
+      },
+      {
+        "code": "B50h",
+        "count": 1,
+        "name": "카벤딧슈(영원)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/cavendish.webp",
+        "group": "영원",
+        "grade": "영원"
+      },
+      {
+        "code": "R90h",
+        "count": 1,
+        "name": "쿠죠 죠타로(신비함)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/jotaro.webp",
+        "group": "신비함",
+        "grade": "신비함"
+      },
+      {
+        "code": "unit_1752903381904_1445",
+        "count": 1,
+        "name": "블랙마리아(왜곡됨)",
+        "image": "https://media.tmo.gg/production-d6904b6b-724a-411a-8bf9-b1f5fec4619c",
+        "group": "왜곡됨",
+        "grade": "왜곡됨"
+      },
+      {
+        "code": "540h",
+        "count": 1,
+        "name": "킬러(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/killer.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "O30h",
+        "count": 1,
+        "name": "봉쿠레(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/bonkurei.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "unit_1746886908796_490",
+        "count": 1,
+        "name": "이치의 율자(랜덤유닛)",
+        "image": "https://media.tmo.gg/production-d8b9ab5e-8a17-467a-aa66-082ae2220155",
+        "group": "랜덤유닛",
+        "grade": "랜덤유닛"
+      },
+      {
+        "code": "W50h",
+        "count": 1,
+        "name": "비비(변화된)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/vivi.webp",
+        "group": "변화된",
+        "grade": "변화된"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-fd98ca8d-33b7-46c0-a481-a9b8dd4877bf"
+  },
+  {
+    "id": "2b4998b5b2787c7d0ada9d9a24210ad7",
+    "createdAt": "2026-11-16T14:11:40.959Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 16,
+      "difficulty": "신",
+      "elder": "나스쥬로",
+      "finalUnitCount": 6,
+      "gambleHighAttempts": 9,
+      "gambleHighRare": 3,
+      "gambleHighSpecial": 4,
+      "gambleLowAttempts": 38,
+      "gambleLowCommon": 15,
+      "gambleLowUncommon": 18,
+      "gambleLumberAttempts": 0,
+      "gambleLumberSuccesses": 0,
+      "gambleMidAttempts": 4,
+      "gambleMidSuccesses": 3,
+      "gambleOtherWorldAttempts": 0,
+      "gambleOtherWorldSuccesses": 0,
+      "mode": "일반 / 이세계",
+      "navigation": "연합세력",
+      "node": "긴급소집",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 19471,
+      "selectionWispUsed": 35,
+      "topTierUnitCount": 1,
+      "treasureCommon": 1,
+      "treasureUncommon": 2,
+      "unitCount": 6,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 19471,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "R80h",
+        "count": 1,
+        "name": "오뎅(영원)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/oden.webp",
+        "group": "영원",
+        "grade": "영원"
+      },
+      {
+        "code": "V30h",
+        "count": 1,
+        "name": "코알라(왜곡됨)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/koala.webp",
+        "group": "왜곡됨",
+        "grade": "왜곡됨"
+      },
+      {
+        "code": "130h",
+        "count": 1,
+        "name": "후지토라(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/fujitorald.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "330h",
+        "count": 1,
+        "name": "레이쥬(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/reiju.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "Z90h",
+        "count": 1,
+        "name": "네코마무시(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/nekomamushi.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "550h",
+        "count": 1,
+        "name": "스튜시(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/stussy.png",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "J30h",
+        "count": 1,
+        "name": "시류(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/shiryu.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "L70h",
+        "count": 1,
+        "name": "캐럿(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/carrotcd.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "unit_4acd1ed7-cce4-4461-9056-cbe6677795d3",
+        "count": 1,
+        "name": "미스 골든위크(특수함)",
+        "image": "https://media.tmo.gg/production-build-helper-one-piece-random-defense-d8f62427940792a62698d3bce7213fffa2b3c2e2801046a8fd82a0dcb35c5a47.jpg",
+        "group": "특수함",
+        "grade": "특수함"
+      },
+      {
+        "code": "L30h",
+        "count": 1,
+        "name": "써니호(해적선)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/sunny.webp",
+        "group": "해적선",
+        "grade": "해적선"
+      },
+      {
+        "code": "unit_1779025594661_4005",
+        "count": 1,
+        "name": "S-스네이크(세라핌)",
+        "image": "https://media.tmo.gg/production-5548e9fa-b86c-4666-91dd-c40e175f2522",
+        "group": "세라핌",
+        "grade": "세라핌"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-7935e44a-4dc1-4166-91ac-0336242c3e99"
+  },
+  {
+    "id": "04620b0f0161fbc54cc420036f932253",
+    "createdAt": "2026-11-16T11:43:05.978Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 12,
+      "difficulty": "신",
+      "elder": "나스쥬로",
+      "finalUnitCount": 0,
+      "gambleAbsalomAttempts": 0,
+      "gambleHighAttempts": 7,
+      "gambleHighRare": 3,
+      "gambleHighSpecial": 2,
+      "gambleLowAttempts": 24,
+      "gambleLowCommon": 5,
+      "gambleLowUncommon": 17,
+      "gambleLumberAttempts": 35,
+      "gambleLumberSuccesses": 24,
+      "gambleMidAttempts": 0,
+      "gambleMidSuccesses": 0,
+      "gambleOtherWorldAttempts": 3,
+      "mode": "일반 / 이세계",
+      "navigation": "최고의도움",
+      "node": "역발상",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 14193,
+      "selectionWispUsed": 34,
+      "topTierUnitCount": 1,
+      "treasureCommon": 6,
+      "treasureUncommon": 5,
+      "unitCount": 0,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 14193,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "X80H",
+        "count": 1,
+        "name": "후지토라(초월)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/fujitoratr.webp",
+        "group": "초월",
+        "grade": "초월"
+      },
+      {
+        "code": "unit_1752903381904_1445",
+        "count": 1,
+        "name": "블랙마리아(왜곡됨)",
+        "image": "https://media.tmo.gg/production-d6904b6b-724a-411a-8bf9-b1f5fec4619c",
+        "group": "왜곡됨",
+        "grade": "왜곡됨"
+      },
+      {
+        "code": "V50h",
+        "count": 1,
+        "name": "에이스(왜곡됨)",
+        "image": "https://media.tmo.gg/production-dff812ef-d6d9-438c-966d-6c21ff487623",
+        "group": "왜곡됨",
+        "grade": "왜곡됨"
+      },
+      {
+        "code": "A30h",
+        "count": 1,
+        "name": "레일리(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/rayleighld.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "F30h",
+        "count": 1,
+        "name": "카르가라(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/kalgara.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "R20h",
+        "count": 1,
+        "name": "로브 루치(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/luccild.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "O30h",
+        "count": 1,
+        "name": "봉쿠레(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/bonkurei.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "unit_4acd1ed7-cce4-4461-9056-cbe6677795d3",
+        "count": 1,
+        "name": "미스 골든위크(특수함)",
+        "image": "https://media.tmo.gg/production-build-helper-one-piece-random-defense-d8f62427940792a62698d3bce7213fffa2b3c2e2801046a8fd82a0dcb35c5a47.jpg",
+        "group": "특수함",
+        "grade": "특수함"
+      },
+      {
+        "code": "W50h",
+        "count": 1,
+        "name": "비비(변화된)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/vivi.webp",
+        "group": "변화된",
+        "grade": "변화된"
+      },
+      {
+        "code": "G10h",
+        "count": 1,
+        "name": "파이러츠 도킹 5(특별함)",
+        "image": "https://media.tmo.gg/production-5adaaf78-b0ad-417c-bd49-170dafa33d4e",
+        "group": "특별함",
+        "grade": "특별함"
+      },
+      {
+        "code": "Y00h",
+        "count": 1,
+        "name": "캡틴 키드(특별함)",
+        "image": "https://media.tmo.gg/production-1f0c0c53-f14d-49fa-bb52-76c009a54eb9",
+        "group": "특별함",
+        "grade": "특별함"
+      },
+      {
+        "code": "U10h",
+        "count": 1,
+        "name": "바질 호킨스(희귀함)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/hawkinsrare.webp",
+        "group": "희귀함",
+        "grade": "희귀함"
+      },
+      {
+        "code": "P30h",
+        "count": 1,
+        "name": "발라티에(해적선)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/baratie.webp",
+        "group": "해적선",
+        "grade": "해적선"
+      },
+      {
+        "code": "unit_1779025675237_5632",
+        "count": 1,
+        "name": "S-호크(세라핌)",
+        "image": "https://media.tmo.gg/production-b6d27bfe-88e7-4be8-9d63-8e4ccd357853",
+        "group": "세라핌",
+        "grade": "세라핌"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-ad4502b5-7907-4af1-be89-a5c72c04d096"
+  },
+  {
+    "id": "30dcbdb9c41da1970149b796c13d7a9a",
+    "createdAt": "2026-11-16T10:56:03.833Z",
+    "difficulty": "신",
+    "categoryScores": {
+      "god-clear": 1
+    },
+    "statisticDatas": {
+      "commonSold": 9,
+      "difficulty": "신",
+      "elder": "나스쥬로",
+      "finalUnitCount": 0,
+      "gambleAbsalomAttempts": 0,
+      "gambleAbsalomSuccesses": 0,
+      "gambleHighAttempts": 4,
+      "gambleHighRare": 1,
+      "gambleHighSpecial": 2,
+      "gambleLowAttempts": 20,
+      "gambleLowCommon": 9,
+      "gambleLowUncommon": 8,
+      "gambleLumberAttempts": 19,
+      "gambleLumberSuccesses": 12,
+      "gambleMidAttempts": 4,
+      "gambleMidSuccesses": 2,
+      "gambleOtherWorldAttempts": 3,
+      "mode": "일반 / 이세계",
+      "navigation": "최고의도움",
+      "node": "역발상",
+      "playerName": "진싱진#3839",
+      "randomNode": false,
+      "score": 13668,
+      "selectionWispUsed": 33,
+      "topTierUnitCount": 1,
+      "treasureCommon": 6,
+      "treasureUncommon": 1,
+      "unitCount": 0,
+      "version": "원피스랜덤디펜스R 2.331"
+    },
+    "score": 13668,
+    "clearTime": null,
+    "mapChecksum": "FA8118D6047AE456C3FE3964B2CDBFDF",
+    "units": [
+      {
+        "code": "E90H",
+        "count": 1,
+        "name": "도플라밍고(초월)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/joker.webp",
+        "group": "초월",
+        "grade": "초월"
+      },
+      {
+        "code": "V50h",
+        "count": 1,
+        "name": "에이스(왜곡됨)",
+        "image": "https://media.tmo.gg/production-dff812ef-d6d9-438c-966d-6c21ff487623",
+        "group": "왜곡됨",
+        "grade": "왜곡됨"
+      },
+      {
+        "code": "830h",
+        "count": 1,
+        "name": "시저(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/caesar.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "A30h",
+        "count": 1,
+        "name": "레일리(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/rayleighld.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "H30h",
+        "count": 1,
+        "name": "샬롯 크래커(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/cracker.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "unit_1752901441310_3608",
+        "count": 1,
+        "name": "쵸파 유력강화(전설)",
+        "image": "https://media.tmo.gg/production-8b615435-0338-4b96-be0b-1347f3155abf",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "Z20h",
+        "count": 1,
+        "name": "바르톨로메오(전설)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/bartolomeo.webp",
+        "group": "전설",
+        "grade": "전설"
+      },
+      {
+        "code": "Y30h",
+        "count": 1,
+        "name": "이완코브(히든)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/ivankov.webp",
+        "group": "히든",
+        "grade": "히든"
+      },
+      {
+        "code": "X90h",
+        "count": 1,
+        "name": "X-드레이크(희귀함)",
+        "image": "https://raw.githubusercontent.com/tmo-gg/static.tmo.gg/main/ord-helper/images/drakerare.webp",
+        "group": "희귀함",
+        "grade": "희귀함"
+      },
+      {
+        "code": "unit_1779025675237_5632",
+        "count": 1,
+        "name": "S-호크(세라핌)",
+        "image": "https://media.tmo.gg/production-b6d27bfe-88e7-4be8-9d63-8e4ccd357853",
+        "group": "세라핌",
+        "grade": "세라핌"
+      }
+    ],
+    "image": "https://playimage.tmo.gg/production-5543b27b-abc4-4771-a30a-4c70576b2ee4"
+  }
+]

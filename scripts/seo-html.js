@@ -1,6 +1,6 @@
 const pages = [
   ['/', '首頁'], ['/lookup.html', '角色總覽與合成表'], ['/tree.html', '角色合成樹'],
-  ['/comp.html', '隊伍組成'], ['/comp_tree.html', '我的隊伍'],
+  ['/comp.html', '隊伍組成'], ['/comp_tree.html', '我的隊伍'], ['/clear-histories.html', '通關參考'],
   ['/recommend.html', '合成推薦助手'], ['/tips.html', '資訊與技巧'], ['/navigation.html', '航路資訊'],
   ['/patch-notes.html', '版本更新'], ['/about.html', '關於 ORD']
 ];

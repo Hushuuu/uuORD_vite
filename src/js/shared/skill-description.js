@@ -4,6 +4,14 @@ export const SKILL_MARKS = {
   buff: '增益', chance: '機率', important: '重要'
 };
 
+export const SKILL_ICON = `
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+    <path d="M12 6c-3-2-6-2-9-1v14c3-1 6-1 9 1 3-2 6-2 9-1V5c-3-1-6-1-9 1Z"/>
+    <path d="M12 6v14M6 9h3M6 12h3M15 9h3M15 12h3"/>
+  </svg>
+`;
+
 export function escapeSkillText(value) {
   return String(value ?? '').replace(/[&<>"']/g, (char) => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'

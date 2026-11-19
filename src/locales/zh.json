@@ -16,6 +16,7 @@
       "tree": "合成樹",
       "comp": "隊伍組成",
       "comp_tree": "我的隊伍",
+      "clear_histories": "通關參考",
       "recommend": "👑合成推薦",
       "patch_notes": "版本更新",
       "navigation": "航路資訊",
@@ -61,6 +62,36 @@
       "about_action": "關於這個網站"
     },
     "page": {
+      "clear_histories": {
+        "title": "通關參考｜ORDR 通關陣容",
+        "heading": "通關參考",
+        "description": "按難度查看 ORDR 通關陣容，展開紀錄可查看五老星、航法節點與通關剩餘單位數。",
+        "loading": "正在載入通關紀錄…",
+        "load_error": "無法載入通關紀錄，請重新整理頁面。",
+        "empty": "目前沒有通關紀錄。",
+        "no_units": "沒有單位資料",
+        "count": "{count} 筆紀錄",
+        "more": "顯示更多",
+        "details": "通關詳情",
+        "difficulty": "難度",
+        "skills_for": "{name}的技能說明",
+        "elder": "五老星",
+        "final_unit_count": "通關剩餘單位數",
+        "navigation": "航法",
+        "node": "節點",
+        "difficulties": {
+          "신": "神難度",
+          "악몽": "夢魘難度",
+          "지옥": "地獄難度"
+        },
+        "elders": {
+          "새턴": "薩坦",
+          "나스쥬로": "納斯壽郎",
+          "워큐리": "沃丘利",
+          "미확인": "未知",
+          "없음": "無"
+        }
+      },
       "patch_notes": {
         "title": "ORDR 版本更新公告",
         "description": "ORDR 版本更新公告。依版本查看角色平衡調整、系統更新與問題修正。",

@@ -1,0 +1,233 @@
+.clear-histories-header p {
+  margin: 8px 0 0;
+  color: var(--muted-color);
+  line-height: 1.6;
+}
+
+.clear-histories-content {
+  padding: 20px;
+}
+
+.no-js #clearHistoryStatus {
+  display: none;
+}
+
+.clear-difficulty-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.clear-difficulty-tabs [role="tab"] {
+  padding: 9px 14px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 6px 6px 0 0;
+  background: transparent;
+  color: var(--muted-color);
+  font: inherit;
+  cursor: pointer;
+}
+
+.clear-difficulty-tabs [role="tab"]:hover,
+.clear-difficulty-tabs [aria-selected="true"] {
+  background: var(--surface-alt-color);
+  color: var(--text-color);
+}
+
+.clear-difficulty-tabs [aria-selected="true"] {
+  border-bottom-color: #ffd28a;
+  color: #ffd28a;
+}
+
+.clear-group-count {
+  margin: 12px 0;
+}
+
+.clear-group-count,
+.clear-muted {
+  color: var(--muted-color);
+  font-size: 0.875rem;
+}
+
+.clear-history-list {
+  display: grid;
+  gap: 10px;
+}
+
+.clear-history {
+  background: var(--surface-alt-color);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.clear-difficulty-tabs [role="tab"]:focus-visible,
+.clear-history-heading:focus-visible,
+.clear-skill-button:focus-visible,
+.clear-load-more:focus-visible {
+  outline: 2px solid #ffd28a;
+  outline-offset: 2px;
+}
+
+.clear-history-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 10px 10px 0 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+
+.clear-history-heading:hover,
+.clear-history-heading[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.clear-history-player {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.clear-history-heading time {
+  color: var(--muted-color);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.clear-history-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-inline-start: auto;
+  color: #ffd28a;
+  font-size: 0.875rem;
+}
+
+.clear-history-action::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border: solid currentColor;
+  border-width: 0 1px 1px 0;
+  transform: rotate(45deg);
+}
+
+.clear-history-heading[aria-expanded="true"] .clear-history-action::after {
+  transform: rotate(225deg);
+}
+
+.clear-units {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 2px 14px 14px;
+}
+
+.clear-unit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 2px 4px 2px 8px;
+  border-radius: 6px;
+  background: var(--surface-color);
+}
+
+.clear-unit-name {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 0.875rem;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clear-unit-count {
+  flex: none;
+  color: #ffd28a;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.clear-unit .badge {
+  flex: none;
+  min-width: 0;
+  padding: 2px 8px;
+  font-size: 0.72rem;
+}
+
+.clear-skill-button {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #ffd28a;
+  cursor: pointer;
+}
+
+.clear-skill-button:hover {
+  background: rgba(255, 210, 138, 0.14);
+}
+
+.clear-history-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  margin: 0;
+  padding: 14px;
+  border-top: 1px solid var(--border-color);
+}
+
+.clear-history-metadata[hidden] {
+  display: none;
+}
+
+.clear-history-metadata dt {
+  margin-bottom: 4px;
+  color: var(--muted-color);
+  font-size: 0.8rem;
+}
+
+.clear-history-metadata dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.clear-history-metadata > div {
+  min-width: 0;
+}
+
+.clear-load-more {
+  margin-top: 12px;
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: var(--surface-alt-color);
+  color: var(--text-color);
+  font: inherit;
+  cursor: pointer;
+}
+
+.clear-load-more:hover {
+  border-color: #ffd28a;
+}
+
+@media (max-width: 600px) {
+  .clear-histories-content {
+    padding: 12px;
+  }
+}

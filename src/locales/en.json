@@ -16,6 +16,7 @@
       "tree": "Craft Tree",
       "comp": "Team Builder",
       "comp_tree": "My Teams",
+      "clear_histories": "Clear Examples",
       "recommend": "👑Recommend",
       "patch_notes": "Patch Notes",
       "navigation": "Navigation Guide",
@@ -61,6 +62,36 @@
       "about_action": "About this site"
     },
     "page": {
+      "clear_histories": {
+        "title": "Clear Examples | ORDR Teams",
+        "heading": "Clear Examples",
+        "description": "Browse ORDR clear teams by difficulty and expand each run to see its elder, navigation node, and remaining unit count.",
+        "loading": "Loading clear datas…",
+        "load_error": "Could not load clear datas. Refresh the page to try again.",
+        "empty": "No clears recorded yet.",
+        "no_units": "No unit data",
+        "count": "Runs: {count}",
+        "more": "Show more",
+        "details": "Run details",
+        "difficulty": "Difficulty",
+        "skills_for": "Skill descriptions for {name}",
+        "elder": "Elder",
+        "final_unit_count": "Remaining units",
+        "navigation": "Navigation",
+        "node": "Node",
+        "difficulties": {
+          "신": "God",
+          "악몽": "Nightmare",
+          "지옥": "Hell"
+        },
+        "elders": {
+          "새턴": "Saturn",
+          "나스쥬로": "Nusjuro",
+          "워큐리": "Warcury",
+          "미확인": "Unknown",
+          "없음": "None"
+        }
+      },
       "patch_notes": {
         "title": "ORDR Patch Notes",
         "description": "ORDR patch notes archive. Browse balance changes, system updates, and fixes by version.",

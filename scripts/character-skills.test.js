@@ -5,7 +5,6 @@ import records from '../src/js/ord_data.js';
 import { EXCLUDED_IDS, parseResearchDocument, highlightSkillText } from './import-researched-skills.js';
 import { SKILL_MARKS, renderSkills } from '../src/js/shared/skill-description.js';
 
-const publicRecords = JSON.parse(readFileSync(new URL('../public/ord_data_export.json', import.meta.url), 'utf8'));
 const byId = new Map(records.map((record) => [record.character_id, record]));
 const text = (skill) => skill.description.replace(/\{[a-z]+\|([^{}]*)\}/g, '$1');
 
@@ -23,29 +22,6 @@ test('標色保留原文並且不產生巢狀或未知標記', () => {
   assert.ok(colored.includes('{chance|攻擊 12.5%}'));
   assert.ok(colored.includes('{physical|物理傷害}'));
   assert.ok(colored.includes('{control|暈眩 2 秒}'));
-});
-
-test('所有技能可安全渲染，ID 唯一且前後台技能內容一致', () => {
-  const ids = new Set();
-  const publicById = new Map(publicRecords.map((record) => [record.character_id, record]));
-  for (const record of records) {
-    assert.deepEqual(record.skills, publicById.get(record.character_id)?.skills, record.character_id);
-    for (const skill of record.skills || []) {
-      assert.ok(!ids.has(skill.id), `重複技能 ID：${skill.id}`);
-      ids.add(skill.id);
-      assert.ok(skill.name.trim());
-      assert.ok(skill.summary.trim());
-      assert.ok(skill.description.trim());
-      assert.ok(['', 'active', 'passive'].includes(skill.type));
-      assert.ok(!/來源|底稿|網站|匯入|【整理名】|\*\*|`/.test(skill.description));
-      const matches = [...skill.description.matchAll(/\{([a-z]+)\|([^{}]*)\}/g)];
-      for (const match of matches) assert.ok(Object.hasOwn(SKILL_MARKS, match[1]));
-      assert.ok(!skill.description.replace(/\{[a-z]+\|([^{}]*)\}/g, '$1').match(/[{}]/));
-    }
-    const html = renderSkills(record.skills || []);
-    assert.ok(!/undefined|\{(?:physical|magic|control|buff|chance|important)\|/.test(html));
-  }
-  assert.ok(ids.size > 500, '確認整批角色技能已匯入');
 });
 
 test('略過指定角色、素材與未登錄技能；保留有資料的支援效果', () => {

@@ -19,6 +19,7 @@ const PAGE_TITLE_KEYS = {
   tree: 'seo.tree.title',
   comp: 'seo.comp.title',
   comp_tree: 'seo.comp_tree.title',
+  clear_histories: 'page.clear_histories.title',
   recommend: 'seo.recommend.title',
   patch_notes: 'page.patch_notes.title',
   maintenance: 'page.maintenance.title',
@@ -32,6 +33,7 @@ const PAGE_MODULES = {
   tree: () => import('./pages/tree-page.js'),
   comp: () => import('./pages/comp-page.js'),
   comp_tree: () => import('./pages/comp-page.js').then((module) => ({ default: module.initCompTreePage })),
+  clear_histories: () => import('./pages/clear-histories-page.js'),
   recommend: () => import('./pages/recommend-page.js'),
   maintenance: () => import('./pages/maintenance-page.js'),
   patch_notes: () => import('./pages/patch-notes-page.js')

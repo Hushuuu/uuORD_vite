@@ -1,9 +1,8 @@
-import { getSkills } from '../shared/skill-description.js';
+import { getSkills, SKILL_ICON } from '../shared/skill-description.js';
 
 const actionIcon = (paths) => `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${paths}</svg>`;
 const ACTION_ICONS = {
   upward: actionIcon('<path d="M12 20v-7M5 10V5h14v5M5 5v-2M19 5V3M12 13V5"/><path d="m9 16 3-3 3 3"/>'),
-  skills: actionIcon('<path d="M12 6c-3-2-6-2-9-1v14c3-1 6-1 9 1 3-2 6-2 9-1V5c-3-1-6-1-9 1Z"/><path d="M12 6v14M6 9h3M6 12h3M15 9h3M15 12h3"/>'),
   pin: actionIcon('<path d="M9 3h6M9 3v6l-3 3v3h12v-3l-3-3V3M12 15v7"/>'),
   dismiss: actionIcon('<path d="m6 6 12 12M18 6 6 18"/>')
 };
@@ -12,7 +11,7 @@ function renderRecommendationActions(record, indices, getDisplayName, escapeHtml
   const action = (data, label, icon, extra = '') => `<button type="button" class="recommend-card-action ${data === 'pinned-character' ? 'pinned-character-btn' : ''}" data-${data}="${escapeHtml(record.character_id)}" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}" ${extra}>${icon}</button>`;
   return `<div class="recommend-card-actions">
     ${renderUpwardCharacterAction(record, indices, getDisplayName, escapeHtml, translate)}
-    ${getSkills(record).length ? action('view-skills', translate('recommend.actions.skills'), ACTION_ICONS.skills, 'aria-haspopup="dialog"') : ''}
+    ${getSkills(record).length ? action('view-skills', translate('recommend.actions.skills'), SKILL_ICON, 'aria-haspopup="dialog"') : ''}
     ${action('pinned-character', translate(isPinned ? 'recommend.actions.unpin' : 'recommend.actions.pin'), ACTION_ICONS.pin, `aria-pressed="${Boolean(isPinned)}"`)}
     ${canDismiss ? action('dismiss-character', translate('recommend.actions.dismiss'), ACTION_ICONS.dismiss) : ''}
   </div>`;
