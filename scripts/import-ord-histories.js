@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, readFile, rename, rm, rmdir, writeFile } from 'node:fs/
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const endpoint = 'https://tmo.gg/_api/ranks/ordr2/users/%EC%A7%84%EC%8B%B1/histories';
+const defaultUser = '해루기';
 const dataDirectory = fileURLToPath(new URL('../src/data/', import.meta.url));
 const outputPath = join(dataDirectory, 'ord-clear-histories.json');
 const cutoffPath = join(dataDirectory, 'ord-clear-histories-cutoff.json');
@@ -72,10 +72,10 @@ function normalizeHistory(history) {
   };
 }
 
-async function fetchHistories() {
+async function fetchHistories(user) {
   const histories = [];
   const seenCursors = new Set();
-  const url = new URL(endpoint);
+  const url = new URL(`https://tmo.gg/_api/ranks/ordr2/users/${encodeURIComponent(user)}/histories`);
 
   while (true) {
     const response = await fetch(url, { signal: AbortSignal.timeout(15000) });
@@ -168,8 +168,8 @@ async function saveHistories(histories, pruneBefore = null) {
 async function main() {
   const args = process.argv.slice(2);
   const [option, value] = args;
-  if (args.length > 0 && (args.length !== 2 || !['--from-file', '--prune-before'].includes(option))) {
-    throw new Error('用法：npm run import:histories [-- --from-file <JSON 路徑> | --prune-before <YYYY-MM-DD>]');
+  if (args.length > 0 && (args.length !== 2 || !['--user', '--from-file', '--prune-before'].includes(option))) {
+    throw new Error('用法：node scripts/import-ord-histories.js [--user <使用者名稱> | --from-file <JSON 路徑> | --prune-before <YYYY-MM-DD>]');
   }
   if (option === '--prune-before') {
     getCutoffTimestamp(value);
@@ -177,7 +177,13 @@ async function main() {
     return;
   }
 
-  const payload = option === '--from-file' ? JSON.parse(await readFile(value, 'utf8')) : await fetchHistories();
+  const user = option === '--user' ? value : defaultUser;
+  if (!user.trim() || user === '.' || user === '..') {
+    throw new Error('請輸入有效的 TMO 使用者名稱。');
+  }
+  const payload = option === '--from-file'
+    ? JSON.parse(await readFile(value, 'utf8'))
+    : await fetchHistories(user);
   const histories = Array.isArray(payload) ? payload : payload?.histories;
   if (!Array.isArray(histories)) throw new Error('匯入資料缺少 histories 陣列。');
 
