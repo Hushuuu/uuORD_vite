@@ -43,7 +43,7 @@ const ORD_DATA = [
     "en_name": "Greenblood",
     "materials": [],
     "key_code": "",
-    "remark": "限God/Nightmare難度，故事蛋頭島完成獲得，用在頂級或熾天使角色",
+    "remark": "限God/Nightmare難度，蛋頭島完成獲得，用在傳說/隱藏角色",
     "major": "",
     "suitable_partners": [],
     "skill_types": []
@@ -80,7 +80,7 @@ const ORD_DATA = [
     "en_name": "Awakening Points",
     "materials": [],
     "key_code": "",
-    "remark": "累積存檔次數/擊敗琵卡/地圖右側門擊破+大將/選特定記錄指針可購買",
+    "remark": "累積存檔次數/琵卡任務/地圖右側門擊破+大將/航路-特性工程可額外購買",
     "major": "",
     "suitable_partners": [],
     "skill_types": []
@@ -1324,7 +1324,7 @@ const ORD_DATA = [
       },
       "stl-5-2": {
         "value": 0.5,
-        "remark": "40%"
+        "remark": ""
       }
     },
     "skills": [
@@ -1537,7 +1537,7 @@ const ORD_DATA = [
     "skill_values": {
       "stl-1-1": {
         "value": 35,
-        "remark": "25/50s"
+        "remark": "25"
       }
     },
     "skills": [
@@ -1623,7 +1623,7 @@ const ORD_DATA = [
       },
       "stl-1-1": {
         "value": 20,
-        "remark": "15/35s"
+        "remark": "15"
       }
     },
     "skills": [
@@ -1915,7 +1915,7 @@ const ORD_DATA = [
       },
       "stl-5-2": {
         "value": 0.95,
-        "remark": "10%"
+        "remark": ""
       }
     },
     "skills": [
@@ -2996,7 +2996,7 @@ const ORD_DATA = [
     "skill_values": {
       "stl-4-2": {
         "value": 15,
-        "remark": "boss40"
+        "remark": ""
       },
       "stl-5-1": {
         "value": null,
@@ -3149,7 +3149,7 @@ const ORD_DATA = [
     "skill_values": {
       "stl-1-2": {
         "value": 150,
-        "remark": "12/50s技"
+        "remark": "12"
       },
       "stl-1-3": {
         "value": null,
@@ -3161,7 +3161,7 @@ const ORD_DATA = [
       },
       "stl-5-3": {
         "value": 33,
-        "remark": "12.5% boss50"
+        "remark": ""
       },
       "stl-6-2": {
         "value": null,
@@ -3309,7 +3309,7 @@ const ORD_DATA = [
     "skill_values": {
       "stl-1-1": {
         "value": 20,
-        "remark": "5s/sp技"
+        "remark": "5s"
       },
       "stl-2-3": {
         "value": null,
@@ -3321,11 +3321,11 @@ const ORD_DATA = [
       },
       "stl-7-1": {
         "value": 1,
-        "remark": "5s/sp技"
+        "remark": "5s"
       },
       "stl-7-2": {
         "value": 1,
-        "remark": "5s/sp技"
+        "remark": "5s"
       },
       "stl-8-2": {
         "value": null,
@@ -3740,11 +3740,11 @@ const ORD_DATA = [
     "skill_values": {
       "stl-1-1": {
         "value": 19,
-        "remark": "主動永久/240s"
+        "remark": "主動永久"
       },
       "stl-1-2": {
         "value": 9,
-        "remark": "主動永久/240s"
+        "remark": "主動永久"
       },
       "stl-4-2": {
         "value": 25,
@@ -3819,7 +3819,7 @@ const ORD_DATA = [
       },
       "stl-5-3": {
         "value": 42,
-        "remark": "8.8%"
+        "remark": ""
       },
       "stl-8-2": {
         "value": null,
@@ -3903,7 +3903,7 @@ const ORD_DATA = [
       },
       "stl-5-2": {
         "value": 3,
-        "remark": "sp技"
+        "remark": ""
       },
       "stl-8-1": {
         "value": null,
@@ -4474,7 +4474,7 @@ const ORD_DATA = [
       },
       "stl-5-3": {
         "value": 50,
-        "remark": "16%"
+        "remark": ""
       },
       "stl-8-1": {
         "value": null,
@@ -4707,7 +4707,7 @@ const ORD_DATA = [
       },
       "stl-4-2": {
         "value": 15,
-        "remark": "boss30"
+        "remark": ""
       },
       "stl-5-1": {
         "value": null,
@@ -4719,7 +4719,7 @@ const ORD_DATA = [
       },
       "stl-5-3": {
         "value": 25,
-        "remark": "11%"
+        "remark": ""
       },
       "stl-6-3": {
         "value": null,
@@ -4792,11 +4792,11 @@ const ORD_DATA = [
     "skill_values": {
       "stl-4-2": {
         "value": 10,
-        "remark": "故事45"
+        "remark": ""
       },
       "stl-5-2": {
         "value": 2.75,
-        "remark": "10%"
+        "remark": ""
       },
       "stl-5-3": {
         "value": 10,
@@ -4943,7 +4943,7 @@ const ORD_DATA = [
     "skill_values": {
       "stl-1-1": {
         "value": 40,
-        "remark": "10%"
+        "remark": ""
       },
       "stl-1-5": {
         "value": null,
@@ -4951,7 +4951,7 @@ const ORD_DATA = [
       },
       "stl-4-2": {
         "value": 20,
-        "remark": "10%"
+        "remark": ""
       },
       "stl-5-3": {
         "value": 20,
@@ -5033,7 +5033,7 @@ const ORD_DATA = [
       },
       "stl-3-2": {
         "value": 5,
-        "remark": "hp技"
+        "remark": ""
       },
       "stl-5-3": {
         "value": 30,
@@ -5165,7 +5165,7 @@ const ORD_DATA = [
     "skill_values": {
       "stl-5-2": {
         "value": 2.4,
-        "remark": "14%"
+        "remark": ""
       },
       "stl-5-3": {
         "value": 24,
@@ -5218,7 +5218,7 @@ const ORD_DATA = [
     "skill_values": {
       "stl-5-2": {
         "value": 2.25,
-        "remark": "27%"
+        "remark": ""
       }
     },
     "skills": [
@@ -5274,7 +5274,7 @@ const ORD_DATA = [
     "skill_values": {
       "stl-5-2": {
         "value": 2,
-        "remark": "10%"
+        "remark": ""
       }
     },
     "skills": [
@@ -5756,15 +5756,15 @@ const ORD_DATA = [
       },
       "stl-1-1": {
         "value": 45,
-        "remark": "50/30s"
+        "remark": "50"
       },
       "stl-5-2": {
         "value": 1.8,
-        "remark": "12%"
+        "remark": ""
       },
       "stl-7-2": {
         "value": 1,
-        "remark": "50/30s"
+        "remark": "50"
       }
     },
     "skills": [
@@ -6050,15 +6050,15 @@ const ORD_DATA = [
     "skill_values": {
       "stl-5-3": {
         "value": 10,
-        "remark": "mp技"
+        "remark": ""
       },
       "stl-5-2": {
         "value": 1.2,
-        "remark": "mp技"
+        "remark": ""
       },
       "stl-1-6": {
         "value": 10,
-        "remark": "mp技"
+        "remark": ""
       }
     },
     "skills": [
@@ -6110,7 +6110,7 @@ const ORD_DATA = [
       },
       "stl-5-2": {
         "value": 2,
-        "remark": "17%"
+        "remark": ""
       }
     },
     "skills": [
@@ -6303,7 +6303,7 @@ const ORD_DATA = [
     "skill_values": {
       "stl-4-2": {
         "value": 15,
-        "remark": "技"
+        "remark": ""
       },
       "stl-4-4": {
         "value": null,
@@ -6471,7 +6471,7 @@ const ORD_DATA = [
     "skill_values": {
       "stl-2-2": {
         "value": 3,
-        "remark": "14%"
+        "remark": ""
       },
       "stl-4-2": {
         "value": 20,
@@ -6599,7 +6599,7 @@ const ORD_DATA = [
       },
       "stl-5-1": {
         "value": 2.75,
-        "remark": "16%"
+        "remark": ""
       },
       "stl-5-3": {
         "value": 10,
@@ -6658,7 +6658,7 @@ const ORD_DATA = [
       },
       "stl-5-2": {
         "value": 1.7,
-        "remark": "10%"
+        "remark": ""
       },
       "stl-1-6": {
         "value": 10,
@@ -6801,7 +6801,7 @@ const ORD_DATA = [
       },
       "stl-5-2": {
         "value": 1.25,
-        "remark": "sp技"
+        "remark": ""
       }
     },
     "skills": [
@@ -6861,7 +6861,7 @@ const ORD_DATA = [
     "skill_values": {
       "stl-4-2": {
         "value": 20,
-        "remark": "14%"
+        "remark": ""
       },
       "stl-7-1": {
         "value": 1
@@ -6871,7 +6871,7 @@ const ORD_DATA = [
       },
       "stl-5-2": {
         "value": 0.95,
-        "remark": "15%"
+        "remark": ""
       }
     },
     "skills": [
@@ -6935,11 +6935,11 @@ const ORD_DATA = [
       },
       "stl-5-3": {
         "value": 40,
-        "remark": "6s/60s"
+        "remark": "6s"
       },
       "stl-5-2": {
         "value": 3.5,
-        "remark": "5s/36s"
+        "remark": "5s"
       }
     },
     "skills": [
@@ -7129,7 +7129,7 @@ const ORD_DATA = [
       },
       "stl-5-2": {
         "value": 1.5,
-        "remark": "sp技"
+        "remark": ""
       }
     },
     "skills": [
@@ -7175,7 +7175,7 @@ const ORD_DATA = [
       }
     ],
     "key_code": "",
-    "remark": "木頭*10",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -7211,7 +7211,7 @@ const ORD_DATA = [
       }
     ],
     "key_code": "",
-    "remark": "木頭*10",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -7248,7 +7248,7 @@ const ORD_DATA = [
       }
     ],
     "key_code": "",
-    "remark": "木頭*10",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -7301,7 +7301,7 @@ const ORD_DATA = [
       }
     ],
     "key_code": "",
-    "remark": "木頭*10",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -7338,7 +7338,7 @@ const ORD_DATA = [
       }
     ],
     "key_code": "",
-    "remark": "木頭*10",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -7431,7 +7431,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "A"
+        "remark": ""
       }
     },
     "skills": [
@@ -7509,7 +7509,7 @@ const ORD_DATA = [
       },
       "stl-1-4": {
         "value": 18,
-        "remark": "sp技"
+        "remark": ""
       },
       "stl-3-2": {
         "value": null,
@@ -7525,11 +7525,11 @@ const ORD_DATA = [
       },
       "stl-5-2": {
         "value": 3,
-        "remark": "sp技"
+        "remark": ""
       },
       "stl-5-3": {
         "value": 35,
-        "remark": "sp技"
+        "remark": ""
       },
       "stl-6-2": {
         "value": null,
@@ -7638,7 +7638,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "B"
+        "remark": ""
       }
     },
     "skills": [
@@ -7729,7 +7729,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "C"
+        "remark": ""
       }
     },
     "skills": [
@@ -7826,7 +7826,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "F"
+        "remark": ""
       }
     },
     "skills": [
@@ -7888,7 +7888,7 @@ const ORD_DATA = [
       },
       "stl-4-2": {
         "value": 30,
-        "remark": "14.25%"
+        "remark": ""
       },
       "stl-4-4": {
         "value": null,
@@ -7900,7 +7900,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "D"
+        "remark": ""
       }
     },
     "skills": [
@@ -7991,7 +7991,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "D"
+        "remark": ""
       }
     },
     "skills": [
@@ -8063,11 +8063,11 @@ const ORD_DATA = [
       },
       "stl-5-1": {
         "value": 3,
-        "remark": "33%"
+        "remark": ""
       },
       "stl-5-3": {
         "value": 50,
-        "remark": "8%"
+        "remark": ""
       },
       "stl-6-3": {
         "value": null,
@@ -8075,7 +8075,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "D"
+        "remark": ""
       }
     },
     "skills": [
@@ -8127,7 +8127,7 @@ const ORD_DATA = [
       }
     ],
     "key_code": "",
-    "remark": "5000金+",
+    "remark": "",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -8156,7 +8156,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "A"
+        "remark": ""
       }
     },
     "skills": [
@@ -8243,7 +8243,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "C(人形)"
+        "remark": ""
       }
     },
     "skills": [
@@ -8278,7 +8278,7 @@ const ORD_DATA = [
     "en_name": "Kuma (Transcend Material)",
     "materials": [],
     "key_code": "",
-    "remark": "故事第10間完成取得(唯一素材)",
+    "remark": "故事第10間完成(唯一)",
     "major": "",
     "suitable_partners": []
   },
@@ -8345,7 +8345,7 @@ const ORD_DATA = [
       },
       "stl-5-2": {
         "value": 2.75,
-        "remark": "10% 約克"
+        "remark": "約克"
       },
       "stl-5-3": {
         "value": 40,
@@ -8357,7 +8357,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "A"
+        "remark": ""
       }
     },
     "skills": [
@@ -8468,7 +8468,7 @@ const ORD_DATA = [
       },
       "stl-5-2": {
         "value": 2.75,
-        "remark": "10% 約克"
+        "remark": "約克"
       },
       "stl-5-3": {
         "value": 40,
@@ -8480,7 +8480,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "A"
+        "remark": ""
       }
     },
     "skills": [
@@ -8591,7 +8591,7 @@ const ORD_DATA = [
       },
       "stl-5-2": {
         "value": 2.75,
-        "remark": "10% 約克"
+        "remark": "約克"
       },
       "stl-5-3": {
         "value": 40,
@@ -8603,7 +8603,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "A"
+        "remark": ""
       }
     },
     "skills": [
@@ -8714,7 +8714,7 @@ const ORD_DATA = [
       },
       "stl-5-2": {
         "value": 2.75,
-        "remark": "10% 約克"
+        "remark": "約克"
       },
       "stl-5-3": {
         "value": 40,
@@ -8726,7 +8726,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "A"
+        "remark": ""
       }
     },
     "skills": [
@@ -8827,7 +8827,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "F"
+        "remark": ""
       }
     },
     "skills": [
@@ -8892,7 +8892,7 @@ const ORD_DATA = [
       }
     ],
     "key_code": "zoro tr",
-    "remark": "能力點 * 4  + 秋水可升兩次",
+    "remark": "秋水道具可另外提升",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -8921,7 +8921,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "A"
+        "remark": ""
       }
     },
     "skills": [
@@ -9013,7 +9013,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "B"
+        "remark": ""
       }
     },
     "skills": [
@@ -9107,7 +9107,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "A"
+        "remark": ""
       }
     },
     "skills": [
@@ -9201,7 +9201,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "B"
+        "remark": ""
       }
     },
     "skills": [
@@ -9291,11 +9291,11 @@ const ORD_DATA = [
       },
       "stl-4-2": {
         "value": 60,
-        "remark": "sp技"
+        "remark": ""
       },
       "stl-5-3": {
         "value": 75,
-        "remark": "18%"
+        "remark": ""
       },
       "stl-6-1": {
         "value": null,
@@ -9303,7 +9303,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "B"
+        "remark": ""
       }
     },
     "skills": [
@@ -9390,7 +9390,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "B"
+        "remark": ""
       }
     },
     "skills": [
@@ -9471,15 +9471,15 @@ const ORD_DATA = [
       },
       "stl-5-1": {
         "value": 3,
-        "remark": "17.5%"
+        "remark": ""
       },
       "stl-5-3": {
         "value": 70,
-        "remark": "10%"
+        "remark": ""
       },
       "stl-8-2": {
         "value": null,
-        "remark": "F"
+        "remark": ""
       }
     },
     "skills": [
@@ -9569,11 +9569,11 @@ const ORD_DATA = [
       },
       "stl-5-3": {
         "value": 1.5,
-        "remark": "2.5%"
+        "remark": ""
       },
       "stl-8-1": {
         "value": null,
-        "remark": "D"
+        "remark": ""
       }
     },
     "skills": [
@@ -9645,7 +9645,7 @@ const ORD_DATA = [
       },
       "stl-5-2": {
         "value": 3,
-        "remark": "sp技"
+        "remark": ""
       },
       "stl-5-3": {
         "value": null,
@@ -9653,7 +9653,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "C"
+        "remark": ""
       }
     },
     "skills": [
@@ -9748,7 +9748,7 @@ const ORD_DATA = [
       },
       "stl-5-2": {
         "value": 3,
-        "remark": "sp技"
+        "remark": ""
       },
       "stl-5-3": {
         "value": 27,
@@ -9760,7 +9760,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "A"
+        "remark": ""
       }
     },
     "skills": [
@@ -9854,7 +9854,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "S"
+        "remark": ""
       }
     },
     "skills": [
@@ -9967,7 +9967,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "B"
+        "remark": ""
       }
     },
     "skills": [
@@ -10049,7 +10049,7 @@ const ORD_DATA = [
       },
       "stl-5-3": {
         "value": 55,
-        "remark": "5.5%"
+        "remark": ""
       },
       "stl-6-1": {
         "value": null,
@@ -10061,7 +10061,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "S"
+        "remark": ""
       }
     },
     "skills": [
@@ -10140,7 +10140,7 @@ const ORD_DATA = [
       },
       "stl-5-2": {
         "value": 2,
-        "remark": "10%"
+        "remark": ""
       },
       "stl-5-3": {
         "value": null,
@@ -10148,7 +10148,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "B"
+        "remark": ""
       }
     },
     "skills": [
@@ -10225,7 +10225,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "B"
+        "remark": ""
       }
     },
     "skills": [
@@ -10305,11 +10305,11 @@ const ORD_DATA = [
       },
       "stl-5-3": {
         "value": 25,
-        "remark": "14%"
+        "remark": ""
       },
       "stl-8-1": {
         "value": null,
-        "remark": "S"
+        "remark": ""
       }
     },
     "skills": [
@@ -10388,7 +10388,7 @@ const ORD_DATA = [
       },
       "stl-5-1": {
         "value": 2.6,
-        "remark": "10%"
+        "remark": ""
       },
       "stl-5-3": {
         "value": null,
@@ -10400,7 +10400,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "S"
+        "remark": ""
       }
     },
     "skills": [
@@ -10502,7 +10502,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "C"
+        "remark": ""
       }
     },
     "skills": [
@@ -10606,7 +10606,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "S"
+        "remark": ""
       }
     },
     "skills": [
@@ -10803,7 +10803,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "S"
+        "remark": ""
       }
     },
     "skills": [
@@ -10888,7 +10888,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "A"
+        "remark": ""
       }
     },
     "skills": [
@@ -10970,7 +10970,7 @@ const ORD_DATA = [
       },
       "stl-5-2": {
         "value": 2.3,
-        "remark": "10%"
+        "remark": ""
       },
       "stl-5-3": {
         "value": 70,
@@ -10982,7 +10982,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "C"
+        "remark": ""
       }
     },
     "skills": [
@@ -11043,7 +11043,7 @@ const ORD_DATA = [
       }
     ],
     "key_code": "kizaru tr",
-    "remark": "",
+    "remark": "用特性點可另提升",
     "major": "",
     "suitable_partners": [],
     "skill_types": [
@@ -11077,7 +11077,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "S"
+        "remark": ""
       }
     },
     "skills": [
@@ -11168,7 +11168,7 @@ const ORD_DATA = [
       },
       "stl-5-3": {
         "value": 45,
-        "remark": "sp技"
+        "remark": ""
       },
       "stl-6-2": {
         "value": null,
@@ -11176,7 +11176,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "B"
+        "remark": ""
       }
     },
     "skills": [
@@ -11246,7 +11246,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "B"
+        "remark": ""
       }
     },
     "skills": [
@@ -11333,11 +11333,11 @@ const ORD_DATA = [
       },
       "stl-5-3": {
         "value": 45,
-        "remark": "4.15%"
+        "remark": ""
       },
       "stl-8-2": {
         "value": null,
-        "remark": "S"
+        "remark": ""
       }
     },
     "skills": [
@@ -11429,7 +11429,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "A"
+        "remark": ""
       }
     },
     "skills": [
@@ -11530,7 +11530,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "C"
+        "remark": ""
       }
     },
     "skills": [
@@ -11619,7 +11619,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "C"
+        "remark": ""
       }
     },
     "skills": [
@@ -11724,7 +11724,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "D"
+        "remark": ""
       }
     },
     "skills": [
@@ -11822,7 +11822,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "A"
+        "remark": ""
       }
     },
     "skills": [
@@ -11918,7 +11918,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "B"
+        "remark": ""
       }
     },
     "skills": [
@@ -11991,7 +11991,7 @@ const ORD_DATA = [
     "skill_values": {
       "stl-4-2": {
         "value": 10,
-        "remark": "技"
+        "remark": ""
       },
       "stl-4-4": {
         "value": null,
@@ -12011,7 +12011,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "B"
+        "remark": ""
       }
     },
     "skills": [
@@ -12102,7 +12102,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "D"
+        "remark": ""
       }
     },
     "skills": [
@@ -12195,7 +12195,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "A"
+        "remark": ""
       }
     },
     "skills": [
@@ -12286,7 +12286,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "S"
+        "remark": ""
       }
     },
     "skills": [
@@ -12370,7 +12370,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "A"
+        "remark": ""
       }
     },
     "skills": [
@@ -12456,7 +12456,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "B"
+        "remark": ""
       }
     },
     "skills": [
@@ -12542,7 +12542,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "C"
+        "remark": ""
       }
     },
     "skills": [
@@ -12641,7 +12641,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "B"
+        "remark": ""
       }
     },
     "skills": [
@@ -12733,7 +12733,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "B"
+        "remark": ""
       }
     },
     "skills": [
@@ -12837,7 +12837,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "B"
+        "remark": ""
       }
     },
     "skills": [
@@ -12928,7 +12928,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "A"
+        "remark": ""
       }
     },
     "skills": [
@@ -13148,7 +13148,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "C"
+        "remark": ""
       }
     },
     "skills": [
@@ -13234,7 +13234,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "D"
+        "remark": ""
       }
     },
     "skills": [
@@ -13336,7 +13336,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "C"
+        "remark": ""
       }
     },
     "skills": [
@@ -13434,7 +13434,7 @@ const ORD_DATA = [
       },
       "stl-8-1": {
         "value": null,
-        "remark": "D"
+        "remark": ""
       }
     },
     "skills": [
@@ -13543,7 +13543,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "A"
+        "remark": ""
       }
     },
     "skills": [
@@ -13621,7 +13621,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "B"
+        "remark": ""
       }
     },
     "skills": [
@@ -13699,7 +13699,7 @@ const ORD_DATA = [
       },
       "stl-8-2": {
         "value": null,
-        "remark": "A"
+        "remark": ""
       }
     },
     "skills": [
@@ -14889,7 +14889,7 @@ const ORD_DATA = [
     "skill_values": {
       "stl-4-2": {
         "value": 25,
-        "remark": "技"
+        "remark": ""
       }
     },
     "skills": [
