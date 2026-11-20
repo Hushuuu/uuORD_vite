@@ -7594,28 +7594,28 @@ const ORD_DATA = [
       }
     ]
   },
-  {
-    "character_id": "8-5",
-    "level": 8,
-    "name": "加洛特 兔子",
-    "kr_name": "캐럿 스론 달의 사자",
-    "en_name": "Carrot",
-    "materials": [
-      {
-        "material_id": "6-3"
-      }
-    ],
-    "key_code": "",
-    "remark": "",
-    "major": "",
-    "suitable_partners": [],
-    "skill_types": [
-      "stl-1-6",
-      "stl-5-1",
-      "stl-6-1",
-      "stl-8-3"
-    ]
-  },
+  // {
+  //   "character_id": "8-5",
+  //   "level": 8,
+  //   "name": "加洛特 兔子",
+  //   "kr_name": "캐럿 스론 달의 사자",
+  //   "en_name": "Carrot",
+  //   "materials": [
+  //     {
+  //       "material_id": "6-3"
+  //     }
+  //   ],
+  //   "key_code": "",
+  //   "remark": "",
+  //   "major": "",
+  //   "suitable_partners": [],
+  //   "skill_types": [
+  //     "stl-1-6",
+  //     "stl-5-1",
+  //     "stl-6-1",
+  //     "stl-8-3"
+  //   ]
+  // },
   {
     "character_id": "9-1",
     "level": 9,
