@@ -1406,9 +1406,9 @@ const ORD_DATA = [
     "skills": [
       {
         "id": "skill-4-4-d6af0ac31b",
-        "name": "降防支援",
+        "name": "稻草果實 Lv.2",
         "type": "passive",
-        "description": "{control|防禦降低 10}。"
+        "description": "800 範圍內的敵人{control|降防 10}。"
       }
     ]
   },
@@ -1577,9 +1577,9 @@ const ORD_DATA = [
     "skills": [
       {
         "id": "skill-4-9-d10b29cb00",
-        "name": "指定增益",
+        "name": "荷爾蒙果實 Q",
         "type": "active",
-        "description": "友軍{buff|攻擊 +35%}，25 秒，{important|冷卻 50 秒}。"
+        "description": "指定友軍{buff|攻擊 +35%}，持續 25 秒。{important|冷卻 50 秒}。"
       },
       {
         "id": "skill-4-9-374fcc5e00",
@@ -2039,9 +2039,9 @@ const ORD_DATA = [
     "skills": [
       {
         "id": "skill-4-21-4671035ec2",
-        "name": "常駐",
+        "name": "冰凍時刻",
         "type": "passive",
-        "description": "{control|緩速 10%}。"
+        "description": "800 範圍內的敵人{control|緩速 10%}。"
       },
       {
         "id": "skill-4-21-1d3528b62d",
@@ -2264,9 +2264,9 @@ const ORD_DATA = [
     "skills": [
       {
         "id": "skill-4-27-058b47306c",
-        "name": "緩速支援",
+        "name": "幽靈果實 Lv.1",
         "type": "passive",
-        "description": "{control|移速降低 20%}。"
+        "description": "600 範圍內的敵人{control|緩速 20%}。"
       }
     ]
   },
@@ -2420,7 +2420,7 @@ const ORD_DATA = [
         "id": "skill-4-31-8b79df27ba",
         "name": "普攻",
         "type": "passive",
-        "description": "2,000 {important|爆發型傷害}。"
+        "description": "每次普攻對單體追加 2,000 {important|固定傷害}。"
       },
       {
         "id": "skill-4-31-183fc9799f",
@@ -2632,7 +2632,7 @@ const ORD_DATA = [
         "id": "skill-4-37-d6af0ac31b",
         "name": "降防支援",
         "type": "passive",
-        "description": "{control|防禦降低 10}。"
+        "description": "800 範圍內的敵人{control|降防 10}。"
       }
     ]
   },
@@ -2900,7 +2900,7 @@ const ORD_DATA = [
         "id": "skill-4-45-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|降防 5}、{control|緩速 10%}；攻擊力 22% {important|爆發型傷害}（觸發方式未確認）。"
+        "description": "825 範圍內的敵人{control|降防 5、緩速 10%}。普攻對 235 範圍造成目前攻擊力 22% 的{important|爆發型傷害}，故事目標不適用。"
       }
     ]
   },
@@ -2970,7 +2970,7 @@ const ORD_DATA = [
         "id": "skill-5-1-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|移速降低 25%}；{buff|攻速增加 20%}。"
+        "description": "800 範圍內的敵人{control|緩速 25%}，範圍內友軍{buff|攻速 +20%}，攻速光環排除自身。"
       },
       {
         "id": "skill-5-1-d827a94d3f",
@@ -2982,7 +2982,7 @@ const ORD_DATA = [
         "id": "skill-5-1-09132bddbf",
         "name": "時間加速",
         "type": "",
-        "description": "每 9 秒選取自身周圍 450 範圍內 2 名傳說以上單位，可包含自身；{buff|攻速 +35%}，持續 6 秒。離開範圍仍保留效果，範圍內出現新單位時更新目標；不可與其他加速技能重複。"
+        "description": "每 9 秒使自身及 450 範圍內兩名傳說以上友軍{buff|攻速 +35%}，持續 6 秒。受益者離開範圍仍保有效果，範圍內出現新單位時更新對象。與其他加速效果互斥。"
       }
     ]
   },
@@ -3087,15 +3087,15 @@ const ORD_DATA = [
       },
       {
         "id": "skill-5-3-2caa1df90d",
-        "name": "轉移",
+        "name": "轉移 W",
         "type": "active",
-        "description": "把 275 範圍的敵人移至自身前方並施放自身{control|暈眩}技能；限自己的路線區，{important|冷卻 60 秒}。"
+        "description": "把 275 範圍內屬於自身路線區的敵人移至身前。{important|冷卻 60 秒}。"
       },
       {
         "id": "skill-5-3-f38282f5ed",
-        "name": "其他能力",
-        "type": "",
-        "description": "無距離限制的瞬間移動。"
+        "name": "瞬間移動 Q",
+        "type": "active",
+        "description": "可無距離限制瞬移。{important|冷卻 8 秒}。"
       }
     ]
   },
@@ -3150,19 +3150,19 @@ const ORD_DATA = [
         "id": "skill-5-4-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|移速降低 35%}。"
+        "description": "800 範圍內的敵人{control|緩速 35%}。"
       },
       {
         "id": "skill-5-4-02cec3269c",
         "name": "粉紅毒蜂",
         "type": "",
-        "description": "{chance|攻擊 5.5%} 觸發，333 範圍，10 萬{magic|魔法傷害} ×3；路線怪另受目前生命 8.25% {important|爆發型傷害} ×3。"
+        "description": "{chance|攻擊時 5.5%} 觸發，對 333 範圍造成 3 段、每段 10 萬{magic|魔法傷害}。若主目標是路線怪，每段另受目前生命 8.5% 的{important|爆發型傷害}。"
       },
       {
         "id": "skill-5-4-7b7538dd79",
         "name": "毒球",
         "type": "",
-        "description": "{chance|攻擊 10%} 觸發，333 範圍爆炸造成 21 萬{magic|魔法傷害}；路線怪另受目前生命 10.5% {important|爆發型傷害} ×2。"
+        "description": "{chance|攻擊時 10%}，333 範圍 21 萬{magic|魔法傷害}。若主目標是路線怪，另受 2 段、每段目前生命 11% 的{important|爆發型傷害}。"
       },
       {
         "id": "skill-5-4-943a389d70",
@@ -3368,7 +3368,7 @@ const ORD_DATA = [
         "id": "skill-5-7-a901567bd9",
         "name": "海流過肩摔",
         "type": "",
-        "description": "普攻產生 10 道持續 2 秒的海流，每道 15 萬{magic|魔法傷害}；{important|絕對冷卻 7 秒}。"
+        "description": "普攻觸發，以目標為中心對 750 範圍每 0.4 秒造成 15 萬{magic|魔法傷害}，持續 2 秒。{important|絕對冷卻 7 秒}。"
       },
       {
         "id": "skill-5-7-6e21a25fd9",
@@ -3378,9 +3378,9 @@ const ORD_DATA = [
       },
       {
         "id": "skill-5-7-f38282f5ed",
-        "name": "其他能力",
+        "name": "義理",
         "type": "",
-        "description": "「義理」自身每秒回魔 2；魔力再生 2.5（作用對象未確認）。"
+        "description": "自身{buff|每秒回復 2 魔力}。700 範圍內友軍（含自身）另{buff|每秒回復 2.5 魔力}。"
       }
     ]
   },
@@ -3444,19 +3444,25 @@ const ORD_DATA = [
         "id": "skill-5-8-1c4b2cba05",
         "name": "注射射擊",
         "type": "",
-        "description": "{chance|攻擊 12.5%}，400 範圍，17.5 萬＋目前生命 0.35% {important|固定傷害}；Boss 比例部分 ×50%、故事 ×33%。單體{control|緩速 99%} 共 2.5 秒，前 1.25 秒{control|僵直}，之後逐漸恢復移速；狂暴敵人另有目前生命 15% {magic|魔法傷害}。"
+        "description": "{chance|攻擊時 12.5%}，400 範圍 17.5 萬{magic|魔法傷害}，另加目標目前生命 0.35% 的{important|固定傷害}。生命比例項對 Boss／故事分別按 50%／33% 計算。單體緩速 99% 共 2.5 秒，先僵直 1.25 秒，之後逐漸恢復移速。狂暴另受目前生命 15% 的魔法傷害。"
       },
       {
         "id": "skill-5-8-4b5d58c4c6",
         "name": "手術果實",
         "type": "",
-        "description": "{chance|攻擊 4.5%}，525 範圍，28.5 萬＋目前生命 1% {important|固定傷害}，Boss 的生命比例部分 ×50%，故事 ×33%。"
+        "description": "{chance|攻擊時 4.5%}，525 範圍 28.5 萬{magic|魔法傷害}，另加目標目前生命 1% 的{important|固定傷害}。生命比例項對 Boss／故事分別按 50%／33% 計算。"
       },
       {
         "id": "skill-5-8-12ec165d84",
         "name": "外科手術 W",
         "type": "active",
-        "description": "指定友軍{buff|攻速 +150%}，12 秒，{important|冷卻 50 秒}；不與其他加速重複。可瞬移。"
+        "description": "指定友軍{buff|攻速 +150%}，持續 12 秒，與其他加速技能互斥。{important|冷卻 50 秒}。"
+      },
+      {
+        "id": "skill-5-8-warp",
+        "name": "手術果實・瞬移 Q",
+        "type": "active",
+        "description": "可無距離限制瞬移。{important|冷卻 15 秒}。"
       }
     ]
   },
@@ -3505,7 +3511,7 @@ const ORD_DATA = [
         "id": "skill-5-9-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|防禦降低 33}。"
+        "description": "825 範圍內的敵人{control|降防 33}。"
       },
       {
         "id": "skill-5-9-33e73a6cfd",
@@ -3610,7 +3616,7 @@ const ORD_DATA = [
         "id": "skill-5-11-5b6007f73a",
         "name": "指槍",
         "type": "",
-        "description": "{chance|攻擊 12.5%}，375 範圍 12.5 萬{magic|魔法傷害}；單體一般路線怪另受目前生命 25% {important|爆發型傷害}，Boss／故事改為額外 12.5 萬{magic|魔法傷害}。"
+        "description": "{chance|攻擊時 12.5%}，375 範圍 12.5 萬{magic|魔法傷害}。單體一般路線怪另受目前生命 25% 的爆發型傷害，Boss／故事／狂暴改為額外 12.5 萬魔法傷害。"
       }
     ]
   },
@@ -3665,7 +3671,7 @@ const ORD_DATA = [
         "id": "skill-5-12-5ce5b99934",
         "name": "急襲",
         "type": "",
-        "description": "{chance|攻擊 15%}，單體 40 萬{magic|魔法傷害}；路線怪追加最大生命 7% {important|爆發型傷害}，Boss 追加最大生命 1.25% {magic|魔法傷害}。分身也可發動，但機率與效果各減半。"
+        "description": "{chance|攻擊時 15%}，單體 40 萬{magic|魔法傷害}。路線怪追加最大生命 7% 的爆發型傷害，Boss 追加最大生命 1.5% 的魔法傷害。分身也會發動，機率及效果各減半。"
       },
       {
         "id": "skill-5-12-bc9376695b",
@@ -3677,7 +3683,7 @@ const ORD_DATA = [
         "id": "skill-5-12-76ab7f4084",
         "name": "寶物辨識 R",
         "type": "active",
-        "description": "偵測自己的路線區寶物，{important|冷卻 300 秒}。"
+        "description": "施法 1 秒，偵測自身路線區的寶物。{important|冷卻 300 秒}。"
       }
     ]
   },
@@ -3739,7 +3745,7 @@ const ORD_DATA = [
         "id": "skill-5-13-f59bd91a2b",
         "name": "吻槍",
         "type": "",
-        "description": "{chance|攻擊 8%}，自身{buff|攻速 +45%}，持續 0.4 秒；期間每次攻擊造成 345 範圍普攻傷害 125%＋8.5 萬額外{magic|魔法傷害}。"
+        "description": "{chance|攻擊時 9%} 進入吻槍狀態，自身攻速 +45%，持續 0.4 秒。期間每擊對 345 範圍造成普攻傷害 125%＋8.5 萬的{magic|魔法傷害}。"
       }
     ]
   },
@@ -3840,7 +3846,7 @@ const ORD_DATA = [
         "id": "skill-5-15-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "防禦 -5、移速 -10%。"
+        "description": "825 範圍內的敵人{control|降防 5、緩速 10%}。"
       },
       {
         "id": "skill-5-15-7be020a7b0",
@@ -4001,7 +4007,7 @@ const ORD_DATA = [
         "id": "skill-5-18-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|防禦降低 25}。"
+        "description": "725 範圍內的敵人{control|降防 25}。"
       },
       {
         "id": "skill-5-18-a8b3e0af1c",
@@ -4011,9 +4017,9 @@ const ORD_DATA = [
       },
       {
         "id": "skill-5-18-7af1e64fd3",
-        "name": "克力架餅乾",
+        "name": "克力架餅乾 B",
         "type": "active",
-        "description": "指定自己的單位{buff|攻擊 +19%}、{buff|攻速 +9%}；同一單位不可重複套用，{important|冷卻 240 秒}。"
+        "description": "施法 3 秒，指定自有單位，使其永久{buff|攻擊 +19%、攻速 +9%}。與其他飽足效果互斥。{important|冷卻 240 秒}。"
       },
       {
         "id": "skill-5-18-6e21a25fd9",
@@ -4149,19 +4155,19 @@ const ORD_DATA = [
         "id": "skill-5-20-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "防禦 -20、{buff|攻擊 +25%}。"
+        "description": "900 範圍內的敵人{control|降防 20}，800 範圍內友軍{buff|攻擊 +25%}。"
       },
       {
         "id": "skill-5-20-8bae2577af",
         "name": "霸氣釋放",
         "type": "",
-        "description": "魔力 115，敵人中心 800 範圍，120 萬 ×1～1.5 {physical|物理}＋100 萬{magic|魔法傷害}；{control|暈眩 3 秒}、{control|破甲 3}，上限 75。"
+        "description": "魔力 115，以目標為中心對 600 範圍造成 100 萬 ×1～1.5 {physical|物理傷害}＋120 萬{magic|魔法傷害}，並{control|暈眩 3 秒、破甲 3}，破甲上限 75。"
       },
       {
         "id": "skill-5-20-6e21a25fd9",
         "name": "普攻追加",
         "type": "passive",
-        "description": "{chance|攻擊 12%}，單體 8 萬{physical|物理傷害}、{control|暈眩 0.6 秒}。"
+        "description": "{chance|攻擊時 12%}，對 325 範圍造成 7 萬{physical|物理傷害}，並使單體{control|暈眩 0.6 秒}。"
       },
       {
         "id": "skill-5-20-f38282f5ed",
@@ -4298,13 +4304,13 @@ const ORD_DATA = [
         "id": "skill-5-22-c3a2a4c3cf",
         "name": "獅子歌歌",
         "type": "",
-        "description": "{chance|攻擊 10%}，385 範圍 15 萬{magic|魔法傷害}；單體另受 90 萬 ×1～1.5 {magic|魔法傷害}、{control|暈眩 1 秒}。單體路線怪生命低於或等於 15% 時直接處決，且該目標必定觸發。"
+        "description": "{chance|攻擊時 10%}，385 範圍 15 萬{magic|魔法傷害}。單體另受 90 萬 ×1～1.5 魔法傷害並暈眩 1 秒，路線主目標另受最大生命 5% 的魔法傷害。"
       },
       {
         "id": "skill-5-22-fc99a633f3",
-        "name": "暴擊",
+        "name": "暴擊與處決",
         "type": "",
-        "description": "{chance|普攻 66%} 觸發 5 倍暴擊。"
+        "description": "{chance|普攻時 66%} 觸發 5 倍暴擊。普攻命中的單體路線怪生命 ≤10% 時立即處決，門檻依目標承受的魔法增傷提高，最高 12.5%。"
       },
       {
         "id": "skill-5-22-0cad33747e",
@@ -4364,7 +4370,7 @@ const ORD_DATA = [
         "id": "skill-5-23-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|移速降低 30%}。"
+        "description": "875 範圍內的敵人{control|緩速 30%}。"
       },
       {
         "id": "skill-5-23-9ef0f61070",
@@ -4376,13 +4382,13 @@ const ORD_DATA = [
         "id": "skill-5-23-6e21a25fd9",
         "name": "普攻追加",
         "type": "passive",
-        "description": "285 範圍 1 萬＋普攻傷害 80% {physical|物理傷害}。"
+        "description": "普攻對 285 範圍造成 1 萬＋普攻傷害 85% 的{physical|物理傷害}。"
       },
       {
         "id": "skill-5-23-b722e70d3f",
         "name": "不死鳥果實",
         "type": "",
-        "description": "{chance|攻擊 15%}，285 範圍 10 萬{physical|物理傷害}＋3 倍暴擊。可飛行。"
+        "description": "{chance|攻擊時 15%} 觸發 3 倍暴擊並對單體追加 10 萬{physical|物理傷害}。可空中移動。"
       }
     ]
   },
@@ -4557,13 +4563,13 @@ const ORD_DATA = [
         "id": "skill-5-26-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|防禦降低 30}。"
+        "description": "900 範圍內的敵人{control|降防 30}。"
       },
       {
         "id": "skill-5-26-c893dfb59d",
         "name": "瓦斯果實",
         "type": "",
-        "description": "1,000 範圍每 0.4 秒造成 33,333 傷害。"
+        "description": "對 1,000 範圍內的敵人每 0.4 秒造成 3,333 {magic|魔法傷害}。"
       },
       {
         "id": "skill-5-26-f38282f5ed",
@@ -4628,7 +4634,7 @@ const ORD_DATA = [
         "id": "skill-5-27-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "防禦 -18、{buff|攻速 +20%}。"
+        "description": "825 範圍內的敵人{control|降防 18}，同範圍友軍{buff|攻速 +20%}。"
       },
       {
         "id": "skill-5-27-8bb12f9d81",
@@ -4640,7 +4646,13 @@ const ORD_DATA = [
         "id": "skill-5-27-f38282f5ed",
         "name": "其他能力",
         "type": "",
-        "description": "普攻 300 範圍濺射；瞬移範圍 1,500。"
+        "description": "普攻具有 300 範圍濺射。"
+      },
+      {
+        "id": "skill-5-27-jump",
+        "name": "柔力跳躍 Q",
+        "type": "active",
+        "description": "可在 1,500 範圍內瞬移。{important|冷卻 5 秒}。"
       }
     ]
   },
@@ -4694,7 +4706,7 @@ const ORD_DATA = [
         "id": "skill-5-28-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|移速降低 50%}。"
+        "description": "800 範圍內的敵人{control|緩速 50%}。"
       },
       {
         "id": "skill-5-28-bf47b83071",
@@ -4706,7 +4718,7 @@ const ORD_DATA = [
         "id": "skill-5-28-98f75a871d",
         "name": "白蔓",
         "type": "",
-        "description": "{chance|攻擊 16%}，500 範圍 20 萬 ×1～1.5 {magic|魔法傷害}、{control|破甲 2}。兩種{control|破甲}皆列上限 75。"
+        "description": "{chance|攻擊時 24%}，500 範圍 15 萬 ×1～1.5 {magic|魔法傷害}並施加{control|破甲 1}，上限 75。"
       },
       {
         "id": "skill-5-28-a3181836f8",
@@ -4771,7 +4783,7 @@ const ORD_DATA = [
         "id": "skill-5-29-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|防禦降低 22}。"
+        "description": "2,000 範圍內的敵人{control|降防 22}。"
       },
       {
         "id": "skill-5-29-ca596043fd",
@@ -4789,7 +4801,7 @@ const ORD_DATA = [
         "id": "skill-5-29-af8c5e5507",
         "name": "愛心便當 B",
         "type": "active",
-        "description": "一次性，自己的指定單位永久{buff|攻速 +12%}，超越克比為 +20%；不與其他飽足技能重複。"
+        "description": "施法 2 秒製作一份愛心便當。便當為一次性物品，限對自有單位使用，使目標永久{buff|攻速 +12%}，超越克比改為 +20%。與其他飽足效果互斥。"
       }
     ]
   },
@@ -4931,7 +4943,7 @@ const ORD_DATA = [
         "id": "skill-5-31-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|防禦降低 15}。"
+        "description": "750 範圍內的敵人{control|降防 15}，Boss／故事另降防 30。"
       },
       {
         "id": "skill-5-31-b451304c3f",
@@ -4949,7 +4961,7 @@ const ORD_DATA = [
         "id": "skill-5-31-f38282f5ed",
         "name": "其他能力",
         "type": "",
-        "description": "Boss／故事額外{control|降防 30}；普攻 350 範圍濺射。"
+        "description": "普攻具有 350 範圍濺射。"
       }
     ]
   },
@@ -5094,7 +5106,7 @@ const ORD_DATA = [
         "id": "skill-5-33-17890bfcdc",
         "name": "攻擊成長",
         "type": "passive",
-        "description": "自身{buff|攻擊 +10} 萬；爆發時 3% 讓攻擊加成再 +2 萬，加成最多 20 萬。"
+        "description": "自身{buff|攻擊 +10 萬}。怨魂爆發時有 3% 機率使此加成再 +2 萬，加成最多 20 萬。傳說升級的攻擊增量為 2,000、基礎攻速增量為 135%、後續攻速增量為 4%。"
       }
     ]
   },
@@ -5153,7 +5165,7 @@ const ORD_DATA = [
         "id": "skill-5-34-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|移速降低 20%}。"
+        "description": "800 範圍內的敵人{control|緩速 20%}。"
       },
       {
         "id": "skill-5-34-64a8045f6c",
@@ -5235,13 +5247,13 @@ const ORD_DATA = [
         "id": "skill-5-35-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "移速 -30%、{buff|攻擊 +32%}。"
+        "description": "825 範圍內的友軍{buff|攻擊 +32%}，800 範圍內的敵人{control|緩速 30%}。"
       },
       {
         "id": "skill-5-35-a374f048f9",
         "name": "狂憤",
         "type": "",
-        "description": "生命能量 33，每秒 +0.5；攻擊 Boss 時使用憤怒爆發。 600 範圍、200 萬＋最大生命 5% {important|固定傷害}，另有範圍 50 萬＋最大生命 0.25% {magic|魔法傷害}（各段作用對象未確認）。"
+        "description": "生命能量 30，自然每秒 +2。攻擊 Boss 時立即使用，對 600 範圍造成 200 萬＋最大生命 5% 的{important|固定傷害}，另有同範圍 50 萬＋最大生命 0.25% 的{magic|魔法傷害}。"
       },
       {
         "id": "skill-5-35-f21f24ca13",
@@ -5308,7 +5320,7 @@ const ORD_DATA = [
         "id": "skill-5-36-a4c6d4ea9a",
         "name": "六式 Lv.4",
         "type": "",
-        "description": "{chance|攻擊 15%}，單體 25 萬{magic|魔法傷害}、{control|暈眩 0.6 秒}。"
+        "description": "{chance|攻擊時 15%}，對單體造成 25 萬{physical|物理傷害}並{control|暈眩 0.6 秒}。"
       }
     ]
   },
@@ -5353,7 +5365,7 @@ const ORD_DATA = [
         "id": "skill-5-37-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|移速降低 25%}。"
+        "description": "850 範圍內的敵人{control|緩速 25%}。傳說升級的攻擊增量為 850、基礎攻速增量為 76%、後續攻速增量為 7%。"
       },
       {
         "id": "skill-5-37-5affe311e0",
@@ -5725,7 +5737,13 @@ const ORD_DATA = [
         "id": "skill-6-2-05766f938a",
         "name": "範圍斬擊",
         "type": "",
-        "description": "{chance|攻擊 14%}，475 範圍 20 萬{magic|魔法傷害}，單體追加 ×1～3 {magic|魔法傷害}。"
+        "description": "{chance|攻擊時 14%}，475 範圍 20 萬{magic|魔法傷害}，單體另受 10 萬 ×1～3 魔法傷害。"
+      },
+      {
+        "id": "skill-6-2-swordsmanship",
+        "name": "和之國劍術",
+        "type": "passive",
+        "description": "{chance|攻擊時 20%}，單體 10 萬{physical|物理傷害}並{control|暈眩 2 秒}。"
       }
     ]
   },
@@ -5919,7 +5937,13 @@ const ORD_DATA = [
         "id": "skill-6-5-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|移速降低 40%}；生命再生 1.25。"
+        "description": "925 範圍內的敵人{control|緩速 40%}，800 範圍內的友軍{buff|每秒回復 1.25 生命}。"
+      },
+      {
+        "id": "skill-6-5-multi-target",
+        "name": "白鯨號・多重普攻",
+        "type": "passive",
+        "description": "普攻可同時攻擊五名敵人。"
       }
     ]
   },
@@ -5973,19 +5997,19 @@ const ORD_DATA = [
         "id": "skill-6-6-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|防禦降低 11}。"
+        "description": "850 範圍內的敵人{control|降防 11}。"
       },
       {
         "id": "skill-6-6-cb08e8d901",
-        "name": "增益技能",
-        "type": "",
-        "description": "{buff|攻擊 +45%}、{buff|生命再生 +1}，持續 50 秒，{important|冷卻 30 秒}。"
+        "name": "荷爾蒙果實 Q",
+        "type": "active",
+        "description": "指定單位{buff|攻擊 +45%、每秒回復 1 生命}，持續 50 秒。與其他鬥志效果互斥。{important|冷卻 30 秒}。"
       },
       {
         "id": "skill-6-6-374fcc5e00",
         "name": "範圍衝擊",
         "type": "",
-        "description": "{chance|攻擊 11%}，500 範圍 11 萬{magic|魔法傷害}、{control|暈眩 1.65 秒}。"
+        "description": "{chance|攻擊時 11%}，500 範圍 10 萬{magic|魔法傷害}並{control|暈眩 1.65 秒}。"
       }
     ]
   },
@@ -6085,7 +6109,13 @@ const ORD_DATA = [
         "id": "skill-6-8-6908507080",
         "name": "機率劍術",
         "type": "",
-        "description": "{chance|攻擊 14%}，450 範圍 40 萬{magic|魔法傷害}；路線怪另受最大生命 8% {magic|魔法傷害}。"
+        "description": "{chance|攻擊時 14%}，450 範圍 40 萬{magic|魔法傷害}。若主目標是路線怪，另受最大生命 8% 的魔法傷害。"
+      },
+      {
+        "id": "skill-6-8-dragon-slaying",
+        "name": "斬戮龍人 Lv.2",
+        "type": "passive",
+        "description": "{chance|攻擊時 15%} 觸發 4 倍暴擊，追加 25 萬{magic|魔法傷害}並{control|暈眩 0.9 秒}。"
       }
     ]
   },
@@ -6199,21 +6229,21 @@ const ORD_DATA = [
       },
       {
         "id": "skill-6-11-xxx",
-        "name": "Fisher",
+        "name": "魚人 Lv.4",
         "type": "",
-        "description": "{chance|攻擊 20%}，單體 15 萬{physical|物理傷害}，{control|暈眩 0.4 秒} "
+        "description": "{chance|攻擊時 20%}，單體 15 萬{physical|物理傷害}並{control|暈眩 0.4 秒}。"
       },
       {
         "id": "skill-6-11-646515f164",
         "name": "機率投擲",
         "type": "",
-        "description": "{chance|攻擊 6.25%}，單體 30 萬{magic|魔法傷害}， 400 範圍 18萬 追加傷害"
+        "description": "{chance|攻擊時 6.25%} 投擲巨型武器，造成 400 範圍 18 萬{magic|魔法傷害}，單體再追加 30 萬魔法傷害。"
       },
       {
         "id": "skill-6-11-f38282f5ed",
         "name": "其他能力",
         "type": "",
-        "description": "可在水上移動。"
+        "description": "可在水中移動。普攻對 450 範圍造成 8,500 {magic|魔法傷害}。"
       }
     ]
   },
@@ -6268,6 +6298,12 @@ const ORD_DATA = [
         "name": "方舟雷擊",
         "type": "",
         "description": "魔力 150，800 範圍 215 萬{magic|魔法傷害}、{control|暈眩 1.2 秒}，{magic|魔法}防禦 -10%、{important|爆發型傷害}增幅 +10%。"
+      },
+      {
+        "id": "skill-6-12-rumble-fruit",
+        "name": "轟雷果實 Lv.2",
+        "type": "passive",
+        "description": "普攻可同時攻擊四名敵人。{chance|攻擊時 14%} 對 600 範圍造成 20 萬{magic|魔法傷害}並{control|緩速 30%}，持續 3 秒。"
       }
     ]
   },
@@ -6385,7 +6421,7 @@ const ORD_DATA = [
         "id": "skill-6-14-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|防禦降低 11}。"
+        "description": "850 範圍內的敵人{control|降防 11}。"
       },
       {
         "id": "skill-6-14-b95c074a9a",
@@ -6443,13 +6479,13 @@ const ORD_DATA = [
         "id": "skill-6-15-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|防禦降低 25}。"
+        "description": "850 範圍內的敵人{control|降防 25}。"
       },
       {
         "id": "skill-6-15-abeadd70fb",
         "name": "魔力攻擊",
         "type": "",
-        "description": "魔力 85，600 範圍 150 萬 ×1～1.5 {physical|物理傷害}；故事 225% {important|固定傷害}；範圍{control|降防 15}，持續 3.5 秒。"
+        "description": "魔力 85，600 範圍 150 萬 ×1～1.5 {physical|物理傷害}。命中故事目標時另有 225% 固定傷害。發動時使範圍敵人{control|降防 15}，持續 3 秒。"
       },
       {
         "id": "skill-6-15-d3b29fc147",
@@ -6461,7 +6497,13 @@ const ORD_DATA = [
         "id": "skill-6-15-9a43741ccf",
         "name": "技能聯動",
         "type": "",
-        "description": "技能發動回魔 3，並在 500 範圍{control|緩速 20%} 共 3 秒；故事倍率基準與聯動涵蓋技能未確認。"
+        "description": "技能發動時自身回魔 3，並使 500 範圍敵人{control|緩速 20%}，持續 3 秒。"
+      },
+      {
+        "id": "skill-6-15-absorb",
+        "name": "養分吸收",
+        "type": "passive",
+        "description": "普攻使單體{control|緩速 15%}，並每秒造成 22.5 萬{magic|魔法傷害}，持續 5 秒。"
       }
     ]
   },
@@ -6529,7 +6571,13 @@ const ORD_DATA = [
         "id": "skill-6-16-43b15502d1",
         "name": "機率竹擊",
         "type": "",
-        "description": "{chance|攻擊 20%}，400 範圍 24 萬{physical|物理傷害}、{control|破甲 1}。"
+        "description": "{chance|攻擊時 20%}，400 範圍 24 萬{physical|物理傷害}並施加破甲 1，上限 75。單體另外受到破甲 1 與 30 萬{magic|魔法傷害}。"
+      },
+      {
+        "id": "skill-6-16-armament",
+        "name": "武裝色霸氣",
+        "type": "passive",
+        "description": "{chance|攻擊時 20%} 使單體{control|暈眩 0.6 秒}，無視抗性。"
       }
     ]
   },
@@ -6578,7 +6626,25 @@ const ORD_DATA = [
         "id": "skill-6-17-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|防禦降低 25}。"
+        "description": "825 範圍內的敵人{control|降防 25}。"
+      },
+      {
+        "id": "skill-6-17-single-slash",
+        "name": "一刀",
+        "type": "passive",
+        "description": "{chance|攻擊時 15%}，單體 25.25 萬 ×1～1.5 {magic|魔法傷害}，接著 1 秒內每 0.33 秒追加一次原傷害 30% 的虛斬。"
+      },
+      {
+        "id": "skill-6-17-phantom-slash",
+        "name": "虛斬",
+        "type": "passive",
+        "description": "每 2.15 秒從 750 範圍內的近處選取隨機敵人，造成 13.25 萬{magic|魔法傷害} ×2。"
+      },
+      {
+        "id": "skill-6-17-yoru",
+        "name": "黑刀・夜 Lv.2",
+        "type": "passive",
+        "description": "普攻具有 300 範圍濺射。{chance|攻擊時 15%} 造成 600 範圍 20 萬{magic|魔法傷害}。"
       }
     ]
   },
@@ -6689,13 +6755,19 @@ const ORD_DATA = [
         "id": "skill-6-19-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "防禦 -20、移速 -25%。"
+        "description": "800 範圍內的敵人{control|降防 20、緩速 25%}。"
       },
       {
         "id": "skill-6-19-0c0702845b",
         "name": "龍爪追擊",
         "type": "",
-        "description": "{chance|攻擊 14%}，500 範圍 5 萬{magic|魔法}＋50 萬 ×1～1.5 {physical|物理傷害}；單體另受最大生命 3% {physical|物理傷害}，Boss／故事 30 萬{magic|魔法傷害}。"
+        "description": "{chance|攻擊時 14%}，500 範圍 5 萬魔法＋50 萬 ×1～1.5 物理傷害。單體另受最大生命 3% 的物理傷害，Boss／狂暴／故事改為 30 萬魔法傷害。"
+      },
+      {
+        "id": "skill-6-19-dragon-claw",
+        "name": "龍爪拳",
+        "type": "passive",
+        "description": "{chance|普攻時 15%} 觸發 4 倍暴擊並追加 15 萬{magic|魔法傷害}。"
       }
     ]
   },
@@ -6811,9 +6883,21 @@ const ORD_DATA = [
     "skills": [
       {
         "id": "skill-6-21-2b3dcf8194",
-        "name": "熔岩追擊",
+        "name": "冥狗",
         "type": "",
-        "description": "{chance|攻擊 16%}，450 範圍基礎傷害 25 萬；Boss 追加技能傷害 1,000% {magic|魔法傷害}，故事追加技能傷害 150% {magic|魔法傷害}，狂暴追加最大生命 18% {important|固定傷害}；單體{control|暈眩 2.75 秒}。"
+        "description": "{chance|攻擊時 16%}，對攻擊目標造成 25 萬{magic|魔法傷害}並使其{control|暈眩 2.75 秒}，無視抗性。Boss／故事各追加技能傷害 1,000%／150% 的魔法傷害，狂暴另受最大生命 18% 的固定傷害。"
+      },
+      {
+        "id": "skill-6-21-justice",
+        "name": "徹底正義",
+        "type": "passive",
+        "description": "攻擊 Boss 或狂暴目標時，每 3.5 秒立即發動冥狗。此方式發動的冥狗每次命中相同目標，傷害再提高 100%。"
+      },
+      {
+        "id": "skill-6-21-heat",
+        "name": "灼熱餘波",
+        "type": "passive",
+        "description": "使用技能時對 500 範圍造成 10 萬{magic|魔法傷害}並{control|緩速 10%}，持續 2 秒。"
       }
     ]
   },
@@ -6863,19 +6947,19 @@ const ORD_DATA = [
         "id": "skill-6-22-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|移速降低 35%}。"
+        "description": "800 範圍內的敵人{control|緩速 35%}。"
       },
       {
         "id": "skill-6-22-b2c476db82",
         "name": "冰凍衝擊",
         "type": "",
-        "description": "{chance|攻擊 10%}，415 範圍 12 萬{magic|魔法傷害}、{control|暈眩 1.7 秒}。"
+        "description": "{chance|攻擊時 10%}，415 範圍 12 萬{magic|魔法傷害}並暈眩 1.7 秒，單體另受 275% 魔法傷害。普攻使目標緩速 15%，持續 10 秒。"
       },
       {
         "id": "skill-6-22-f0334f732f",
         "name": "路線區增幅",
         "type": "",
-        "description": "路線區{important|爆發型傷害}增幅 10%。"
+        "description": "自身路線區的敵人承受{important|爆發型傷害 +10%}。"
       }
     ]
   },
@@ -6937,7 +7021,7 @@ const ORD_DATA = [
         "id": "skill-6-23-22ff974668",
         "name": "光環／常駐",
         "type": "passive",
-        "description": "{control|防禦降低 12}。"
+        "description": "800 範圍內的敵人{control|降防 12}。普攻可同時攻擊三名敵人。"
       },
       {
         "id": "skill-6-23-3ef304f728",
@@ -6950,6 +7034,12 @@ const ORD_DATA = [
         "name": "特殊敵人追擊",
         "type": "",
         "description": "攻擊 Boss 時 40% 造成目前生命 0.9% {magic|魔法傷害}；狂暴敵人最大生命 5.75% {magic|魔法傷害}。"
+      },
+      {
+        "id": "skill-6-23-critical",
+        "name": "殺戮 Lv.2",
+        "type": "passive",
+        "description": "{chance|攻擊時 15%} 觸發 7 倍暴擊並使單體{control|暈眩 1.35 秒}。"
       }
     ]
   },
@@ -7246,7 +7336,7 @@ const ORD_DATA = [
         "id": "skill-7-5-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|降防 40}、{control|緩速 25%}、{buff|攻擊增加 25%}。"
+        "description": "900 範圍內的敵人{control|降防 40、緩速 25%}，同範圍友軍{buff|攻擊 +25%}。"
       },
       {
         "id": "skill-7-5-0670d39d91",
@@ -7397,13 +7487,19 @@ const ORD_DATA = [
         "id": "skill-8-2-21007f12a3",
         "name": "過熱",
         "type": "",
-        "description": "{buff|攻擊 +22,500}；攻擊時 285 範圍 22,500 {magic|魔法傷害}。使用技能使指定友軍{buff|攻速 +150%}，12 秒，{important|冷卻 50 秒}，不與其他加速重複。"
+        "description": "自身{buff|攻擊 +22,500}，攻擊時對 285 範圍造成 22,500 {magic|魔法傷害}。"
       },
       {
         "id": "skill-8-2-42f1ae6942",
         "name": "武器果實 Lv.2",
         "type": "",
-        "description": "{chance|攻擊 10%}，450 範圍 10 萬{magic|魔法傷害}，單體另加 7 萬；{control|破甲 1}，上限 75。"
+        "description": "{chance|攻擊時 10%}，450 範圍 10 萬{magic|魔法傷害}，單體再追加 7 萬魔法傷害，並對範圍內的敵人施加破甲 1，上限 75。"
+      },
+      {
+        "id": "skill-8-2-haste",
+        "name": "指定加速",
+        "type": "active",
+        "description": "指定友軍{buff|攻速 +150%}，持續 12 秒。與其他加速效果互斥。{important|冷卻 50 秒}。"
       }
     ]
   },
@@ -7441,7 +7537,7 @@ const ORD_DATA = [
         "id": "skill-8-3-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|降防 11}、{control|緩速 20%}。"
+        "description": "750 範圍內的敵人{control|降防 11、緩速 20%}。"
       },
       {
         "id": "skill-8-3-beae521f0a",
@@ -7454,6 +7550,12 @@ const ORD_DATA = [
         "name": "孔雀切割",
         "type": "",
         "description": "{chance|攻擊 10%}，單體 25 萬{magic|魔法傷害}。"
+      },
+      {
+        "id": "skill-8-3-multi-target",
+        "name": "孔雀連環・多重普攻",
+        "type": "passive",
+        "description": "普攻可同時攻擊五名敵人。"
       }
     ]
   },
@@ -7482,13 +7584,13 @@ const ORD_DATA = [
         "id": "skill-8-4-988aecbd7e",
         "name": "嵐腳",
         "type": "",
-        "description": "{chance|攻擊 15%}，500 範圍 30 萬{magic|魔法傷害}；單體路線怪追加最大生命 5% {important|爆發型傷害}。"
+        "description": "自身{buff|攻速 +33%}。{chance|攻擊時 15%}，500 範圍 30 萬{magic|魔法傷害}。若主目標是路線怪，另受目前生命 20% 的爆發型傷害。"
       },
       {
         "id": "skill-8-4-f38282f5ed",
-        "name": "其他能力",
-        "type": "",
-        "description": "瞬移距離 1,500。"
+        "name": "月步 Q",
+        "type": "active",
+        "description": "可在 1,500 範圍內瞬移。{important|冷卻 5 秒}。"
       }
     ]
   },
@@ -7582,13 +7684,13 @@ const ORD_DATA = [
         "id": "skill-9-1-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|降防 30}；生命再生 2.85。"
+        "description": "850 範圍內的敵人{control|降防 30}。友軍{buff|每秒回復 2.85 生命}。"
       },
       {
         "id": "skill-9-1-407274d061",
         "name": "高速連擊",
         "type": "",
-        "description": "生命能量至少 35 時，{chance|攻擊 15%} 消耗 17 能量，攻速達最大 1.5 秒；每次攻擊造成 415 範圍普攻傷害 75%＋10 萬{physical|物理傷害}。"
+        "description": "生命能量至少 35 時，{chance|攻擊時 15%} 消耗 17 能量，使攻速達最高值 1.25 秒。期間每擊對 415 範圍造成普攻傷害 75%＋10 萬{physical|物理傷害}。天賦強化後持續 1.5 秒，範圍提高至 475。"
       },
       {
         "id": "skill-9-1-d3b29fc147",
@@ -7600,7 +7702,13 @@ const ORD_DATA = [
         "id": "skill-9-1-fb1168cb2d",
         "name": "接近觸發",
         "type": "",
-        "description": "敵人進入 850 範圍時 20%，500 範圍 45 萬{physical|物理}、單體 450 萬{physical|物理}及{control|破甲 6}；Boss／狂暴必定觸發。"
+        "description": "敵人進入自身周圍 850 範圍時有 20% 機率觸發霸氣，Boss／狂暴必定觸發。對 500 範圍造成 45 萬{physical|物理傷害}，單體承受 450 萬物理傷害，並施加破甲 6。每個目標僅觸發一次，與其他霸氣互斥。"
+      },
+      {
+        "id": "skill-9-1-observation",
+        "name": "見聞色霸氣・天賦強化",
+        "type": "passive",
+        "description": "對 Boss／狂暴／故事普攻時觸發 6.25 倍暴擊與暈眩 0.1 秒。投入 4 點天賦後，暴擊提高至 8 倍，接近霸氣機率提高至 100%，同時強化無雙甜甜圈。"
       }
     ]
   },
@@ -7704,7 +7812,7 @@ const ORD_DATA = [
         "id": "skill-9-2-98790e0b18",
         "name": "落雷",
         "type": "",
-        "description": "敵人接近時每個體判定一次，14.25%，425 範圍 85 萬{magic|魔法}、單體另加 850 萬；Boss／狂暴／故事必定發動，單體傷害加倍並追加最大生命 10%；不與同技及永恆漢考克霸氣重複。"
+        "description": "敵人進入自身周圍 1,050 範圍時有 14.25% 機率觸發，對 425 範圍造成 85 萬{magic|魔法傷害}，單體另受 850 萬魔法傷害。Boss／狂暴／故事必定發動，單體傷害加倍並追加最大生命 10% 的魔法傷害。每個目標只觸發一次，與其他霸氣互斥。"
       },
       {
         "id": "skill-9-2-4bfbe9a725",
@@ -7716,7 +7824,19 @@ const ORD_DATA = [
         "id": "skill-9-2-7aebaac833",
         "name": "天賦強化",
         "type": "",
-        "description": "放電{control|緩速 35%} 共 4 秒；第 5／10 次放電追加 100／200 萬{magic|魔法}；可瞬移。"
+        "description": "投入 4 點天賦強化放電。第 5 次放電追加自身周圍 700 範圍 100 萬＋最大生命 1%，第 10 次追加 800 範圍 200 萬＋最大生命 2%，均為{magic|魔法傷害}。"
+      },
+      {
+        "id": "skill-9-2-current",
+        "name": "電流釋放",
+        "type": "passive",
+        "description": "700 範圍內友軍回復 1.5 魔力。{chance|攻擊時 50%} 對單體追加 50 萬{physical|物理傷害}並{control|暈眩 2 秒}。"
+      },
+      {
+        "id": "skill-9-2-blink",
+        "name": "心綱 Q",
+        "type": "active",
+        "description": "可在 99,999 範圍內瞬移。{important|冷卻 10 秒}。"
       }
     ]
   },
@@ -7780,25 +7900,25 @@ const ORD_DATA = [
         "id": "skill-9-3-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|降防 25}。每次攻擊單體{control|暈 3 秒}，Boss 1.5 秒。"
+        "description": "800 範圍內的敵人{control|降防 25}。自身固定每秒攻擊 0.9 次，不受攻速增加效果影響。每次普攻回魔 2 並使單體暈眩 3 秒，對 Boss 為 1.5 秒。"
       },
       {
         "id": "skill-9-3-0646ae7d1f",
         "name": "魔力技能",
         "type": "",
-        "description": "魔力 55，600 範圍 250 萬{magic|魔法}＋已損失生命 10% {physical|物理傷害}、{control|暈 3 秒}、{control|破甲 10}；友軍{buff|攻擊 +33%} 共 4.5 秒。"
+        "description": "魔力 55，600 範圍 250 萬{magic|魔法傷害}＋已損失生命 10% 的{physical|物理傷害}，並暈眩 3 秒、施加破甲 10。另使 750 範圍友軍{buff|攻擊 +33%}，持續 4.5 秒，與其他憤怒效果互斥。"
       },
       {
         "id": "skill-9-3-769cfab4b7",
         "name": "三擊觸發",
         "type": "",
-        "description": "每 3 次普攻命中，800 範圍普攻傷害 ×5 {physical|物理}、回魔 5；450 範圍敵人擊退 300。"
+        "description": "每 3 次普攻命中，對自身周圍 800 範圍造成普攻傷害 ×5 的{physical|物理傷害}並回魔 5。將 400 範圍內的敵人擊退 300 距離。"
       },
       {
         "id": "skill-9-3-4ef91f2d0a",
         "name": "絕對冷卻技能",
         "type": "",
-        "description": "普攻命中、{important|冷卻 8 秒}；800 範圍 50 萬{physical|物理} ×3，尾擊 200 萬＋已損失生命 6% {physical|物理}；回魔 10、近敵擊退 400。"
+        "description": "普攻於冷卻結束後觸發，對自身周圍 800 範圍造成 50 萬{physical|物理傷害} ×3，末段另造成 200 萬＋已損失生命 6% 的物理傷害。回魔 10，並將 400 範圍內的敵人擊退 400 距離。{important|絕對冷卻 8 秒}。"
       }
     ]
   },
@@ -7867,7 +7987,7 @@ const ORD_DATA = [
         "id": "skill-9-4-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|緩速 30%}。"
+        "description": "850 範圍內的敵人{control|緩速 30%}。"
       },
       {
         "id": "skill-9-4-cd2f309ce2",
@@ -7879,7 +7999,7 @@ const ORD_DATA = [
         "id": "skill-9-4-e75bd7ad9f",
         "name": "暗行",
         "type": "",
-        "description": "{chance|攻擊 15%}，單體 60 萬{magic|魔法}；路線怪追加最大生命 8% 爆發，Boss 追加最大生命 2% {magic|魔法}。另有{chance|攻擊 10%}、475 範圍 40 萬{magic|魔法}。"
+        "description": "{chance|攻擊時 12.5%}，單體 60 萬{magic|魔法傷害}。路線怪追加最大生命 7.5% 的爆發型傷害，Boss 追加最大生命 1.5% 的魔法傷害。另有攻擊時 10% 觸發 475 範圍 40 萬魔法傷害。"
       },
       {
         "id": "skill-9-4-e16dbadf04",
@@ -7891,7 +8011,19 @@ const ORD_DATA = [
         "id": "skill-9-4-7aebaac833",
         "name": "天賦強化",
         "type": "",
-        "description": "4% 召喚強化分身，325 範圍 7 萬{magic|魔法}；暗行機率及效果為 60%。可瞬移。"
+        "description": "投入 4 點天賦後，{chance|攻擊時 5%} 召喚強化分身。分身每擊對 300 範圍造成 7 萬{magic|魔法傷害}，暗行觸發機率與效果為本體的 60%。"
+      },
+      {
+        "id": "skill-9-4-search",
+        "name": "尋寶",
+        "type": "active",
+        "description": "找到寶箱時，獲得一個基本隨機、常見或不凡精靈。{important|冷卻 100 秒}，天賦強化後為 80 秒。"
+      },
+      {
+        "id": "skill-9-4-blink",
+        "name": "瞬間移動 Q",
+        "type": "active",
+        "description": "可無距離限制瞬移。{important|冷卻 3 秒}。"
       }
     ]
   },
@@ -7959,19 +8091,31 @@ const ORD_DATA = [
         "id": "skill-9-5-5524d56c03",
         "name": "倒退",
         "type": "",
-        "description": "每次技能發動 15% 使範圍內隨機 3 名敵人降為當前回合 -3～-5 級並回起點，保留原目前生命的 85% 比例；Boss 不適用。可持續降級，低於當前回合 7 級時死亡。"
+        "description": "每次技能發動有 15% 機率使範圍內隨機三名非 Boss 敵人降至當前回合 −3～−5 級，返回狂暴怪物出現區並保留原目前生命比例的 85%。可反覆降級，降至當前回合低 7 級或更低時立即死亡。發動會重置破甲、魔防降低、魔法與爆發型增傷等效果。"
       },
       {
         "id": "skill-9-5-e1a7a270ab",
         "name": "機率範圍攻擊",
         "type": "",
-        "description": "16% 在 475 範圍 32 萬{magic|魔法} ×2；5% 在 500 範圍 24 萬{magic|魔法} ×3。兩者單體皆另加 30 萬{magic|魔法}，狂暴單體追加為 10 倍。"
+        "description": "{chance|攻擊時 16%}，475 範圍 32 萬{magic|魔法傷害} ×2。{chance|攻擊時 4.75%}，500 範圍 24 萬魔法傷害 ×3。兩者皆對單體追加 30 萬魔法傷害，對狂暴目標此追加為 10 倍。"
       },
       {
         "id": "skill-9-5-780754d385",
         "name": "普攻暈眩",
         "type": "passive",
         "description": "25%，單體{control|暈 1.75 秒}。"
+      },
+      {
+        "id": "skill-9-5-blink",
+        "name": "跳躍 Q",
+        "type": "active",
+        "description": "可在 2,000 範圍內瞬移。{important|冷卻 5 秒}。"
+      },
+      {
+        "id": "skill-9-5-return-shock",
+        "name": "回溯衝擊 W",
+        "type": "active",
+        "description": "投入 4 點天賦取得。對 325 範圍所有敵人套用倒退，將適用目標改為當前回合 −2 級。{important|冷卻 150 秒}。"
       }
     ]
   },
@@ -8030,25 +8174,25 @@ const ORD_DATA = [
         "id": "skill-9-6-c987b676b7",
         "name": "處刑者／斬首",
         "type": "",
-        "description": "敵{control|破甲}至少 50、自身魔力至少 35，耗魔 33 進入處刑 1.25 秒、{buff|攻速 +25%}。期間殘酷劍術必定觸發、範圍 ×1.5、周圍{control|破甲 1}；單體 1,000 萬{important|固定傷害}，Boss 10 萬。"
+        "description": "目標破甲至少 50、自身魔力至少 35 時，耗魔 33 進入處刑 1.25 秒，自身攻速 +25%。期間殘酷劍術必定觸發，範圍與傷害均 ×1.5，周圍敵人破甲 1。單體另受 1,000 萬{important|固定傷害}，Boss／故事／狂暴改為 10 萬固定傷害。"
       },
       {
         "id": "skill-9-6-2e47570b8f",
         "name": "殘酷劍術",
         "type": "",
-        "description": "{chance|攻擊 10%}，450 範圍 80 萬{physical|物理}、單體{control|破甲 4}。"
+        "description": "{chance|攻擊時 10%}，450 範圍 75 萬{physical|物理傷害}並對單體施加{control|破甲 4}，上限 75。"
       },
       {
         "id": "skill-9-6-7be020a7b0",
         "name": "火災",
         "type": "",
-        "description": "14.25%，450 範圍每 0.27 秒 42,500 {magic|魔法}，持續 2.7 秒；毒{control|降防 20}，不與同類重複，另{control|降防 10} 約 2 秒。普攻附單體{control|緩速 45%}、每秒 30 萬{magic|魔法}共 3 秒。"
+        "description": "{chance|攻擊時 14.25%}，450 範圍 20 萬{magic|魔法傷害}，接著 2.7 秒內每 0.27 秒造成 42,500 魔法傷害。中毒敵人降防 20，與同類毒藥互斥；觸發時另使範圍敵人降防 10 約 2 秒。普攻使單體緩速 45% 並每秒受到 30 萬魔法傷害，持續 3 秒。"
       },
       {
         "id": "skill-9-6-df4d195b17",
         "name": "天賦強化・火龍皇",
         "type": "",
-        "description": "取代火災，21 萬＋{control|破甲} ×7,000 {important|固定傷害}；單體灼燒，範圍持續傷害每次 8 萬、{control|降防 25}。可飛行、普攻濺射。"
+        "description": "投入 4 點天賦，以火龍皇替換火災。攻擊時 14.25% 對 450 範圍造成 20 萬＋破甲值 ×10,000 的{important|固定傷害}。中毒目標在 2.7 秒內每 0.27 秒受 8 萬魔法傷害並降防 25，與同類毒藥互斥。觸發時另使範圍敵人降防 10 約 2 秒。可空中移動，普攻有 275 範圍濺射。"
       }
     ]
   },
@@ -8123,13 +8267,25 @@ const ORD_DATA = [
         "id": "skill-9-7-c313dbeb3a",
         "name": "單體追擊",
         "type": "",
-        "description": "{chance|攻擊 20%}，{control|暈 1.5 秒}並追加 42.5 萬{physical|物理}，Boss 機率與傷害各加倍；每次攻擊最大生命 2.15% {important|固定傷害}，故事／Boss 為 14.25 萬{magic|魔法}。"
+        "description": "{chance|攻擊時 20%}，使單體暈眩 1.5 秒並追加 42.5 萬{physical|物理傷害}。對 Boss 必定觸發，傷害加倍。每次攻擊另造成最大生命 2.15% 的固定傷害，對故事／Boss 改為 14.25 萬魔法傷害。"
       },
       {
         "id": "skill-9-7-e4fcf6023f",
         "name": "天賦強化・血色爆煙",
         "type": "",
-        "description": "生命能量 55，900 範圍已損失生命 3% {important|固定傷害}。"
+        "description": "投入 4 點天賦取得。生命能量 55 觸發，對 900 範圍造成已損失生命 3% 的{important|固定傷害}。每次攻擊回復 1 生命。"
+      },
+      {
+        "id": "skill-9-7-speed",
+        "name": "沸騰之血",
+        "type": "passive",
+        "description": "自身{buff|攻速 +45%}。"
+      },
+      {
+        "id": "skill-9-7-blink",
+        "name": "瞬間移動",
+        "type": "active",
+        "description": "可在 1,500 範圍內瞬移。{important|冷卻 3.5 秒}。"
       }
     ]
   },
@@ -8281,7 +8437,7 @@ const ORD_DATA = [
         "id": "skill-9-9-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|降防 25}、{control|緩速 40%}。"
+        "description": "850 範圍內的敵人{control|降防 25、緩速 40%}。"
       },
       {
         "id": "skill-9-9-f2b9aa8f33",
@@ -8300,6 +8456,12 @@ const ORD_DATA = [
         "name": "混合暈眩技能",
         "type": "",
         "description": "{chance|攻擊 5%}，550 範圍 20 萬{magic|魔法}＋100 萬 ×1～1.5 {physical|物理傷害}，{control|暈 2.5 秒}。"
+      },
+      {
+        "id": "skill-9-9-erosion",
+        "name": "天賦強化・侵蝕輪迴",
+        "type": "passive",
+        "description": "投入 4 點天賦取得。生命能量 115，對 500 範圍每秒造成 35 萬物理傷害，持續 7 秒，末擊為 190 萬物理傷害。每擊使範圍敵人暈眩 0.2 秒並施加破甲 1，末擊另加破甲 3。"
       }
     ]
   },
@@ -8933,7 +9095,7 @@ const ORD_DATA = [
         "id": "skill-10-7-c53d5b6163",
         "name": "尼卡般的未來",
         "type": "",
-        "description": "魔力 150 {important|變身}，攻速及技能機率提高；魔力耗盡復原。{important|變身}瞬間 600 範圍 300 萬{magic|魔法}，滿年齡層數目標追加{physical|物理}、{control|暈 3 秒}且{control|無視抗性}。"
+        "description": "魔力 150 變身尼卡，提高基礎攻速與技能觸發率，魔力耗盡時復原。變身時對 600 範圍造成 300 萬魔法傷害，年齡操控達 40 層的敵人另受 200% 物理傷害。範圍敵人暈眩 3 秒，無視抗性。"
       },
       {
         "id": "skill-10-7-312a6878f6",
@@ -8945,19 +9107,19 @@ const ORD_DATA = [
         "id": "skill-10-7-a655c75553",
         "name": "油擊／瀕死體驗",
         "type": "",
-        "description": "基本 15% 範圍 40 萬{magic|魔法}／30% 單體 75 萬{physical|物理}，各消耗自身資源並疊層。"
+        "description": "通常形態下，油擊於攻擊時 15% 觸發、消耗 1 生命，320 範圍 40 萬魔法傷害。瀕死體驗於攻擊時 30% 觸發、消耗 4 生命，單體 75 萬物理傷害。兩招分別追加年齡操控 2／20 層。尼卡形態改消耗 2／4 魔力，天賦尼卡改消耗 3／6 魔力。"
       },
       {
         "id": "skill-10-7-a2a1098881",
         "name": "大胃王",
         "type": "",
-        "description": "生命低時停止行動回血並回魔；另有 12% 範圍技能，{important|絕對冷卻 15 秒}。"
+        "description": "生命 ≤10 時停止行動，直到回復 150 生命，並回復 45 魔力。另有攻擊時 12% 造成 265 萬＋目前生命 4% 的魔法傷害，並暈眩 1.05 秒。{important|絕對冷卻 15 秒}。"
       },
       {
         "id": "skill-10-7-7aebaac833",
         "name": "天賦強化",
         "type": "",
-        "description": "{important|變身}及兩技強化至 30%／50%，新增滿層路線怪最大生命 70%／30% {physical|物理傷害}。各狀態資源消耗分支須再核對。"
+        "description": "投入 4 點天賦後強化尼卡形態的油擊與瀕死體驗，發動率分別為 30%／50%。油擊對年齡操控滿層的路線主目標追加最大生命 70% 物理傷害，瀕死體驗對此類目標另加最大生命 30% 物理傷害。"
       }
     ]
   },
@@ -9300,7 +9462,7 @@ const ORD_DATA = [
         "id": "skill-10-12-988aecbd7e",
         "name": "嵐腳",
         "type": "",
-        "description": "5%，495 範圍 90 萬{magic|魔法}；單體路線怪追加最大生命 4% {important|固定傷害}。"
+        "description": "{chance|攻擊時 7.25%}，495 範圍 90 萬{magic|魔法傷害}。路線主目標另受最大生命 4% 的{important|固定傷害}。"
       },
       {
         "id": "skill-10-12-5b6007f73a",
@@ -9316,9 +9478,21 @@ const ORD_DATA = [
       },
       {
         "id": "skill-10-12-b9ae4bccba",
-        "name": "成長／其他",
+        "name": "通關成長",
         "type": "passive",
-        "description": "通關次數最多 300 次，提高指槍傷害及嵐腳／六王槍機率；路線怪爆發傷害增幅 10%，可瞬移。"
+        "description": "依通關次數成長，至多計 300 次。每次通關使指槍傷害 +0.04%，嵐腳與六王槍的觸發機率各增加 0.0025 個百分點。對路線怪的爆發型傷害 +10%，忽略新世界狂暴目標的單體傷害懲罰。"
+      },
+      {
+        "id": "skill-10-12-blink",
+        "name": "潛行 Q",
+        "type": "active",
+        "description": "可無距離限制瞬移。{important|冷卻 4.5 秒}。"
+      },
+      {
+        "id": "skill-10-12-awakening",
+        "name": "覺醒 F",
+        "type": "active",
+        "description": "投入 4 點天賦取得。使用後覺醒 15 秒，停用嵐腳，指槍改為攻擊時 20% 對單體造成 50 萬＋目前生命 25% 的{magic|魔法傷害}，對 Boss／故事以額外 50 萬取代比例項。另有攻擊時 6.25% 觸發黃蓮，在 0.45 秒內每次攻擊對主目標施放覺醒指槍。{important|冷卻 50 秒}。"
       }
     ]
   },
@@ -9391,7 +9565,7 @@ const ORD_DATA = [
         "id": "skill-10-13-d8957cc196",
         "name": "覺醒",
         "type": "",
-        "description": "魔力 150，持續 4.5 秒，變更攻擊類型、加速並替換技能；850 範圍{control|降防 60} 共 7.5 秒。"
+        "description": "魔力 150 觸發覺醒 4.5 秒，攻擊類型改為霸氣、基礎攻擊間隔減少 0.03 秒，多重切割的發動機率提高 20%。五色線與蜘蛛網替換為凶彈及海原白波，期間普攻不回魔。發動時使 850 範圍敵人{control|降防 60}，持續 7.5 秒。"
       },
       {
         "id": "skill-10-13-244786fd03",
@@ -9403,13 +9577,19 @@ const ORD_DATA = [
         "id": "skill-10-13-6e21a25fd9",
         "name": "普攻追加",
         "type": "passive",
-        "description": "275 範圍普攻傷害 75%＋7.5 萬{physical|物理}；{important|覺醒}時改 350 範圍 105%＋10.5 萬。"
+        "description": "普通狀態每擊對 325 範圍造成普攻傷害 75%＋7.5 萬的{physical|物理傷害}。覺醒時五色線替換為凶彈。"
       },
       {
         "id": "skill-10-13-7bb27ac5ff",
         "name": "控制／覺醒技",
         "type": "",
-        "description": "18% 範圍{magic|魔法}及強{control|緩速}；{important|覺醒}時 20% 造成 40 萬 ×1～1.5 {physical|物理}＋15 萬及目前生命 1% {magic|魔法}。可飛行。"
+        "description": "普通狀態攻擊時 18% 觸發蜘蛛網，造成 20.5 萬{magic|魔法傷害}及強緩速。覺醒時改為海原白波，攻擊時 20% 造成 40 萬 ×1～1.5 物理傷害＋15 萬及目前生命 1% 的魔法傷害。可空中移動。"
+      },
+      {
+        "id": "skill-10-13-birdcage",
+        "name": "天賦強化・鳥籠",
+        "type": "passive",
+        "description": "投入 4 點天賦，覺醒延長至 6 秒，並在 6 秒內收攏 850 範圍的敵人。期間凶彈每擊對 400 範圍造成普攻傷害 105%＋10.5 萬物理傷害，另有 30% 觸發 3 倍暴擊。海原白波為 525 範圍，命中敵人緩速 250% 持續 4.5 秒，範圍另有 75% 緩速持續 2 秒。"
       }
     ]
   },
@@ -9565,7 +9745,7 @@ const ORD_DATA = [
         "id": "skill-10-15-757fcdbb6c",
         "name": "能量技能",
         "type": "",
-        "description": "生命能量 85，自身 925 範圍 175 萬＋目前生命 2.5% 傷害，每力量加 6 萬；該段未指定傷害類型。"
+        "description": "生命能量 85，對自身周圍 925 範圍造成 175 萬＋目前生命 2% 的{magic|魔法傷害}，每點力量使傷害增加 6 萬。"
       },
       {
         "id": "skill-10-15-5279f6fc3b",
@@ -9577,13 +9757,19 @@ const ORD_DATA = [
         "id": "skill-10-15-e28b522312",
         "name": "直線技能",
         "type": "",
-        "description": "4%，415 範圍 59.5 萬＋力量 ×5,000 {magic|魔法}。"
+        "description": "{chance|攻擊時 4%}，直線 415 範圍 62.5 萬＋力量 ×5,000 的{magic|魔法傷害}。"
       },
       {
         "id": "skill-10-15-b9a6d31bee",
         "name": "暗水追擊",
         "type": "",
-        "description": "17.5%，單體 200 萬{magic|魔法}、{magic|魔法}增傷 10%、全傷增幅 10%、{control|暈 3 秒}；狂暴清除增益並受 400 萬{magic|魔法}，故事 300 萬且不拉動。"
+        "description": "{chance|攻擊時 17.5%}，單體 200 萬{magic|魔法傷害}，魔法易傷及全傷易傷各 10%，拉近並暈眩 3 秒。狂暴另清除有益效果並追加 400 萬魔法傷害，故事承受 300 萬魔法傷害且不被拉動。Boss／狂暴可各無視條件發動一次，與其他速攻互斥。"
+      },
+      {
+        "id": "skill-10-15-quake-mastery",
+        "name": "天賦強化・地震與引力",
+        "type": "passive",
+        "description": "投入 4 點天賦後，震震果實觸發強震的機率由 17% 提高至 33%。暗水觸發率由 17.5% 提高至 22.5%，全傷易傷由 10% 提高至 25%，魔法易傷維持 10%。"
       }
     ]
   },
@@ -9655,7 +9841,7 @@ const ORD_DATA = [
         "id": "skill-10-16-5a19636627",
         "name": "火拳槍",
         "type": "",
-        "description": "魔力 160，600 範圍 425 萬 ×1～1.5＋最大生命 1.5% {magic|魔法}，單體雙倍；每力量增基礎 3 萬，{control|暈 2.15 秒}、{control|破甲 7}。"
+        "description": "魔力 160，施法 0.625 秒，對 600 範圍造成 225 萬 ×1～1.5 {physical|物理傷害}＋425 萬 ×1～1.5 及最大生命 1.5% 的{magic|魔法傷害}。單體另受 200% 魔法傷害，每點力量使基礎傷害增加 3 萬，並使範圍敵人暈眩 2.5 秒及破甲 7。"
       },
       {
         "id": "skill-10-16-975b0214b4",
@@ -9668,6 +9854,24 @@ const ORD_DATA = [
         "name": "巨人機關槍",
         "type": "",
         "description": "1.25%，450 範圍 25 拳、每拳 49,400 {magic|魔法}，2 秒合計 123.5 萬；{control|暈 0.75 秒}，{important|絕對冷卻 1.75 秒}。"
+      },
+      {
+        "id": "skill-10-16-rubber-fruit",
+        "name": "橡膠果實 Lv.5",
+        "type": "passive",
+        "description": "普攻對 345 範圍追加普攻傷害 80%＋25,000 的{physical|物理傷害}，另有 18% 觸發 5 倍暴擊。"
+      },
+      {
+        "id": "skill-10-16-elephant-gun",
+        "name": "象槍",
+        "type": "passive",
+        "description": "{chance|攻擊時 6.25%}，單體 62.5 萬{physical|物理傷害}並暈眩 2 秒。對 Boss／狂暴，機率與傷害提高 70%，約為 10.6% 與 106.25 萬物理傷害。"
+      },
+      {
+        "id": "skill-10-16-hawk-gatling",
+        "name": "天賦強化・鷹機關槍",
+        "type": "passive",
+        "description": "投入 4 點天賦，以鷹機關槍替換巨人機關槍。攻擊時 2.5% 觸發，持續 3.5 秒，自身攻擊 +7 萬。期間攻擊時另有 12.5% 對 500 範圍造成 102,500 魔法傷害並暈眩 1.5 秒。{important|絕對冷卻 1.75 秒}。"
       }
     ]
   },
@@ -9732,7 +9936,7 @@ const ORD_DATA = [
         "id": "skill-10-17-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|降防 25}。敵人每個增益／減益使自身技能傷害 +8%。"
+        "description": "850 範圍內的敵人{control|降防 25}。依目標身上的增益與減益總數，每項使自身技能傷害 +8%。{chance|攻擊時 25%} 使單體暈眩 1 秒。"
       },
       {
         "id": "skill-10-17-b5f676534d",
@@ -9744,13 +9948,19 @@ const ORD_DATA = [
         "id": "skill-10-17-db4956a6c7",
         "name": "機率技能",
         "type": "",
-        "description": "14% 三段{physical|物理}、單體{control|暈 2 秒}；18% 五倍暴擊；6.25% 單體{physical|物理}短{control|暈}，Boss／狂暴機率與傷害 +70%。普攻另有濺射。"
+        "description": "{chance|攻擊時 7%} 觸發命運之牌，造成 16.25 萬{magic|魔法傷害} ×3。另有 14% 觸發海樓石釘，450 範圍 18.75 萬{physical|物理傷害} ×3，並使單體暈眩 2 秒。"
       },
       {
         "id": "skill-10-17-696fd835fb",
-        "name": "占卜",
-        "type": "",
-        "description": "88 秒冷卻，獲得出的隨機精靈，使用時 33% 重置冷卻。"
+        "name": "占卜 F",
+        "type": "active",
+        "description": "取得一個隨機精靈，排除自選與超越精靈。使用時有 33% 機率重置冷卻。{important|冷卻 88 秒}。"
+      },
+      {
+        "id": "skill-10-17-mini-strawman",
+        "name": "天賦強化・迷你稻草人",
+        "type": "passive",
+        "description": "投入 4 點天賦後，自身攻速 +7%，召喚迷你稻草人並將占卜移交給它。稻草人使 800 範圍敵人緩速 7%、850 範圍敵人降防 7，普攻對單體每秒造成 77,777 魔法傷害並緩速 7% 持續 7 秒。"
       }
     ]
   },
@@ -9835,7 +10045,7 @@ const ORD_DATA = [
         "id": "skill-10-18-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|緩速 20%}、{control|魔抗}降低 3%。"
+        "description": "750 範圍內的敵人{control|緩速 15%}，另有全圖敵人緩速 5%。自身路線怪{control|魔防降低 3%}。"
       },
       {
         "id": "skill-10-18-0646ae7d1f",
@@ -9860,6 +10070,12 @@ const ORD_DATA = [
         "name": "控制",
         "type": "",
         "description": "17.5%，單體{control|暈 1.75 秒}。"
+      },
+      {
+        "id": "skill-10-18-laboon",
+        "name": "天賦強化・小拉布",
+        "type": "passive",
+        "description": "投入 4 點天賦召喚小拉布，固定每秒攻擊一次、不受攻速增益，並使 800 範圍敵人緩速 7%。每第 9 擊唱歌 6 秒，800 範圍友軍攻速 +25% 並回魔 5。超越布魯克在範圍內時，歌曲開始及結束各觸發一次突刺。"
       }
     ]
   },
@@ -9930,7 +10146,7 @@ const ORD_DATA = [
         "id": "skill-10-19-57808aa556",
         "name": "薄霧",
         "type": "",
-        "description": "10%，550 範圍 85 萬＋力量 ×6,000＋普攻傷害 900% {magic|魔法}、{control|破甲 5}。"
+        "description": "{chance|攻擊時 10%}，550 範圍 85 萬＋力量 ×6,000＋普攻傷害 900% 的{magic|魔法傷害}，並施加破甲 5，上限 75。"
       },
       {
         "id": "skill-10-19-2be4aac01c",
@@ -9948,7 +10164,7 @@ const ORD_DATA = [
         "id": "skill-10-19-7aebaac833",
         "name": "天賦強化",
         "type": "",
-        "description": "經驗 +3,000，蘭香蝶 16 次且新增 Boss／狂暴最大生命 3%；六式改兩段傷害。"
+        "description": "投入 4 點天賦，獲得 3,000 經驗。蘭香蝶提高至 16 擊，對 Boss／狂暴另有最大生命 3% 魔法傷害。六式改為兩段，每段造成 40 萬＋力量 ×3,500＋普攻傷害 375% 的魔法傷害。"
       }
     ]
   },
@@ -10032,7 +10248,7 @@ const ORD_DATA = [
         "id": "skill-10-20-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|降防 35}、{control|緩速 35%}。"
+        "description": "850 範圍內的敵人{control|降防 35、緩速 35%}。"
       },
       {
         "id": "skill-10-20-0646ae7d1f",
@@ -10044,13 +10260,19 @@ const ORD_DATA = [
         "id": "skill-10-20-975b0214b4",
         "name": "機率追擊",
         "type": "",
-        "description": "20%，415 範圍{physical|物理}、單體依自身增益數追加{magic|魔法}及最大生命 4% {physical|物理}（Boss 1%）、{control|暈 1.85 秒}；10% 範圍 115 萬{physical|物理}、{control|緩速 30%}。"
+        "description": "攻擊時 20% 對 415 範圍造成 50 萬 ×1～1.5 物理傷害。單體另受 50 萬＋自身增益數 ×5 萬魔法傷害、最大生命 4% 物理傷害（Boss 1%），並暈眩 1.85 秒。另有攻擊時 10% 造成 115 萬物理傷害並使受擊敵人緩速 30% 持續 2 秒。"
       },
       {
         "id": "skill-10-20-fa32cd641b",
         "name": "火焰龍王",
         "type": "",
-        "description": "每 12.5 秒攻擊觸發，475 範圍 325 萬{magic|魔法}＋100 萬{physical|物理}，每個自身增益追加 100 萬{physical|物理}；單體另加 425 萬{important|固定}、依力量成長，{control|暈 2.5 秒}且無視 50% 抗性。另有暴擊、濺射。"
+        "description": "每 12.5 秒由攻擊觸發，475 範圍 325 萬魔法＋100 萬物理，每個自身增益追加 100 萬物理。單體另受 425 萬固定傷害，每點力量使物理傷害 +15,000。範圍敵人暈眩 2.5 秒並無視 50% 抗性。普攻具 300 範圍濺射，另有 15% 觸發 4 倍暴擊。"
+      },
+      {
+        "id": "skill-10-20-fire-fist",
+        "name": "天賦強化・羈絆火拳",
+        "type": "passive",
+        "description": "投入 4 點天賦取得。生命能量 145，對 700 範圍造成 100 萬物理傷害，提升範圍內攻速 20% 並使範圍敵人緩速 30%。效果持續 3 秒，每個增益再延長 1 秒。"
       }
     ]
   },
@@ -10140,7 +10362,19 @@ const ORD_DATA = [
         "id": "skill-10-21-2db4c14cca",
         "name": "羊肉踢",
         "type": "",
-        "description": "5%，500 範圍 80 萬{magic|魔法}、{control|緩速 50%} 共 3.5 秒；可飛行。"
+        "description": "{chance|攻擊時 5%}，500 範圍 80 萬{magic|魔法傷害}並緩速 50%，持續 3.5 秒。"
+      },
+      {
+        "id": "skill-10-21-moonwalk",
+        "name": "月步 Q",
+        "type": "active",
+        "description": "可在 600 範圍內瞬移，並可空中移動。"
+      },
+      {
+        "id": "skill-10-21-germa-black",
+        "name": "天賦強化・傑爾馬黑",
+        "type": "passive",
+        "description": "投入 4 點天賦變身傑爾馬黑。黑足／火焰光譜／羊肉踢的觸發率提高至 22.5%／16%／5.5%。900 範圍友軍攻速 +15%，自身攻擊間隔降低 8%、攻速達最高、基礎攻擊力 +12%、技能發動率 +12.5%，每秒額外回魔 1.25。"
       }
     ]
   },
@@ -10297,13 +10531,19 @@ const ORD_DATA = [
         "id": "skill-10-23-6713a4285f",
         "name": "海流調整",
         "type": "",
-        "description": "12%，600 範圍 38 萬{magic|魔法}、{control|暈 2.35 秒}、{control|無視抗性}。另有暴擊及濺射，可飛行。"
+        "description": "{chance|攻擊時 12%}，600 範圍 38 萬{magic|魔法傷害}並暈眩 2.35 秒，無視抗性。普攻具有 300 範圍濺射，另有 17% 造成 300 範圍 25 萬物理傷害及 3 倍暴擊。可空中移動。"
       },
       {
         "id": "skill-10-23-7aebaac833",
         "name": "天賦強化",
         "type": "",
-        "description": "航海目標給經驗，16 級解鎖海王召喚，20 級給資源，24 級俯衝強化。海王持續 15 秒、{important|絕對冷卻 20 秒}；強化俯衝為 450 萬＋已損失生命 8% ×1～1.5 {magic|魔法}。"
+        "description": "投入 4 點天賦後，每完成一個航海目標獲得 270 經驗。16 級強化波塞頓並解鎖海王，20 級全屬性 +10，24 級強化海王類俯衝為 450 萬＋已損失生命 8% ×1～1.5 的魔法傷害。"
+      },
+      {
+        "id": "skill-10-23-sea-king",
+        "name": "海王召喚",
+        "type": "passive",
+        "description": "達到天賦的 16 級門檻後，攻擊時 5% 召喚海王 15 秒。海王攻擊白星的目標，每擊對 500 範圍造成 15 萬魔法，另有 25% 對 575 範圍造成 20 萬＋已損失生命 1% 魔法，每點白星力量使後者提高 1 萬。{important|絕對冷卻 20 秒}。"
       }
     ]
   },
@@ -10463,13 +10703,13 @@ const ORD_DATA = [
         "id": "skill-10-25-c77276bdb5",
         "name": "冥狗",
         "type": "",
-        "description": "7.5%，600 範圍 72.5 萬{magic|魔法}，單體另加 725 萬、{control|暈 3 秒}、{control|無視抗性}；依力量成長，狂暴另受最大生命 18% {important|固定}。"
+        "description": "{chance|攻擊時 7.5%}，600 範圍 72.5 萬魔法傷害，單體另受 725 萬魔法傷害及暈眩 3 秒，無視抗性。每點力量提高 5,000 範圍傷害、5 萬單體傷害。狂暴另受最大生命 18% 的固定傷害。"
       },
       {
         "id": "skill-10-25-f38282f5ed",
         "name": "其他能力",
         "type": "",
-        "description": "10% 範圍傷害與單體{control|暈}；技能後 700 範圍每 0.2 秒 15 萬{magic|魔法}、{control|緩速 12%}。"
+        "description": "攻擊時 10% 觸發大噴火，475 範圍 42.5 萬魔法傷害並使單體暈眩 2.6 秒。使用技能後，700 範圍在 2 秒內每 0.2 秒受到 15 萬魔法傷害，並緩速 12% 持續 2 秒。"
       },
       {
         "id": "skill-10-25-2309c749a1",
@@ -10481,7 +10721,7 @@ const ORD_DATA = [
         "id": "skill-10-25-7aebaac833",
         "name": "天賦強化",
         "type": "",
-        "description": "流星 8 顆、集中目標，新增力量係數及單體 200 萬{magic|魔法}。"
+        "description": "投入 4 點天賦後，流星火山增加至八顆隕石、集中於攻擊目標。每顆傷害為 999,999＋力量 ×5 萬的魔法傷害，單體另受 200 萬魔法傷害。"
       }
     ]
   },
@@ -10766,19 +11006,19 @@ const ORD_DATA = [
         "id": "skill-10-28-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{buff|攻速 +20%}、回魔 3；敵人{control|破甲}量每點增自身技能傷害 1%。"
+        "description": "850 範圍內的友軍{buff|攻速 +20%、每秒回復 3 魔力}。目標每有 1 點破甲，自身對其技能傷害提高 1%。"
       },
       {
         "id": "skill-10-28-0646ae7d1f",
         "name": "魔力技能",
         "type": "",
-        "description": "魔力 100，600 範圍 250 萬{physical|物理}、{control|暈 3 秒}、{control|破甲 3}；敵{control|破甲}至少 10 再{control|降防 25}，僅一次，不與傳說甚平重複。"
+        "description": "魔力 100，600 範圍 250 萬{physical|物理傷害}、{control|暈眩 2.4 秒、破甲 3}。範圍內已達破甲 10 的敵人另降防 25，只套用一次，與傳說甚平同類效果互斥。"
       },
       {
         "id": "skill-10-28-1e92af841e",
         "name": "範圍追擊",
         "type": "",
-        "description": "6.25%，625 範圍 45 萬{magic|魔法}＋175 萬{physical|物理}，單體轉 225% {important|固定}、{control|破甲 3}、{control|緩速 50%}；14.25% 範圍{physical|物理}依力量成長、{control|破甲 1}。"
+        "description": "{chance|攻擊時 6.25%} 觸發海流過肩摔，625 範圍 45 萬魔法＋175 萬物理，對單體以 225% 固定傷害計算，另施加破甲 3、緩速 50% 共 3 秒。攻擊時另有 14.25% 觸發震腳，450 範圍 125 萬＋力量 ×17,500 物理傷害並施加破甲 1，破甲上限 75。"
       },
       {
         "id": "skill-10-28-8b79df27ba",
@@ -10790,7 +11030,7 @@ const ORD_DATA = [
         "id": "skill-10-28-7aebaac833",
         "name": "天賦強化",
         "type": "",
-        "description": "一般路線怪{control|破甲}至少 35 時鬼瓦正拳，{important|絕對冷卻 4 秒}；{control|破甲}達 75 追加最大生命 2% {important|固定}。"
+        "description": "投入 4 點天賦取得鬼瓦正拳。攻擊破甲至少 40 的目標時，625 範圍 50 萬魔法＋75 萬物理傷害，並施加破甲 3、緩速 50% 共 3 秒。破甲達 75 的路線怪另受最大生命 2% 的固定傷害。{important|絕對冷卻 4 秒}。"
       }
     ]
   },
@@ -10852,7 +11092,7 @@ const ORD_DATA = [
         "id": "skill-10-29-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|降防 50}、攻擊及攻速各 +40%；排除自身的醫療用品攻擊增益。"
+        "description": "825 範圍內友軍{buff|攻擊及攻速各 +40%}，同範圍敵人降防 50。醫療用品另使 825 範圍其他友軍攻擊 +40%。"
       },
       {
         "id": "skill-10-29-e3d4c5dc27",
@@ -10864,7 +11104,7 @@ const ORD_DATA = [
         "id": "skill-10-29-7aebaac833",
         "name": "天賦強化",
         "type": "",
-        "description": "移除醫療用品，新增刻蹄掌：10%，施法 0.7 秒，800 範圍普攻傷害 175%＋175 萬{physical|物理}，單體技能傷害 175% {important|固定}（故事 50%）。"
+        "description": "投入 4 點天賦後永久維持怪物形態，移除醫療用品並取得刻蹄掌。攻擊時 10% 觸發，施法 0.7 秒，對 800 範圍造成普攻傷害 175%＋175 萬物理傷害，單體另受技能傷害 175% 的固定傷害（故事 50%）。"
       }
     ]
   },
@@ -11029,7 +11269,7 @@ const ORD_DATA = [
         "id": "skill-10-31-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|緩速 70%}，路線區爆發增幅 10%，不與隱藏青雉重複。"
+        "description": "800 範圍內的敵人{control|緩速 70%}。自身路線區的敵人承受爆發型傷害 +10%，與隱藏青雉的同類效果互斥。"
       },
       {
         "id": "skill-10-31-30ca4579c3",
@@ -11041,13 +11281,13 @@ const ORD_DATA = [
         "id": "skill-10-31-640742dde4",
         "name": "冰冰果實",
         "type": "",
-        "description": "10%，550 範圍 24 萬{magic|魔法} ×2、{control|暈 2.3 秒}；另有 4% 三段冰鳥、7% 範圍冰刀，普攻{control|緩速 20%}。"
+        "description": "攻擊時 10% 對 550 範圍造成 24 萬魔法 ×2 並暈眩 2.3 秒。另有 4% 對 700 範圍造成 12.5 萬魔法 ×3，以及 7% 對 450 範圍造成 32.5 萬魔法。普攻使目標緩速 20%。"
       },
       {
         "id": "skill-10-31-7aebaac833",
         "name": "天賦強化",
         "type": "",
-        "description": "常駐{control|緩速 80%}，冰河時代追加範圍爆發增幅 5%、可飛行，自身每秒回魔另 +0.33。"
+        "description": "投入 4 點天賦後，800 範圍常駐緩速提高至 80%，可在水中及空中移動，自身每秒額外回魔 0.33。冰河時代改為 225 萬爆發型傷害，並使範圍敵人承受的爆發型傷害 +5%。發動後獲得冰手套 2 秒，期間每次攻擊對 475 範圍造成 47,500 爆發型傷害。"
       }
     ]
   },
@@ -11120,7 +11360,7 @@ const ORD_DATA = [
         "id": "skill-10-32-ef7b9af90d",
         "name": "魔力連擊",
         "type": "",
-        "description": "{chance|攻擊 6%}、魔力至少 75，耗魔 50，575 範圍 15 次，每次 25 萬＋敏捷係數{magic|魔法}。"
+        "description": "{chance|攻擊時 6%}，魔力至少 75 時消耗 50，對 575 範圍造成 15 段魔法傷害，每段為 25 萬＋敏捷 ×2,500 ×1～1.5。"
       },
       {
         "id": "skill-10-32-4f2cfc8dba",
@@ -11138,13 +11378,31 @@ const ORD_DATA = [
         "id": "skill-10-32-f38282f5ed",
         "name": "其他能力",
         "type": "",
-        "description": "15% 8.88 倍暴擊及單體{control|暈 3 秒}；10% 直線雷射 50 萬{magic|魔法}；瞬移 3,500。"
+        "description": "攻擊時有 15% 觸發 8.88 倍暴擊及單體暈眩 3 秒，另有 10% 對直線 310 範圍造成 50 萬魔法傷害。"
       },
       {
         "id": "skill-10-32-7aebaac833",
         "name": "天賦強化",
         "type": "",
-        "description": "天叢雲劍、光分裂及分身層數系統，天賦點可購買層數；八咫鏡改依層數決定打擊次數。"
+        "description": "投入 4 點天賦後取得天叢雲劍與光分裂，強化八咫鏡。強化後仍為 475 範圍，每擊 19 萬＋敏捷 ×1,900 魔法傷害，單體另受 325% 魔法傷害，依分身層數決定段數，最多十段。"
+      },
+      {
+        "id": "skill-10-32-sword",
+        "name": "天叢雲劍",
+        "type": "passive",
+        "description": "普攻對 375 範圍造成 37,500 魔法傷害，分身每層另加 3,750。攻擊時有 10% 召喚分身攻擊，475 範圍每段 75,000 魔法傷害，段數等於分身層數，對 Boss／狂暴另有最大生命 0.375% 固定傷害。"
+      },
+      {
+        "id": "skill-10-32-split",
+        "name": "光分裂 W",
+        "type": "active",
+        "description": "每使用一次消耗 1 點天賦並取得一層分身，顯示目前層數。"
+      },
+      {
+        "id": "skill-10-32-blink",
+        "name": "八咫之鏡 Q",
+        "type": "active",
+        "description": "可在 3,500 範圍內瞬移。{important|冷卻 2 秒}。"
       }
     ]
   },
@@ -11220,13 +11478,25 @@ const ORD_DATA = [
         "id": "skill-10-33-7db0a87a6f",
         "name": "普攻／追擊",
         "type": "passive",
-        "description": "415 範圍攻擊力 55% 爆發。{chance|12.5% 機率}範圍{magic|魔法}及目前生命比例傷害、單體強{control|緩速}；狂暴清除防禦增益並追加目前生命 33% {important|固定}。"
+        "description": "普攻對 415 範圍造成目前攻擊力 55% 的爆發型傷害。攻擊時 12.5% 觸發注射射擊，485 範圍 17.5 萬＋目前生命 0.4% 的魔法傷害。單體緩速 99% 共 3 秒，先僵直 1.25 秒，範圍受擊敵人緩速 40% 共 3 秒。狂暴另受目前生命 33% 的固定傷害。"
       },
       {
         "id": "skill-10-33-1ebe9bdf49",
         "name": "另一分支",
         "type": "",
-        "description": "5%，575 範圍兩段{magic|魔法}後追加{important|固定}比例傷害；狂暴追加目前生命 50% {important|固定}。可瞬移。"
+        "description": "{chance|攻擊時 5%} 觸發電波刀，575 範圍 15.5 萬魔法 ×2，另加 25.5 萬＋目前生命 1.25% 的固定傷害。單體緩速 99% 共 5 秒，先僵直 2.5 秒。狂暴另移除防禦增益並受到目前生命 50% 的固定傷害。"
+      },
+      {
+        "id": "skill-10-33-warp",
+        "name": "手術果實・瞬移 Q",
+        "type": "active",
+        "description": "可無距離限制瞬移。{important|冷卻 8 秒}。"
+      },
+      {
+        "id": "skill-10-33-r-room",
+        "name": "天賦強化・R-ROOM",
+        "type": "passive",
+        "description": "投入 4 點天賦後，ROOM 改為以敵人為中心的 R-ROOM，期間技能發動率加倍，技能範圍調整為 825。鬼哭替換為伽馬刀，攻擊時 4% 觸發，原始範圍 530，共兩段，每段造成 20 萬＋目前生命 1% 的固定傷害。"
       }
     ]
   },
@@ -11281,13 +11551,13 @@ const ORD_DATA = [
         "id": "skill-10-34-bf21aca9fc",
         "name": "雷射光束",
         "type": "",
-        "description": "魔力 150，直線 425 範圍 50 萬{magic|魔法}。"
+        "description": "魔力 150，直線 425 範圍造成 250 萬{magic|魔法傷害}。"
       },
       {
         "id": "skill-10-34-96582a301a",
         "name": "船匠 B",
         "type": "active",
-        "description": "耗木 8，製造千陽號 2 艘；其他友軍{buff|魔力再生 +5}。"
+        "description": "耗木材 8，施法 2 秒，製造兩艘千陽號。700 範圍內的其他友軍{buff|每秒回復 5 魔力}。"
       },
       {
         "id": "skill-10-34-a25612f191",
@@ -11299,19 +11569,19 @@ const ORD_DATA = [
         "id": "skill-10-34-1c5cbcfc35",
         "name": "佛朗基將軍",
         "type": "",
-        "description": "將軍光束 7.5%，800 範圍 50 萬＋最大生命 1% {magic|魔法}；將軍劍普攻範圍{magic|魔法}並有強擊。"
+        "description": "將軍型態下，攻擊時 7.5% 觸發將軍光束，直線 425 範圍造成 50 萬＋最大生命 1% 的魔法傷害。將軍劍每次普攻對 300 範圍造成 20 萬魔法傷害，另有 33% 觸發 450 範圍 60 萬魔法傷害。"
       },
       {
         "id": "skill-10-34-4c039085f4",
         "name": "士兵船塢",
         "type": "",
-        "description": "附近有千陽號時 8% 發射飛彈，基本 2 顆，每艘再加 1。"
+        "description": "750 範圍內有千陽號時，{chance|攻擊時 10%} 發射飛彈。基礎為兩枚，每艘千陽號再增加一枚，每枚對 400 範圍造成 20 萬 ×1～1.5 的{magic|魔法傷害}。"
       },
       {
         "id": "skill-10-34-7aebaac833",
         "name": "天賦強化",
         "type": "",
-        "description": "魔力 150 {important|變身} 6 秒，立即 800 範圍 400 萬{magic|魔法}衝擊。"
+        "description": "投入 4 點天賦後，魔力 150 觸發變身佛朗基將軍，持續 6 秒，立即發動 800 範圍 400 萬魔法傷害的將軍重壓。風來砲替換為將軍光束，並取得將軍劍。"
       }
     ]
   },
@@ -11466,13 +11736,13 @@ const ORD_DATA = [
         "id": "skill-10-36-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|降防 45}、自身{buff|攻擊 +25,000}。"
+        "description": "850 範圍內的敵人{control|降防 45}，同範圍友軍{buff|攻擊 +20,000}。"
       },
       {
         "id": "skill-10-36-757fcdbb6c",
         "name": "能量技能",
         "type": "",
-        "description": "生命能量 40，600 範圍 225 萬＋最大生命 1% {physical|物理}，{control|暈 1.15 秒}。"
+        "description": "生命能量 40，600 範圍 225 萬＋最大生命 1% 的{physical|物理傷害}，並{control|暈眩 1.15 秒}，無視抗性。"
       },
       {
         "id": "skill-10-36-8da1cc5591",
@@ -11485,6 +11755,12 @@ const ORD_DATA = [
         "name": "多重攻擊",
         "type": "",
         "description": "同時攻擊 7 名，15% 對全部多重目標造成基礎攻擊力 2.5 倍{physical|物理傷害}。"
+      },
+      {
+        "id": "skill-10-36-gigante",
+        "name": "天賦強化・巨人花 Q",
+        "type": "active",
+        "description": "投入 4 點天賦取得。召喚分身 20 秒攻擊羅賓的目標，羅賓使用能量技能時延長 1 秒。分身離羅賓超過 650 範圍時停止作用。分身每擊對 400 範圍造成 10 萬 ×0.8～1.3 物理傷害，另有 5%／10% 的 600 範圍物理技能，分別造成 175 萬 ×1～1.5／30 萬物理傷害。{important|冷卻 60 秒}。"
       }
     ]
   },
@@ -11746,31 +12022,37 @@ const ORD_DATA = [
         "id": "skill-11-3-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|降防 20}、{buff|攻速 +45%}。"
+        "description": "900 範圍內的敵人{control|降防 20}，825 範圍內的友軍{buff|攻速 +45%}。"
       },
       {
         "id": "skill-11-3-8bae2577af",
         "name": "霸氣釋放",
         "type": "",
-        "description": "魔力 115，800 範圍 275 萬 ×1～1.5 {physical|物理}＋125 萬{magic|魔法}，{control|暈 3 秒}（Boss 1 秒）、{control|破甲 5}。"
+        "description": "魔力 115，以敵人為中心的 800 範圍造成 275 萬 ×1～1.5 物理＋125 萬魔法傷害，並暈眩 3 秒（Boss 1 秒）、施加破甲 5，上限 75。路線主目標有 40% 機率即死。"
       },
       {
         "id": "skill-11-3-b194856481",
         "name": "普攻／分身",
         "type": "passive",
-        "description": "400 範圍普攻傷害 100% {physical|物理}；15% 單體短{control|暈}及追加{physical|物理}；8% 分身攻擊隨機敵人，另有 5% 範圍{magic|魔法}。"
+        "description": "普攻對 400 範圍造成普攻傷害 100% 的物理傷害。攻擊時 15% 對單體追加 102,500 物理傷害與無視抗性的暈眩 0.6 秒，分身發動率為 10%。另有 8% 使用分身攻擊隨機敵人，造成 400 範圍 7.5 萬魔法；本體與分身均有 5% 造成 550 範圍 30 萬魔法及單體追加 20 萬魔法。"
       },
       {
         "id": "skill-11-3-eed84d037b",
         "name": "瞬速",
         "type": "",
-        "description": "2.5%，415 範圍 140 萬 ×1～1.5 {physical|物理}，單體追加 45%、{control|無視抗性}短{control|暈}；狂暴追加最大生命 18% {physical|物理}，{important|絕對冷卻 3.5 秒}。"
+        "description": "{chance|攻擊時 2.5%}，415 範圍 135 萬 ×1～1.5 {physical|物理傷害}。單體追加技能傷害 45% 的物理傷害，並暈眩 0.6 秒、無視抗性。狂暴另受最大生命 18% 的物理傷害。攻擊特殊敵人時可無視機率，故事除外。{important|絕對冷卻 3.5 秒}。"
       },
       {
         "id": "skill-11-3-3c8f5b363a",
         "name": "刪除",
         "type": "",
         "description": "瞬速或霸氣釋放對路線怪可移除並掉戰利品。"
+      },
+      {
+        "id": "skill-11-3-higanbana",
+        "name": "天賦強化・彼岸花",
+        "type": "passive",
+        "description": "投入 4 點天賦後，每發動瞬速五次觸發彼岸花，475 範圍 135 萬 ×1～2.5 物理傷害，主目標另受技能傷害 100% 的固定傷害並暈眩 0.9 秒、無視抗性。路線主目標即死並掉落戰利品。"
       }
     ]
   },
@@ -11839,7 +12121,7 @@ const ORD_DATA = [
         "id": "skill-11-4-7cb1ae47fe",
         "name": "常駐／限制",
         "type": "passive",
-        "description": "{control|緩速 60%}、{buff|攻擊力降低 75%}、普攻 500 範圍濺射。"
+        "description": "1,025 範圍內的敵人{control|緩速 60%}，2,000 範圍內自己的單位攻擊力降低 30%。普攻具有 500 範圍濺射。天賦強化後，敵人緩速改為 30%，自有單位降攻改為 60%。"
       },
       {
         "id": "skill-11-4-7fffff9344",
@@ -11857,7 +12139,13 @@ const ORD_DATA = [
         "id": "skill-11-4-f258f0cd98",
         "name": "弱肉強食",
         "type": "",
-        "description": "普攻及技能疊{control|降防}，人形與龍形對單體／範圍的疊層速度不同；單體最高{control|降防 145}、範圍最高 30。"
+        "description": "單體先降防 70，之後每層再降 5；範圍敵人每層降防 3，兩者均至多累積 10 層。人形每次對單體／範圍分別疊 2／1 層，龍形為 1／2 層，人獸形皆為 2 層，熱息對兩者皆疊 3 層。"
+      },
+      {
+        "id": "skill-11-4-hybrid",
+        "name": "天賦強化・人獸形 F",
+        "type": "active",
+        "description": "投入 4 點天賦取得。切換人獸形 15 秒，攻速提高至最高值，普攻的範圍魔法增強，雷鳴八卦與哭酒的暴擊機率及傷害提高。{important|冷卻 50 秒}。"
       }
     ]
   },
@@ -11931,7 +12219,7 @@ const ORD_DATA = [
         "id": "skill-11-5-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|緩速 35%}。"
+        "description": "900 範圍內的敵人{control|緩速 35%}。"
       },
       {
         "id": "skill-11-5-0646ae7d1f",
@@ -11956,6 +12244,18 @@ const ORD_DATA = [
         "name": "普攻控制",
         "type": "passive",
         "description": "每擊單體{control|暈 2.25 秒}＋5 萬{physical|物理}；狂暴每擊追加最大生命 2.5% {magic|魔法}。"
+      },
+      {
+        "id": "skill-11-5-blink",
+        "name": "六式・剃 Q",
+        "type": "active",
+        "description": "可在 2,000 範圍內瞬移。{important|冷卻 5 秒}。"
+      },
+      {
+        "id": "skill-11-5-battle-smasher",
+        "name": "天賦強化・戰鬥粉碎者",
+        "type": "passive",
+        "description": "投入 4 點天賦後，蓄力狀態延長至 0.9 秒。期間每擊造成 9 萬魔法傷害，另依已命中段數增加傷害，單體另受 125 萬魔法傷害。期間至少命中 7 擊時觸發蓄力炸彈，對 550 範圍造成段數 ×目標最大生命 0.09% 的魔法傷害。"
       }
     ]
   },
@@ -12025,7 +12325,7 @@ const ORD_DATA = [
         "id": "skill-11-6-2476ac28f1",
         "name": "浮游物",
         "type": "",
-        "description": "5.55% 召喚 1.05 秒，400 範圍混合傷害，附機率短{control|暈}及大型船追加；物件基礎攻擊 127,500。"
+        "description": "{chance|攻擊時 5.55%} 召喚浮游物 1.05 秒，基礎攻擊為 127,500。每擊對 400 範圍造成 3 萬＋普攻傷害 75% 的物理傷害及 5.25 萬魔法傷害，另有 17～35% 機率對單體追加 3 萬～12 萬物理及暈眩 1.5 秒，10% 觸發大型船造成 400 範圍 25 萬魔法傷害，對單體傷害提高 50%。"
       },
       {
         "id": "skill-11-6-7857accf3f",
@@ -12037,7 +12337,19 @@ const ORD_DATA = [
         "id": "skill-11-6-16f3582c6e",
         "name": "廢艦隊船",
         "type": "",
-        "description": "3% 起，450 範圍 45 萬{magic|魔法}、{control|緩速 35%} 共 5 秒、{magic|魔法}增傷 1%；船數與機率有成長值，成長條件未確認。"
+        "description": "投入 4 點天賦解鎖大艦隊。廢艦隊船依階段有 3%／3.4%／3.8%／4.2% 機率發動，對應 2／3／4／5 艘，每艘造成 450 範圍 45 萬魔法傷害，敵人承受魔法傷害 +1%，並緩速 35% 持續 4 秒。"
+      },
+      {
+        "id": "skill-11-6-fleet",
+        "name": "天賦強化・海賊大艦隊",
+        "type": "passive",
+        "description": "大艦隊各階段依序有 3%／3.2%／3.4%／3.6% 機率召喚 2／2／3／4 艘戰艦，持續 2.25 秒。戰艦有 18.5 萬攻擊力及金獅子 70% 的攻速，400 範圍物理傷害依序為普攻傷害的 80%／100%／80%／70%，可受不朽升級及其他增益。"
+      },
+      {
+        "id": "skill-11-6-ship-consume",
+        "name": "艦船吞噬 Q",
+        "type": "active",
+        "description": "對海賊船使用後消耗該船，提升召喚艦隊及廢艦隊船的階段，最多使用三次。"
       }
     ]
   },
@@ -12287,7 +12599,7 @@ const ORD_DATA = [
         "id": "skill-11-9-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|緩速 70%}。"
+        "description": "888 範圍內的敵人{control|緩速 70%}；投入 4 點天賦強化霍米茲後改為緩速 40%。"
       },
       {
         "id": "skill-11-9-ffcccf537b",
@@ -12305,13 +12617,25 @@ const ORD_DATA = [
         "id": "skill-11-9-456f35fef9",
         "name": "靈魂層數",
         "type": "passive",
-        "description": "即死時 18.5% 加一層，每層使吞噬傷害 +1%。"
+        "description": "基礎靈魂吞噬即死時有 18.5% 機率增加一層靈魂。天賦後即死必定加層，單體暈眩提高至 1.5 秒且無視抗性。每層使吞噬傷害 +1%，天賦後亦使特製霍米茲傷害 +0.5%。"
       },
       {
         "id": "skill-11-9-b558ed50e4",
         "name": "普攻／連動",
         "type": "passive",
         "description": "450 範圍普攻傷害 66%＋333,333 {magic|魔法}；18% 範圍{important|固定}追擊、短{control|暈}。吞噬及大技施放後自身{buff|攻速 +175%} 共 2 秒；可飛行。"
+      },
+      {
+        "id": "skill-11-9-homies",
+        "name": "天賦強化・特製霍米茲",
+        "type": "passive",
+        "description": "投入 4 點天賦後，普攻仍對 450 範圍造成普攻傷害 66%＋333,333 魔法傷害。普羅米修斯與赫拉各有 18% 觸發，前者對 600 範圍造成普攻傷害 199%＋999,999 固定傷害，後者對單體造成普攻傷害 255%＋2,555,555 固定傷害並暈眩 1.5 秒、無視抗性。"
+      },
+      {
+        "id": "skill-11-9-misery",
+        "name": "合體技・米澤莉",
+        "type": "passive",
+        "description": "普羅米修斯與赫拉技能累計發動 15 次觸發。對 750 範圍造成三段魔法傷害，每段 20 萬＋靈魂層數 ×5,000，另加 60 萬＋靈魂層數 ×15,000 的固定傷害，並暈眩 3 秒。"
       }
     ]
   },
@@ -12366,7 +12690,7 @@ const ORD_DATA = [
         "id": "skill-11-11-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{buff|攻擊 +22%}；排除自身友軍{buff|攻擊 +11%}。"
+        "description": "850 範圍內的友軍{buff|攻擊 +22%}，另有全圖友軍{buff|攻擊 +11%}。兩項都排除自身。"
       },
       {
         "id": "skill-11-11-757fcdbb6c",
@@ -12385,6 +12709,12 @@ const ORD_DATA = [
         "name": "普攻爆發",
         "type": "passive",
         "description": "400 範圍攻擊力 50% {important|爆發型傷害}。"
+      },
+      {
+        "id": "skill-11-11-shelling",
+        "name": "天賦強化・砲擊支援",
+        "type": "passive",
+        "description": "投入 4 點天賦後，自身攻擊力 +10%，解鎖砲擊支援。{chance|攻擊時 8%}，500 範圍造成 30 萬{magic|魔法傷害} ×3 並{control|暈眩 2.5 秒}。"
       }
     ]
   },
@@ -12528,9 +12858,9 @@ const ORD_DATA = [
     "skills": [
       {
         "id": "skill-11-13-123170c4c5",
-        "name": "防禦效果",
+        "name": "防禦懲罰",
         "type": "",
-        "description": "防禦增加 15。"
+        "description": "900 範圍內的敵人防禦 +15。"
       },
       {
         "id": "skill-11-13-c746dc0e77",
@@ -12542,19 +12872,19 @@ const ORD_DATA = [
         "id": "skill-11-13-8698dffd6c",
         "name": "武裝色／六式",
         "type": "",
-        "description": "10% 範圍{physical|物理}及{control|暈 2.5 秒}；7% 加速 3.25 秒，普攻追加目前生命比例{physical|物理}、{important|固定傷害}，{buff|攻速 +45%}。"
+        "description": "攻擊時 10% 使 500 範圍受到普攻傷害 95%＋61.5 萬的物理傷害並暈眩 2.5 秒。另有 7% 進入六式加速 3.25 秒，攻速 +45%、攻擊範圍及範圍傷害 +10%。期間每擊對單體追加 25 萬固定傷害及目前生命 5% 的物理傷害，Boss／故事的比例為 0.5%。"
       },
       {
         "id": "skill-11-13-64d24bdb7e",
         "name": "普攻／增益",
         "type": "passive",
-        "description": "20% 五倍暴擊、單體{control|暈 3 秒}；範圍濺射。自身增益數提高普攻與技能傷害。"
+        "description": "普攻對 325 範圍追加普攻傷害 95% 的物理傷害，20% 觸發 5 倍暴擊、單體追加 25 萬物理並暈眩 3 秒。每個自身增益使普攻與武裝色傷害各 +22%、魔力技能傷害 +2.2%；六式每擊對範圍追加增益數 ×2,200 的固定傷害，單體傷害每個增益另 +2.2%。"
       },
       {
         "id": "skill-11-13-4e9053eb86",
         "name": "天賦強化・銀河衝擊",
         "type": "",
-        "description": "取代特製砲彈，魔力 160，800 範圍 1,200 萬＋最大生命 12% {physical|物理}，施法 0.65 秒。"
+        "description": "投入 4 點天賦後替換特製砲彈。魔力 160，施法 0.65 秒，650 範圍 1,200 萬＋最大生命 12% 的{physical|物理傷害}，並{control|暈眩 2.5 秒}。"
       }
     ]
   },
@@ -13214,9 +13544,9 @@ const ORD_DATA = [
     "skills": [
       {
         "id": "skill-12-8-d1989d51e0",
-        "name": "武士之魂",
+        "name": "武士之魂 W",
         "type": "",
-        "description": "{chance|普攻 10%} 獲層數；100 層解鎖斬龍刀，400 層{buff|攻速 +50%}，700 層{buff|攻擊 +10} 萬。"
+        "description": "普攻 10% 機率獲得武士之魂。100 層解鎖斬龍刀，400 層使攻速 +50%，700 層使攻擊 +10 萬。按 W 可查看層數。"
       },
       {
         "id": "skill-12-8-0646ae7d1f",
@@ -13228,7 +13558,7 @@ const ORD_DATA = [
         "id": "skill-12-8-f3cec43e39",
         "name": "其他技能",
         "type": "",
-        "description": "25% {important|固定}範圍傷害、15% 範圍{magic|魔法}及機率加層、12% 範圍{magic|魔法}及一般怪已損失生命 9% 爆發。"
+        "description": "攻擊時 25% 觸發一閃，300 範圍 16 萬＋層數 ×160 固定傷害。普攻傷害至少 10 萬時觸發破鬼，600 範圍 20 萬魔法傷害。另有攻擊時 15% 造成 40 萬＋層數 ×450 魔法，發動後 20% 增加兩層（絕對冷卻 5 秒）。影之劍術於攻擊時 12% 觸發，400 範圍 25 萬＋層數 ×250 魔法，一般怪另受已損失生命 9% 爆發型傷害。"
       },
       {
         "id": "skill-12-8-c44ef700b9",
@@ -13241,6 +13571,12 @@ const ORD_DATA = [
         "name": "合成連動",
         "type": "",
         "description": "阿忍追加比例爆發；御田加 200 層及{buff|攻擊 +50%}；光月時{buff|攻速 +20%}。"
+      },
+      {
+        "id": "skill-12-8-shadow-mastery",
+        "name": "天賦強化・影之劍術",
+        "type": "passive",
+        "description": "投入 4 點天賦強化影之劍術。一般怪所受的追加爆發型傷害提高至已損失生命 12%，Boss／故事另受已損失生命 3% 的爆發型傷害。"
       }
     ]
   },
@@ -13313,25 +13649,37 @@ const ORD_DATA = [
         "id": "skill-12-9-efee0ee663",
         "name": "魔力亂射",
         "type": "",
-        "description": "魔力 150，隨機 2 敵，每次 30 萬＋最大生命 10% {important|固定} ×20；Boss 每次改 50 萬{magic|魔法}。"
+        "description": "魔力 150，隨機選取兩名敵人，共發動 20 次。每次造成 30 萬＋最大生命 8% 的{important|固定傷害}，對 Boss／狂暴／故事每次改為 50 萬魔法傷害。"
       },
       {
         "id": "skill-12-9-74246c6bd1",
         "name": "阿拉巴斯坦槍升級",
         "type": "",
-        "description": "每次木材 2＋基本隨機精靈 3；成功率隨等級下降，提升多種技能傷害。"
+        "description": "每次升級消耗木材 2 與基本隨機精靈 3，最高 10 級，成功率隨等級下降。槍等級提高西部動作與連射對單體的額外固定傷害，每級為最大生命 1.5%；亂射每擊另加每級最大生命 0.5% 的固定傷害。"
       },
       {
         "id": "skill-12-9-1c6cb7583f",
-        "name": "連射／三連射",
+        "name": "三連射／四連射",
         "type": "",
-        "description": "隨機敵人目前生命比例{important|固定}；另有單體最大生命比例{magic|魔法}，{important|絕對冷卻 5 秒}，Boss／故事另有替代傷害。"
+        "description": "三連射每段對單體造成 10 萬 ×阿拉巴斯坦槍等級的{important|固定傷害}，路線目標另受最大生命 10% 的固定傷害，共三段。解鎖四連射後改為四段。{important|絕對冷卻 7 秒}。"
       },
       {
         "id": "skill-12-9-f38282f5ed",
-        "name": "其他能力",
+        "name": "西部動作與暴擊",
         "type": "",
-        "description": "10% 範圍{magic|魔法}；25% 攻擊目標及遠處隨機敵人、{control|暈 1.5 秒}；槍等級提供比例{important|固定}追擊，10% 五倍暴擊並忽略狂暴懲罰。"
+        "description": "攻擊時 15% 觸發西部動作，對主目標及 900 範圍內隨機另一敵人造成 75 萬固定傷害並暈眩 1.5 秒，路線目標另受最大生命 10% 的固定傷害。另有 10% 發動五倍暴擊，並忽略狂暴目標的單體傷害懲罰。"
+      },
+      {
+        "id": "skill-12-9-quick-pocket",
+        "name": "天賦強化・快速裝填",
+        "type": "passive",
+        "description": "投入 4 點天賦可無視成功率提高阿拉巴斯坦槍一級。槍升級可解鎖四連射、移動射擊與爆頭附傷。移動射擊可瞬移 1,600 範圍並重置連射冷卻，對隨機兩名敵人造成六段固定傷害，冷卻依階段為 7.25／4.25 秒。"
+      },
+      {
+        "id": "skill-12-9-headshot",
+        "name": "爆頭",
+        "type": "passive",
+        "description": "{chance|攻擊時 10%}，450 範圍 35 萬 ×1～2 {magic|魔法傷害}。槍的對應強化解鎖後，單體追加最大生命 25% 的固定傷害，Boss／狂暴／故事改為 100 萬魔法傷害。"
       }
     ]
   },
@@ -13517,7 +13865,7 @@ const ORD_DATA = [
         "id": "skill-12-11-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|降防 35}。"
+        "description": "850 範圍內的敵人{control|降防 35}，天賦強化後改為降防 40。"
       },
       {
         "id": "skill-12-11-ef7b9af90d",
@@ -13529,13 +13877,25 @@ const ORD_DATA = [
         "id": "skill-12-11-a6d263b083",
         "name": "接近霸氣",
         "type": "",
-        "description": "900 範圍，最大生命 3%＋20 萬{magic|魔法}、{control|魔抗 -5%}、{control|降防 5}；每個體一次，不與限制艾涅爾同類效果重複。"
+        "description": "敵人進入自身周圍 900 範圍時受到最大生命 3% 的{magic|魔法傷害}、魔防降低 5% 及降防 5。每個目標僅觸發一次，與其他霸氣互斥。"
       },
       {
         "id": "skill-12-11-f38282f5ed",
-        "name": "其他能力",
+        "name": "九蛇霸氣",
         "type": "",
-        "description": "15% 八倍暴擊及單體{control|暈 3 秒}；數種 7.5% 範圍{physical|物理}／{magic|魔法}技能、強{control|緩速}與短時間連擊。"
+        "description": "攻擊時 15% 觸發 8 倍暴擊、單體追加 50 萬物理傷害及暈眩 3 秒。另有 7.5% 對目標中心 460 範圍造成 85 萬物理及 600 範圍 15 萬魔法，命中敵人緩速 60% 持續 2.5 秒。"
+      },
+      {
+        "id": "skill-12-11-petrification",
+        "name": "石化",
+        "type": "passive",
+        "description": "攻擊時 7.5% 對 650 範圍造成 25 萬魔法＋85 萬 ×1～1.5 物理傷害，並暈眩 2.75 秒。投入 4 點天賦後提高發動率至 10%，並強化降防光環與奴隸之箭。"
+      },
+      {
+        "id": "skill-12-11-slave-arrow",
+        "name": "奴隸之箭",
+        "type": "passive",
+        "description": "攻擊時 7.5% 觸發，0.7 秒內每擊對直線範圍造成 40 萬魔法傷害，單體另受 30 萬 ×1～1.5 魔法傷害，期間自身攻速降低 15%。天賦後另對 450 範圍路線怪造成最大生命 0.1% 的爆發型傷害。"
       }
     ]
   },
@@ -13591,7 +13951,7 @@ const ORD_DATA = [
         "id": "skill-12-12-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|緩速 45%}、自身每秒回魔 2、攻擊力 80% {important|爆發型傷害}。"
+        "description": "900 範圍內敵人{control|緩速 45%}，自身每秒回魔 2。自身路線區的敵人承受爆發型傷害增加 10%。"
       },
       {
         "id": "skill-12-12-0646ae7d1f",
@@ -13603,13 +13963,19 @@ const ORD_DATA = [
         "id": "skill-12-12-821ce3a460",
         "name": "範圍技能",
         "type": "",
-        "description": "12% 敵中心及直線{magic|魔法}；12.5%，500 範圍 30 萬{magic|魔法} ×2；15%，450 範圍 40 萬{magic|魔法}。"
+        "description": "攻擊時 12% 觸發一閃，對敵人中心 500 範圍及直線 400 範圍分別造成 45 萬／70 萬魔法傷害。另有攻擊時 12.5% 對 500 範圍造成 30 萬魔法 ×2，以及 15% 對 450 範圍造成 40 萬魔法傷害。"
       },
       {
         "id": "skill-12-12-8b79df27ba",
         "name": "普攻",
         "type": "passive",
-        "description": "每擊單體 25 萬{magic|魔法}、{control|暈 1.2 秒}；{chance|14% 觸發} 3.5 倍暴擊。"
+        "description": "普攻對 415 範圍造成目前攻擊力 80% 的爆發型傷害，單體另受 25 萬魔法傷害並暈眩 1.2 秒。攻擊時 14% 觸發 3.5 倍暴擊。"
+      },
+      {
+        "id": "skill-12-12-phantom-slash",
+        "name": "天賦強化・虛斬",
+        "type": "passive",
+        "description": "投入 4 點天賦取得。每 18 秒對自身周圍 750 範圍內隨機最多五名路線怪造成最大生命 10% 的爆發型傷害。目標的爆發型易傷合計每 1% 使冷卻縮短 0.1 秒，最多縮短 12.5 秒。"
       }
     ]
   },
@@ -13665,31 +14031,37 @@ const ORD_DATA = [
         "id": "skill-12-13-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|緩速 45%}。"
+        "description": "900 範圍內的敵人{control|緩速 45%}。"
       },
       {
         "id": "skill-12-13-ad553fb8dd",
         "name": "大炎戒・炎帝",
         "type": "",
-        "description": "魔力 185，850 範圍先{control|暈 3 秒}，2 秒後 450 萬＋最大生命 2% ×1～2 {magic|魔法}，再{control|暈 3 秒}。"
+        "description": "魔力 185，850 範圍先暈眩 3 秒，2 秒後造成 450 萬＋最大生命 3% ×1～2 的{magic|魔法傷害}，並再次暈眩 3 秒。"
       },
       {
         "id": "skill-12-13-9f432594db",
         "name": "火柱／火拳",
         "type": "",
-        "description": "3%，500 範圍 100 萬 ×1～1.5 {magic|魔法}；10%，750 範圍 115 萬{magic|魔法}、{important|絕對冷卻 4.25 秒}。"
+        "description": "火柱於攻擊時 4% 觸發，500 範圍 100 萬 ×1～1.5 魔法傷害；火拳於攻擊時 10% 觸發，750 範圍 115 萬魔法傷害，絕對冷卻 4.25 秒。"
       },
       {
         "id": "skill-12-13-9d5ec9a4ee",
         "name": "技能連動",
         "type": "",
-        "description": "單體{control|暈 3.5 秒}、{control|無視抗性}，並依技能留持續{magic|魔法傷害}；炎戒持續傷害只取最高值。"
+        "description": "技能發動使單體暈眩 3.5 秒並無視抗性。大炎戒另造成持續魔法傷害，只套用最高傷害的持續效果。火拳為 2 秒內每 0.2 秒 12 萬，火柱為 1.6 秒內每 0.2 秒 20 萬，炎帝為 3 秒內每 0.2 秒 25 萬。"
       },
       {
         "id": "skill-12-13-f38282f5ed",
         "name": "其他能力",
         "type": "",
-        "description": "12.5%，475 範圍 30 萬{magic|魔法}、單體追加 125 萬。"
+        "description": "{chance|攻擊時 12.5%}，以敵人為中心對 475 範圍造成 30 萬魔法傷害，單體另受 150 萬魔法傷害。"
+      },
+      {
+        "id": "skill-12-13-instant-ignition",
+        "name": "天賦強化・即時點燃",
+        "type": "passive",
+        "description": "投入 4 點天賦後，大炎戒的持續傷害改為立即結算。火拳追加 750 範圍 120 萬魔法傷害，火柱追加 500 範圍 160 萬魔法傷害，炎帝追加 850 範圍 375 萬＋最大生命 1.5% 的魔法傷害。"
       }
     ]
   },
@@ -13725,7 +14097,13 @@ const ORD_DATA = [
         "id": "skill-16-1-3b7393328f",
         "name": "熱動",
         "type": "",
-        "description": "14%，350 範圍 35 萬{physical|物理}；可瞬移 2,000。"
+        "description": "{chance|攻擊時 14%}，350 範圍 35 萬{physical|物理傷害}。"
+      },
+      {
+        "id": "skill-16-1-blackout",
+        "name": "Blackout Q",
+        "type": "active",
+        "description": "可在 2,000 範圍內瞬移。{important|冷卻 8 秒}。"
       }
     ]
   },
@@ -13778,7 +14156,7 @@ const ORD_DATA = [
         "id": "skill-16-3-22f99e4314",
         "name": "爆裂魔法 R",
         "type": "active",
-        "description": "800 範圍造成最大生命 12.5% {important|固定傷害}。"
+        "description": "800 範圍造成最大生命 12.5% 的{important|固定傷害}。{important|冷卻 150 秒}。"
       }
     ]
   },
@@ -13809,6 +14187,12 @@ const ORD_DATA = [
         "name": "狙擊 Q",
         "type": "active",
         "description": "單體 8,000 萬{magic|魔法}、{control|暈 1 秒}，{important|冷卻 250 秒}。"
+      },
+      {
+        "id": "skill-16-4-weapon",
+        "name": "Steinberger",
+        "type": "passive",
+        "description": "持有武器時，基礎攻擊力很高。"
       }
     ]
   },
@@ -13888,7 +14272,7 @@ const ORD_DATA = [
         "id": "skill-16-7-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|緩速 20%}。"
+        "description": "800 範圍內的敵人{control|緩速 20%}。"
       },
       {
         "id": "skill-16-7-cd17d7e9ad",
@@ -14093,7 +14477,7 @@ const ORD_DATA = [
         "id": "skill-16-14-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{buff|攻速 +10%}。"
+        "description": "800 範圍內的友軍{buff|攻速 +10%}。"
       },
       {
         "id": "skill-16-14-8dffb74951",
@@ -14141,7 +14525,7 @@ const ORD_DATA = [
         "id": "skill-18-1-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|緩速 45%}，自身路線區{important|爆發型增幅} 10%。"
+        "description": "900 範圍內敵人{control|緩速 45%}。自身路線區的敵人承受爆發型傷害增加 10%。"
       },
       {
         "id": "skill-18-1-fffe780a7f",
@@ -14159,7 +14543,13 @@ const ORD_DATA = [
         "id": "skill-18-1-e8669e087c",
         "name": "廢站下車之旅",
         "type": "",
-        "description": "魔力 125，600 範圍 500 萬{magic|魔法}、{control|暈 3 秒}，範圍內隨機一般回合怪刪除 1；可瞬移。"
+        "description": "魔力 125，600 範圍 500 萬魔法傷害並暈眩 3 秒，另移除範圍內隨機一名一般回合怪。"
+      },
+      {
+        "id": "skill-18-1-blink",
+        "name": "境界 Q",
+        "type": "active",
+        "description": "可瞬移 99,999 距離。{important|冷卻 5 秒}。"
       }
     ]
   },
@@ -14203,25 +14593,25 @@ const ORD_DATA = [
         "id": "skill-18-2-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|緩速 30%}。"
+        "description": "800 範圍內的敵人{control|緩速 30%}。"
       },
       {
         "id": "skill-18-2-8fa641ff8b",
         "name": "無量空處",
         "type": "",
-        "description": "魔力 185，玩家領域全區每 0.1 秒 25 萬＋最大生命 0.9% {important|固定傷害}，共 5 秒；進入領域的敵人停止至結束，攻擊故事時不發動。"
+        "description": "魔力 185，施法 0.7 秒。對自身周圍 1,600 範圍每 0.1 秒造成 45 萬＋最大生命 0.45% 的{important|固定傷害}，持續 5 秒。進入領域的敵人停止至領域結束，攻擊故事目標時不發動。"
       },
       {
         "id": "skill-18-2-5867b96a83",
         "name": "赫",
         "type": "",
-        "description": "5%，800 範圍 150 萬{magic|魔法}；非冷卻時聯動「茈」，800 範圍 450 萬＋最大生命 4% {magic|魔法}，{important|冷卻 15 秒}。"
+        "description": "{chance|攻擊時 10%}，以敵人為中心對 800 範圍造成 150 萬魔法傷害並緩速 20% 持續 2 秒。若茈的冷卻已結束，追加 800 範圍 450 萬＋最大生命 4% 魔法及同樣的緩速。茈的絕對冷卻為 15 秒。"
       },
       {
         "id": "skill-18-2-262f89504a",
         "name": "蒼",
         "type": "",
-        "description": "10%，600 範圍 30 萬{magic|魔法}，2 秒每 0.2 秒再 15 萬；{control|無視抗性}{control|暈 2 秒}、{control|緩速 20%}，不與出的霸氣／艾斯持續技重複。"
+        "description": "{chance|攻擊時 10%}，600 範圍造成 30 萬魔法傷害，接著 2 秒內每 0.1 秒再造成 15 萬魔法傷害。暈眩 2 秒、無視抗性，並緩速 20%，與出的霸氣及艾斯的持續技能互斥。"
       }
     ]
   },
@@ -14268,7 +14658,7 @@ const ORD_DATA = [
         "id": "skill-18-3-25c2fd632a",
         "name": "基本",
         "type": "",
-        "description": "{control|降防 20}、{control|緩速 30%}；不受升級影響。Q 對不凡／稀有布魯克取骨 2／12。"
+        "description": "800 範圍內的敵人{control|降防 20、緩速 30%}。自身不受升級影響。對不凡／稀有布魯克使用 Q 可取得 2／12 根骨頭。"
       },
       {
         "id": "skill-18-3-01c70d5563",
@@ -14292,7 +14682,7 @@ const ORD_DATA = [
         "id": "skill-18-3-b687dc951e",
         "name": "30 骨覺醒",
         "type": "",
-        "description": "{control|降防 35}、{control|緩速 40%}、移除疲倦；砲擊追加{physical|物理}與毒{control|降防 25}，新增 7%「審判者」單體 99,999,999 ×0.1～1 {physical|物理}。可無視地形移動。"
+        "description": "持有 30 根骨頭覺醒後，800 範圍敵人降防 35、緩速 40%，移除疲倦。砲擊每段另加 999,999 ×0.5～1 物理傷害；毒效果為 5 秒內每 0.5 秒 5 萬魔法及降防 25，與同類毒藥互斥。另有攻擊時 7% 對單體造成 99,999,999 ×0.1～1 物理傷害。可無視地形移動。"
       }
     ]
   },
@@ -14334,7 +14724,7 @@ const ORD_DATA = [
         "id": "skill-18-4-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|緩速 40%}。"
+        "description": "850 範圍內的敵人{control|緩速 40%}。"
       },
       {
         "id": "skill-18-4-0dc27588ed",
@@ -14346,13 +14736,13 @@ const ORD_DATA = [
         "id": "skill-18-4-b02f741ee0",
         "name": "間諜家家酒",
         "type": "",
-        "description": "能量 45 召喚洛伊德，600 範圍 10 萬{magic|魔法} ×5、{control|緩速 30%}；魔力 75 召喚約兒，600 範圍 30 萬{magic|魔法} ×11；不對 1～3 階野怪觸發。"
+        "description": "生命能量 45 召喚洛伊德，600 範圍 10 萬魔法傷害 ×5，命中敵人緩速 30% 持續 3 秒。魔力 75 召喚約兒，600 範圍 30 萬魔法傷害 ×11。攻擊 1～3 階野怪時不觸發。"
       },
       {
         "id": "skill-18-4-4c4e2744bb",
         "name": "星光箭／禮物",
         "type": "",
-        "description": "6.25% 範圍{magic|魔法}、增傷 1%；家人技能 7.5% 得禮盒，可得代幣及金錢／木材。"
+        "description": "攻擊時 6.25% 觸發星光箭，500 範圍 30 萬魔法傷害，受擊敵人承受魔法傷害 +1%。家人技能發動時有 7.5% 機率得到禮盒。禮盒開封時取得幸運代幣，另有 70% 獲得 2,500 金或 30% 獲得 1 木材。"
       },
       {
         "id": "skill-18-4-6fda6e5e02",
@@ -14399,7 +14789,7 @@ const ORD_DATA = [
         "id": "skill-18-5-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|緩速 20%}。"
+        "description": "950 範圍內敵人{control|緩速 20%}。"
       },
       {
         "id": "skill-18-5-ff9a8af6f1",
@@ -14417,7 +14807,13 @@ const ORD_DATA = [
         "id": "skill-18-5-d98ae75cb7",
         "name": "千本櫻連動",
         "type": "",
-        "description": "技能後最多疊兩次、4 秒，自身{buff|攻速 -25%}；每 0.16 秒單體 42.5 萬＋最大生命 1.75% {important|固定}（Boss／故事 60 萬），750 範圍另有持續{magic|魔法}，不與特定持續技重複；可瞬移 800。"
+        "description": "技能後觸發千本櫻，最多疊兩次、每次持續 4 秒，自身攻速降低 25%。750 範圍每 0.16 秒造成 18 萬魔法傷害，範圍內隨機單體另受 42.5 萬＋最大生命 1.75% 的固定傷害。Boss／狂暴／故事改為 60 萬固定傷害，與特定持續技能互斥。"
+      },
+      {
+        "id": "skill-18-5-blink",
+        "name": "瞬步 Q",
+        "type": "active",
+        "description": "可在 800 範圍內瞬移，無冷卻。"
       }
     ]
   },
@@ -14464,7 +14860,7 @@ const ORD_DATA = [
         "id": "skill-18-6-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|降防 44}。"
+        "description": "925 範圍內的敵人{control|降防 44}。"
       },
       {
         "id": "skill-18-6-e23bafed1e",
@@ -14482,13 +14878,13 @@ const ORD_DATA = [
         "id": "skill-18-6-eec51f1041",
         "name": "搖曳衣袖",
         "type": "",
-        "description": "25%，單體 400 萬 ×1～1.5＋最大生命 15% {physical|物理}（Boss／故事 1.5%），有額外連鎖判定。"
+        "description": "攻擊時 25% 對單體造成 400 萬 ×1～1.5＋最大生命 15% 的物理傷害，Boss／故事比例為 1.5%。有 50% 機率對 385 範圍內隨機另一敵人追加一次，成功追加後另有 50% 以 80% 傷害再追加一次。"
       },
       {
         "id": "skill-18-6-ad38071852",
         "name": "直死魔眼",
         "type": "",
-        "description": "非小刀技能觸發單體 200 萬{important|固定}與{control|無視抗性}{control|暈}；魔力 115 大技 500 範圍 500 萬{important|固定}，單體最大生命 45% {physical|物理}（Boss／故事 4.5%）。"
+        "description": "隱藏小刀以外的技能觸發時，單體另受 200 萬固定傷害及暈眩 1.25 秒，無視抗性。魔力 115 觸發 500 範圍 500 萬固定傷害，單體追加最大生命 45% 的物理傷害，Boss／故事為 4.5%。攻擊時回魔 1，技能發動時回魔 5。"
       }
     ]
   },
@@ -14526,9 +14922,9 @@ const ORD_DATA = [
     "skills": [
       {
         "id": "skill-18-7-609dda6d95",
-        "name": "飛雷神",
-        "type": "",
-        "description": "自身{buff|攻速 +12%}。"
+        "name": "飛雷神 Q",
+        "type": "active",
+        "description": "自身{buff|攻速 +12%}。可在 2,500 範圍內瞬移，{important|冷卻 0.5 秒}。"
       },
       {
         "id": "skill-18-7-102779cb81",
@@ -14546,7 +14942,7 @@ const ORD_DATA = [
         "id": "skill-18-7-f5311bca34",
         "name": "閃光連舞",
         "type": "",
-        "description": "13.5%，600 範圍 80 萬{magic|魔法}、{control|魔抗 -3%}、{control|暈 3 秒}；可瞬移 2,500。"
+        "description": "{chance|攻擊時 13.5%}，600 範圍 80 萬魔法傷害、魔防降低 3%，並使範圍敵人{control|暈眩 3 秒}。"
       }
     ]
   },
@@ -14595,7 +14991,7 @@ const ORD_DATA = [
         "id": "skill-18-8-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|降防 25}、{buff|攻擊 +20%}；30% 單體{control|暈 3 秒}。"
+        "description": "900 範圍內的敵人{control|降防 25}，850 範圍內的友軍{buff|攻擊 +20%}。攻擊時 30% 使單體暈眩 3 秒。"
       },
       {
         "id": "skill-18-8-ac7de48286",
@@ -14607,13 +15003,13 @@ const ORD_DATA = [
         "id": "skill-18-8-6e9a2a4441",
         "name": "白金之星・世界",
         "type": "",
-        "description": "魔力 145，自身 850 範圍 925 萬 ×1～1.5＋已損失生命 2% ×1～1.5 {physical|物理}；停止 4 秒、{control|破甲 15}，自身回能量 5。"
+        "description": "魔力 145，施法 1.3 秒，使進入自身周圍 850 範圍的敵人停止 4 秒並施加破甲 15，自身回復 5 生命。發動 4 秒後結算 925 萬 ×1～1.5＋已損失生命 2% ×1～1.5 的{physical|物理傷害}。"
       },
       {
         "id": "skill-18-8-975b0214b4",
         "name": "機率追擊",
         "type": "",
-        "description": "15% 400 範圍 85 萬{physical|物理}；6.25% 500 範圍 185 萬{physical|物理}、{control|破甲 2}；兩者皆有單體{important|固定}追加。"
+        "description": "{chance|攻擊時 15%}，400 範圍 85 萬物理傷害。另有 6.25% 對 500 範圍造成 185 萬物理傷害並施加破甲 2，上限 75，此分支每層破甲提高傷害 1.25%。兩項均對單體追加 50% 固定傷害。"
       }
     ]
   },
@@ -14667,13 +15063,13 @@ const ORD_DATA = [
         "id": "skill-18-9-c4e890df17",
         "name": "資料疾走",
         "type": "",
-        "description": "22.5%，415 範圍 60 萬 ×1～1.5 {magic|魔法}，單體 300 萬＋最大生命 2% {magic|魔法}，周圍友軍回魔 5。"
+        "description": "攻擊時 22.5%，415 範圍 60 萬 ×1～1.5 魔法傷害。單體另受 300 萬＋最大生命 2% 魔法傷害，周圍友軍回魔 5。依自身目前魔力增傷，係數為目前魔力的 50%，最高 +75%。"
       },
       {
         "id": "skill-18-9-52d0fc8966",
         "name": "武器化構築 Lv.2",
         "type": "",
-        "description": "17.5%，400 範圍 25 萬 ×1～2 {magic|魔法} ×2，單體追加 150%；與疾走皆依目前魔力增傷，最高 +75%。"
+        "description": "攻擊時 17.5%，400 範圍 25 萬 ×1～2 魔法傷害 ×2，單體另受 150% 魔法傷害。依自身目前魔力增傷，係數為目前魔力的 50%，最高 +75%。"
       }
     ]
   },
@@ -14721,13 +15117,13 @@ const ORD_DATA = [
         "id": "skill-18-10-443b57c83f",
         "name": "未來永劫斬",
         "type": "",
-        "description": "魔力 120，800 範圍先{magic|魔法}、最大生命 1% {physical|物理} ×25，尾擊再{magic|魔法}＋最大生命 10% {physical|物理}；首尾{control|無視抗性}{control|暈 3 秒}。"
+        "description": "魔力 120，自身周圍 800 範圍。首擊 50 萬魔法傷害，接著造成最大生命 1% 的物理傷害 ×25，末擊追加 100 萬魔法與最大生命 10% 物理傷害。首尾擊皆使範圍敵人暈眩 3 秒、無視抗性。"
       },
       {
         "id": "skill-18-10-bb0e9b9a9d",
         "name": "兩種劍技",
         "type": "",
-        "description": "各 10% 直線輸出，一技{control|緩速 50%}，另一技依普攻比例{physical|物理}、非故事單體追加最大生命 4% {important|固定}；半靈傷害減半。"
+        "description": "兩種劍技皆於攻擊時 10% 觸發。其一對直線 600 範圍造成 25 萬魔法傷害，並使受擊敵人緩速 50% 持續 3 秒。其二對直線 800 範圍造成普攻傷害 800%＋90 萬物理傷害，對非故事的單體目標追加最大生命 4% 固定傷害。半靈施放兩招時傷害減半。"
       },
       {
         "id": "skill-18-10-a966024353",
@@ -14780,7 +15176,7 @@ const ORD_DATA = [
         "id": "skill-18-11-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|緩速 50%}。"
+        "description": "900 範圍內的敵人{control|緩速 50%}。可空中移動。"
       },
       {
         "id": "skill-18-11-8fc5a54540",
@@ -14804,7 +15200,7 @@ const ORD_DATA = [
         "id": "skill-18-11-202d774811",
         "name": "協會津貼 Q",
         "type": "active",
-        "description": "90 秒，必得基本隨機精靈 2，不凡 20%／特別 5%／稀有 3%／傳說 2% 的獎勵判定；可飛行。"
+        "description": "固定取得兩個基本隨機精靈，另有機會額外獲得一個較高稀有度精靈。不凡 20%、特別 5%、稀有 3%、傳說 2%。{important|冷卻 90 秒}。"
       }
     ]
   },
@@ -14903,7 +15299,7 @@ const ORD_DATA = [
         "id": "skill-18-13-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|緩速 30%}。"
+        "description": "800 範圍內的敵人{control|緩速 30%}。"
       },
       {
         "id": "skill-18-13-ef0db12a5b",
@@ -14915,13 +15311,13 @@ const ORD_DATA = [
         "id": "skill-18-13-fb1c6e3772",
         "name": "搶奪",
         "type": "",
-        "description": "生命能量 75，單體 500 萬{important|固定}；55% 得金 1,500、45% 得木 1。"
+        "description": "生命能量 75，對單體造成 500 萬{important|固定傷害}，並有 55% 獲得 1,500 金或 45% 獲得 1 木材。自然每秒回復 0.3 生命，每次攻擊 +1。"
       },
       {
         "id": "skill-18-13-1835a9cb27",
         "name": "投擲手槍",
         "type": "",
-        "description": "6.25%，375 範圍每擊 25 萬{magic|魔法}，共 10 次。"
+        "description": "{chance|攻擊時 6.25%}，525 範圍每擊 25 萬{magic|魔法傷害}，共十次。"
       }
     ]
   },
