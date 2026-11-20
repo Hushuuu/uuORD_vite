@@ -8,12 +8,12 @@
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/resource/192x192.png",
+      "src": "/resource/luffy-nika-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/resource/512x512.png",
+      "src": "/resource/luffy-nika-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
