@@ -26,10 +26,25 @@
 .tips-table tfoot td { font-size: 1.15rem; }
 .tips-secondary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
 .tips-secondary .tips-table tbody th { width: 65%; }
+.tips-section-note {
+  margin: 0;
+  padding: 0 24px 16px;
+  color: var(--muted-color);
+}
+
+table.tips-elders-table tbody th[scope="row"] {
+  width: 60%;
+}
+
+.tips-elders-table .tips-effect-group th {
+  background: rgba(245, 158, 11, .08);
+}
+
 @media (max-width: 767px) {
   .tips-secondary { grid-template-columns: minmax(0, 1fr); }
   .tips-table th, .tips-table td { padding: 12px; font-size: .9rem; }
   .tips-table tbody th { width: 28%; }
   .tips-nav { gap: 8px; }
   .tips-nav a { padding: 8px 12px; }
+  .tips-section-note { padding-inline: 12px; }
 }
