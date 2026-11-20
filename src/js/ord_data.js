@@ -5177,7 +5177,7 @@ const ORD_DATA = [
         "id": "skill-5-34-daa5f95e2c",
         "name": "仁義不滅",
         "type": "",
-        "description": "{chance|攻擊 10%}，900 範圍友軍{buff|攻擊 +30%}、每秒生命及魔力恢復 +0.25，敵人{control|降防 20}，持續 6 秒；不與其他同類激怒技能重複。"
+        "description": "{chance|攻擊 10%}，900 範圍友軍{buff|攻擊 +30%}，敵人{control|降防 20}，持續 6 秒；不與其他同類激怒技能重複。"
       },
       {
         "id": "skill-5-34-f38282f5ed",
