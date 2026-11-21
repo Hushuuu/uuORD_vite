@@ -45,16 +45,17 @@
         <p data-i18n="page.tips.intro">掌握各回合的推進節奏，快速查找支線入口與通關獎勵。</p>
         <nav class="tips-nav" aria-label="攻略快速跳轉" data-i18n-aria-label="page.tips.quick_nav">
           <a data-i18n="page.tips.rounds.title" href="#rounds">回合進度建議</a>
+          <a data-i18n="page.tips.story.title" href="#story-characters">故事推進角色推薦</a>
           <a data-i18n="page.tips.quests.title" href="#quests">支線任務</a>
           <a data-i18n="page.tips.traits.title" href="#traits">特性點數取得</a>
           <a data-i18n="page.tips.rewards.title" href="#rewards">累積通關獎勵</a>
           <a data-i18n="page.tips.elders.title" href="#elders">五老星介紹</a>
         </nav>
       </div>
-      <section id="rounds" class="panel tips-section" aria-labelledby="rounds-title">
-        <div class="panel-header"><span class="tips-section-number" aria-hidden="true">01</span>
-          <h2 data-i18n="page.tips.rounds.title" id="rounds-title">回合進度建議</h2>
-        </div>
+      <details id="rounds" class="panel tips-section" aria-labelledby="rounds-title" open>
+        <summary class="panel-header">
+          <h2 id="rounds-title"><span class="tips-section-number" aria-hidden="true">01</span><span data-i18n="page.tips.rounds.title">回合進度建議</span></h2>
+        </summary>
         <table class="tips-table" aria-labelledby="rounds-title">
           <thead>
             <tr>
@@ -117,11 +118,202 @@
             </tr>
           </tbody>
         </table>
-      </section>
-      <section id="quests" class="panel tips-section" aria-labelledby="quests-title">
-        <div class="panel-header"><span class="tips-section-number" aria-hidden="true">02</span>
-          <h2 data-i18n="page.tips.quests.title" id="quests-title">支線任務</h2>
-        </div>
+      </details>
+      <details id="story-characters" class="panel tips-section" aria-labelledby="story-characters-title" open>
+        <summary class="panel-header">
+          <h2 id="story-characters-title"><span class="tips-section-number" aria-hidden="true">02</span><span data-i18n="page.tips.story.title">故事推進角色推薦</span></h2>
+        </summary>
+        <table class="tips-table tips-story-table" aria-labelledby="story-characters-title">
+          <thead>
+            <tr>
+              <th data-i18n="page.tips.story.rank" scope="col">排名</th>
+              <th data-i18n="page.tips.story.character" scope="col">角色</th>
+              <th data-i18n="page.tips.story.rarity" scope="col">稀有度</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td lang="zh-TW">加洛特</td>
+              <td data-i18n="page.tips.story.rarities.changed">變化</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td data-character-id="7-4">巴吉斯</td>
+              <td data-i18n="page.tips.story.rarities.twisted">扭曲</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td lang="zh-TW">斧手蒙卡</td>
+              <td data-i18n="page.tips.story.rarities.special">特殊</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td data-character-id="7-1">可亞拉 克爾拉 革命軍</td>
+              <td data-i18n="page.tips.story.rarities.twisted">扭曲</td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td data-character-id="5-33">魯夫 夢魘</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td data-character-id="6-13">費雪·泰格 奴隸解放者</td>
+              <td data-i18n="page.tips.story.rarities.hidden">隱藏</td>
+            </tr>
+            <tr>
+              <th scope="row">7</th>
+              <td data-character-id="5-24">馬歇爾·D·汀奇 黑鬍子海賊團</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">8</th>
+              <td data-character-id="7-2">奎因 三災</td>
+              <td data-i18n="page.tips.story.rarities.twisted">扭曲</td>
+            </tr>
+            <tr>
+              <th scope="row">9</th>
+              <td data-character-id="5-22">索隆 獅子歌歌</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">10</th>
+              <td data-character-id="5-36">羅布·路基 豹人</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">11</th>
+              <td data-character-id="6-9">紅色勢力號 香克斯船</td>
+              <td data-i18n="page.tips.story.rarities.hidden">隱藏</td>
+            </tr>
+            <tr>
+              <th scope="row">12</th>
+              <td data-character-id="6-15">荒牧 綠牛</td>
+              <td data-i18n="page.tips.story.rarities.hidden">隱藏</td>
+            </tr>
+            <tr>
+              <th scope="row">13</th>
+              <td data-character-id="5-38">鯨魚拉布</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">14</th>
+              <td data-character-id="7-3">黑瑪利亞 蜘蛛果實</td>
+              <td data-i18n="page.tips.story.rarities.twisted">扭曲</td>
+            </tr>
+            <tr>
+              <th scope="row">15</th>
+              <td data-character-id="6-21">薩卡斯基 赤犬 冥狗</td>
+              <td data-i18n="page.tips.story.rarities.hidden">隱藏</td>
+            </tr>
+            <tr>
+              <th scope="row">16</th>
+              <td data-character-id="5-21">烏爾堤 飛六胞</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">17</th>
+              <td data-character-id="5-7">吉貝爾 甚平 魚人領袖</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">18</th>
+              <td lang="zh-TW">艾斯巴古</td>
+              <td data-i18n="page.tips.story.rarities.special">特殊</td>
+            </tr>
+            <tr>
+              <th scope="row">19</th>
+              <td data-character-id="5-40">砂糖 玩具支配者</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">20</th>
+              <td data-character-id="5-6">卡爾加拉 香狄亞的大戰士</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">21</th>
+              <td data-character-id="5-29">雲雀</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">22</th>
+              <td data-character-id="6-8">雨之希留 黑鬍子海賊團</td>
+              <td data-i18n="page.tips.story.rarities.hidden">隱藏</td>
+            </tr>
+            <tr>
+              <th scope="row">23</th>
+              <td data-character-id="5-12">忍</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">24</th>
+              <td data-character-id="5-30">黑瑪麗亞</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">25</th>
+              <td data-character-id="7-6">培羅娜 幽靈公主</td>
+              <td data-i18n="page.tips.story.rarities.twisted">扭曲</td>
+            </tr>
+            <tr>
+              <th scope="row">26</th>
+              <td data-character-id="5-16">香吉士 西裝</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">27</th>
+              <td data-character-id="5-35">貓腹蛇</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">28</th>
+              <td data-character-id="5-15">燼 (KING)</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">29</th>
+              <td data-character-id="5-25">捷風 (Z) 澤法</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">30</th>
+              <td data-character-id="6-19">薩波 龍爪拳</td>
+              <td data-i18n="page.tips.story.rarities.hidden">隱藏</td>
+            </tr>
+            <tr>
+              <th scope="row">31</th>
+              <td data-character-id="5-13">波雅·漢考克 九蛇海賊團</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">32</th>
+              <td data-character-id="5-28">斯摩格 執念的中將</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">33</th>
+              <td data-character-id="6-16">維爾戈 鬼竹</td>
+              <td data-i18n="page.tips.story.rarities.hidden">隱藏</td>
+            </tr>
+            <tr>
+              <th scope="row">34</th>
+              <td data-character-id="5-39">紅髮 香克斯 四皇</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+            <tr>
+              <th scope="row">35</th>
+              <td data-character-id="5-5">月光·摩利亞 恐怖三桅帆船</td>
+              <td data-i18n="page.tips.story.rarities.legend">傳說</td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+      <details id="quests" class="panel tips-section" aria-labelledby="quests-title" open>
+        <summary class="panel-header">
+          <h2 id="quests-title"><span class="tips-section-number" aria-hidden="true">03</span><span data-i18n="page.tips.quests.title">支線任務</span></h2>
+        </summary>
         <table class="tips-table" aria-labelledby="quests-title">
           <thead>
             <tr>
@@ -163,12 +355,12 @@
             </tr>
           </tbody>
         </table>
-      </section>
+      </details>
       <div class="tips-secondary">
-        <section id="traits" class="panel tips-section" aria-labelledby="traits-title">
-          <div class="panel-header"><span class="tips-section-number" aria-hidden="true">03</span>
-            <h2 data-i18n="page.tips.traits.title" id="traits-title">特性點數取得</h2>
-          </div>
+        <details id="traits" class="panel tips-section" aria-labelledby="traits-title" open>
+          <summary class="panel-header">
+            <h2 id="traits-title"><span class="tips-section-number" aria-hidden="true">04</span><span data-i18n="page.tips.traits.title">特性點數取得</span></h2>
+          </summary>
           <table class="tips-table" aria-labelledby="traits-title">
             <thead>
               <tr>
@@ -201,11 +393,11 @@
               </tr>
             </tfoot>
           </table>
-        </section>
-        <section id="rewards" class="panel tips-section" aria-labelledby="rewards-title">
-          <div class="panel-header"><span class="tips-section-number" aria-hidden="true">04</span>
-            <h2 data-i18n="page.tips.rewards.title" id="rewards-title">累積通關獎勵</h2>
-          </div>
+        </details>
+        <details id="rewards" class="panel tips-section" aria-labelledby="rewards-title" open>
+          <summary class="panel-header">
+            <h2 id="rewards-title"><span class="tips-section-number" aria-hidden="true">05</span><span data-i18n="page.tips.rewards.title">累積通關獎勵</span></h2>
+          </summary>
           <table class="tips-table" aria-labelledby="rewards-title">
             <thead>
               <tr>
@@ -248,12 +440,12 @@
               </tr>
             </tbody>
           </table>
-        </section>
+        </details>
       </div>
-      <section id="elders" class="panel tips-section" aria-labelledby="elders-title">
-        <div class="panel-header">
+      <details id="elders" class="panel tips-section" aria-labelledby="elders-title" open>
+        <summary class="panel-header">
           <h2 data-i18n="page.tips.elders.title" id="elders-title">五老星介紹</h2>
-        </div>
+        </summary>
         <p class="tips-section-note" data-i18n="page.tips.elders.activation" id="elders-activation">
           五老星效果於第 50 關之後生效。
         </p>
@@ -341,7 +533,7 @@
             </tr>
           </tbody>
         </table>
-      </section>
+      </details>
     </main>
   </div>
   <my-footer></my-footer>

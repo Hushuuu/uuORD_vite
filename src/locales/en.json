@@ -295,6 +295,19 @@
         "description": "ORDR round priorities, side quest locations and entry requirements, trait point sources, and rewards for total clears.",
         "intro": "Plan your progress each round and quickly find side quest entrances and clear rewards.",
         "quick_nav": "Guide quick navigation",
+        "story": {
+          "title": "Story Progression Character Recommendations",
+          "rank": "Rank",
+          "character": "Character",
+          "rarity": "Rarity",
+          "rarities": {
+            "changed": "Changed",
+            "twisted": "Twisted",
+            "special": "Special",
+            "legend": "Legend",
+            "hidden": "Hidden"
+          }
+        },
         "elders": {
           "title": "Five Elders",
           "activation": "Five Elders effects take effect after round 50.",

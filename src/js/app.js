@@ -36,6 +36,7 @@ const PAGE_MODULES = {
   clear_histories: () => import('./pages/clear-histories-page.js'),
   recommend: () => import('./pages/recommend-page.js'),
   maintenance: () => import('./pages/maintenance-page.js'),
+  tips: () => import('./pages/tips-page.js'),
   patch_notes: () => import('./pages/patch-notes-page.js')
 };
 

@@ -295,6 +295,19 @@
         "description": "整理 ORDR 各回合建議完成事項、支線任務位置與進入方式、特性點數來源及累積通關解鎖獎勵。",
         "intro": "掌握各回合的推進節奏，快速查找支線入口與通關獎勵。",
         "quick_nav": "攻略快速跳轉",
+        "story": {
+          "title": "故事推進角色推薦",
+          "rank": "排名",
+          "character": "角色",
+          "rarity": "稀有度",
+          "rarities": {
+            "changed": "變化",
+            "twisted": "扭曲",
+            "special": "特殊",
+            "legend": "傳說",
+            "hidden": "隱藏"
+          }
+        },
         "elders": {
           "title": "五老星介紹",
           "activation": "五老星效果於第 50 關之後生效。",

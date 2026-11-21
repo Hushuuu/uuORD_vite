@@ -14,7 +14,27 @@
 .tips-content { display: grid; gap: 24px; min-width: 0; }
 .tips-section { overflow: hidden; scroll-margin-top: 24px; min-width: 0; }
 .tips-section h2 { margin: 0; font-size: 1.2rem; }
-.tips-section .panel-header { display: flex; align-items: center; gap: 12px; }
+.tips-section > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  list-style: none;
+}
+.tips-section > summary::-webkit-details-marker { display: none; }
+.tips-section > summary:focus-visible { outline: 2px solid var(--primary-color); outline-offset: -3px; }
+.tips-section > summary h2 { display: flex; align-items: center; gap: 12px; }
+.tips-section > summary::after {
+  content: "";
+  flex: 0 0 auto;
+  width: .5em;
+  height: .5em;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+}
+.tips-section[open] > summary::after { transform: rotate(45deg); }
 .tips-section-number { color: #ffd28a; font-size: .8rem; font-weight: 700; letter-spacing: .08em; }
 .tips-table { width: 100%; border-collapse: collapse; text-align: left; line-height: 1.65; }
 .tips-table th, .tips-table td { padding: 14px 24px; border-top: 1px solid var(--border-color); vertical-align: top; overflow-wrap: anywhere; }
@@ -39,6 +59,12 @@ table.tips-elders-table tbody th[scope="row"] {
 .tips-elders-table .tips-effect-group th {
   background: rgba(245, 158, 11, .08);
 }
+
+table.tips-story-table tbody th { width: 1%; }
+.tips-story-table th:first-child,
+.tips-story-table th:last-child,
+.tips-story-table td:last-child { white-space: nowrap; }
+.tips-story-table th:last-child { width: 1%; }
 
 @media (max-width: 767px) {
   .tips-secondary { grid-template-columns: minmax(0, 1fr); }
