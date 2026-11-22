@@ -296,14 +296,17 @@
         "intro": "Plan your progress each round and quickly find side quest entrances and clear rewards.",
         "quick_nav": "Guide quick navigation",
         "story": {
-          "title": "Story Progression Character Recommendations",
+          "title": "Midgame Story Progression Character Recommendations",
           "rank": "Rank",
           "character": "Character",
+          "removed_carrot": "Carrot",
+          "removed": "Removed",
           "rarities": {
             "twisted": "Twisted",
             "special": "Special",
             "legend": "Legend",
-            "hidden": "Hidden"
+            "hidden": "Hidden",
+            "changed": "Changed"
           }
         },
         "elders": {

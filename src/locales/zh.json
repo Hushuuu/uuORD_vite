@@ -296,14 +296,17 @@
         "intro": "掌握各回合的推進節奏，快速查找支線入口與通關獎勵。",
         "quick_nav": "攻略快速跳轉",
         "story": {
-          "title": "故事推進角色推薦",
+          "title": "中期故事推進角色推薦",
           "rank": "排名",
           "character": "角色",
+          "removed_carrot": "加洛特",
+          "removed": "已移除",
           "rarities": {
             "twisted": "扭曲",
             "special": "特殊",
             "legend": "傳說",
-            "hidden": "隱藏"
+            "hidden": "隱藏",
+            "changed": "變化"
           }
         },
         "elders": {

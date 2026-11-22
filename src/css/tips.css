@@ -68,6 +68,12 @@ table.tips-elders-table tbody th[scope="row"] {
   font-size: .75em;
   white-space: nowrap;
 }
+.tips-story-status {
+  margin-inline-start: .4em;
+  color: var(--muted-color);
+  font-size: .85em;
+  white-space: nowrap;
+}
 
 @media (max-width: 767px) {
   .tips-secondary { grid-template-columns: minmax(0, 1fr); }
