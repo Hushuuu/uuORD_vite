@@ -60,11 +60,14 @@ table.tips-elders-table tbody th[scope="row"] {
   background: rgba(245, 158, 11, .08);
 }
 
-table.tips-story-table tbody th { width: 1%; }
-.tips-story-table th:first-child,
-.tips-story-table th:last-child,
-.tips-story-table td:last-child { white-space: nowrap; }
-.tips-story-table th:last-child { width: 1%; }
+.tips-story-table tr > th:first-child { width: 1%; white-space: nowrap; }
+.tips-story-table .badge {
+  min-width: 0;
+  margin-inline-start: .4em;
+  padding: 1px 8px;
+  font-size: .75em;
+  white-space: nowrap;
+}
 
 @media (max-width: 767px) {
   .tips-secondary { grid-template-columns: minmax(0, 1fr); }

@@ -3197,7 +3197,8 @@ const ORD_DATA = [
       "stl-5-3",
       "stl-6-4",
       "stl-8-2",
-      "stl-8-3"
+      "stl-8-3",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-5-3": {
@@ -3266,7 +3267,8 @@ const ORD_DATA = [
       "stl-5-1",
       "stl-6-1",
       "stl-6-3",
-      "stl-8-1"
+      "stl-8-1",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-4-2": {
@@ -3341,7 +3343,8 @@ const ORD_DATA = [
     "skill_types": [
       "stl-5-1",
       "stl-7-1",
-      "stl-8-1"
+      "stl-8-1",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-5-1": {
@@ -3646,7 +3649,8 @@ const ORD_DATA = [
       "stl-5-1",
       "stl-6-3",
       "stl-8-2",
-      "stl-8-3"
+      "stl-8-3",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-2-2": {
@@ -3712,7 +3716,8 @@ const ORD_DATA = [
       "stl-2-2",
       "stl-5-1",
       "stl-8-2",
-      "stl-8-3"
+      "stl-8-3",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-2-2": {
@@ -3821,7 +3826,8 @@ const ORD_DATA = [
       "stl-4-2",
       "stl-5-3",
       "stl-6-1",
-      "stl-8-1"
+      "stl-8-1",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-4-2": {
@@ -3891,7 +3897,8 @@ const ORD_DATA = [
     "suitable_partners": [],
     "skill_types": [
       "stl-2-3",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-2-3": {
@@ -4203,7 +4210,8 @@ const ORD_DATA = [
       "stl-4-2",
       "stl-4-4",
       "stl-6-3",
-      "stl-8-1"
+      "stl-8-1",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-1-5": {
@@ -4279,7 +4287,8 @@ const ORD_DATA = [
       "stl-5-1",
       "stl-6-3",
       "stl-6-4",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-5-1": {
@@ -4417,7 +4426,8 @@ const ORD_DATA = [
       "stl-1-3",
       "stl-1-4",
       "stl-3-3",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-1-3": {
@@ -4483,7 +4493,8 @@ const ORD_DATA = [
       "stl-1-3",
       "stl-5-1",
       "stl-6-3",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-1-3": {
@@ -4681,7 +4692,8 @@ const ORD_DATA = [
       "stl-4-4",
       "stl-5-1",
       "stl-5-3",
-      "stl-8-1"
+      "stl-8-1",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-4-4": {
@@ -4754,7 +4766,8 @@ const ORD_DATA = [
       "stl-2-2",
       "stl-4-2",
       "stl-5-1",
-      "stl-8-1"
+      "stl-8-1",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-1-3": {
@@ -4830,7 +4843,8 @@ const ORD_DATA = [
       "stl-3-2",
       "stl-5-1",
       "stl-8-2",
-      "stl-8-3"
+      "stl-8-3",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-3-2": {
@@ -5065,7 +5079,8 @@ const ORD_DATA = [
       "stl-5-1",
       "stl-6-1",
       "stl-6-3",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-1-3": {
@@ -5214,7 +5229,8 @@ const ORD_DATA = [
       "stl-3-2",
       "stl-5-3",
       "stl-6-3",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-1-1": {
@@ -5293,7 +5309,8 @@ const ORD_DATA = [
     "skill_types": [
       "stl-2-3",
       "stl-5-1",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-2-3": {
@@ -5399,7 +5416,8 @@ const ORD_DATA = [
     "skill_types": [
       "stl-1-2",
       "stl-1-5",
-      "stl-5-2"
+      "stl-5-2",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-5-2": {
@@ -5452,7 +5470,8 @@ const ORD_DATA = [
     "skill_types": [
       "stl-3-2",
       "stl-5-1",
-      "stl-5-2"
+      "stl-5-2",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-5-2": {
@@ -5505,7 +5524,8 @@ const ORD_DATA = [
     "skill_types": [
       "stl-6-4",
       "stl-7-1",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-6-4": {
@@ -5778,7 +5798,8 @@ const ORD_DATA = [
       "stl-1-4",
       "stl-2-3",
       "stl-5-1",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-1-4": {
@@ -6078,7 +6099,8 @@ const ORD_DATA = [
       "stl-2-2",
       "stl-3-2",
       "stl-5-1",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-2-2": {
@@ -6145,7 +6167,8 @@ const ORD_DATA = [
       "stl-1-3",
       "stl-4-2",
       "stl-6-1",
-      "stl-6-3"
+      "stl-6-3",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-4-2": {
@@ -6337,7 +6360,8 @@ const ORD_DATA = [
       "stl-5-1",
       "stl-5-2",
       "stl-6-1",
-      "stl-6-3"
+      "stl-6-3",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-1-1": {
@@ -6458,7 +6482,8 @@ const ORD_DATA = [
     "skill_types": [
       "stl-4-2",
       "stl-5-3",
-      "stl-8-1"
+      "stl-8-1",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-4-2": {
@@ -6536,7 +6561,8 @@ const ORD_DATA = [
       "stl-4-4",
       "stl-5-1",
       "stl-5-2",
-      "stl-8-1"
+      "stl-8-1",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-4-2": {
@@ -6730,7 +6756,8 @@ const ORD_DATA = [
       "stl-2-2",
       "stl-4-2",
       "stl-5-3",
-      "stl-8-1"
+      "stl-8-1",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-2-2": {
@@ -6795,8 +6822,7 @@ const ORD_DATA = [
     "skill_types": [
       "stl-2-3",
       "stl-5-1",
-      "stl-8-2",
-      "stl-8-3"
+      "stl-8-2"
     ],
     "skill_values": {
       "stl-2-3": {
@@ -6856,7 +6882,8 @@ const ORD_DATA = [
       "stl-5-1",
       "stl-5-3",
       "stl-6-3",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-1-3": {
@@ -7069,7 +7096,8 @@ const ORD_DATA = [
       "stl-5-1",
       "stl-5-2",
       "stl-6-3",
-      "stl-7-1"
+      "stl-7-1",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-7-1": {
@@ -7130,7 +7158,8 @@ const ORD_DATA = [
       "stl-5-2",
       "stl-6-3",
       "stl-7-1",
-      "stl-7-2"
+      "stl-7-2",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-4-2": {
@@ -7203,7 +7232,8 @@ const ORD_DATA = [
       "stl-4-2",
       "stl-5-1",
       "stl-5-2",
-      "stl-5-3"
+      "stl-5-3",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-4-2": {
@@ -7268,7 +7298,8 @@ const ORD_DATA = [
       "stl-2-3",
       "stl-5-2",
       "stl-6-1",
-      "stl-8-3"
+      "stl-8-3",
+      "stl-6-5"
     ],
     "skills": [
       {
@@ -7381,7 +7412,8 @@ const ORD_DATA = [
       "stl-6-1",
       "stl-6-3",
       "stl-6-4",
-      "stl-8-3"
+      "stl-8-3",
+      "stl-6-5"
     ],
     "skill_values": {
       "stl-5-3": {
@@ -13513,7 +13545,8 @@ const ORD_DATA = [
       "stl-4-2",
       "stl-5-1",
       "stl-6-3",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3",
     ],
     "skill_values": {
       "stl-2-3": {

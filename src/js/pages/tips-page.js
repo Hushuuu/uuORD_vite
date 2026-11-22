@@ -2,10 +2,10 @@ import { ORDI18n } from '../i18n.js';
 
 export default function initTipsPage(records) {
   const characters = new Map(records.map(record => [record.character_id, record]));
-  document.querySelectorAll('.tips-story-table [data-character-id]').forEach(cell => {
-    const character = characters.get(cell.dataset.characterId);
+  document.querySelectorAll('.tips-story-table [data-character-id]').forEach(name => {
+    const character = characters.get(name.dataset.characterId);
     if (character) {
-      cell.textContent = ORDI18n.getDisplayName(character);
+      name.textContent = ORDI18n.getDisplayName(character);
     }
   });
 
