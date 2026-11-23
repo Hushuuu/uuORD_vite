@@ -135,7 +135,7 @@ function renderMaterialTree(
             <summary class="branch-summary recommend-material-row${progressClass}"${progressStyle}>
               ${summaryContent}
               <span class="branch-toggle-hint">
-                <img style="vertical-align: middle" width="22" height="22" src="/resource/arrow_drop_down.svg" alt="展開">
+                <img width="16" height="16" src="/resource/arrow_drop_down.svg" alt="">
               </span>
             </summary>
             <div data-material-tree-container></div>

@@ -27,37 +27,12 @@
   <script src="/js/tom-select.complete.min.js"></script>
   <script type="module" src="/src/js/app.js"></script>
   <style>
-    .recommend-card-top {
-      padding-top: 12px;
-      /* 依你實際視覺畫面微調，避免文字離頂部太近 */
-    }
-
     .field-group.collapsed {
       display: none;
     }
 
     .collapsed {
       display: none !important;
-    }
-
-    .recommend-level-tab {
-      background-color: #2a2a2a;
-      color: #888;
-      border: 1px solid #444;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.2s;
-      width: 80px;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      padding: 5px;
-    }
-
-    .recommend-level-tab.active {
-      background-color: var(--primary-color, #ffd28a);
-      color: #121212;
-      border-color: var(--primary-color, #ffd28a);
-      font-weight: bold;
     }
 
     @media (max-width: 768px) {
@@ -226,26 +201,25 @@
               <div id="recommendOwnedPanels" class="recommend-owned-panels collapsed"></div>
             </section>
 
-            <section class="panel" style="margin-top: 12px;">
-              <div class="panel-header">
-                <div style="display: flex;gap:10px;">
+            <section class="panel">
+              <div class="panel-header recommend-results-toolbar">
+                <div class="recommend-results-title">
                   <h2 class="panel-title" data-i18n="recommend.result_title">推薦結果</h2>
                   <button id="recommendShowLessBtn" type="button" class="secondary" style="display: none;"
                     data-i18n="action.showLess">顯示較少筆數(效能提升)</button>
                 </div>
-                <!-- <p class="panel-desc" data-i18n="recommend.result_desc">顯示前10個建議，點x可推薦其他角色</p> -->
-                <div style="margin-top:5px;">
-                  <span class="" data-i18n="action.pin">釘選角色</span>:
+                <div class="recommend-results-pins">
+                  <span data-i18n="action.pin">釘選角色</span>
                   <button id="recommendClearPinnedBtn" type="button" class="secondary"
                     data-i18n="action.clearPinned">清除</button>
                   <span class="helper-text" id="pinnedCharactersText"></span>
                 </div>
-              </div>
-              <div id="recommendLevelTab" style="margin: 10px 0 10px 5px;line-height: 2;"></div>
-              <div class="recommend-search">
-                <label class="field-label" for="recommendSearchInput" data-i18n="recommend.search_label">搜尋推薦角色</label>
-                <input id="recommendSearchInput" class="field-input" type="search" autocomplete="off"
-                  data-i18n-placeholder="recommend.search_placeholder" placeholder="輸入角色名稱、英文名或代碼">
+                <div class="recommend-search">
+                  <label class="field-label" for="recommendSearchInput" data-i18n="recommend.search_label">搜尋推薦角色</label>
+                  <input id="recommendSearchInput" class="field-input" type="search" autocomplete="off"
+                    data-i18n-placeholder="recommend.search_placeholder" placeholder="輸入角色名稱、英文名或代碼">
+                </div>
+                <div id="recommendLevelTab" class="recommend-level-tabs"></div>
               </div>
               <div id="recommendResultList" class="recommend-result-list"></div>
             </section>

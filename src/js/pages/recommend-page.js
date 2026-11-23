@@ -383,56 +383,55 @@ function initRecommendPage(records) {
               </div>
               <div class="recommend-result-group-body">
                 ${group.candidates
-                  .map(({ record, requiredCounts, requiredText, excessCounts, excessText, completionRatio, isPinned }) => `
-                    <article class="recommend-card ${isPinned ? 'card-pinned' : ''}">
-                      <div class="card-top-progress-container">
-                        <div 
-                          class="card-top-progress-bar-bg" 
-                          style="transform: scaleX(${completionRatio || 0});"
-                        ></div>
-                        <div class="card-top-progress-text"
-                        style="left: ${((completionRatio || 0) * 50).toFixed(2)}%;"
-                        >
-                          ${((completionRatio || 0) * 100).toFixed(0)}%
+                  .map(({ record, requiredCounts, requiredText, excessCounts, excessText, completionRatio, isPinned }) => {
+                    const completion = Number(completionRatio) || 0;
+                    const skillLabels = formatSkillLabelsWithValuesUtil(
+                      record.skill_types,
+                      record.skill_values,
+                      getSkillTypeLabel
+                    );
+                    const remark = String(record.remark ?? '').trim();
+                    return `
+                      <article class="recommend-card ${isPinned ? 'card-pinned' : ''}">
+                        <div class="card-top-progress-container">
+                          <div class="card-top-progress-bar-bg" style="transform: scaleX(${completion});" aria-hidden="true"></div>
+                          <span class="recommend-card-completion">${(completion * 100).toFixed(0)}%</span>
                         </div>
-                      </div>
-                      <div class="recommend-card-heading">
-                        <div class="recommend-card-top">
-                          <strong>${escapeHtml(getDisplayName(record))} ${record.key_code ? `(${escapeHtml(record.key_code)})` : ''}</strong>
+                        <div class="recommend-card-heading">
+                          <div class="recommend-card-top">
+                            <strong>${escapeHtml(getDisplayName(record))} ${record.key_code ? `(${escapeHtml(record.key_code)})` : ''}</strong>
+                          </div>
+                          ${renderRecommendationActions(record, indices, getDisplayName, escapeHtml, t, isPinned, DEFAULT_SHOW_AMOUNT !== 100)}
                         </div>
-                        ${renderRecommendationActions(record, indices, getDisplayName, escapeHtml, t, isPinned, DEFAULT_SHOW_AMOUNT !== 100)}
-                      </div>
-                      <div>
-                        <span>${formatSkillLabelsWithValuesUtil(record.skill_types, record.skill_values, getSkillTypeLabel).map((label) => `<span class="badge-skill-type">${escapeHtml(label)}</span>`).join('/')}</span>
-                      </div>
-                      <div style="margin-top: -10px; margin-bottom: -5px;">
-                        <span class="badge-skill-type">${escapeHtml(record.remark)}</span>
-                      </div>
-                      <details class="branch-details recommend-material-details" data-tree-key="${record.character_id}" data-character-id="${escapeHtml(record.character_id)}">
-                        <summary class="branch-summary recommend-material-summary">
-                          <div class="recommend-material-summary-head">
-                            <span class="recommend-material-summary-label">${i18n.t('materials')}</span>
-                            <span class="branch-toggle-hint">
-                              <img style="vertical-align: middle" width="22" height="22" src="/resource/arrow_drop_down.svg" alt="展開">
-                            </span>
+                        ${skillLabels.length || remark ? `
+                          <div class="recommend-card-meta">
+                            ${skillLabels.length ? `<span class="badge-skill-type">${skillLabels.map(escapeHtml).join(' / ')}</span>` : ''}
+                            ${remark ? `<span>${escapeHtml(remark)}</span>` : ''}
                           </div>
-                          <div class="recommend-material-preview">
-                            ${renderMaterialPreviewUtil(record, inventory, indices, getDisplayName, escapeHtml)}
-                          </div>
-                        </summary>
-                        <div class="recommend-material-body" data-material-tree-container></div>
-                      </details>
-                      ${requiredCounts.size > 0 || excessCounts.size > 0 ? `
-                        <div class="recommend-card-foot">
+                        ` : ''}
+                        <details class="branch-details recommend-material-details" data-tree-key="${record.character_id}" data-character-id="${escapeHtml(record.character_id)}">
+                          <summary class="branch-summary recommend-material-summary">
+                            <div class="recommend-material-summary-head">
+                              <span class="recommend-material-summary-label">${i18n.t('materials')}</span>
+                              <span class="branch-toggle-hint">
+                                <img width="18" height="18" src="/resource/arrow_drop_down.svg" alt="">
+                              </span>
+                            </div>
+                            <div class="recommend-material-preview">
+                              ${renderMaterialPreviewUtil(record, inventory, indices, getDisplayName, escapeHtml)}
+                            </div>
+                          </summary>
+                          <div class="recommend-material-body" data-material-tree-container></div>
+                        </details>
+                        ${requiredCounts.size > 0 || excessCounts.size > 0 ? `
                           <div class="recommend-card-statuses">
                             ${requiredCounts.size > 0 ? `<span class="recommend-shortage">${i18n.t('recommend.needMaterials')}: ${escapeHtml(requiredText)}</span>` : ''}
                             ${excessCounts.size > 0 ? `<span class="recommend-excess">${i18n.t('recommend.excessMaterials')}: ${escapeHtml(excessText)}</span>` : ''}
                           </div>
-                          <span class="muted"></span>
-                        </div>
-                      ` : ''}
-                    </article>
-                  `)
+                        ` : ''}
+                      </article>
+                    `;
+                  })
                   .join('')}
               </div>
             </section>
