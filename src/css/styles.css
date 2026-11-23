@@ -1473,6 +1473,105 @@ button.success {
   margin-top: 6px;
 }
 
+.skill-type-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 10px;
+}
+
+.skill-type-group {
+  min-width: 0;
+  margin: 0;
+  padding: 0 10px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+}
+
+.skill-type-group legend {
+  padding: 0 4px;
+  color: var(--text-color);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.skill-type-group input:focus-visible + .checkbox-badge-label,
+.skill-filter input:focus-visible + .checkbox-badge-label,
+.skill-filter button:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.skill-filter-categories,
+.skill-filter-chips,
+.skill-filter-selection:not([hidden]) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.skill-filter-category,
+.skill-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 5px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: #334155;
+  color: var(--text-color);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.skill-filter-category:hover {
+  background: #475569;
+  transform: none;
+}
+
+.skill-filter-chip:hover {
+  filter: brightness(1.12);
+  transform: none;
+}
+
+.skill-filter-count:empty {
+  display: none;
+}
+
+.skill-filter-arrow {
+  width: 7px;
+  height: 7px;
+  margin: 0 2px 3px;
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.skill-filter-category[aria-expanded="true"] .skill-filter-arrow {
+  margin-bottom: -3px;
+  transform: rotate(225deg);
+}
+
+.skill-filter-options {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+}
+
+.skill-filter-options .checkbox-badge-grid {
+  margin-top: 0;
+}
+
+.skill-filter-selection {
+  margin-top: 10px;
+}
+
+.skill-filter-selection-count {
+  color: var(--muted-color);
+  font-size: 0.88rem;
+}
+
 .checkbox-badge {
   cursor: pointer;
 }
@@ -1504,7 +1603,9 @@ button.success {
   color: var(--text-color);
 }
 
-.checkbox-badge input:checked + .checkbox-badge-label {
+.checkbox-badge input:checked + .checkbox-badge-label,
+.skill-filter-category[aria-expanded="true"],
+.skill-filter-chip {
   background: rgba(245, 158, 11, 0.18);
   border-color: var(--primary-color);
   color: #ffd28a;

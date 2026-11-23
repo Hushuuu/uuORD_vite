@@ -20,6 +20,15 @@ const SKILL_TYPE_LABELS = {
   en: en.skillTypeLabels
 };
 
+const SKILL_TYPE_GROUPS = {
+  buffs: ['stl-1-1', 'stl-1-2', 'stl-1-3', 'stl-7-1', 'stl-7-2'],
+  amplification: ['stl-1-4', 'stl-1-6', 'stl-4-1', 'stl-4-2', 'stl-4-4'],
+  control: ['stl-5-1', 'stl-5-2', 'stl-5-3'],
+  wave_clear: ['stl-2-3', 'stl-3-1', 'stl-2-2'],
+  damage: ['stl-8-1', 'stl-8-2', 'stl-8-3', 'stl-6-3', 'stl-6-5'],
+  other: ['stl-6-2', 'stl-6-1', 'stl-1-5', 'stl-6-4']
+};
+
 const listeners = new Set();
 let currentLang = readInitialLang();
 
@@ -152,9 +161,11 @@ function getLevelOptions() {
     .sort((left, right) => left.level - right.level);
 }
 
-function getSkillTypeOptions() {
-  const labels = SKILL_TYPE_LABELS[currentLang] || SKILL_TYPE_LABELS[DEFAULT_LANG];
-  return Object.entries(labels).map(([value, label]) => ({ value, label }));
+function getSkillTypeGroups() {
+  return Object.entries(SKILL_TYPE_GROUPS).map(([group, types]) => ({
+    label: t(`skill_type_groups.${group}`),
+    options: types.map((value) => ({ value, label: getSkillTypeLabel(value) }))
+  }));
 }
 
 function getDisplayName(record) {
@@ -324,7 +335,7 @@ export const ORDI18n = {
   getSkillTypeLabel,
   getSkillTypeLabels,
   getLevelOptions,
-  getSkillTypeOptions,
+  getSkillTypeGroups,
   getDisplayName,
   getAllRarityLabel,
   getAllLabel,

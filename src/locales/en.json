@@ -710,6 +710,18 @@
       "loading": "Loading..."
     },
     "skill_type": "Skill Type",
+    "skill_filter": {
+      "selected": "Selected: {count}",
+      "remove": "Remove {label} filter"
+    },
+    "skill_type_groups": {
+      "buffs": "Buffs",
+      "amplification": "Damage Amp & Defense Reduction",
+      "control": "Crowd Control",
+      "wave_clear": "Wave Clear",
+      "damage": "Damage Types",
+      "other": "Other"
+    },
     "comp": {
       "materials": {
         "none": "None",

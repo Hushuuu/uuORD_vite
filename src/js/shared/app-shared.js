@@ -604,7 +604,7 @@ const api = {
   getMaterialNames,
   getSkillTypeLabel: dataIndexUtils.getSkillTypeLabel,
   getSkillTypeLabels: dataIndexUtils.getSkillTypeLabels,
-  createSkillTypeOptions: dataIndexUtils.createSkillTypeOptions,
+  renderSkillTypeGroups: dataIndexUtils.renderSkillTypeGroups,
   getLevelOptions: dataIndexUtils.getLevelOptions,
   getSearchableText,
   fillLevelSelect,

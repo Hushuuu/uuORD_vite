@@ -6,7 +6,7 @@ const {
   clearToast,
   cloneData,
   compareRecords,
-  createSkillTypeOptions,
+  renderSkillTypeGroups,
   createIndices,
   createTomSelectOptions,
   createTomSelectRenderConfig,
@@ -92,16 +92,7 @@ function initMaintenancePage(records) {
 
     function renderSkillTypeCheckboxes(selectedSkillTypes = []) {
       const selectedSet = new Set((selectedSkillTypes || []).map(String));
-      skillTypesGroup.innerHTML = createSkillTypeOptions()
-        .map(
-          ({ value, label }) => `
-            <label class="checkbox-badge">
-              <input type="checkbox" value="${escapeHtml(value)}" ${selectedSet.has(value) ? 'checked' : ''}>
-              <span class="checkbox-badge-label">${escapeHtml(label)}</span>
-            </label>
-          `
-        )
-        .join('');
+      skillTypesGroup.innerHTML = renderSkillTypeGroups(selectedSet);
 
       skillTypesGroup.querySelectorAll('input[type="checkbox"]').forEach((input) => {
         input.addEventListener('change', () => {

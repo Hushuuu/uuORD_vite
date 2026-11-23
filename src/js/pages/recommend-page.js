@@ -1,6 +1,7 @@
 import appShared from './../shared/app-shared.js';
 import { ORDI18n } from './../i18n.js';
 import { createSkillDialog } from '../shared/skill-description.js';
+import { createSkillTypeFilter } from '../shared/skill-type-filter.js';
 import {
   formatSkillLabelsWithValues as formatSkillLabelsWithValuesUtil,
   buildTargetLevelOptions as buildTargetLevelOptionsUtil,
@@ -36,7 +37,6 @@ const {
   getLevelLabel,
   getPrimaryRecord,
   getSkillTypeLabel,
-  createSkillTypeOptions,
   getDisplayName,
 } = appShared;
 
@@ -262,31 +262,6 @@ function initRecommendPage(records) {
       ownedSelector.addOptions(options);
       ownedSelector.refreshOptions(false);
     }
-    //技能篩選
-    function renderSkillTypeCheckboxes() {
-      targetSkillGrid.innerHTML = createSkillTypeOptions()
-        .map(
-          ({ value, label }) => `
-            <label class="checkbox-badge">
-              <input type="checkbox" value="${escapeHtml(value)}" ${targetState.checkedSkillTypes.has(value) ? 'checked' : ''}>
-              <span class="checkbox-badge-label">${escapeHtml(label)}</span>
-            </label>
-          `
-        )
-        .join('');
-
-      targetSkillGrid.querySelectorAll('input').forEach((input) => {
-        input.addEventListener('change', () => {
-          if (input.checked) {
-            targetState.checkedSkillTypes.add(input.value);
-          } else {
-            targetState.checkedSkillTypes.delete(input.value);
-          }
-          scheduleRecommendationsRender();
-        });
-      });
-    }
-
     // 固定禁止推薦
     const defaultDismissedIds = ['2-12', '4-7', '4-46', '5-41', '6-10', '10-1', '5-10'];
 
@@ -578,7 +553,11 @@ function initRecommendPage(records) {
     }
     
     renderTargetLevelCheckboxes();
-    renderSkillTypeCheckboxes();
+    const skillTypeFilter = createSkillTypeFilter(
+      targetSkillGrid,
+      targetState.checkedSkillTypes,
+      scheduleRecommendationsRender
+    );
     renderOwnedControls();
     syncOwnedOptions();
     renderRecommendations();
@@ -595,7 +574,7 @@ function initRecommendPage(records) {
         recommendSearchInput.value = '';
       }
       targetState.selectedTargetLevels = new Set();
-      targetState.checkedSkillTypes = new Set();
+      skillTypeFilter.reset();
       targetState.activeOwnedLevel = 1;
       ownedCountState[1].clear();
       ownedCountState[2].clear();
@@ -607,9 +586,6 @@ function initRecommendPage(records) {
         });
       }
       renderTargetLevelCheckboxes();
-      //console.log('重置技能篩選');
-      renderSkillTypeCheckboxes();
-      //console.log('重置技能篩選renderSkillTypeCheckboxes');
       scheduleRecommendationsRender({ renderOwnedControls: true });
       //重置條件區顯示
       const filterSections = document.querySelectorAll('.controls-grid .field-group');

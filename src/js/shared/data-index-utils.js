@@ -114,12 +114,24 @@ function getSkillTypeLabels(skillTypes) {
   return (skillTypes || []).map((skillType) => getSkillTypeLabel(skillType));
 }
 
-// 從 i18n 字典產生技能篩選選項。
-function createSkillTypeOptions() {
-  const i18n = getI18n();
-  return i18n && typeof i18n.getSkillTypeOptions === 'function'
-    ? i18n.getSkillTypeOptions()
-    : [];
+function renderSkillTypeOptions(options, selectedTypes) {
+  return options.map(({ value, label }) => `
+    <label class="checkbox-badge">
+      <input type="checkbox" value="${escapeHtml(value)}" ${selectedTypes.has(value) ? 'checked' : ''}>
+      <span class="checkbox-badge-label">${escapeHtml(label)}</span>
+    </label>
+  `).join('');
+}
+
+function renderSkillTypeGroups(selectedTypes) {
+  return ORDI18n.getSkillTypeGroups().map(({ label, options }) => {
+    return `
+      <fieldset class="skill-type-group">
+        <legend>${escapeHtml(label)}</legend>
+        <div class="checkbox-badge-grid">${renderSkillTypeOptions(options, selectedTypes)}</div>
+      </fieldset>
+    `;
+  }).join('');
 }
 
 // 依數字順序產生多語系稀有度選項。
@@ -141,6 +153,7 @@ export {
   getPrimaryRecord,
   getSkillTypeLabel,
   getSkillTypeLabels,
-  createSkillTypeOptions,
+  renderSkillTypeGroups,
+  renderSkillTypeOptions,
   getLevelOptions,
 };

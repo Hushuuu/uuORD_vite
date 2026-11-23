@@ -1,9 +1,9 @@
 import appShared from './../shared/app-shared.js';
 import { ORDI18n } from './../i18n.js';
 import { decodeTeamCharacterIds } from './../shared/team-codec.js';
+import { createSkillTypeFilter } from '../shared/skill-type-filter.js';
 
 const {
-  createSkillTypeOptions,
   createIndices,
   escapeHtml,
   formatBaseMaterialsText,
@@ -124,7 +124,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     //改多組隊伍
     //let selectedTeamIds = readStoredArray(localStorage, 'selectedTeamIds').filter((id) => indices.byCharacterId.has(id));
     let selectedTeamIds = readStoredArray(localStorage, getTeamStorageKey(currentTeamIdx)).filter((id) => indices.byCharacterId.has(id));let checkedLevels = new Set();
-    let checkedSkillTypes = new Set();
+    const checkedSkillTypes = new Set();
     let searchKeyword = '';
     let areFiltersCollapsed = localStorage.getItem('compFiltersCollapsed') === 'true';
 
@@ -162,30 +162,6 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
             });
             levelCheckboxGroup.appendChild(checkboxLabel);
         }
-      });
-    }
-
-    function renderSkillTypeCheckboxes() {
-      skillTypeCheckboxGroup.innerHTML = createSkillTypeOptions()
-        .map(
-          ({ value, label }) => `
-            <label class="checkbox-badge">
-              <input type="checkbox" value="${escapeHtml(value)}" ${checkedSkillTypes.has(value) ? 'checked' : ''}>
-              <span class="checkbox-badge-label">${escapeHtml(label)}</span>
-            </label>
-          `
-        )
-        .join('');
-
-      skillTypeCheckboxGroup.querySelectorAll('input').forEach((input) => {
-        input.addEventListener('change', () => {
-          if (input.checked) {
-            checkedSkillTypes.add(input.value);
-          } else {
-            checkedSkillTypes.delete(input.value);
-          }
-          renderCharactersList();
-        });
       });
     }
 
@@ -359,11 +335,8 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
       compSearchInput.value = '';
       searchKeyword = '';
       checkedLevels.clear();
-      checkedSkillTypes.clear();
+      skillTypeFilter.reset();
       levelCheckboxGroup.querySelectorAll('input').forEach((input) => {
-        input.checked = false;
-      });
-      skillTypeCheckboxGroup.querySelectorAll('input').forEach((input) => {
         input.checked = false;
       });
       renderCharactersList();
@@ -410,7 +383,7 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
     });
 
     renderLevelCheckboxes();
-    renderSkillTypeCheckboxes();
+    const skillTypeFilter = createSkillTypeFilter(skillTypeCheckboxGroup, checkedSkillTypes, renderCharactersList);
     updateFilterCollapseUI();
     renderTeamPanel();
     renderCharactersList();

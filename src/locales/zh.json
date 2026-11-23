@@ -709,6 +709,18 @@
       "loading": "載入中..."
     },
     "skill_type": "技能類型",
+    "skill_filter": {
+      "selected": "已選 {count}",
+      "remove": "移除「{label}」篩選"
+    },
+    "skill_type_groups": {
+      "buffs": "增益",
+      "amplification": "增傷扣防",
+      "control": "控制",
+      "wave_clear": "清線類型",
+      "damage": "傷害類型",
+      "other": "其他"
+    },
     "comp": {
       "materials": {
         "none": "無",
@@ -882,13 +894,13 @@
     "stl-2-2": "總血量",
     "stl-4-1": "減少魔防",
     "stl-4-2": "減少物防",
-    "stl-4-4": "破甲(max75)",
+    "stl-4-4": "破甲(上限75)",
     "stl-5-1": "單體暈",
     "stl-5-2": "範圍暈",
     "stl-5-3": "緩速",
     "stl-6-1": "空中移動",
     "stl-6-2": "瞬移",
-    "stl-6-3": "Boss 特化",
+    "stl-6-3": "Boss特化",
     "stl-6-4": "移除單位",
     "stl-6-5": "推進故事",
     "stl-7-1": "魔力回復",
