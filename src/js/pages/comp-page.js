@@ -617,7 +617,13 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
 
     function aggregateTeamSkillEffects() {
       const effects = new Map();
-      const notCountTotalTypes = new Set(['stl-2-1','stl-2-2','stl-2-3','stl-3-1','stl-3-2','stl-3-3','stl-5-1','stl-5-2']); // 不計入總和的技能類型
+      const notCountTotalTypes = new Set([
+        'stl-2-2',
+        'stl-2-3',
+        'stl-3-1',
+        'stl-5-1',
+        'stl-5-2'
+      ]); // 不計入總和的技能類型
       selectedTeamIds.forEach((id) => {
         const record = indices.byCharacterId.get(id);
         if (!record) {
