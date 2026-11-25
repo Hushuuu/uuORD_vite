@@ -61,7 +61,7 @@ class MyFooter extends HTMLElement {
         --accent-hover: #d97706;
         /* amber-600 */
     }
-    footer {
+    my-footer > footer {
         background-color: var(--bg-darker);
         border-top: 1px solid var(--border-color);
         padding: 2rem 0;

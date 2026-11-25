@@ -16,12 +16,14 @@ import {
 import {
   renderMaterialPreview as renderMaterialPreviewUtil,
   renderRecommendationActions,
+  renderOwnedUpwardList,
   renderMaterialTree as renderMaterialTreeUtil,
   renderOwnedCountCard as renderOwnedCountCardUtil,
 } from './recommend-render.js';
 import {
   getPinnedCharacters as getPinnedCharactersUtil,
   togglePinnedCharacter as togglePinnedCharacterUtil,
+  addPinnedCharacters,
   clearPinnedCharacters as clearPinnedCharactersUtil,
   buildPinnedCharactersHtml as buildPinnedCharactersHtmlUtil,
 } from './recommend-storage.js';
@@ -45,6 +47,10 @@ const t = i18n && typeof i18n.t === 'function' ? i18n.t : (key) => key;
 
 // 預設顯示100筆
 let DEFAULT_SHOW_AMOUNT = 100;
+
+function getCompletionRatio({ scoreOwned, scoreTotal }) {
+  return scoreTotal > 0 ? scoreOwned / scoreTotal : 0;
+}
 
 function initRecommendPage(records) {
     const indices = createIndices(records);
@@ -164,9 +170,7 @@ function initRecommendPage(records) {
       const getMaterialCompletion = (characterId) => {
         if (!materialCompletionCache.has(characterId)) {
           const { status } = analyzeRecipe(characterId, inventory);
-          materialCompletionCache.set(characterId, status.scoreTotal > 0
-            ? Math.max(0, Math.min(1, status.scoreOwned / status.scoreTotal))
-            : 0);
+          materialCompletionCache.set(characterId, Math.max(0, Math.min(1, getCompletionRatio(status))));
         }
         return materialCompletionCache.get(characterId);
       };
@@ -252,11 +256,12 @@ function initRecommendPage(records) {
     }
 
     function syncOwnedOptions() {
+      const options = createTomSelectOptions(extraRecords);
       if (!ownedSelector) {
+        ownedSelect.replaceChildren(...options.map(({ label, value }) => new Option(label, value)));
         return;
       }
 
-      const options = createTomSelectOptions(extraRecords);
       ownedSelector.clear(true);
       ownedSelector.clearOptions();
       ownedSelector.addOptions(options);
@@ -284,13 +289,13 @@ function initRecommendPage(records) {
         .map((targetLevel) => {
           const candidates = records
             .filter((record) => record.level === targetLevel 
-            && !defaultDismissedIds.includes(record.character_id)
+            && (pinnedCharacterIds.has(record.character_id) || !defaultDismissedIds.includes(record.character_id))
             && matchesRecommendationSearch(record)
             && (selectedTargetSkillTypes.length === 0 || record.skill_types?.some((skillType) => selectedTargetSkillTypes.includes(skillType))))
             .map((record) => {
               // 整併計算缺口與完成度分數
               const analyzeResult = analyzeRecipe(record.character_id, new Map(inventory), indices);
-              const completionRatio = (analyzeResult.status.scoreTotal > 0 ? (analyzeResult.status.scoreOwned / analyzeResult.status.scoreTotal) : 0).toFixed(7);
+              const completionRatio = getCompletionRatio(analyzeResult.status).toFixed(7);
               return {
                 record,
                 requiredCounts : analyzeResult.missingBaseCounts,
@@ -360,11 +365,6 @@ function initRecommendPage(records) {
 
       summary.textContent = `${i18n.t('recommend.selected')}：${selectedTargetLevels.map((level) => `${getLevelLabel(level)}`).join(', ')}，
         ${i18n.t('skill_type')}: ${selectedTargetSkillTypes.length > 0 ? selectedTargetSkillTypes.map((skillType) => `${getSkillTypeLabel(skillType)}`).join(', ') : i18n.t('comp.materials.none')}`;
-
-      const pinnedTextDom = document.getElementById('pinnedCharactersText');
-      if (pinnedTextDom) {
-        pinnedTextDom.innerHTML = buildPinnedCharactersHtmlUtil(records, escapeHtml, getDisplayName);
-      }
 
       if (resultGroups.length === 0) {
         resultList.innerHTML = `<div class="empty-state">${recommendationSearchQuery
@@ -503,6 +503,9 @@ function initRecommendPage(records) {
     }
 
     function renderRecommendations() {
+      const pinnedText = buildPinnedCharactersHtmlUtil(records, escapeHtml, getDisplayName);
+      document.getElementById('pinnedCharactersText').innerHTML =
+        pinnedText || escapeHtml(t('recommend.no_pinned_characters'));
       renderRecommendationResults(computeRecommendations());
     }
 
@@ -786,6 +789,72 @@ function initRecommendPage(records) {
         scheduleRecommendationsRender();
       })
     }
+
+    const ownedUpwardDialog = document.getElementById('recommendOwnedUpwardDialog');
+    const ownedUpwardList = document.getElementById('recommendOwnedUpwardList');
+    const applyOwnedUpwardButton = document.getElementById('recommendApplyOwnedUpwardBtn');
+
+    document.getElementById('recommendOwnedUpwardBtn').addEventListener('click', () => {
+      ownedUpwardList.innerHTML = renderOwnedUpwardList(
+        indices.records,
+        createCurrentInventory(),
+        indices,
+        getLevelLabel,
+        getDisplayName,
+        escapeHtml,
+        t
+      );
+      applyOwnedUpwardButton.disabled = true;
+      ownedUpwardDialog.showModal();
+    });
+
+    ownedUpwardList.addEventListener('toggle', (event) => {
+      const group = event.target;
+      if (!(group instanceof HTMLDetailsElement) || !group.open) {
+        return;
+      }
+
+      const inventory = createCurrentInventory();
+      group.querySelectorAll('li').forEach((row) => {
+        const characterId = row.querySelector('input').value;
+        const { status } = analyzeRecipe(characterId, inventory);
+        const percent = Math.round(Math.max(0, Math.min(1, getCompletionRatio(status))) * 100);
+        row.querySelector('progress').value = percent;
+        row.querySelector('.recommend-owned-upward-progress span').textContent = `${percent}%`;
+      });
+    }, true);
+
+    ownedUpwardList.addEventListener('change', (event) => {
+      const changedInput = event.target;
+      ownedUpwardList.querySelectorAll('input').forEach((input) => {
+        if (input.value === changedInput.value) {
+          input.checked = changedInput.checked;
+        }
+      });
+      applyOwnedUpwardButton.disabled = !ownedUpwardList.querySelector('input:checked');
+    });
+
+    ownedUpwardDialog.querySelector('form').addEventListener('submit', (event) => {
+      if (event.submitter !== applyOwnedUpwardButton) {
+        return;
+      }
+
+      const selectedIds = new Set(new FormData(event.currentTarget).getAll('upwardTarget'));
+      const selectedRecords = [...selectedIds].map((id) => indices.byCharacterId.get(id));
+      if (selectedRecords.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      addPinnedCharacters(selectedIds);
+      selectedRecords.forEach((record) => {
+        targetState.selectedTargetLevels.add(record.level);
+        dismissedCharacterIds.delete(record.character_id);
+      });
+      activeResultLevel = selectedRecords[0].level;
+      renderTargetLevelCheckboxes();
+      scheduleRecommendationsRender();
+    });
 
     function getOwnedHighLevelRecords() {
       const selectedOwnedIds = ownedSelector

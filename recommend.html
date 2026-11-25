@@ -180,6 +180,8 @@
                   data-i18n="action.collapseFilters">收合條件</button>
                 <button id="recommendExportHighLevelBtn" type="button" class="secondary"
                   data-i18n="recommend.export_team">匯出隊伍</button>
+                <button id="recommendOwnedUpwardBtn" type="button" class="secondary" aria-haspopup="dialog"
+                  data-i18n="recommend.owned_upward.title">查看擁有角色</button>
               </div>
             </div>
           </div>
@@ -208,11 +210,13 @@
                   <button id="recommendShowLessBtn" type="button" class="secondary" style="display: none;"
                     data-i18n="action.showLess">顯示較少筆數(效能提升)</button>
                 </div>
-                <div class="recommend-results-pins">
-                  <span data-i18n="action.pin">釘選角色</span>
+                <button id="recommendPinnedBtn" type="button" class="secondary" popovertarget="recommendPinnedPopover"
+                  data-i18n="action.pin">釘選角色</button>
+                <div id="recommendPinnedPopover" class="recommend-pins-popover" popover="auto"
+                  role="group" aria-labelledby="recommendPinnedBtn">
+                  <p id="pinnedCharactersText" aria-live="polite"></p>
                   <button id="recommendClearPinnedBtn" type="button" class="secondary"
-                    data-i18n="action.clearPinned">清除</button>
-                  <span class="helper-text" id="pinnedCharactersText"></span>
+                    data-i18n="action.clearPinned">清空</button>
                 </div>
                 <div class="recommend-search">
                   <label class="field-label" for="recommendSearchInput" data-i18n="recommend.search_label">搜尋推薦角色</label>
@@ -229,6 +233,21 @@
     </section>
   </div>
   <my-footer></my-footer>
+  <dialog id="recommendOwnedUpwardDialog" class="recommend-owned-upward-dialog"
+    aria-labelledby="recommendOwnedUpwardTitle" aria-describedby="recommendOwnedUpwardHint">
+    <form method="dialog">
+      <header>
+        <h2 id="recommendOwnedUpwardTitle" class="dialog-title" data-i18n="recommend.owned_upward.title">查看擁有角色</h2>
+        <p id="recommendOwnedUpwardHint" data-i18n="recommend.owned_upward.hint">點開已擁有的 Lv.4 以上角色，查看直接上層配方與合成進度。勾選目標即可加入稀有度篩選並釘選。</p>
+      </header>
+      <div id="recommendOwnedUpwardList" class="recommend-owned-upward-list"></div>
+      <footer class="recommend-owned-upward-actions">
+        <button type="submit" value="cancel" class="secondary" autofocus data-i18n="recommend.owned_upward.cancel">取消</button>
+        <button id="recommendApplyOwnedUpwardBtn" type="submit" value="apply" disabled
+          data-i18n="recommend.owned_upward.apply">套用並釘選</button>
+      </footer>
+    </form>
+  </dialog>
   <my-modal id="recommendExportHighLevelDialog" size="small">
     <h2 class="dialog-title" data-i18n="recommend.export_team_title">隊伍代碼</h2>
     <div class="dialog-body">

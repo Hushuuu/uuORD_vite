@@ -9,7 +9,6 @@
 
 .recommend-results-toolbar,
 .recommend-results-title,
-.recommend-results-pins,
 .recommend-search,
 .recommend-level-tabs {
   display: flex;
@@ -26,15 +25,164 @@
   font-size: 1.125rem;
 }
 
-.recommend-results-pins {
-  min-width: 0;
-  font-size: 0.875rem;
-  overflow-wrap: anywhere;
-}
-
 .recommend-results-toolbar button {
   min-height: 28px;
   padding: 2px 8px;
+}
+
+.recommend-pins-popover,
+.recommend-owned-upward-dialog {
+  box-sizing: border-box;
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--surface-color);
+  color: var(--text-color);
+  box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.recommend-pins-popover {
+  width: min(20rem, calc(100% - 32px));
+  max-height: 45dvh;
+  overflow: auto;
+  overflow-wrap: anywhere;
+}
+
+.recommend-pins-popover p {
+  margin: 0 0 12px;
+  font-size: 0.875rem;
+}
+
+@supports (position-area: bottom span-right) and (position-try-fallbacks: flip-block) {
+  .recommend-pins-popover {
+    margin: 6px 0;
+    position-area: bottom span-right;
+    justify-self: start;
+    position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
+  }
+}
+
+.recommend-owned-upward-dialog {
+  width: min(42rem, calc(100% - 24px));
+  max-height: 85dvh;
+  overflow: hidden;
+}
+
+.recommend-owned-upward-dialog::backdrop {
+  background: rgb(0 0 0 / 0.65);
+}
+
+.recommend-owned-upward-dialog form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: calc(85dvh - 34px);
+}
+
+.recommend-owned-upward-dialog p {
+  margin: 0;
+  color: var(--muted-color);
+}
+
+.recommend-owned-upward-list {
+  display: grid;
+  gap: 4px;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.recommend-owned-upward-list details {
+  min-width: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.recommend-owned-upward-list summary {
+  padding: 6px 10px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.recommend-owned-upward-rarity {
+  margin-inline-start: 4px;
+  color: var(--muted-color);
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+.recommend-owned-upward-list ul {
+  margin: 0;
+  padding: 0 10px 6px 20px;
+  list-style: none;
+}
+
+.recommend-owned-upward-list li {
+  padding: 4px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.recommend-owned-upward-list details > p {
+  padding: 0 10px 6px 20px;
+}
+
+.recommend-owned-upward-list label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.recommend-owned-upward-list label span {
+  overflow-wrap: anywhere;
+}
+
+.recommend-owned-upward-list input {
+  flex-shrink: 0;
+  margin: 0;
+  accent-color: var(--primary-color);
+}
+
+.recommend-owned-upward-progress {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-inline-start: 19px;
+  color: var(--muted-color);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.recommend-owned-upward-progress progress {
+  flex: 1;
+  min-width: 0;
+  height: 8px;
+  color-scheme: dark;
+  accent-color: var(--success-color);
+}
+
+.recommend-owned-upward-progress span {
+  min-width: 4ch;
+  text-align: end;
+}
+
+.recommend-owned-upward-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.recommend-owned-upward-actions button,
+.recommend-pins-popover button {
+  min-height: 34px;
+  padding: 4px 10px;
+}
+
+.recommend-owned-upward-actions button:disabled {
+  opacity: 0.45;
+  transform: none;
+  cursor: default;
 }
 
 .recommend-search {

@@ -669,7 +669,16 @@
       "copy_code": "Copy Code",
       "copy_success": "Copied",
       "copy_failed": "Copy failed. Please copy the code manually.",
-      "no_high_level_characters": "No legend characters are currently owned."
+      "no_high_level_characters": "No legend characters are currently owned.",
+      "no_pinned_characters": "No characters are pinned.",
+      "owned_upward": {
+        "title": "View owned characters",
+        "hint": "Expand an owned character at Lv. 4 or above to see direct upgrade recipes and crafting progress. Select targets to add their rarities to the filter and pin them.",
+        "progress": "Crafting progress",
+        "empty": "No owned characters at Lv. 4 or above.",
+        "cancel": "Cancel",
+        "apply": "Apply and pin"
+      }
     },
     "tmo": {
       "connect_success": "Connection successful",

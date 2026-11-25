@@ -36,14 +36,51 @@ function renderMaterialPreview(record, inventory, indices, getDisplayName, escap
   }).join('');
 }
 
+function getParentRecords(record, indices) {
+  const parents = indices.parentMap.get(record.character_id) || [];
+  return [...new Map(parents.map((parent) => [parent.character_id, parent])).values()];
+}
+
+function renderOwnedUpwardList(records, inventory, indices, getLevelLabel, getDisplayName, escapeHtml, translate) {
+  const ownedRecords = records.filter((record) => record.level >= 4 && inventory.get(record.character_id) > 0);
+  if (ownedRecords.length === 0) {
+    return `<p class="empty-state">${escapeHtml(translate('recommend.owned_upward.empty'))}</p>`;
+  }
+
+  const progressLabel = escapeHtml(translate('recommend.owned_upward.progress'));
+  return ownedRecords.map((record) => {
+    const parents = getParentRecords(record, indices);
+    const options = parents.map((parent) => `
+      <li>
+        <label>
+          <input type="checkbox" name="upwardTarget" value="${escapeHtml(parent.character_id)}">
+          <span>
+            ${escapeHtml(getDisplayName(parent))}
+            <span class="recommend-owned-upward-rarity">${escapeHtml(getLevelLabel(parent.level))}</span>
+          </span>
+        </label>
+        <div class="recommend-owned-upward-progress">
+          <progress max="100" aria-label="${progressLabel}"></progress>
+          <span aria-hidden="true"></span>
+        </div>
+      </li>
+    `).join('');
+
+    return `
+      <details>
+        <summary>
+          ${escapeHtml(getDisplayName(record))}
+          <span class="recommend-owned-upward-rarity">${escapeHtml(getLevelLabel(record.level))}</span>
+        </summary>
+        ${options ? `<ul>${options}</ul>` : `<p>${escapeHtml(translate('tree.noUpwardEmpty'))}</p>`}
+      </details>
+    `;
+  }).join('');
+}
+
 // 產生推薦角色的上層角色 tooltip；沒有上層角色時不產生控制項。
 function renderUpwardCharacterAction(record, indices, getDisplayName, escapeHtml, translate) {
-  const parentRecords = [
-    ...new Map(
-      (indices.parentMap.get(record.character_id) || [])
-        .map((parent) => [parent.character_id, parent])
-    ).values(),
-  ];
+  const parentRecords = getParentRecords(record, indices);
   if (parentRecords.length === 0) {
     return '';
   }
@@ -174,6 +211,7 @@ function renderOwnedCountCard(record, count, level, getDisplayName, escapeHtml) 
 export {
   renderRecommendationActions,
   renderMaterialPreview,
+  renderOwnedUpwardList,
   renderUpwardCharacterAction,
   renderMaterialTree,
   renderOwnedCountCard,

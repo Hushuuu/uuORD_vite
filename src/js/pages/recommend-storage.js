@@ -21,6 +21,12 @@ function togglePinnedCharacter(characterId, storage = localStorage) {
   return index === -1;
 }
 
+function addPinnedCharacters(characterIds, storage = localStorage) {
+  const pinned = new Set(getPinnedCharacters(storage));
+  characterIds.forEach((characterId) => pinned.add(characterId));
+  storage.setItem(PINNED_STORAGE_KEY, JSON.stringify([...pinned]));
+}
+
 // 清除所有釘選角色。
 function clearPinnedCharacters(storage = localStorage) {
   storage.removeItem(PINNED_STORAGE_KEY);
@@ -61,6 +67,7 @@ function setTomItemCount(tomSelectInstance, value, targetCount) {
 export {
   getPinnedCharacters,
   togglePinnedCharacter,
+  addPinnedCharacters,
   clearPinnedCharacters,
   buildPinnedCharactersHtml,
   setTomItemCount,
