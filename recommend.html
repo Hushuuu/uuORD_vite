@@ -131,31 +131,27 @@
         </section>
         <div id="recommendWorkspace" hidden>
           <div class="recommend-mode-bar">
-            <strong id="recommendModeLabel" tabindex="-1"></strong>
-            <button id="recommendChangeModeBtn" type="button" class="secondary"
-              data-i18n="recommend.mode.change">切換模式</button>
-          </div>
-          <section id="recommendAutoSync" class="recommend-auto-sync" hidden aria-labelledby="recommendAutoSyncTitle">
-            <div class="recommend-sync-heading">
-              <div>
-                <h2 id="recommendAutoSyncTitle" data-i18n="recommend.mode.auto_title">自動更新擁有角色</h2>
-                <p data-i18n="recommend.mode.sync_hint">先完成工具設定，再開啟同步。連線後，角色與推薦會自動更新。</p>
+            <div class="recommend-mode-heading">
+              <div class="recommend-mode-description">
+                <strong id="recommendModeLabel" tabindex="-1"></strong>
+                <span id="tmoConnectStatus" class="recommend-sync-status" role="status" aria-live="polite"
+                  data-auto-only hidden data-state="idle" data-i18n="recommend.mode.sync_idle">尚未啟用同步</span>
               </div>
-              <label class="recommend-sync-toggle" for="tmoConnectToggle">
-                <span data-i18n="recommend.mode.sync_toggle">啟用自動同步</span>
+              <label class="recommend-sync-toggle" for="tmoConnectToggle" data-auto-only hidden>
                 <span class="switch">
-                  <input type="checkbox" id="tmoConnectToggle" role="switch" aria-describedby="tmoConnectStatus">
+                  <input type="checkbox" id="tmoConnectToggle" role="switch" aria-describedby="tmoConnectStatus"
+                    aria-label="啟用自動同步" data-i18n-aria-label="recommend.mode.sync_toggle">
                   <span class="slider"></span>
                 </span>
               </label>
             </div>
-            <div class="recommend-sync-footer">
-              <span id="tmoConnectStatus" class="recommend-sync-status" role="status" aria-live="polite"
-                data-state="idle" data-i18n="recommend.mode.sync_idle">尚未啟用同步</span>
-              <button type="button" class="secondary" data-tmo-tutorial
+            <div class="recommend-mode-utilities">
+              <button type="button" class="secondary" data-tmo-tutorial data-auto-only hidden
                 data-i18n="recommend.mode.tutorial">查看設定教學</button>
+              <button id="recommendChangeModeBtn" type="button" class="secondary"
+                data-i18n="recommend.mode.change">切換模式</button>
             </div>
-          </section>
+          </div>
           <div class="controls-grid">
             <div class="field-group" style="grid-column: span 4;">
               <span class="field-label" data-i18n="recommend.target_rarity">目標稀有度</span>

@@ -620,6 +620,7 @@
       "mode": {
         "recommended": "推薦使用",
         "auto_title": "自動更新擁有角色",
+        "auto_label": "自動同步",
         "auto_desc": "連接遊戲資料，自動同步角色與數量，推薦結果隨之更新。",
         "benefit_sync": "不用逐一輸入角色數量",
         "benefit_live": "自動同步，邊玩邊看",
@@ -632,7 +633,6 @@
         "manual_hint": "適合先試用推薦功能，或不方便安裝第三方程式時使用。",
         "choose_manual": "手動模式 →",
         "change": "切換模式",
-        "sync_hint": "先完成工具設定，再開啟同步。連線後，角色與推薦會自動更新。",
         "sync_toggle": "啟用自動同步",
         "sync_idle": "尚未啟用同步",
         "sync_connecting": "正在連線，請稍候…"
@@ -676,7 +676,7 @@
         "title": "查看擁有角色",
         "hint": "已擁有之稀有以上角色，點開可查看上層角色與釘選",
         "progress": "合成進度",
-        "empty": "目前沒有已擁有的 Lv.4 以上角色。",
+        "empty": "目前沒有稀有以上角色。",
         "cancel": "取消",
         "apply": "套用並釘選"
       }

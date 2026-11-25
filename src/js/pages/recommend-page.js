@@ -732,7 +732,7 @@ function initRecommendPage(records) {
     const tmoToggle = document.getElementById('tmoConnectToggle');
     const modePicker = document.getElementById('recommendModePicker');
     const workspace = document.getElementById('recommendWorkspace');
-    const autoSync = document.getElementById('recommendAutoSync');
+    const autoModeControls = workspace.querySelectorAll('[data-auto-only]');
     const modeLabel = document.getElementById('recommendModeLabel');
 
     function stopAutoSync() {
@@ -748,11 +748,13 @@ function initRecommendPage(records) {
         stopAutoSync();
         modePicker.hidden = true;
         workspace.hidden = false;
-        autoSync.hidden = !isAuto;
+        autoModeControls.forEach((element) => {
+          element.hidden = !isAuto;
+        });
         document.querySelectorAll('[data-manual-only]').forEach((element) => {
           element.hidden = isAuto;
         });
-        modeLabel.textContent = t(`recommend.mode.${isAuto ? 'auto_title' : 'manual_title'}`);
+        modeLabel.textContent = t(`recommend.mode.${isAuto ? 'auto_label' : 'manual_title'}`);
         // 手動模式直接展開角色數量，讓使用者可以立即輸入。
         if (!isAuto) {
           ownedTabs.classList.remove('collapsed');

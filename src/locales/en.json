@@ -620,6 +620,7 @@
       "mode": {
         "recommended": "Recommended",
         "auto_title": "Automatically update owned characters",
+        "auto_label": "Auto sync",
         "auto_desc": "Connect your game data to sync characters and counts, and update recommendations automatically.",
         "benefit_sync": "No need to enter character counts one by one",
         "benefit_live": "Follow recommendations while you play",
@@ -632,7 +633,6 @@
         "manual_hint": "Try out recommendations or use this mode when you cannot install third-party tools.",
         "choose_manual": "Use manual mode →",
         "change": "Change mode",
-        "sync_hint": "Complete the tool setup, then enable sync. Once connected, your characters and recommendations update automatically.",
         "sync_toggle": "Enable automatic sync",
         "sync_idle": "Sync is off",
         "sync_connecting": "Connecting, please wait…"
@@ -676,7 +676,7 @@
         "title": "View owned characters",
         "hint": "Expand an owned character of Rare rarity or higher to view and pin its upgrades.",
         "progress": "Crafting progress",
-        "empty": "No owned characters at Lv. 4 or above.",
+        "empty": "No owned characters at Rare or above.",
         "cancel": "Cancel",
         "apply": "Apply and pin"
       }
