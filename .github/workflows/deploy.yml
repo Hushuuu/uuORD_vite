@@ -10,6 +10,7 @@ on:
 
 # 設定 GITHUB_TOKEN 的權限
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -21,6 +22,8 @@ concurrency:
 
 jobs:
   deploy:
+    env:
+      PAGES_ARTIFACT_NAME: github-pages-${{ github.run_attempt }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -46,11 +49,41 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
+        id: upload
         uses: actions/upload-pages-artifact@v4
         with:
+          name: ${{ env.PAGES_ARTIFACT_NAME }}
           # Vite 預設打包輸出的資料夾是 dist
           path: "./dist"
+
+      - name: Wait for Pages artifact metadata
+        shell: bash
+        timeout-minutes: 2
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAGES_ARTIFACT_ID: ${{ steps.upload.outputs.artifact_id }}
+        run: |
+          for attempt in 1 2 3 4 5 6; do
+            artifact_id=$(gh api \
+              "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?name=$PAGES_ARTIFACT_NAME" \
+              --jq '.artifacts[] | select(.expired == false) | .id')
+
+            if [[ "$artifact_id" == "$PAGES_ARTIFACT_ID" && -n "$artifact_id" ]]; then
+              echo "Pages artifact $PAGES_ARTIFACT_NAME (ID $artifact_id) is visible."
+              exit 0
+            fi
+
+            echo "Pages artifact $PAGES_ARTIFACT_NAME is not visible yet (attempt $attempt of 6)."
+            if [[ "$attempt" -lt 6 ]]; then
+              sleep 10
+            fi
+          done
+
+          echo "::error::Pages artifact $PAGES_ARTIFACT_NAME (ID $PAGES_ARTIFACT_ID) did not appear in the workflow run."
+          exit 1
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: ${{ env.PAGES_ARTIFACT_NAME }}
