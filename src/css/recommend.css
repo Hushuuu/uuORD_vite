@@ -53,6 +53,36 @@
   font-size: 0.875rem;
 }
 
+.recommend-pinned-characters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+}
+
+.recommend-pinned-characters li {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  max-width: 100%;
+  padding-inline-start: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.recommend-pinned-characters li button {
+  flex: 0 0 32px;
+  min-height: 32px;
+  padding: 0;
+  background: transparent;
+  color: var(--muted-color);
+  font-size: 1rem;
+}
+
 @supports (position-area: bottom span-right) and (position-try-fallbacks: flip-block) {
   .recommend-pins-popover {
     margin: 6px 0;

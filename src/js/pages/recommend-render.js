@@ -41,6 +41,27 @@ function getParentRecords(record, indices) {
   return [...new Map(parents.map((parent) => [parent.character_id, parent])).values()];
 }
 
+function renderPinnedCharacters(characterIds, byCharacterId, getDisplayName, escapeHtml, translate) {
+  const items = characterIds.map((characterId) => {
+    const record = byCharacterId.get(characterId);
+    if (!record) return '';
+
+    const name = getDisplayName(record);
+    const removeLabel = escapeHtml(translate('recommend.remove_pinned_character', { name }));
+    return `
+      <li>
+        <span class="text-lv-${record.level}">${escapeHtml(name)}</span>
+        <button type="button" class="secondary" data-remove-pinned-character="${escapeHtml(characterId)}"
+          aria-label="${removeLabel}" title="${removeLabel}">×</button>
+      </li>
+    `;
+  }).join('');
+
+  return items
+    ? `<ul class="recommend-pinned-characters">${items}</ul>`
+    : `<p>${escapeHtml(translate('recommend.no_pinned_characters'))}</p>`;
+}
+
 function renderOwnedUpwardList(records, inventory, indices, getLevelLabel, getDisplayName, escapeHtml, translate) {
   const ownedRecords = records.filter((record) => record.level >= 4 && inventory.get(record.character_id) > 0);
   if (ownedRecords.length === 0) {
@@ -211,6 +232,7 @@ function renderOwnedCountCard(record, count, level, getDisplayName, escapeHtml) 
 export {
   renderRecommendationActions,
   renderMaterialPreview,
+  renderPinnedCharacters,
   renderOwnedUpwardList,
   renderUpwardCharacterAction,
   renderMaterialTree,

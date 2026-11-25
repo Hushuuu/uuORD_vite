@@ -16,6 +16,7 @@ import {
 import {
   renderMaterialPreview as renderMaterialPreviewUtil,
   renderRecommendationActions,
+  renderPinnedCharacters,
   renderOwnedUpwardList,
   renderMaterialTree as renderMaterialTreeUtil,
   renderOwnedCountCard as renderOwnedCountCardUtil,
@@ -25,7 +26,7 @@ import {
   togglePinnedCharacter as togglePinnedCharacterUtil,
   addPinnedCharacters,
   clearPinnedCharacters as clearPinnedCharactersUtil,
-  buildPinnedCharactersHtml as buildPinnedCharactersHtmlUtil,
+  removePinnedCharacter,
 } from './recommend-storage.js';
 import { createTmoPoller } from './recommend-tmo.js';
 import { encodeTeamCharacterIds } from './../shared/team-codec.js';
@@ -63,6 +64,7 @@ function initRecommendPage(records) {
     const ownedTabs = document.getElementById('recommendOwnedTabs');
     const ownedPanels = document.getElementById('recommendOwnedPanels');
     const resultList = document.getElementById('recommendResultList');
+    const pinnedList = document.getElementById('recommendPinnedList');
     const recommendSearchInput = document.getElementById('recommendSearchInput');
     const summary = document.getElementById('recommendSummary');
     const refreshButton = document.getElementById('recommendRefreshBtn');
@@ -101,6 +103,7 @@ function initRecommendPage(records) {
     let dismissedCharacterIds = new Set();
     let activeResultLevel = null;
     let recommendationSearchQuery = '';
+    let renderedPinnedHtml = '';
 
     function normalizeSearchText(value) {
       return String(value || '').normalize('NFKC').toLowerCase();
@@ -357,14 +360,14 @@ function initRecommendPage(records) {
       });
 
       if (selectedTargetLevels.length === 0) {
-        summary.textContent = i18n.t('recommend.noTargetRaritySelected');
+        // summary.textContent = i18n.t('recommend.noTargetRaritySelected');
         resultList.innerHTML = `<div class="empty-state">${i18n.t('recommend.noTargetRaritySelected')}</div>`;
         renderLevelTabs([]);
         return;
       }
 
-      summary.textContent = `${i18n.t('recommend.selected')}：${selectedTargetLevels.map((level) => `${getLevelLabel(level)}`).join(', ')}，
-        ${i18n.t('skill_type')}: ${selectedTargetSkillTypes.length > 0 ? selectedTargetSkillTypes.map((skillType) => `${getSkillTypeLabel(skillType)}`).join(', ') : i18n.t('comp.materials.none')}`;
+      // summary.textContent = `${i18n.t('recommend.selected')}：${selectedTargetLevels.map((level) => `${getLevelLabel(level)}`).join(', ')}，
+      //   ${i18n.t('skill_type')}: ${selectedTargetSkillTypes.length > 0 ? selectedTargetSkillTypes.map((skillType) => `${getSkillTypeLabel(skillType)}`).join(', ') : i18n.t('comp.materials.none')}`;
 
       if (resultGroups.length === 0) {
         resultList.innerHTML = `<div class="empty-state">${recommendationSearchQuery
@@ -470,7 +473,7 @@ function initRecommendPage(records) {
 
       recommendLevelTab.innerHTML = selectedTargetLevels
         .map((level) => `<a class="recommend-level-tab ${level === activeResultLevel ? 'active' : ''}" data-level="${level}">
-          ${level} | ${escapeHtml(getLevelLabel(level))}</a>`)
+          ${escapeHtml(getLevelLabel(level))}</a>`)
         .join('');
       setActiveResultLevel(activeResultLevel);
     }
@@ -503,9 +506,17 @@ function initRecommendPage(records) {
     }
 
     function renderRecommendations() {
-      const pinnedText = buildPinnedCharactersHtmlUtil(records, escapeHtml, getDisplayName);
-      document.getElementById('pinnedCharactersText').innerHTML =
-        pinnedText || escapeHtml(t('recommend.no_pinned_characters'));
+      const pinnedHtml = renderPinnedCharacters(
+        getPinnedCharactersUtil(),
+        indices.byCharacterId,
+        getDisplayName,
+        escapeHtml,
+        t
+      );
+      if (pinnedHtml !== renderedPinnedHtml) {
+        pinnedList.innerHTML = pinnedHtml;
+        renderedPinnedHtml = pinnedHtml;
+      }
       renderRecommendationResults(computeRecommendations());
     }
 
@@ -781,14 +792,33 @@ function initRecommendPage(records) {
       })
     }
     //shoow less button end
-    //
     const recommendClearPinnedBtn = document.getElementById('recommendClearPinnedBtn');
-    if(recommendClearPinnedBtn){
-      recommendClearPinnedBtn.addEventListener('click', () => {
-        clearPinnedCharactersUtil();
-        scheduleRecommendationsRender();
-      })
-    }
+    recommendClearPinnedBtn.addEventListener('click', () => {
+      clearPinnedCharactersUtil();
+      scheduleRecommendationsRender();
+    });
+
+    pinnedList.addEventListener('click', (event) => {
+      const button = event.target.closest('[data-remove-pinned-character]');
+      if (!button) {
+        return;
+      }
+
+      const buttons = [...pinnedList.querySelectorAll('[data-remove-pinned-character]')];
+      const removedIndex = buttons.indexOf(button);
+      const restoreFocus = document.activeElement === button;
+      removePinnedCharacter(button.dataset.removePinnedCharacter);
+      scheduleRecommendationsRender({
+        afterRender: () => {
+          if (!restoreFocus || !pinnedList.closest(':popover-open')) {
+            return;
+          }
+          const remaining = pinnedList.querySelectorAll('[data-remove-pinned-character]');
+          const nextButton = remaining[removedIndex] || remaining[remaining.length - 1] || recommendClearPinnedBtn;
+          nextButton.focus();
+        },
+      });
+    });
 
     const ownedUpwardDialog = document.getElementById('recommendOwnedUpwardDialog');
     const ownedUpwardList = document.getElementById('recommendOwnedUpwardList');

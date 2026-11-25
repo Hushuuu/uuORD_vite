@@ -32,16 +32,9 @@ function clearPinnedCharacters(storage = localStorage) {
   storage.removeItem(PINNED_STORAGE_KEY);
 }
 
-// 將目前釘選角色產生為已翻譯且已跳脫的 HTML。
-function buildPinnedCharactersHtml(records, escapeHtml, getDisplayName, storage = localStorage) {
-  return getPinnedCharacters(storage)
-    .map((characterId) => {
-      const record = records.find((item) => item.character_id === characterId);
-      if (!record) return '';
-      const name = getDisplayName(record);
-      return `<span class="text-lv-${record.level}" title="${escapeHtml(name)}">${escapeHtml(name)}</span>`;
-    })
-    .join(' | ');
+function removePinnedCharacter(characterId, storage = localStorage) {
+  const pinned = getPinnedCharacters(storage).filter((id) => id !== characterId);
+  storage.setItem(PINNED_STORAGE_KEY, JSON.stringify(pinned));
 }
 
 // 調整 Tom Select 中的重複項目，直到達到指定數量。
@@ -69,6 +62,6 @@ export {
   togglePinnedCharacter,
   addPinnedCharacters,
   clearPinnedCharacters,
-  buildPinnedCharactersHtml,
+  removePinnedCharacter,
   setTomItemCount,
 };

@@ -186,10 +186,10 @@
             </div>
           </div>
 
-          <div class="summary-bar">
+          <!-- <div class="summary-bar">
             <div id="recommendSummary" class="summary-text"></div>
             <div class="helper-text"></div>
-          </div>
+          </div> -->
 
           <div class="recommend-grid">
             <section class="panel" data-manual-only style="margin-top: 12px;">
@@ -212,14 +212,15 @@
                 </div>
                 <button id="recommendPinnedBtn" type="button" class="secondary" popovertarget="recommendPinnedPopover"
                   data-i18n="action.pin">釘選角色</button>
-                <div id="recommendPinnedPopover" class="recommend-pins-popover" popover="auto"
-                  role="group" aria-labelledby="recommendPinnedBtn">
-                  <p id="pinnedCharactersText" aria-live="polite"></p>
+                <div id="recommendPinnedPopover" class="recommend-pins-popover" popover="auto" role="group"
+                  aria-labelledby="recommendPinnedBtn">
+                  <div id="recommendPinnedList" aria-live="polite"></div>
                   <button id="recommendClearPinnedBtn" type="button" class="secondary"
                     data-i18n="action.clearPinned">清空</button>
                 </div>
                 <div class="recommend-search">
-                  <label class="field-label" for="recommendSearchInput" data-i18n="recommend.search_label">搜尋推薦角色</label>
+                  <label class="field-label" for="recommendSearchInput"
+                    data-i18n="recommend.search_label">搜尋推薦角色</label>
                   <input id="recommendSearchInput" class="field-input" type="search" autocomplete="off"
                     data-i18n-placeholder="recommend.search_placeholder" placeholder="輸入角色名稱、英文名或代碼">
                 </div>
@@ -238,11 +239,12 @@
     <form method="dialog">
       <header>
         <h2 id="recommendOwnedUpwardTitle" class="dialog-title" data-i18n="recommend.owned_upward.title">查看擁有角色</h2>
-        <p id="recommendOwnedUpwardHint" data-i18n="recommend.owned_upward.hint">點開已擁有的 Lv.4 以上角色，查看直接上層配方與合成進度。勾選目標即可加入稀有度篩選並釘選。</p>
+        <p id="recommendOwnedUpwardHint" data-i18n="recommend.owned_upward.hint">已擁有之稀有以上角色，點開可查看上層角色與釘選</p>
       </header>
       <div id="recommendOwnedUpwardList" class="recommend-owned-upward-list"></div>
       <footer class="recommend-owned-upward-actions">
-        <button type="submit" value="cancel" class="secondary" autofocus data-i18n="recommend.owned_upward.cancel">取消</button>
+        <button type="submit" value="cancel" class="secondary" autofocus
+          data-i18n="recommend.owned_upward.cancel">取消</button>
         <button id="recommendApplyOwnedUpwardBtn" type="submit" value="apply" disabled
           data-i18n="recommend.owned_upward.apply">套用並釘選</button>
       </footer>

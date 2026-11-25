@@ -671,9 +671,10 @@
       "copy_failed": "複製失敗，請手動複製代碼。",
       "no_high_level_characters": "目前沒有傳說以上角色。",
       "no_pinned_characters": "目前沒有釘選角色。",
+      "remove_pinned_character": "取消釘選「{name}」",
       "owned_upward": {
         "title": "查看擁有角色",
-        "hint": "點開已擁有的 Lv.4 以上角色，查看直接上層配方與合成進度。勾選目標即可加入稀有度篩選並釘選。",
+        "hint": "已擁有之稀有以上角色，點開可查看上層角色與釘選",
         "progress": "合成進度",
         "empty": "目前沒有已擁有的 Lv.4 以上角色。",
         "cancel": "取消",
