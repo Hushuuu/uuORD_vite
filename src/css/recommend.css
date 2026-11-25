@@ -165,9 +165,10 @@
   width: max-content;
   margin-inline: auto;
   padding-inline: 5px;
-  border-radius: 6px;
-  background: #172033;
-  color: #f1f5f9;
+  /* border-radius: 6px;
+  background: #172033; */
+  color: rebeccapurple;
+  font-weight:800;
   font-size: 0.6rem;
   line-height: 9px;
   font-variant-numeric: tabular-nums;
