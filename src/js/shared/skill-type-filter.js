@@ -4,11 +4,13 @@ import { escapeHtml, renderSkillTypeOptions } from './data-index-utils.js';
 export function createSkillTypeFilter(container, selectedTypes, onChange) {
   const groups = ORDI18n.getSkillTypeGroups();
   const id = escapeHtml(container.id);
+  const usePopover = container.hasAttribute('data-skill-filter-popover') && 'showPopover' in HTMLElement.prototype;
   container.innerHTML = `
     <div class="skill-filter-categories">
       ${groups.map(({ label }, index) => `
         <button class="skill-filter-category" id="${id}-category-${index}" type="button"
-          aria-expanded="false" aria-controls="${id}-options-${index}">
+          aria-expanded="false" aria-controls="${id}-options-${index}"
+          ${usePopover ? `popovertarget="${id}-options-${index}"` : ''}>
           ${escapeHtml(label)}<span class="skill-filter-count"></span>
           <span class="skill-filter-arrow" aria-hidden="true"></span>
         </button>
@@ -16,7 +18,7 @@ export function createSkillTypeFilter(container, selectedTypes, onChange) {
     </div>
     ${groups.map(({ options }, index) => `
       <div class="skill-filter-options" id="${id}-options-${index}" role="group"
-        aria-labelledby="${id}-category-${index}" hidden>
+        aria-labelledby="${id}-category-${index}" ${usePopover ? 'popover="auto"' : 'hidden'}>
         <div class="checkbox-badge-grid">${renderSkillTypeOptions(options, selectedTypes)}</div>
       </div>
     `).join('')}
@@ -44,6 +46,15 @@ export function createSkillTypeFilter(container, selectedTypes, onChange) {
     });
   }
 
+  function closeOptions() {
+    if (usePopover) {
+      container.querySelector(':popover-open')?.hidePopover();
+      return;
+    }
+
+    showGroup(-1);
+  }
+
   function renderSelection() {
     groups.forEach(({ options }, index) => {
       const count = options.filter(({ value }) => selectedTypes.has(value)).length;
@@ -65,7 +76,13 @@ export function createSkillTypeFilter(container, selectedTypes, onChange) {
   }
 
   buttons.forEach((button, index) => {
-    button.addEventListener('click', () => showGroup(activeGroup === index ? -1 : index));
+    if (usePopover) {
+      panels[index].addEventListener('beforetoggle', (event) => {
+        button.setAttribute('aria-expanded', String(event.newState === 'open'));
+      });
+    } else {
+      button.addEventListener('click', () => showGroup(activeGroup === index ? -1 : index));
+    }
   });
 
   inputs.forEach((input) => {
@@ -101,12 +118,13 @@ export function createSkillTypeFilter(container, selectedTypes, onChange) {
   renderSelection();
 
   return {
+    closeOptions,
     reset() {
       selectedTypes.clear();
       inputs.forEach((input) => {
         input.checked = false;
       });
-      showGroup(-1);
+      closeOptions();
       renderSelection();
     }
   };

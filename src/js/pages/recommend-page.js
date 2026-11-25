@@ -693,6 +693,7 @@ function initRecommendPage(records) {
     });
 
     collapseFilterButton.addEventListener('click', () => {
+      skillTypeFilter.closeOptions();
       const filterSections = document.querySelectorAll('.controls-grid .field-group');
       if (filterSections) {
         filterSections[0].classList.toggle('collapsed');

@@ -1559,6 +1559,39 @@ button.success {
   border-top: 1px solid var(--border-color);
 }
 
+.skill-filter-options[popover] {
+  box-sizing: border-box;
+  width: min(22rem, calc(100% - 32px));
+  max-height: min(20rem, 45dvh);
+  margin: auto;
+  padding: 12px;
+  overflow: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--surface-color);
+  color: var(--text-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+@supports (position-area: bottom span-right) and (position-try-fallbacks: flip-block) {
+  .skill-filter-options[popover] {
+    width: min(22rem, calc(100vw - 32px));
+    margin: 8px 0;
+    position-area: bottom span-right;
+    justify-self: start;
+    position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
+  }
+
+  @media (max-width: 600px) {
+    .skill-filter-options[popover] {
+      width: min(30rem, calc(100% - 32px));
+      position-area: bottom;
+      justify-self: center;
+      position-try-fallbacks: flip-block;
+    }
+  }
+}
+
 .skill-filter-options .checkbox-badge-grid {
   margin-top: 0;
 }

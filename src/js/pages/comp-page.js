@@ -344,6 +344,9 @@ function formatSkillLabelsWithValues(skillTypes = [], skillValues = {}) {
 
     toggleCompFiltersBtn.addEventListener('click', () => {
       areFiltersCollapsed = !areFiltersCollapsed;
+      if (areFiltersCollapsed) {
+        skillTypeFilter.closeOptions();
+      }
       localStorage.setItem('compFiltersCollapsed', areFiltersCollapsed ? 'true' : 'false');
       updateFilterCollapseUI();
     });
