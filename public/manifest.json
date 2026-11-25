@@ -8,12 +8,12 @@
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/resource/nika-192.png",
+      "src": "/resource/gunko-chibi-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/resource/nika-512.png",
+      "src": "/resource/gunko-chibi-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
