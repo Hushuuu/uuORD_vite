@@ -263,7 +263,7 @@ function createTomSelectRenderConfig() {
         return `
           <div>
             <div>${escape(data.label || data.text || data.value)}</div>
-            <div class="picker-result-meta">${escape(data.character_id || '')}｜${escape(data.levelLabel || '')}${data.kr_name ? `｜KR：${escape(data.kr_name)}` : ''}</div>
+            <div class="picker-result-meta">${escape(data.levelLabel || '')}${data.kr_name ? `｜KR：${escape(data.kr_name)}` : ''}</div>
           </div>
         `;
     },

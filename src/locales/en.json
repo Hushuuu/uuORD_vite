@@ -859,7 +859,7 @@
       },
       "recommend": {
         "title": "ORD Craft Recommendation Tool | Plan Your Next Craft",
-        "description": "Enter your owned units, filter by target rarity and skill type, compare craft progress and missing requirements, and pin your goals."
+        "description": "In Auto Mode, you can enable automatic syncing for your owned units. Select a rarity to see craft recommendations below."
       },
       "comp": {
         "title": "ORD Team Builder | Plan Lineups & Craft Requirements",
