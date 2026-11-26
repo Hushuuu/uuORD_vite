@@ -75,6 +75,24 @@ button.recommend-compact-button {
   gap: 6px;
 }
 
+#recommendTargetSkillGrid .skill-filter-category {
+  gap: 4px;
+  min-height: 28px;
+  padding: 3px 9px;
+  font-size: 0.8125rem;
+  line-height: 1.25;
+}
+
+#recommendTargetSkillGrid .skill-filter-category[aria-expanded="false"] {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--muted-color);
+}
+
+#recommendTargetSkillGrid .skill-filter-category[aria-expanded="false"]:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--text-color);
+}
+
 button.recommend-filter-toggle {
   padding-inline: 0;
 }
@@ -292,9 +310,9 @@ button.recommend-filter-toggle {
 
 .recommend-level-tab {
   padding: 4px 8px;
-  border: 1px solid #444;
+  border: 1px solid var(--border-color);
   border-radius: 4px;
-  background: #2a2a2a;
+  background: rgba(255, 255, 255, 0.05);
   color: var(--muted-color);
   font-size: 0.875rem;
   cursor: pointer;
@@ -302,8 +320,8 @@ button.recommend-filter-toggle {
 
 .recommend-level-tab.active {
   border-color: var(--primary-color);
-  background: var(--primary-color);
-  color: #121212;
+  background: rgba(245, 158, 11, 0.18);
+  color: #ffd28a;
   font-weight: 700;
 }
 
@@ -363,7 +381,7 @@ button.recommend-filter-toggle {
 .recommend-card {
   min-width: 0;
   gap: 4px;
-  padding: 17px 8px 6px;
+  padding: 9px 8px 6px;
   border-radius: 10px;
   overflow: visible;
 }
@@ -375,33 +393,26 @@ button.recommend-filter-toggle {
 .card-top-progress-container {
   position: absolute;
   inset: 0 0 auto;
-  height: 9px;
+  height: 4px;
   overflow: hidden;
   border-radius: 10px 10px 0 0;
   background: rgba(148, 163, 184, 0.15);
 }
 
-/* 1. 動畫進度條背景 */
 .card-top-progress-bar-bg {
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, #11998e 0%, #38ef7d 50%, #ff9f43 100%);
+  background: var(--success-color);
   transform-origin: left;
   transition: transform 0.3s ease;
 }
 
 .recommend-card-completion {
-  position: absolute;
-  inset: 1px 0;
-  width: max-content;
-  margin-inline: auto;
-  padding-inline: 5px;
-  /* border-radius: 6px;
-  background: #172033; */
-  color: rebeccapurple;
-  font-weight:800;
-  font-size: 0.6rem;
-  line-height: 9px;
+  display: inline-block;
+  margin-inline-start: 5px;
+  color: var(--muted-color);
+  font-size: 0.625rem;
+  font-weight: 400;
   font-variant-numeric: tabular-nums;
 }
 
@@ -693,13 +704,13 @@ body[data-page="recommend"] [hidden] { display: none !important; }
   border-inline-start: 1px solid var(--border-color);
 }
 
-.recommend-mode-bar:has(.recommend-sync-toggle:not([hidden])) button {
+.recommend-mode-utilities [data-tmo-tutorial] {
   background: transparent;
   color: var(--muted-color);
   font-weight: 600;
 }
 
-.recommend-mode-bar:has(.recommend-sync-toggle:not([hidden])) button:is(:hover, :focus-visible) {
+.recommend-mode-utilities [data-tmo-tutorial]:is(:hover, :focus-visible) {
   background: rgba(255, 255, 255, 0.08);
   color: var(--text-color);
 }

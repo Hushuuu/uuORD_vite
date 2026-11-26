@@ -398,13 +398,13 @@ function initRecommendPage(records) {
                     const remark = String(record.remark ?? '').trim();
                     return `
                       <article class="recommend-card ${isPinned ? 'card-pinned' : ''}">
-                        <div class="card-top-progress-container">
-                          <div class="card-top-progress-bar-bg" style="transform: scaleX(${completion});" aria-hidden="true"></div>
-                          <span class="recommend-card-completion">${(completion * 100).toFixed(0)}%</span>
+                        <div class="card-top-progress-container" aria-hidden="true">
+                          <div class="card-top-progress-bar-bg" style="transform: scaleX(${completion});"></div>
                         </div>
                         <div class="recommend-card-heading">
                           <div class="recommend-card-top">
                             <strong>${escapeHtml(getDisplayName(record))} ${record.key_code ? `(${escapeHtml(record.key_code)})` : ''}</strong>
+                            <span class="recommend-card-completion">${(completion * 100).toFixed(0)}%</span>
                           </div>
                           ${renderRecommendationActions(record, indices, getDisplayName, escapeHtml, t, isPinned, DEFAULT_SHOW_AMOUNT !== 100)}
                         </div>

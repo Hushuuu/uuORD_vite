@@ -4129,7 +4129,7 @@ const ORD_DATA = [
     ],
     "skill_values": {
       "stl-1-1": {
-        "value": 35,
+        "value": null,
         "remark": ""
       },
       "stl-1-5": {
@@ -4137,7 +4137,7 @@ const ORD_DATA = [
         "remark": ""
       },
       "stl-4-2": {
-        "value": 15,
+        "value": null,
         "remark": ""
       },
       "stl-4-4": {
@@ -4149,7 +4149,7 @@ const ORD_DATA = [
         "remark": ""
       },
       "stl-5-2": {
-        "value": 3,
+        "value": null,
         "remark": ""
       },
       "stl-8-1": {
