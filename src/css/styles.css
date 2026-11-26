@@ -417,10 +417,6 @@ button.success {
   gap: 10px;
 }
 
-.controls-actions {
-  margin-top: 14px;
-}
-
 .summary-bar {
   display: flex;
   justify-content: space-between;
