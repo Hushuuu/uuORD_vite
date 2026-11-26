@@ -649,7 +649,10 @@
       "target_skill_type": "Skill Type",
       "owned_characters": "Owned Characters",
       "action": {
-        "refresh": "Refresh"
+        "refresh": "Refresh",
+        "reset": "Reset",
+        "view_owned": "Owned Characters",
+        "pins": "Pins"
       },
       "noExtraMaterials": "No extra materials needed",
       "ownedTitle": "Owned Basic Characters",

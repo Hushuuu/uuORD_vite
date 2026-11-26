@@ -649,7 +649,10 @@
       "target_skill_type": "技能類型",
       "owned_characters": "擁有其他角色",
       "action": {
-        "refresh": "重新推薦"
+        "refresh": "重新推薦",
+        "reset": "重置",
+        "view_owned": "擁有角色",
+        "pins": "釘選"
       },
       "noExtraMaterials": "無需額外素材",
       "ownedTitle": "擁有基本角色",

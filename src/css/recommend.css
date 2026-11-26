@@ -30,6 +30,59 @@
   padding: 2px 8px;
 }
 
+button.recommend-compact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 28px;
+  min-height: 28px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.recommend-compact-button > svg {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.recommend-compact-button:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.recommend-filter-heading {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.recommend-filter-heading h2 {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.recommend-filter-actions {
+  gap: 6px;
+}
+
+button.recommend-filter-toggle {
+  padding-inline: 0;
+}
+
+.recommend-filter-toggle[aria-expanded="false"] > svg {
+  transform: rotate(180deg);
+}
+
 .recommend-pins-popover,
 .recommend-owned-upward-dialog {
   box-sizing: border-box;
@@ -606,6 +659,11 @@ body[data-page="recommend"] [hidden] { display: none !important; }
   margin-bottom: 18px;
 }
 
+.recommend-mode-utilities {
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
 .recommend-mode-heading {
   flex: 1 1 auto;
   gap: 12px;
@@ -636,11 +694,8 @@ body[data-page="recommend"] [hidden] { display: none !important; }
 }
 
 .recommend-mode-bar:has(.recommend-sync-toggle:not([hidden])) button {
-  min-height: 34px;
-  padding: 4px 8px;
   background: transparent;
   color: var(--muted-color);
-  font-size: 0.8125rem;
   font-weight: 600;
 }
 

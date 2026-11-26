@@ -145,18 +145,34 @@
               </label>
             </div>
             <div class="recommend-mode-utilities">
-              <button type="button" class="secondary" data-tmo-tutorial data-auto-only hidden
+              <button type="button" class="secondary recommend-compact-button" data-tmo-tutorial data-auto-only hidden
                 data-i18n="recommend.mode.tutorial">查看設定教學</button>
-              <button id="recommendChangeModeBtn" type="button" class="secondary"
-                data-i18n="recommend.mode.change">切換模式</button>
+              <button id="recommendChangeModeBtn" type="button" class="secondary recommend-compact-button">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M3 7h17m-4-4 4 4-4 4m5 6H4m4-4-4 4 4 4" />
+                </svg>
+                <span data-i18n="recommend.mode.change">切換模式</span>
+              </button>
             </div>
           </div>
+          <div class="recommend-filter-heading">
+            <h2 data-i18n="field.searchConditions">搜尋條件</h2>
+            <button id="collapseFilterBtn" type="button"
+              class="secondary recommend-compact-button recommend-filter-toggle"
+              aria-controls="recommendRarityFilter recommendSkillFilter" aria-expanded="true"
+              aria-label="收合條件" title="收合條件"
+              data-i18n-aria-label="recommend.collapseFilters" data-i18n-title="recommend.collapseFilters">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 15 6-6 6 6" />
+              </svg>
+            </button>
+          </div>
           <div class="controls-grid">
-            <div class="field-group" style="grid-column: span 4;">
+            <div id="recommendRarityFilter" class="field-group" style="grid-column: span 4;">
               <span class="field-label" data-i18n="recommend.target_rarity">目標稀有度</span>
               <div id="recommendTargetLevelGrid" class="checkbox-badge-grid recommend-target-grid"></div>
             </div>
-            <div class="field-group" style="grid-column: span 4;">
+            <div id="recommendSkillFilter" class="field-group" style="grid-column: span 4;">
               <span class="field-label" data-i18n="recommend.target_skill_type">技能類型</span>
               <div id="recommendTargetSkillGrid" class="skill-filter" data-skill-filter-popover></div>
             </div>
@@ -167,16 +183,30 @@
             </div>
             <div class="field-group" style="grid-column: span 4;">
               <span class="field-label" data-i18n="field.actions">操作</span>
-              <div class="controls-actions">
-                <button data-manual-only id="recommendRefreshBtn" type="button" style="display: none;"
-                  data-i18n="recommend.action.refresh">重新推薦</button>
-                <button id="recommendResetBtn" type="button" class="secondary" data-i18n="action.reset">重置條件</button>
-                <button id="collapseFilterBtn" type="button" class="secondary"
-                  data-i18n="action.collapseFilters">收合條件</button>
+              <div class="controls-actions recommend-filter-actions">
+                <button id="recommendRefreshBtn" type="button" class="recommend-compact-button"
+                  data-manual-only style="display: none;">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20 10a8 8 0 0 0-13.7-4.6L4 8m0-5v5h5M4 14a8 8 0 0 0 13.7 4.6L20 16m0 5v-5h-5" />
+                  </svg>
+                  <span data-i18n="recommend.action.refresh">重新推薦</span>
+                </button>
+                <button id="recommendResetBtn" type="button" class="secondary recommend-compact-button">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 11h12a5 5 0 0 1 0 10h-4M8 6l-5 5 5 5" />
+                  </svg>
+                  <span data-i18n="recommend.action.reset">重置</span>
+                </button>
                 <!-- <button id="recommendExportHighLevelBtn" type="button" class="secondary"
                   data-i18n="recommend.export_team">匯出隊伍</button> -->
-                <button id="recommendOwnedUpwardBtn" type="button" class="secondary" aria-haspopup="dialog"
-                  data-i18n="recommend.owned_upward.title">查看擁有角色</button>
+                <button id="recommendOwnedUpwardBtn" type="button" class="secondary recommend-compact-button"
+                  aria-haspopup="dialog">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="9" cy="7" r="3" />
+                    <path d="M3 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2M16 4a3 3 0 0 1 0 6m5 10v-2a4 4 0 0 0-3-3.9" />
+                  </svg>
+                  <span data-i18n="recommend.action.view_owned">擁有角色</span>
+                </button>
               </div>
             </div>
           </div>
@@ -205,8 +235,13 @@
                   <button id="recommendShowLessBtn" type="button" class="secondary" style="display: none;"
                     data-i18n="action.showLess">顯示較少筆數(效能提升)</button>
                 </div>
-                <button id="recommendPinnedBtn" type="button" class="secondary" popovertarget="recommendPinnedPopover"
-                  data-i18n="action.pin">釘選角色</button>
+                <button id="recommendPinnedBtn" type="button" class="secondary recommend-compact-button"
+                  popovertarget="recommendPinnedPopover">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M9 3h6v6l3 4v2H6v-2l3-4zm3 12v6" />
+                  </svg>
+                  <span data-i18n="recommend.action.pins">釘選</span>
+                </button>
                 <div id="recommendPinnedPopover" class="recommend-pins-popover" popover="auto" role="group"
                   aria-labelledby="recommendPinnedBtn">
                   <div id="recommendPinnedList" aria-live="polite"></div>

@@ -70,6 +70,8 @@ function initRecommendPage(records) {
     const refreshButton = document.getElementById('recommendRefreshBtn');
     const resetButton = document.getElementById('recommendResetBtn');
     const collapseFilterButton = document.getElementById('collapseFilterBtn');
+    const rarityFilter = document.getElementById('recommendRarityFilter');
+    const skillFilter = document.getElementById('recommendSkillFilter');
     const exportHighLevelButton = document.getElementById('recommendExportHighLevelBtn');
     const exportHighLevelDialog = document.getElementById('recommendExportHighLevelDialog');
     const highLevelCharacters = document.getElementById('recommendHighLevelCharacters');
@@ -580,6 +582,18 @@ function initRecommendPage(records) {
       scheduleRecommendationsRender();
     });
 
+    function setFiltersExpanded(expanded) {
+      rarityFilter.hidden = !expanded;
+      skillFilter.hidden = !expanded;
+
+      const labelKey = expanded ? 'recommend.collapseFilters' : 'recommend.expandFilters';
+      collapseFilterButton.setAttribute('aria-expanded', String(expanded));
+      collapseFilterButton.dataset.i18nAriaLabel = labelKey;
+      collapseFilterButton.dataset.i18nTitle = labelKey;
+      collapseFilterButton.setAttribute('aria-label', t(labelKey));
+      collapseFilterButton.title = t(labelKey);
+    }
+
     resetButton.addEventListener('click', () => {
       dismissedCharacterIds = new Set();
       recommendationSearchQuery = '';
@@ -600,13 +614,7 @@ function initRecommendPage(records) {
       }
       renderTargetLevelCheckboxes();
       scheduleRecommendationsRender({ renderOwnedControls: true });
-      //重置條件區顯示
-      const filterSections = document.querySelectorAll('.controls-grid .field-group');
-      if (filterSections) {
-        filterSections[0].classList.remove('collapsed');
-        filterSections[1].classList.remove('collapsed');
-        collapseFilterButton.innerText = i18n.t('action.collapseFilters');
-      }
+      setFiltersExpanded(true);
     });
 
     ownedTabs.addEventListener('click', (event) => {
@@ -708,12 +716,7 @@ function initRecommendPage(records) {
 
     collapseFilterButton.addEventListener('click', () => {
       skillTypeFilter.closeOptions();
-      const filterSections = document.querySelectorAll('.controls-grid .field-group');
-      if (filterSections) {
-        filterSections[0].classList.toggle('collapsed');
-        filterSections[1].classList.toggle('collapsed');
-        collapseFilterButton.innerText = collapseFilterButton.innerText === i18n.t('comp.filters.collapse') ? i18n.t('comp.filters.expand') : i18n.t('comp.filters.collapse');
-      }
+      setFiltersExpanded(rarityFilter.hidden);
     });
     const recommendOwnedTitle = document.getElementById('recommendOwnedTitle');
     if (recommendOwnedTitle) {
