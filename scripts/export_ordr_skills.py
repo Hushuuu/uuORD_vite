@@ -1,10 +1,14 @@
 """Export the English character skill index from an ORDR Warcraft III map."""
 
+from __future__ import annotations
+
 import argparse
 from collections import defaultdict
 import bz2
 import html
 import json
+from contextlib import contextmanager
+from dataclasses import dataclass
 from pathlib import Path
 import re
 import struct
@@ -18,6 +22,7 @@ RARITIES = (
     "Mystery", "Random Only", "Restriction", "Distortion", "Change", "Seraphim",
 )
 EXCLUDED_RARITIES = {"Common", "Uncommon", "Special", "Five Elders"}
+SKILL_EXCLUSION_ID = {"A0B9", "A07Y","A10P","A12S","A080","A0BA","A17T"}
 SKILL_EXCLUSION = re.compile(r"\b(?:Combination|Sale|Sell|Selling)\b", re.I)
 WAREHOUSE_SKILL = re.compile(r"move\s+to\s+warehouse(?:\s*\(G\))?", re.I)
 MAP_COLOR = re.compile(r"\|c[0-9a-f]{8}|\|r", re.I)
@@ -38,10 +43,43 @@ FILE_ENCRYPTED = 0x00010000
 FILE_KEY_ADJUSTED = 0x00020000
 FILE_COMPRESSED = 0x00000200
 HEADER_SEARCH_BYTES = 1024 * 1024
+ADDITIONAL_MEMBERS = {
+    "war3map.w3t": "物品",
+    "war3map.w3q": "升級",
+    "war3map.w3h": "增益與效果",
+    "war3map.w3b": "可破壞物件",
+    "war3map.w3d": "裝飾物件",
+    "war3map.w3e": "地形",
+    "war3map.wtg": "觸發器",
+    "war3map.j": "JASS 地圖腳本",
+    r"Scripts\war3map.j": "JASS 地圖腳本",
+    "war3map.lua": "Lua 地圖腳本",
+}
 
 
 class MapFormatError(ValueError):
     """The map contains unsupported, missing, or invalid data."""
+
+
+@dataclass
+class ObjectField:
+    code: str
+    kind: int
+    level: int
+    pointer: int
+    value: int | float | str
+
+
+@dataclass
+class ObjectRecord:
+    is_custom: bool
+    base_id: str
+    custom_id: str
+    fields: list[ObjectField]
+
+    @property
+    def identifier(self):
+        return self.custom_id if self.is_custom else self.base_id
 
 
 def make_crypt_table():
@@ -270,13 +308,13 @@ def parse_string_table(data):
     return strings
 
 
-def parse_objects(data, strings, extended):
+def parse_objects(data, extended):
     reader = BinaryReader(data)
     version = reader.number()
     if version not in (1, 2, 3):
         raise MapFormatError(f"Unsupported object data version {version}")
 
-    records = {}
+    records = []
     for is_custom in (False, True):
         count = reader.number()
         if count > (len(data) - reader.offset) // 12:
@@ -285,23 +323,34 @@ def parse_objects(data, strings, extended):
             base_id, custom_id = reader.code(), reader.code()
             if version == 3:
                 reader.read(reader.number() * 4)
-            fields = {}
+            fields = []
             for _ in range(reader.number()):
                 field, kind = reader.code(), reader.number()
                 level, pointer = (reader.number(), reader.number()) if extended else (0, 0)
                 if kind == 3:
-                    value = resolve_string(reader.string(), strings)
+                    value = reader.string()
                 elif kind in (0, 1, 2):
                     value = reader.number("i" if kind == 0 else "f")
                 else:
                     raise MapFormatError(f"Unsupported object field type {kind}")
-                fields[field, level, pointer] = value
+                fields.append(ObjectField(field, kind, level, pointer, value))
                 reader.read(4)
-            identifier = custom_id if is_custom else base_id
-            records[identifier] = fields
+            records.append(ObjectRecord(is_custom, base_id, custom_id, fields))
     if reader.offset != len(data):
         raise MapFormatError("Trailing bytes in object data")
     return records
+
+
+def resolve_objects(records, strings):
+    objects = {}
+    for record in records:
+        objects[record.identifier] = {
+            (field.code, field.level, field.pointer): (
+                resolve_string(field.value, strings) if field.kind == 3 else field.value
+            )
+            for field in record.fields
+        }
+    return objects
 
 
 def resolve_string(value, strings):
@@ -338,7 +387,17 @@ def parsed_member(archive, name, parser, default=None):
     raise MapFormatError(f"Could not parse {name} ({'; '.join(errors)})")
 
 
-def read_map(path):
+def readable_members(archive, names):
+    found = {}
+    for name in names:
+        try:
+            found[name] = len(next(archive.members(name)))
+        except (FileNotFoundError, MapFormatError):
+            continue
+    return found
+
+
+def read_map(path, inspect_members=False):
     failures = []
     file_size = path.stat().st_size
     with path.open("rb") as stream:
@@ -351,11 +410,11 @@ def read_map(path):
                 strings = parsed_member(archive, "war3map.wts", parse_string_table, default={})
                 units = parsed_member(
                     archive, "war3map.w3u",
-                    lambda data: parse_objects(data, strings, extended=False),
+                    lambda data: parse_objects(data, extended=False),
                 )
                 abilities = parsed_member(
                     archive, "war3map.w3a",
-                    lambda data: parse_objects(data, strings, extended=True),
+                    lambda data: parse_objects(data, extended=True),
                 )
                 if not units or not abilities:
                     raise MapFormatError("Empty unit or ability table")
@@ -369,7 +428,8 @@ def read_map(path):
                 )
             except MapFormatError:
                 title = path.stem
-            return title or path.stem, units, abilities
+            additional = readable_members(archive, ADDITIONAL_MEMBERS) if inspect_members else {}
+            return title or path.stem, units, abilities, strings, additional
     detail = "; ".join(failures) if failures else "MPQ header not found"
     raise MapFormatError(f"Unable to read map ({detail})")
 
@@ -380,7 +440,7 @@ def visible_text(value):
 
 
 def skill_details(identifier, ability_fields):
-    if identifier in {"A0B9", "A07Y"}:
+    if identifier in SKILL_EXCLUSION_ID:
         return None
     by_level = defaultdict(dict)
     for (field, level, _), value in ability_fields.items():
@@ -389,7 +449,7 @@ def skill_details(identifier, ability_fields):
             if cleaned != "":
                 by_level[level][field] = cleaned
     titles = [fields.get("atp1", "") for fields in by_level.values()]
-    if any(SKILL_EXCLUSION.search(title) or WAREHOUSE_SKILL.fullmatch(title) for title in titles):
+    if any(SKILL_EXCLUSION.search(title) for title in titles):
         return None
 
     described_levels = [
@@ -454,7 +514,142 @@ def build_export(title, units, abilities):
     return {"map": title, "tooltipLanguage": "en", "characters": characters}
 
 
-def write_export(destination, data):
+def report_text(value):
+    return re.sub(r"([\\`*_{}\[\]()|<>~&#])", r"\\\1", value)
+
+
+def report_fields(record, strings, codes):
+    for field in record.fields:
+        if field.code in codes and field.kind == 3:
+            text = visible_text(resolve_string(field.value, strings))
+            if text:
+                yield field, text
+
+
+def report_name(texts):
+    return report_text(" / ".join(dict.fromkeys(" ".join(text.split()) for text in texts)))
+
+
+def write_readable_markdown(stream, source, title, units, abilities, strings, additional):
+    stream.write("# ORDR 篩選前的單位與技能\n\n")
+    stream.write(f"**地圖**　{report_text(' '.join(title.split()))}\n\n")
+    stream.write(f"**來源**　{report_text(source.name)}\n\n")
+    stream.write(
+        f"讀取到 **{len(units):,} 筆單位**、**{len(abilities):,} 筆技能**、"
+        f"**{len(strings):,} 筆地圖字串**。\n\n"
+        "- 可搜尋英文名稱或四字元 ID。單位表的「—」表示地圖修改表沒有填寫該欄。"
+        "部分技能 ID 來自遊戲的基礎資料，可能沒有對應的地圖技能紀錄。\n"
+        "- 技能區列出物件名稱與各等級的提示文字，包含未連結到單位的技能。"
+        "等級數字沿用地圖欄位的索引。\n"
+        "- 這份清單尚未篩選角色稀有度或技能。文字已去除遊戲色碼並展開換行。"
+        "查閱原始欄位與完整字串表時，可使用 `--raw-format fields`。\n\n"
+    )
+    stream.write("## 地圖中其他可讀的資料\n\n")
+    stream.write("以下是根據已知檔名查到並成功讀取的成員。此清單的範圍限於已查找的檔名。\n\n")
+    if additional:
+        stream.write("| 檔名 | 內容 | 解壓後大小（位元組） |\n| --- | --- | ---: |\n")
+        for name, size in additional.items():
+            stream.write(f"| `{name}` | {ADDITIONAL_MEMBERS[name]} | {size:,} |\n")
+        stream.write("\n")
+    else:
+        stream.write("此次查找未讀到其他常見成員。\n\n")
+
+    stream.write("## 單位\n\n")
+    stream.write(
+        "| 單位 ID | 名稱 | 稱號 | 一般技能 ID | 英雄技能 ID |\n"
+        "| --- | --- | --- | --- | --- |\n"
+    )
+    for record in units:
+        entries = defaultdict(list)
+        for field, value in report_fields(record, strings, {"unam", "upro", "uabi", "uhab"}):
+            entries[field.code].append(value)
+        columns = [f"`{record.identifier}`"]
+        for code in ("unam", "upro"):
+            columns.append(report_name(entries[code]) or "—")
+        for code in ("uabi", "uhab"):
+            identifiers = dict.fromkeys(
+                identifier.strip()
+                for group in entries[code]
+                for identifier in group.split(",")
+                if identifier.strip()
+            )
+            columns.append(", ".join(report_text(identifier) for identifier in identifiers) or "—")
+        stream.write("| " + " | ".join(columns) + " |\n")
+
+    stream.write("\n## 技能\n\n")
+    tooltip_labels = {"atp1": "提示", "aub1": "說明"}
+    for record in abilities:
+        names = []
+        tooltips = defaultdict(list)
+        for field, value in report_fields(record, strings, {"anam", *tooltip_labels}):
+            if field.code == "anam":
+                names.append(value)
+            else:
+                tooltips[field.level].append((tooltip_labels[field.code], value))
+
+        name = report_name(names)
+        heading = f"`{record.identifier}`"
+        if name:
+            heading += f" · {name}"
+        stream.write(f"### {heading}\n\n")
+        if not tooltips:
+            stream.write("此物件沒有記錄提示或說明文字。\n\n")
+        for level, entries in sorted(tooltips.items()):
+            stream.write(f"**等級 {level}**\n\n")
+            for label, value in entries:
+                stream.write(f"> **{label}**\n>\n")
+                for line in value.splitlines():
+                    text = report_text(line.strip())
+                    stream.write(f"> {text}  \n" if text else ">\n")
+                stream.write("\n")
+
+
+def write_raw_markdown(stream, source, title, units, abilities, strings):
+    stream.write("# ORDR Raw Map Data\n\n")
+    stream.write("```text\n")
+    stream.write(f"Source file: {json.dumps(source.name, ensure_ascii=False)}\n")
+    stream.write(f"Map title: {json.dumps(title, ensure_ascii=False)}\n")
+    stream.write("```\n\n")
+    stream.write(
+        "Object modifications are listed in file order, before skill and rarity filters. "
+        "String values use JSON escaping. Resolved WTS text is shown alongside its reference.\n\n"
+    )
+
+    for label, member, records in (
+        ("Units", "war3map.w3u", units),
+        ("Abilities", "war3map.w3a", abilities),
+    ):
+        stream.write(f"## {label} (`{member}`, {len(records)} records)\n\n")
+        stream.write("```text\n")
+        for record in records:
+            base_id = json.dumps(record.base_id, ensure_ascii=False)
+            custom_id = json.dumps(record.custom_id, ensure_ascii=False)
+            table = "custom" if record.is_custom else "original"
+            stream.write(f"table={table}, base_id={base_id}, custom_id={custom_id}\n")
+            for field in record.fields:
+                code = json.dumps(field.code, ensure_ascii=False)
+                value = json.dumps(field.value, ensure_ascii=False)
+                stream.write(
+                    f"{code}  type={field.kind}  level={field.level}  "
+                    f"pointer={field.pointer}  value={value}"
+                )
+                if field.kind == 3:
+                    resolved = resolve_string(field.value, strings)
+                    if resolved != field.value:
+                        stream.write(f"  resolved={json.dumps(resolved, ensure_ascii=False)}")
+                stream.write("\n")
+            stream.write("\n")
+        stream.write("```\n\n")
+
+    stream.write(f"## String table (`war3map.wts`, {len(strings)} entries)\n\n")
+    stream.write("```text\n")
+    for index, value in strings.items():
+        stream.write(f"TRIGSTR_{index:03d} = {json.dumps(value, ensure_ascii=False)}\n")
+    stream.write("```\n")
+
+
+@contextmanager
+def open_output(destination):
     staging = None
     try:
         with tempfile.NamedTemporaryFile(
@@ -462,8 +657,7 @@ def write_export(destination, data):
             mode="w", encoding="utf-8", newline="\n", delete=False,
         ) as stream:
             staging = Path(stream.name)
-            json.dump(data, stream, ensure_ascii=False, indent=2, allow_nan=False)
-            stream.write("\n")
+            yield stream
         staging.replace(destination)
     finally:
         if staging is not None:
@@ -474,14 +668,52 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("map_file", type=Path, help="Path to the English ORDR .w3x map")
     parser.add_argument("-o", "--output", type=Path, help="Path to the output JSON file")
+    parser.add_argument("--raw-markdown", type=Path, help="Path to the unfiltered Markdown export")
+    parser.add_argument(
+        "--raw-format", choices=("readable", "fields"),
+        help="Markdown layout (default: readable)",
+    )
+    parser.add_argument("--raw-only", action="store_true", help="Skip the filtered JSON export")
     args = parser.parse_args()
+    if args.raw_only and (args.raw_markdown is None or args.output is not None):
+        parser.error("--raw-only requires --raw-markdown and cannot be used with --output.")
+    if args.raw_format is not None and args.raw_markdown is None:
+        parser.error("--raw-format requires --raw-markdown.")
     source = args.map_file
     destination = args.output or source.with_name(source.stem + "-Character-Skills.json")
-    if destination.resolve() == source.resolve() or destination.suffix.lower() != ".json":
+    if not args.raw_only and (
+        destination.resolve() == source.resolve() or destination.suffix.lower() != ".json"
+    ):
         parser.error("The output must be a separate .json file.")
+    raw_destination = args.raw_markdown
+    if raw_destination is not None and (
+        raw_destination.resolve() == source.resolve()
+        or raw_destination.suffix.lower() != ".md"
+        or (not args.raw_only and raw_destination.resolve() == destination.resolve())
+    ):
+        parser.error("The raw Markdown output must be a separate .md file.")
+
     try:
-        data = build_export(*read_map(source))
-        write_export(destination, data)
+        readable = raw_destination is not None and args.raw_format != "fields"
+        title, units, abilities, strings, additional = read_map(source, inspect_members=readable)
+        if raw_destination is not None:
+            with open_output(raw_destination) as stream:
+                if readable:
+                    write_readable_markdown(stream, source, title, units, abilities, strings, additional)
+                else:
+                    write_raw_markdown(stream, source, title, units, abilities, strings)
+            print(f"Exported {len(units)} raw unit records and {len(abilities)} raw ability records.")
+            print(raw_destination.resolve())
+
+        if args.raw_only:
+            return 0
+
+        data = build_export(
+            title, resolve_objects(units, strings), resolve_objects(abilities, strings),
+        )
+        with open_output(destination) as stream:
+            json.dump(data, stream, ensure_ascii=False, indent=2, allow_nan=False)
+            stream.write("\n")
     except (OSError, ValueError) as exc:
         print(f"Export failed: {exc}", file=sys.stderr)
         return 1
