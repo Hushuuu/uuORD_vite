@@ -273,7 +273,7 @@ function initRecommendPage(records) {
       ownedSelector.refreshOptions(false);
     }
     // 固定禁止推薦
-    const defaultDismissedIds = ['2-12', '4-7', '4-46', '5-41', '6-10', '10-1', '5-10'];
+    const defaultDismissedIds = ['2-12', '4-7', '4-46', '5-41', '6-10', '10-1'];
 
     function computeRecommendations() {
       const selectedTargetLevels = [...targetState.selectedTargetLevels].sort((left, right) => left - right);

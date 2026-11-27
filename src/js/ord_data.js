@@ -3531,22 +3531,6 @@ const ORD_DATA = [
     ]
   },
   {
-    "character_id": "5-10",
-    "level": 5,
-    "name": "西爾爾克的墓碑",
-    "kr_name": "히루루크의 묘비",
-    "en_name": "Sir Crocodile's Tombstone",
-    "materials": [
-      {
-        "material_id": "5-27"
-      }
-    ],
-    "key_code": "",
-    "remark": "",
-    "major": "",
-    "suitable_partners": []
-  },
-  {
     "character_id": "5-11",
     "level": 5,
     "name": "克比",
@@ -3570,7 +3554,6 @@ const ORD_DATA = [
     "skill_types": [
       "stl-1-1",
       "stl-2-3",
-      "stl-5-1",
       "stl-7-1",
       "stl-7-2",
       "stl-8-2",
@@ -3714,7 +3697,6 @@ const ORD_DATA = [
     "suitable_partners": [],
     "skill_types": [
       "stl-2-2",
-      "stl-5-1",
       "stl-8-2",
       "stl-8-3",
       "stl-6-5"
@@ -5609,7 +5591,9 @@ const ORD_DATA = [
     "remark": "",
     "major": "",
     "suitable_partners": [],
-    "skill_types": [],
+    "skill_types": [
+      "stl-8-3"
+    ],
     "skills": [
       {
         "id": "skill-5-42-dual-eyes",
@@ -5667,7 +5651,8 @@ const ORD_DATA = [
     "skill_types": [
       "stl-1-3",
       "stl-5-2",
-      "stl-6-1"
+      "stl-6-1",
+      "stl-8-2",
     ],
     "skills": [
       {
@@ -5799,7 +5784,8 @@ const ORD_DATA = [
       "stl-2-3",
       "stl-5-1",
       "stl-8-2",
-      "stl-6-5"
+      "stl-6-5",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-4": {
@@ -6294,7 +6280,7 @@ const ORD_DATA = [
       "stl-4-1",
       "stl-5-2",
       "stl-5-3",
-      "stl-8-3"
+      "stl-8-2"
     ],
     "skill_values": {
       "stl-5-3": {
@@ -6626,7 +6612,6 @@ const ORD_DATA = [
     "skill_types": [
       "stl-1-5",
       "stl-4-2",
-      "stl-8-1"
     ],
     "skill_values": {
       "stl-1-5": {
@@ -6635,10 +6620,6 @@ const ORD_DATA = [
       },
       "stl-4-2": {
         "value": 25,
-        "remark": ""
-      },
-      "stl-8-1": {
-        "value": null,
         "remark": ""
       }
     },
@@ -6948,7 +6929,7 @@ const ORD_DATA = [
       "stl-1-6",
       "stl-5-2",
       "stl-5-3",
-      "stl-8-3"
+      "stl-8-2"
     ],
     "skill_values": {
       "stl-5-3": {
@@ -7401,7 +7382,6 @@ const ORD_DATA = [
     "suitable_partners": [],
     "skill_types": [
       "stl-1-6",
-      "stl-4-1",
       "stl-5-2",
       "stl-5-3",
       "stl-6-1",
@@ -7419,10 +7399,6 @@ const ORD_DATA = [
         "value": 10,
         "remark": ""
       },
-      "stl-4-1": {
-        "value": 7,
-        "remark": "僅boss/story"
-      },
       "stl-5-2": {
         "value": 1.5,
         "remark": ""
@@ -7433,7 +7409,7 @@ const ORD_DATA = [
         "id": "skill-7-6-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|緩速 45%}；自身路線區{explosive|爆發型傷害}增幅 10%。"
+        "description": "915 範圍內的敵人{control|緩速 45%}；自身路線區{explosive|爆發型傷害}增幅 10%。"
       },
       {
         "id": "skill-7-6-48373fac63",
@@ -7472,7 +7448,8 @@ const ORD_DATA = [
     "suitable_partners": [],
     "skill_types": [
       "stl-2-3",
-      "stl-6-1"
+      "stl-6-1",
+      "stl-8-2",
     ],
     "skills": [
       {
@@ -7604,6 +7581,7 @@ const ORD_DATA = [
     "skill_types": [
       "stl-2-2",
       "stl-6-2",
+      "stl-8-2",
       "stl-8-3"
     ],
     "skills": [
@@ -7977,7 +7955,8 @@ const ORD_DATA = [
       "stl-5-3",
       "stl-6-2",
       "stl-6-3",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-3": {
@@ -8621,7 +8600,8 @@ const ORD_DATA = [
       "stl-5-2",
       "stl-5-3",
       "stl-6-3",
-      "stl-8-1"
+      "stl-8-1",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-1": {
@@ -8733,7 +8713,8 @@ const ORD_DATA = [
       "stl-5-2",
       "stl-5-3",
       "stl-6-3",
-      "stl-8-1"
+      "stl-8-1",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-1": {
@@ -8845,7 +8826,8 @@ const ORD_DATA = [
       "stl-5-2",
       "stl-5-3",
       "stl-6-3",
-      "stl-8-1"
+      "stl-8-1",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-1": {
@@ -8957,7 +8939,8 @@ const ORD_DATA = [
       "stl-5-2",
       "stl-5-3",
       "stl-6-3",
-      "stl-8-1"
+      "stl-8-1",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-1": {
@@ -9116,7 +9099,7 @@ const ORD_DATA = [
         "id": "skill-10-7-7aebaac833",
         "name": "天賦強化",
         "type": "",
-        "description": "投入 4 點天賦後強化尼卡形態的油擊與瀕死體驗，發動率分別為 30%／50%。油擊對年齡操控滿層的路線主目標追加最大生命 70% 物理傷害，瀕死體驗對此類目標另加最大生命 30% 物理傷害。"
+        "description": "投入 4 點天賦後強化尼卡形態的油擊與瀕死體驗，發動率分別為 30%／50%。油擊對年齡操控滿層的敵人追加 300% {physical|物理傷害}，若主目標是滿層路線怪，再追加最大生命 70% 的{physical|物理傷害}。瀕死體驗對單體造成 150 萬{physical|物理傷害}，若目標是滿層路線怪，再追加最大生命 30% 的{physical|物理傷害}。"
       }
     ]
   },
@@ -9199,7 +9182,7 @@ const ORD_DATA = [
         "id": "skill-10-8-8ffab6b30f",
         "name": "三刀流",
         "type": "",
-        "description": "7% 造成 500 範圍 35 萬{physical|物理} ×3；3% 造成 250 萬{physical|物理}、{control|暈 2.5 秒}。{chance|普攻 25%} 十倍暴擊、單體{control|暈 3 秒}並追加{physical|物理}。"
+        "description": "7% 觸發，對 500 範圍造成三段{physical|物理傷害}，每段 40 萬 ×1～1.5；3% 造成 250 萬{physical|物理}、{control|暈 2.5 秒}。{chance|普攻 25%} 十倍暴擊、單體{control|暈 3 秒}並追加{physical|物理}。"
       },
       {
         "id": "skill-10-8-7aebaac833",
@@ -9328,7 +9311,8 @@ const ORD_DATA = [
       "stl-5-1",
       "stl-6-1",
       "stl-6-3",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-3": {
@@ -9369,13 +9353,13 @@ const ORD_DATA = [
         "id": "skill-10-11-71c8ae7dbf",
         "name": "武裝色／橡膠大蛇",
         "type": "",
-        "description": "35% 造成 400 範圍 7 萬 ×1～2 {physical|物理}；7.5% 造成 475 範圍 30 萬 ×1～1.5 {magic|魔法}及單體追擊。黑曼巴期間增強。"
+        "description": "武裝色有 35% 機率對 400 範圍造成 7 萬 ×1～2 {physical|物理傷害}，黑曼巴期間觸發率提高至 70%、傷害 ×1.5。橡膠大蛇有 7.5% 機率對 475 範圍造成 30 萬 ×1～1.5 {magic|魔法傷害}及單體追擊，黑曼巴期間觸發率提高。"
       },
       {
         "id": "skill-10-11-f38282f5ed",
         "name": "其他能力",
         "type": "",
-        "description": "普攻對 525 範圍造成自身目前攻擊力 50% 的{explosive|爆發型傷害}。20% 機率觸發 3 倍暴擊及單體暈眩 0.5 秒。敵人移速越高，部分技能增傷越高。自身可空中移動。"
+        "description": "普攻對 525 範圍造成自身目前攻擊力 50% 的{explosive|爆發型傷害}。20% 機率觸發 3 倍暴擊及單體暈眩 0.5 秒。敵人移速越高，部分技能增傷越高。自身{buff|攻速 +15%}，可空中移動。"
       },
       {
         "id": "skill-10-11-hydra",
@@ -9416,7 +9400,8 @@ const ORD_DATA = [
       "stl-2-3",
       "stl-5-1",
       "stl-6-2",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-3": {
@@ -9528,7 +9513,8 @@ const ORD_DATA = [
       "stl-4-2",
       "stl-5-3",
       "stl-6-1",
-      "stl-8-1"
+      "stl-8-1",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-2-3": {
@@ -9563,7 +9549,7 @@ const ORD_DATA = [
         "id": "skill-10-13-244786fd03",
         "name": "基本輸出",
         "type": "",
-        "description": "12.5%，525 範圍 75 萬{physical|物理}、依力量成長；10%，400 範圍 20 萬{magic|魔法}，路線怪另受目前生命 0.6% {explosive|爆發}。"
+        "description": "多重切割有 12.5% 機率對 525 範圍造成 75 萬{physical|物理傷害}，每點力量另加 10,000 傷害。另有 10% 機率對 400 範圍造成 20 萬{magic|魔法}，路線怪另受目前生命 0.6% {explosive|爆發}。"
       },
       {
         "id": "skill-10-13-6e21a25fd9",
@@ -9737,7 +9723,7 @@ const ORD_DATA = [
         "id": "skill-10-15-757fcdbb6c",
         "name": "能量技能",
         "type": "",
-        "description": "生命能量 85，對自身周圍 925 範圍造成 175 萬＋目前生命 2% 的{magic|魔法傷害}，每點力量使傷害增加 6 萬。"
+        "description": "生命能量 85，對自身周圍 925 範圍造成 175 萬＋目前生命 2.5% 的{magic|魔法傷害}，每點力量使傷害增加 6 萬。"
       },
       {
         "id": "skill-10-15-5279f6fc3b",
@@ -9992,7 +9978,8 @@ const ORD_DATA = [
       "stl-5-2",
       "stl-5-3",
       "stl-7-1",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-2": {
@@ -10432,7 +10419,7 @@ const ORD_DATA = [
         "id": "skill-10-22-fb1168cb2d",
         "name": "接近觸發",
         "type": "",
-        "description": "1,050 範圍，單體最大生命 3% {magic|魔法}、{control|暈 0.625 秒}；另有 16%／7.25% 追加分支。每個體一次，Boss／狂暴無視條件全部發動，不可重複。"
+        "description": "1,050 範圍，單體最大生命 3% {magic|魔法}、{control|暈 0.625 秒}。發動時另有 16% 機率追加最大生命 3%＋100 萬{magic|魔法傷害}，以及 7.25% 機率追加最大生命 6%＋100 萬{magic|魔法傷害}並{control|暈眩 3 秒}。每個目標僅觸發一次，Boss／狂暴無視條件全部發動。"
       },
       {
         "id": "skill-10-22-fa39a444bb",
@@ -10787,13 +10774,13 @@ const ORD_DATA = [
         "id": "skill-10-26-253ddb666e",
         "name": "霸王色纏繞",
         "type": "",
-        "description": "17%，1.25 秒最高攻速、範圍增加，普攻另加{important|固定傷害}。"
+        "description": "17% 機率進入霸王色纏繞，持續 1.25 秒。期間攻速達最高，普攻傷害範圍 +100，每擊追加普攻傷害 20%＋15,000 的{important|固定傷害}。"
       },
       {
         "id": "skill-10-26-a7bae4b61e",
         "name": "輸出／控制",
         "type": "",
-        "description": "15% 範圍普攻傷害 375%＋35 萬{important|固定}，敵人越慢增傷最高 88%；30% 單體{physical|物理}短{control|暈}。魔幻刃有範圍{magic|魔法}與單體追加。"
+        "description": "15% 範圍普攻傷害 375%＋35 萬{important|固定}，敵人越慢增傷最高 88%；另有 30% 機率對單體造成 5 萬{physical|物理傷害}並{control|暈眩 0.45 秒、無視抗性}。魔幻刃有範圍{magic|魔法}與單體追加。"
       },
       {
         "id": "skill-10-26-3ee8bb448d",
@@ -10886,7 +10873,7 @@ const ORD_DATA = [
         "id": "skill-10-27-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|降防 22}，另有全圖{control|降防 8}。"
+        "description": "1,085 範圍內的敵人{control|降防 22}，另有全圖{control|降防 8}。"
       },
       {
         "id": "skill-10-27-baa34162b5",
@@ -10904,7 +10891,7 @@ const ORD_DATA = [
         "id": "skill-10-27-c9f9ef910e",
         "name": "火炎星",
         "type": "",
-        "description": "11%，420 範圍 60 萬 ×1～1.5 {physical|物理}、單體{magic|魔法}追加；{physical|物理}轉貫穿類型，另有暴擊、濺射。"
+        "description": "11% 機率對 420 範圍造成 60 萬 ×1～1.5 {physical|物理傷害}，單體追加 60 萬{magic|魔法傷害}，對 Boss／故事的追加倍率為 125%／150%。{physical|物理}轉貫穿類型，另有暴擊、濺射。"
       },
       {
         "id": "skill-10-27-7aebaac833",
@@ -11128,7 +11115,8 @@ const ORD_DATA = [
       "stl-5-1",
       "stl-6-1",
       "stl-6-2",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-2": {
@@ -11227,7 +11215,8 @@ const ORD_DATA = [
       "stl-5-2",
       "stl-5-3",
       "stl-6-1",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-6": {
@@ -11426,7 +11415,8 @@ const ORD_DATA = [
       "stl-2-3",
       "stl-5-3",
       "stl-6-2",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-1": {
@@ -11647,7 +11637,7 @@ const ORD_DATA = [
         "id": "skill-10-35-zeus",
         "name": "天賦強化・宙斯",
         "type": "passive",
-        "description": "投入 4 點天賦後取得宙斯。自身攻速 +7%，天候操作額外產生 35 萬{magic|魔法傷害}的雷電，週期天候結束時追加一次傷害提高 50% 的落雷。海市蜃樓發動時有 32% 機率觸發雷霆，造成 450 範圍 80 萬魔法傷害及單體再追加 80 萬。"
+        "description": "投入 4 點天賦後取得宙斯。自身攻速 +7%，天候操作額外產生 35 萬{magic|魔法傷害}的雷電，週期天候結束時追加一次傷害提高 50% 的落雷。強化版海市蜃樓改為對 300 範圍造成 40 萬{magic|魔法傷害}，主目標另受 40 萬魔法傷害。海市蜃樓發動時有 32% 機率觸發雷霆，造成 450 範圍 80 萬魔法傷害及單體再追加 80 萬。"
       },
       {
         "id": "skill-10-35-steal",
@@ -11838,13 +11828,13 @@ const ORD_DATA = [
         "id": "skill-11-1-2be4aac01c",
         "name": "六式・剃",
         "type": "",
-        "description": "7%，3 秒增益，每次普攻 325 範圍{magic|魔法}及{control|破甲 1}；攻速裝備升級後增加範圍、傷害及{control|破甲}。"
+        "description": "7% 機率獲得 3 秒增益，期間每次普攻對 325 範圍造成 30,000＋攻速裝備等級 ×25,000 的{magic|魔法傷害}，並施加{control|破甲 1，上限 75}。攻速裝備升級後增加範圍、傷害及{control|破甲}。"
       },
       {
         "id": "skill-11-1-7da047a221",
         "name": "怪物繼承者",
         "type": "",
-        "description": "普攻範圍{physical|物理}、15% 單體{control|暈 2 秒}及四倍暴擊。"
+        "description": "普攻對 400 範圍追加相當於普攻傷害 100% 的{physical|物理傷害}，另有 15% 機率使單體{control|暈眩 2 秒}並觸發四倍暴擊。"
       },
       {
         "id": "skill-11-1-09cbf41855",
@@ -11910,7 +11900,7 @@ const ORD_DATA = [
         "id": "skill-11-2-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{buff|攻速 +20%}；自己路線一般怪的生命比例{explosive|爆發型傷害}增幅 20%。"
+        "description": "900 範圍內的友軍{buff|攻速 +20%}；自己路線一般怪的生命比例{explosive|爆發型傷害}增幅 20%。"
       },
       {
         "id": "skill-11-2-bb62a9e2e8",
@@ -13233,7 +13223,7 @@ const ORD_DATA = [
         "id": "skill-12-4-d71f901b68",
         "name": "普攻／機率",
         "type": "passive",
-        "description": "單體每擊 95 萬{physical|物理}、400 範圍 95,000 {magic|魔法}；35% 使單體{control|暈眩 0.45 秒}，無視抗性；7.5% 範圍 150 萬{physical|物理}；5% 範圍 115 萬{magic|魔法}。"
+        "description": "單體每擊 95 萬{physical|物理}、400 範圍 95,000 {magic|魔法}；35% 使單體{control|暈眩 0.45 秒}，無視抗性；7.5% 對 450 範圍造成 150 萬{physical|物理傷害}；5% 對 600 範圍造成 115 萬{magic|魔法傷害}。"
       },
       {
         "id": "skill-12-4-ea62bf926c",
@@ -13292,7 +13282,8 @@ const ORD_DATA = [
       "stl-5-2",
       "stl-5-3",
       "stl-6-3",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-1-1": {
@@ -13540,7 +13531,7 @@ const ORD_DATA = [
         "id": "skill-12-8-0646ae7d1f",
         "name": "魔力技能",
         "type": "",
-        "description": "魔力 150，500 範圍 250 萬{magic|魔法}＋最大生命 ×層數 ×0.005% {magic|魔法}。"
+        "description": "魔力 150，500 範圍造成 350 萬＋目標最大生命 ×武士之魂層數 ×0.008% 的{magic|魔法傷害}。"
       },
       {
         "id": "skill-12-8-f3cec43e39",
@@ -13749,7 +13740,7 @@ const ORD_DATA = [
         "id": "skill-12-10-6379aa8d7b",
         "name": "單體強擊",
         "type": "",
-        "description": "7.77%，{control|暈 7.77 秒}，333.3333 萬＋7.77 倍{physical|物理傷害}，倍率基準未明。"
+        "description": "7.77%，{control|暈 7.77 秒}，333.3333 萬＋7.77 倍{physical|物理傷害}。"
       },
       {
         "id": "skill-12-10-016197bec9",
@@ -13811,7 +13802,8 @@ const ORD_DATA = [
       "stl-5-1",
       "stl-5-2",
       "stl-5-3",
-      "stl-8-2"
+      "stl-8-2",
+      "stl-8-3"
     ],
     "skill_values": {
       "stl-2-2": {
@@ -13946,13 +13938,13 @@ const ORD_DATA = [
         "id": "skill-12-12-821ce3a460",
         "name": "範圍技能",
         "type": "",
-        "description": "攻擊時 12% 觸發一閃，對敵人中心 500 範圍及直線 400 範圍分別造成 45 萬／70 萬魔法傷害。另有攻擊時 12.5% 對 500 範圍造成 30 萬魔法 ×2，以及 15% 對 450 範圍造成 40 萬魔法傷害。"
+        "description": "攻擊時 12% 觸發一閃，對敵人中心 500 範圍及直線 400 範圍分別造成 45 萬／70 萬{magic|魔法傷害}。另有攻擊時 12.5% 對 500 範圍造成 30 萬{magic|魔法傷害} ×2，以及 15% 對 450 範圍造成 40 萬{magic|魔法傷害}。"
       },
       {
         "id": "skill-12-12-8b79df27ba",
         "name": "普攻",
         "type": "passive",
-        "description": "普攻對 415 範圍造成目前攻擊力 80% 的{explosive|爆發型傷害}，單體另受 25 萬魔法傷害並暈眩 1.2 秒。攻擊時 14% 觸發 3.5 倍暴擊。"
+        "description": "普攻對 415 範圍造成目前攻擊力 80% 的{explosive|爆發型傷害}，單體另受 25 萬{magic|魔法傷害}並暈眩 1.2 秒。攻擊時 14% 觸發 3.5 倍暴擊。"
       },
       {
         "id": "skill-12-12-phantom-slash",
@@ -14501,7 +14493,8 @@ const ORD_DATA = [
       "stl-1-6",
       "stl-5-2",
       "stl-6-2",
-      "stl-6-4"
+      "stl-6-4",
+      "stl-8-3"
     ],
     "skills": [
       {
@@ -15217,7 +15210,8 @@ const ORD_DATA = [
       "stl-1-6",
       "stl-2-3",
       "stl-2-2",
-      "stl-5-1"
+      "stl-5-1",
+      "stl-8-3"
     ],
     "skills": [
       {
@@ -15394,7 +15388,8 @@ const ORD_DATA = [
     "suitable_partners": [],
     "skill_types": [
       "stl-1-6",
-      "stl-2-2"
+      "stl-2-2",
+      "stl-8-3"
     ],
     "skills": [
       {
@@ -15466,13 +15461,13 @@ const ORD_DATA = [
         "id": "skill-23-2-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|降防 20}。"
+        "description": "825 範圍內的敵人{control|降防 20}。"
       },
       {
         "id": "skill-23-2-757fcdbb6c",
         "name": "能量技能",
         "type": "",
-        "description": "生命能量 60，625 範圍 210 萬{physical|物理}、{control|破甲 3}，單體 250% {important|固定傷害}；倍率基準未確認。"
+        "description": "生命能量 60，施法 0.8 秒，625 範圍 210 萬{physical|物理}、{control|破甲 3}，單體 250% {important|固定傷害}；倍率基準未確認。"
       },
       {
         "id": "skill-23-2-194b163b84",
@@ -15518,7 +15513,8 @@ const ORD_DATA = [
       "stl-4-1",
       "stl-5-2",
       "stl-6-2",
-      "stl-6-3"
+      "stl-6-3",
+      "stl-8-2"
     ],
     "skills": [
       {
@@ -15543,7 +15539,7 @@ const ORD_DATA = [
         "id": "skill-23-3-1e92af841e",
         "name": "範圍追擊",
         "type": "",
-        "description": "普攻觸發，725 範圍 50 萬{magic|魔法}，Boss／狂暴單體追加最大生命 5%／30% {magic|魔法}；{magic|魔法}增傷 3%、{control|緩速 30%} 共 4 秒，{important|絕對冷卻 5 秒}。"
+        "description": "普攻觸發，施法 0.7 秒，725 範圍 50 萬{magic|魔法}，Boss／狂暴單體追加最大生命 5%／30% {magic|魔法}；{magic|魔法}增傷 3%、{control|緩速 30%} 共 4 秒，{important|絕對冷卻 5 秒}。"
       },
       {
         "id": "skill-23-3-blink",
@@ -15594,7 +15590,7 @@ const ORD_DATA = [
         "id": "skill-23-4-4671035ec2",
         "name": "常駐",
         "type": "passive",
-        "description": "{control|降防 35}。"
+        "description": "825 範圍內的敵人{control|降防 35}。"
       },
       {
         "id": "skill-23-4-194b163b84",
