@@ -1,6 +1,6 @@
 // 僅接受固定語意標記；資料中的 HTML 一律視為文字。
 export const SKILL_MARKS = {
-  physical: '物理', magic: '魔法', control: '控制',
+  physical: '物理', magic: '魔法', explosive: '爆發傷', control: '控制',
   buff: '增益', chance: '機率', important: '重要'
 };
 
